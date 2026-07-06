@@ -18,7 +18,9 @@ That "time doing the work" is **compounding**. When your money earns a return, a
 
 The single biggest lever isn't picking the perfect investment — it's **starting**, and giving compounding as many years as possible to work.
 
-**Real-world example.** Two friends both invest €150/month at a 7% average return. Anna starts at 25 and stops adding at 35 — ten years of contributions, then she just leaves it. Ben starts at 35 and contributes every month until 65 — thirty years of contributions. Despite putting in *three times less money*, Anna often ends up with a comparable or larger pot at 65, purely because her money had an extra decade to compound. Time in the market beat the amount invested.
+**Real-world example.** Two friends both invest €150/month at a 7% average return. Anna starts at 25 and stops adding at 35 — ten years of contributions (€18,000 in total), then she just leaves it. Ben starts at 35 and contributes every month until 65 — thirty years of contributions (€54,000 in total). Despite putting in *three times less money*, Anna ends up with a comparable or larger pot at 65 (~€197k vs ~€183k), purely because her money had an extra decade to compound. Time in the market beat the amount invested.
+
+> 📊 **Visual (L1):** Two-line growth chart, x-axis = age 25→65. Line A "start with €100/mo, 0% return" ends flat at €12,000 (deposits only). Line B "€100/mo at 7%" curves up to ~€17,300 at year 10 and steepens beyond. Caption: *"Same deposits. The gap is compounding."* Keep it simple and honest — label that 7% is an illustrative long-run average, not a promise.
 
 **Check:**
 1. *Why is holding all your long-term savings as cash not actually "safe"?* — Because inflation erodes its purchasing power over time; the number stays the same but it buys less.
@@ -41,6 +43,8 @@ This is why **time horizon** — how long until you need the money — changes e
 There's a subtler point too, called **sequence of returns**: a big drop early, while you're still adding money, can actually help a long-term investor (you buy more while prices are low). The same drop right when you're about to withdraw is much more damaging. A 20% fall means something different at 25 than at 60 — not because the market changed, but because your *timeline* did.
 
 **Real-world example.** In early 2020, global markets fell sharply in a matter of weeks. An investor five years from retirement who panic-sold turned a paper dip into a real, permanent loss. A 30-year-old who kept their monthly contributions going bought shares cheaply during the fall — and within a couple of years was ahead. Same event, opposite outcomes, driven by time horizon and behaviour, not stock-picking.
+
+> 📊 **Visual (L2):** A single line showing a market index dropping ~20% then recovering above the prior peak over the following period. Shade the dip. Two markers: "😱 sold here → loss locked in" at the bottom, "🧘 held / kept buying → recovered" at the recovery. Caption: *"The drop is only permanent if you sell into it."*
 
 **Check:**
 1. *What's the difference between volatility and permanent loss?* — Volatility is temporary price movement that can recover; permanent loss is money that doesn't come back, often locked in by selling low or a total failure.
@@ -89,7 +93,9 @@ Finally, the **common mistakes** that quietly hurt beginners:
 
 Notice that all three are *behavioural*. The biggest threat to a beginner's returns usually isn't the market — it's their own impulses.
 
-**Real-world example.** Consider two identical portfolios growing at 7% a year for 30 years. One pays a 0.2% annual fee, the other 1.5%. That 1.3% yearly difference can translate into the higher-fee investor ending up with roughly a quarter *less* money after three decades — same investments, same market, just fees quietly compounding in the background.
+**Real-world example.** Consider two identical portfolios growing at 7% a year for 30 years. One pays a 0.2% annual fee, the other 1.5%. That 1.3% yearly difference can translate into the higher-fee investor ending up with roughly a quarter to a third *less* money after three decades — same investments, same market, just fees quietly compounding in the background.
+
+> 📊 **Visual (L4):** Two ending bars after 30 years — "Low fee (0.2%)" tall, "High fee (1.5%)" noticeably shorter (~70% height) — with the difference highlighted as "lost to fees." Caption: *"Same market. Fees compound against you."*
 
 **Check:**
 1. *Why is diversification called a "free lunch"?* — It lowers your risk (no single failure can sink you) without historically giving up much long-term return.
@@ -193,6 +199,8 @@ How small is "small"? That's personal, and this course won't hand you a number �
 Two more habits that help: **don't chase** whatever just went up (that's usually how people buy high and sell low), and **decide your slice in advance** rather than topping it up emotionally every time there's hype. A bounded, pre-decided allocation protects you from your own impulses — which, as Lesson 4 showed, are usually the real danger.
 
 **Real-world example.** Someone with €10,000 invested decides their crypto satellite is 5% — €500 — held on a MiCA-licensed exchange, with the other €9,500 in a diversified index fund. If the crypto triples, nice bonus. If it goes to zero, it stings but changes nothing important. They chose the size *once*, in the cold light of day, and don't add to it in a frenzy when prices are soaring. The bounded slice is doing its job: exposure without exposure to ruin.
+
+> 📊 **Visual (L8):** A donut chart — 95% "diversified core," 5% "crypto (could go to zero)" in a warning colour. Caption: *"Sized so a total loss stings but doesn't derail you."* Pair with a one-line risk banner: "Crypto is high-risk. You can lose everything."
 
 **Check:**
 1. *Why does crypto belong in a different "mental box" than core investments?* — It's far more volatile, can go to zero, and usually has no compensation scheme — so it's held as a small bounded slice, not as the foundation.
