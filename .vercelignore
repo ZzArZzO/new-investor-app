@@ -1,2 +1,3 @@
 # Keep internal strategy docs out of the public deploy
 *.md
+lesson-visuals/
