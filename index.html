@@ -3,13 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Learn Investing &amp; Crypto — the calm way | New Investor</title>
-  <meta name="description" content="A calm course that teaches you investing, crypto and blockchain from zero — built for first-timers in Europe. No hype, no hot tips, no jargon." />
+  <title>Learn Investing &amp; Crypto, the Calm Way | New Investor</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0f1712" />
+  <meta name="description" content="A calm course that teaches you investing, crypto and blockchain from zero, built for first-timers in Europe. No hype, no hot tips, no jargon." />
 
   <!-- Open Graph (nice link previews when you share it) -->
   <meta property="og:title" content="Understand investing and crypto before you risk a single euro." />
   <meta property="og:description" content="A calm course covering investing, crypto and blockchain for first-timers in Europe. About 5 minutes a day." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://new-investor-app.vercel.app/" />
+  <meta property="og:image" content="https://new-investor-app.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="New Investor: understand investing and crypto before you risk a single euro." />
+
+  <!-- Twitter/X card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Understand investing and crypto before you risk a single euro." />
+  <meta name="twitter:description" content="A calm course covering investing, crypto and blockchain for first-timers in Europe. About 5 minutes a day." />
+  <meta name="twitter:image" content="https://new-investor-app.vercel.app/og-image.png" />
+
+  <!-- Vercel Web Analytics custom-events queue shim — must exist before any va('event', ...) call
+       fires, and before /_vercel/insights/script.js loads at the bottom of the page. -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 
   <style>
     :root{
@@ -28,6 +47,16 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
+    @media (prefers-reduced-motion: reduce){
+      *{transition-duration:0.001ms !important; animation-duration:0.001ms !important; scroll-behavior:auto !important}
+    }
+    :focus-visible{outline:2px solid var(--green);outline-offset:2px}
+    .skip-link{
+      position:absolute;left:12px;top:-60px;background:var(--green);color:#fff;
+      padding:10px 16px;border-radius:8px;font-weight:700;font-size:14px;z-index:100;
+      transition:top .15s ease;
+    }
+    .skip-link:focus{top:12px}
     body{
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       color:var(--ink);
@@ -39,11 +68,23 @@
 
     /* ---------- HERO ---------- */
     .hero{
+      position:relative;
       background:radial-gradient(120% 120% at 50% 0%, #1a2b21 0%, var(--bg) 60%);
       color:#eaf3ee;
       padding:64px 0 72px;
       text-align:center;
     }
+    .lang-switch{
+      position:absolute;top:16px;right:16px;display:flex;gap:2px;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+      border-radius:999px;padding:3px;
+    }
+    .lang-btn{
+      background:none;border:0;color:#93a49a;font-size:12px;font-weight:700;
+      padding:5px 10px;border-radius:999px;cursor:pointer;
+    }
+    .lang-btn[aria-pressed="true"]{background:var(--green);color:#fff}
+    .lang-btn:hover{color:#fff}
     .eyebrow{
       display:inline-block;
       font-size:13px;letter-spacing:.08em;text-transform:uppercase;
@@ -68,8 +109,10 @@
 
     /* ---------- FORM ---------- */
     form.signup{
-      display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
       max-width:460px;margin:0 auto;
+    }
+    .signup-row{
+      display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
     }
     form.signup input[type=email]{
       flex:1 1 240px;min-width:0;
@@ -89,6 +132,21 @@
     form.signup button:hover{background:var(--green-deep)}
     form.signup button:active{transform:translateY(1px)}
     .microcopy{font-size:13px;color:#8b9a90;margin-top:14px}
+
+    /* ---------- WOULD-YOU-PAY ---------- */
+    .pay-question{margin-top:16px}
+    .pay-label{font-size:13px;color:#93a49a;text-align:center;margin-bottom:8px}
+    .pay-label span{color:#69796f}
+    .pay-options{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+    .pay-pill{position:relative;cursor:pointer}
+    .pay-pill input{position:absolute;opacity:0;width:1px;height:1px}
+    .pay-pill span{
+      display:inline-block;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;
+      border:1px solid rgba(255,255,255,.18);color:#bcccc2;
+      transition:background .15s ease,color .15s ease,border-color .15s ease;
+    }
+    .pay-pill input:checked + span{background:var(--green);border-color:var(--green);color:#fff}
+    .pay-pill input:focus-visible + span{outline:2px solid var(--green);outline-offset:2px}
     .form-success{
       display:none;
       margin:0 auto;max-width:460px;
@@ -101,6 +159,12 @@
     .kicker{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep);font-weight:700;margin-bottom:10px}
     h2{font-size:clamp(23px,4vw,30px);line-height:1.2;letter-spacing:-0.01em;margin-bottom:12px;font-weight:800}
     .lead{color:var(--muted);font-size:17px;max-width:560px;margin-bottom:30px}
+    .preview-link{
+      display:inline-block;font-size:14px;font-weight:700;color:var(--green-deep);
+      background:var(--green-soft);border:1px solid rgba(31,157,99,.3);
+      padding:8px 14px;border-radius:999px;text-decoration:none;
+    }
+    .preview-link:hover{background:#dcf0e4}
 
     .pillar-label{font-size:15px;font-weight:800;margin:26px 0 12px;color:var(--ink)}
     .pillar-label:first-of-type{margin-top:6px}
@@ -127,6 +191,62 @@
     .card p{font-size:14px;color:var(--muted)}
     @media(max-width:520px){.cards{grid-template-columns:1fr}}
 
+    /* ---------- QUIZ ---------- */
+    .quiz{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
+    .quiz-intro{text-align:center}
+    .quiz-btn{
+      background:var(--green);color:#fff;border:0;border-radius:12px;
+      padding:14px 24px;font-size:16px;font-weight:700;cursor:pointer;
+    }
+    .quiz-btn:hover{background:var(--green-deep)}
+    .quiz-progress{height:6px;background:var(--green-soft);border-radius:999px;overflow:hidden;margin-bottom:14px}
+    .quiz-progress-bar{height:100%;width:0%;background:var(--green);border-radius:999px;transition:width .25s ease}
+    .quiz-qcount{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:10px}
+    .quiz-question{font-size:19px;font-weight:800;margin-bottom:16px}
+    .quiz-options{display:grid;gap:10px}
+    .quiz-option{
+      text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+      padding:14px 16px;font-size:15px;font-weight:600;color:var(--ink);cursor:pointer;
+      transition:border-color .15s ease, background .15s ease;
+    }
+    .quiz-option:hover{border-color:var(--green);background:var(--green-soft)}
+    .quiz-option:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+    .quiz-result{text-align:center}
+    .result-card{
+      background:radial-gradient(120% 130% at 30% -10%, #1a2b21 0%, var(--bg) 60%);
+      color:#eaf3ee;border-radius:16px;padding:34px 24px;margin-bottom:20px;
+    }
+    .result-eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8fd6ac;margin-bottom:12px;font-weight:700}
+    .result-emoji{font-size:44px;margin-bottom:10px}
+    .result-card h3{font-size:24px;font-weight:800;margin-bottom:8px}
+    .result-card p{color:#bcccc2;font-size:15px;max-width:420px;margin:0 auto}
+    .result-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:16px}
+    .result-actions button{
+      border:1px solid var(--line);background:#fff;border-radius:10px;
+      padding:10px 16px;font-size:14px;font-weight:700;cursor:pointer;color:var(--ink);
+    }
+    .result-actions button:hover{border-color:var(--green);color:var(--green-deep)}
+    .tool-explore{
+      background:#fff;border:1px solid var(--line);border-radius:14px;
+      padding:18px 20px;margin-bottom:16px;text-align:center;
+    }
+    .tool-explore-lead{font-weight:700;font-size:15px;margin-bottom:6px;color:var(--ink)}
+    .tool-explore-sub{font-size:13px;color:var(--muted);margin-bottom:14px}
+    .tool-explore-link{
+      display:inline-block;font-size:14px;font-weight:700;color:var(--green-deep);
+      background:var(--green-soft);border:1px solid rgba(31,157,99,.3);
+      padding:9px 16px;border-radius:999px;text-decoration:none;
+    }
+    .tool-explore-link:hover{background:#dcf0e4}
+    .quiz-retake{background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer}
+    .quiz-toast{
+      position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+      background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;
+      opacity:0;transition:opacity .2s ease, transform .2s ease;pointer-events:none;z-index:50;
+    }
+    .quiz-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
     /* ---------- WHY ---------- */
     .why p{font-size:17px;color:#33403a;margin-bottom:16px}
     .why strong{color:var(--ink)}
@@ -142,48 +262,64 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- ================= HERO ================= -->
   <header class="hero">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" class="lang-btn" data-lang="nl" aria-pressed="false">NL</button>
+    </div>
     <div class="wrap">
-      <span class="eyebrow">Investing · Crypto · Blockchain — for first-timers in Europe</span>
-      <h1>Understand investing and crypto before you risk a single euro.</h1>
-      <p class="sub">A calm course that takes you from <em>“I don’t get any of this”</em> to confidently making your first move — in stocks <em>or</em> crypto. About 5 minutes a day. No hype, no hot tips, no jargon.</p>
+      <span class="eyebrow" data-i18n="hero.eyebrow">Investing, crypto and blockchain for first-timers in Europe</span>
+      <h1 data-i18n="hero.title">Understand investing and crypto before you risk a single euro.</h1>
+      <p class="sub" data-i18n-html="hero.sub">A calm course that takes you from <em>“I don’t get any of this”</em> to confidently making your first move, in stocks <em>or</em> crypto. About 5 minutes a day. No hype, no hot tips, no jargon.</p>
 
       <form class="signup" id="signup" action="https://formspree.io/f/xgojdqvj" method="POST">
-        <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
-        <button type="submit">Join the waitlist</button>
+        <div class="signup-row">
+          <input type="email" name="email" data-i18n-placeholder="form.emailPlaceholder" placeholder="you@email.com" required aria-label="Email address" />
+          <button type="submit" data-i18n="form.submit">Join the waitlist</button>
+        </div>
+        <div class="pay-question">
+          <p class="pay-label" data-i18n-html="form.payLabel">Would you pay a few euros a month for this once it's live? <span>(optional, helps us a lot)</span></p>
+          <div class="pay-options">
+            <label class="pay-pill"><input type="radio" name="would_pay" value="yes" /><span data-i18n="form.payYes">Yes</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="maybe" /><span data-i18n="form.payMaybe">Maybe</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="no" /><span data-i18n="form.payNoFree">No, free only</span></label>
+          </div>
+        </div>
       </form>
-      <p class="microcopy" id="microcopy">Be first to get access. No spam — one email when we launch.</p>
-      <div class="form-success" id="success">You’re on the list. 🎉 We’ll email you when the first lessons are ready.</div>
+      <p class="microcopy" id="microcopy" data-i18n="form.microcopy">Be first to get access. No spam, just one email when we launch.</p>
+      <div class="form-success" id="success" data-i18n="form.success">You’re on the list. 🎉 We’ll email you when the first lessons are ready.</div>
     </div>
   </header>
 
   <!-- ================= WHAT YOU'LL LEARN ================= -->
-  <section>
+  <section id="main-content">
     <div class="wrap">
-      <p class="kicker">What you’ll learn</p>
-      <h2>Two worlds, one calm course.</h2>
-      <p class="lead">Short lessons — one idea, a real example, a quick check, done in 5–8 minutes. Start with the shared foundations, then go as deep as you want into investing, crypto, or both.</p>
+      <p class="kicker" data-i18n="learn.kicker">What you’ll learn</p>
+      <h2 data-i18n="learn.title">Two worlds, one calm course.</h2>
+      <p class="lead" data-i18n="learn.lead">Each lesson covers one idea, with a real example and a quick check, and takes 5 to 8 minutes. Start with the shared foundations, then go as deep as you like into investing, crypto, or both.</p>
+      <p style="margin:-14px 0 30px"><a class="preview-link" href="/lessons/" data-i18n="learn.previewLink">👀 Preview the first lessons, free →</a></p>
 
-      <p class="pillar-label">🌱 Foundations <span>— the ideas that apply to everything</span></p>
+      <p class="pillar-label" data-i18n-html="learn.pillarFoundations">🌱 Foundations <span>(the basics behind everything else)</span></p>
       <ul class="modules">
-        <li><span class="num">1</span><div><div class="mtitle">Why put your money to work</div><div class="mdesc">Why cash quietly loses value, and what compound growth really does over time.</div></div></li>
-        <li><span class="num">2</span><div><div class="mtitle">Risk &amp; time</div><div class="mdesc">What “risk” actually means, and why your time horizon changes everything.</div></div></li>
+        <li><span class="num">1</span><div><div class="mtitle" data-i18n="learn.m1Title">Why put your money to work</div><div class="mdesc" data-i18n="learn.m1Desc">Why cash quietly loses value, and what compound growth really does over time.</div></div></li>
+        <li><span class="num">2</span><div><div class="mtitle" data-i18n="learn.m2Title">Risk &amp; time</div><div class="mdesc" data-i18n="learn.m2Desc">What “risk” actually means, and why your time horizon changes everything.</div></div></li>
       </ul>
 
-      <p class="pillar-label">📈 Investing <span>— stocks, funds &amp; the traditional markets</span></p>
+      <p class="pillar-label" data-i18n-html="learn.pillarInvesting">📈 Investing <span>(stocks, funds and the traditional markets)</span></p>
       <ul class="modules">
-        <li><span class="num">3</span><div><div class="mtitle">The building blocks</div><div class="mdesc">Stocks, bonds, ETFs, index funds — in plain language, no jargon.</div></div></li>
-        <li><span class="num">4</span><div><div class="mtitle">Diversification, fees &amp; mistakes</div><div class="mdesc">Why fees matter more than you think, and the beginner traps to avoid.</div></div></li>
-        <li><span class="num">5</span><div><div class="mtitle">Your first investment</div><div class="mdesc">Choosing a broker, your first deposit, placing your first order — step by step.</div></div></li>
+        <li><span class="num">3</span><div><div class="mtitle" data-i18n="learn.m3Title">The building blocks</div><div class="mdesc" data-i18n="learn.m3Desc">Stocks, bonds, ETFs and index funds in plain language, no jargon.</div></div></li>
+        <li><span class="num">4</span><div><div class="mtitle" data-i18n="learn.m4Title">Diversification, fees &amp; mistakes</div><div class="mdesc" data-i18n="learn.m4Desc">Why fees matter more than you think, and the beginner traps to avoid.</div></div></li>
+        <li><span class="num">5</span><div><div class="mtitle" data-i18n="learn.m5Title">Your first investment</div><div class="mdesc" data-i18n="learn.m5Desc">Choosing a broker, making your first deposit, placing your first order: step by step.</div></div></li>
       </ul>
 
-      <p class="pillar-label">₿ Crypto &amp; blockchain <span>— honestly, including the risks</span></p>
+      <p class="pillar-label" data-i18n-html="learn.pillarCrypto">₿ Crypto &amp; blockchain <span>(the honest version, risks included)</span></p>
       <ul class="modules">
-        <li><span class="num">6</span><div><div class="mtitle">What blockchain &amp; crypto actually are</div><div class="mdesc">The real idea behind it — and what crypto is, and isn’t — without the hype.</div></div></li>
-        <li><span class="num">7</span><div><div class="mtitle">Wallets, exchanges &amp; staying safe</div><div class="mdesc">Custody, self-custody, and how to spot the scams that target beginners.</div></div></li>
-        <li><span class="num">8</span><div><div class="mtitle">Risk, reward &amp; a sensible slice</div><div class="mdesc">Why it’s high-risk, and how people keep it to a bounded “could-go-to-zero” slice.</div></div></li>
+        <li><span class="num">6</span><div><div class="mtitle" data-i18n="learn.m6Title">What blockchain &amp; crypto actually are</div><div class="mdesc" data-i18n="learn.m6Desc">What crypto actually is, and isn’t, without the hype.</div></div></li>
+        <li><span class="num">7</span><div><div class="mtitle" data-i18n="learn.m7Title">Wallets, exchanges &amp; staying safe</div><div class="mdesc" data-i18n="learn.m7Desc">Custody, self-custody, and how to spot the scams that target beginners.</div></div></li>
+        <li><span class="num">8</span><div><div class="mtitle" data-i18n="learn.m8Title">Risk, reward &amp; a sensible slice</div><div class="mdesc" data-i18n="learn.m8Desc">Why it’s high-risk, and how people keep it to a bounded “could-go-to-zero” slice.</div></div></li>
       </ul>
     </div>
   </section>
@@ -191,50 +327,174 @@
   <!-- ================= ARCHETYPES ================= -->
   <section class="arch-band">
     <div class="wrap">
-      <p class="kicker">Find your type</p>
-      <h2>What kind of investor are you?</h2>
-      <p class="lead">A short quiz (no income or savings questions — ever) sorts you into one of four types, so the course speaks to how <em>you</em> actually think about money.</p>
+      <p class="kicker" data-i18n="archetype.kicker">Find your type</p>
+      <h2 data-i18n="archetype.title">What kind of investor are you?</h2>
+      <p class="lead" data-i18n-html="archetype.lead">A short quiz (we'll never ask about income or savings) sorts you into one of four types, so the course speaks to how <em>you</em> actually think about money.</p>
       <div class="cards">
-        <div class="card"><div class="emoji">🟢</div><h3>The Cautious Starter</h3><p>Wants safety and simplicity above all. Build the habit first, add risk later.</p></div>
-        <div class="card"><div class="emoji">🔵</div><h3>The Steady Builder</h3><p>Wants to grow wealth long-term without obsessing over it day to day.</p></div>
-        <div class="card"><div class="emoji">🟠</div><h3>The Hands-On Explorer</h3><p>Enjoys research and wants some control over where the money goes.</p></div>
-        <div class="card"><div class="emoji">🟣</div><h3>The Curious Diversifier</h3><p>Interested in a bit of everything, including newer, higher-risk assets.</p></div>
+        <div class="card"><div class="emoji">🟢</div><h3 data-i18n="archetype.cautiousTitle">The Cautious Starter</h3><p data-i18n="archetype.cautiousDesc">Wants safety and simplicity above all. Build the habit first, add risk later.</p></div>
+        <div class="card"><div class="emoji">🔵</div><h3 data-i18n="archetype.steadyTitle">The Steady Builder</h3><p data-i18n="archetype.steadyDesc">Wants to grow wealth long-term without obsessing over it day to day.</p></div>
+        <div class="card"><div class="emoji">🟠</div><h3 data-i18n="archetype.handsonTitle">The Hands-On Explorer</h3><p data-i18n="archetype.handsonDesc">Enjoys research and wants some control over where the money goes.</p></div>
+        <div class="card"><div class="emoji">🟣</div><h3 data-i18n="archetype.curiousTitle">The Curious Diversifier</h3><p data-i18n="archetype.curiousDesc">Interested in a bit of everything, including newer, higher-risk assets.</p></div>
+      </div>
+
+      <div class="quiz" id="quiz">
+        <div class="quiz-intro" id="quizIntro">
+          <button class="quiz-btn" id="quizStart" type="button" data-i18n="quiz.startBtn">Take the 30-second quiz →</button>
+        </div>
+        <div class="quiz-body" id="quizBody" hidden>
+          <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
+          <p class="quiz-qcount" id="quizQCount" aria-live="polite">Question 1 of 4</p>
+          <h3 class="quiz-question" id="quizQuestion"></h3>
+          <div class="quiz-options" id="quizOptions"></div>
+        </div>
+        <div class="quiz-result" id="quizResult" hidden aria-live="polite">
+          <div class="result-card">
+            <p class="result-eyebrow" data-i18n="quiz.resultEyebrow">Your investor type</p>
+            <div class="result-emoji" id="resultEmoji"></div>
+            <h3 id="resultTitle"></h3>
+            <p id="resultTagline"></p>
+          </div>
+          <div class="result-actions">
+            <button type="button" id="shareTwitter" data-i18n="quiz.shareX">Share on X</button>
+            <button type="button" id="shareLinkedin" data-i18n="quiz.shareLinkedin">Share on LinkedIn</button>
+            <button type="button" id="copyLink" data-i18n="quiz.copyLink">Copy link</button>
+            <button type="button" id="downloadImage" data-i18n="quiz.downloadImage">Download image</button>
+          </div>
+          <div class="tool-explore" id="toolExplore" hidden>
+            <p class="tool-explore-lead" data-i18n="quiz.toolExploreLead">Curious what's actually out there?</p>
+            <p class="tool-explore-sub" data-i18n="quiz.toolExploreSub">We're compiling a plain-facts comparison of brokers and MiCA-licensed exchanges. It's the same list for everyone, with no personalized picks based on your result.</p>
+            <a class="tool-explore-link" id="toolExploreLink" rel="noopener" data-i18n="quiz.toolExploreLink">Preview the draft comparison table →</a>
+          </div>
+          <button type="button" class="quiz-retake" id="quizRetake" data-i18n="quiz.retake">Retake quiz</button>
+        </div>
       </div>
     </div>
   </section>
 
+  <div class="quiz-toast" id="quizToast" role="status" aria-live="polite"></div>
+
   <!-- ================= WHY ================= -->
   <section class="why">
     <div class="wrap">
-      <p class="kicker">Why this exists</p>
-      <h2>Investing feels intimidating. Crypto feels like a minefield.</h2>
-      <p>Every app wants you to <strong>deposit money now</strong>. The stocks apps ignore crypto; the crypto apps are full of hype and people trying to sell you something. Almost none of them slow down to honestly teach you what you’re actually doing.</p>
-      <p>This is the opposite: <strong>learn first, invest second</strong> — across <strong>both</strong> worlds. Understand the handful of ideas that matter, get a straight, no-hype take on crypto <em>including</em> the risks, decide what fits you, and take the first step feeling calm instead of anxious.</p>
-      <p>It’s built around how this works in <strong>Europe</strong> specifically — the real tools, the protections, the fees, and only regulated, licensed platforms — not a US app with the wrong currency.</p>
+      <p class="kicker" data-i18n="why.kicker">Why this exists</p>
+      <h2 data-i18n="why.title">Investing feels intimidating. Crypto feels like a minefield.</h2>
+      <p data-i18n-html="why.p1">Every app wants you to <strong>deposit money now</strong>. The stocks apps ignore crypto; the crypto apps are full of hype and people trying to sell you something. Almost none of them slow down to honestly teach you what you’re actually doing.</p>
+      <p data-i18n-html="why.p2">This is the opposite: <strong>learn first, invest second</strong>, across <strong>both</strong> worlds. You'll understand the handful of ideas that actually matter, get a straight, no-hype take on crypto <em>including</em> the risks, decide what fits you, and take your first step feeling calm instead of anxious.</p>
+      <p data-i18n-html="why.p3">It's built around how this actually works in <strong>Europe</strong>: the real tools, the protections, the fees, and only regulated, licensed platforms. Not a US app with the wrong currency.</p>
     </div>
   </section>
 
   <!-- ================= FINAL CTA ================= -->
   <section class="final">
     <div class="wrap">
-      <h2>Be one of the first.</h2>
-      <p class="sub">We’re building this now. Join the waitlist and you’ll get early access — and a say in what gets built.</p>
-      <form class="signup" action="https://formspree.io/f/xgojdqvj" method="POST" onsubmit="return true">
-        <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
-        <button type="submit">Join the waitlist</button>
+      <h2 data-i18n="final.title">Be one of the first.</h2>
+      <p class="sub" data-i18n="final.sub">We’re building this now. Join the waitlist and you’ll get early access, plus a say in what gets built.</p>
+      <form class="signup" id="signupFinal" action="https://formspree.io/f/xgojdqvj" method="POST" onsubmit="return true">
+        <div class="signup-row">
+          <input type="email" name="email" data-i18n-placeholder="form.emailPlaceholder" placeholder="you@email.com" required aria-label="Email address" />
+          <button type="submit" data-i18n="form.submit">Join the waitlist</button>
+        </div>
+        <div class="pay-question">
+          <p class="pay-label" data-i18n-html="form.payLabel">Would you pay a few euros a month for this once it's live? <span>(optional, helps us a lot)</span></p>
+          <div class="pay-options">
+            <label class="pay-pill"><input type="radio" name="would_pay" value="yes" /><span data-i18n="form.payYes">Yes</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="maybe" /><span data-i18n="form.payMaybe">Maybe</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="no" /><span data-i18n="form.payNoFree">No, free only</span></label>
+          </div>
+        </div>
       </form>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <p class="disc">This is an educational project. It provides general information about investing, not personal financial advice. Investing involves risk, including the possible loss of the money you invest.</p>
-      <p>© <span id="yr"></span> New Investor · Made in Europe</p>
+      <p class="disc" data-i18n="footer.disc">This is an educational project. It provides general information about investing, not personal financial advice. Investing involves risk, including the possible loss of the money you invest.</p>
+      <p>© <span id="yr"></span> New Investor · <span data-i18n="footer.madeIn">Made in Europe</span> · <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> · <a href="/terms/" data-i18n="footer.terms">Terms</a></p>
     </div>
   </footer>
 
+  <!-- ================= i18n ================= -->
+  <script src="translations.js"></script>
+  <script>
+    (function () {
+      var STORAGE_KEY = 'ni_lang';
+      var currentLang = 'en';
+      try {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'en' || saved === 'nl') {
+          currentLang = saved;
+        } else if (navigator.language && navigator.language.toLowerCase().indexOf('nl') === 0) {
+          currentLang = 'nl';
+        }
+      } catch (e) {}
+
+      function applyTranslations() {
+        var dict = window.NI_I18N[currentLang];
+        document.documentElement.lang = currentLang;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] != null) el.textContent = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-html');
+          if (dict[key] != null) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-placeholder');
+          if (dict[key] != null) el.placeholder = dict[key];
+        });
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === currentLang ? 'true' : 'false');
+        });
+      }
+
+      function setLang(lang) {
+        var isValid = lang === 'en' || lang === 'nl';
+        if (!isValid || lang === currentLang) return;
+        currentLang = lang;
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+        applyTranslations();
+        document.dispatchEvent(new CustomEvent('ni:langchange', { detail: { lang: lang } }));
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { setLang(btn.getAttribute('data-lang')); });
+      });
+
+      window.NI_getLang = function () { return currentLang; };
+      applyTranslations();
+    })();
+  </script>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Capture per-channel attribution (utm_source/medium/campaign/content) from the URL,
+    // persist it for the session, and forward it as hidden fields on every waitlist form —
+    // so Formspree submissions are tagged by channel without any manual tallying.
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+      var defaults = { utm_source: 'direct', utm_medium: 'none', utm_campaign: 'none', utm_content: 'none' };
+      var utm = {};
+      keys.forEach(function (key) {
+        var fromUrl = params.get(key);
+        var stored;
+        try { stored = sessionStorage.getItem('ni_' + key); } catch (e) {}
+        var value = fromUrl || stored || defaults[key];
+        utm[key] = value;
+        try { sessionStorage.setItem('ni_' + key, value); } catch (e) {}
+      });
+      document.querySelectorAll('form.signup').forEach(function (form) {
+        keys.forEach(function (key) {
+          var input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = key;
+          input.value = utm[key];
+          form.appendChild(input);
+        });
+      });
+    })();
 
     // Progressive enhancement: submit the first form via fetch so the visitor
     // stays on the page and sees an inline success message (better than a redirect).
@@ -242,18 +502,292 @@
     if (form) {
       form.addEventListener('submit', function (e) {
         // If the form action still has the placeholder, let it submit normally so you notice.
-        if (form.action.indexOf('xgojdqvj') !== -1) return;
+        if (form.action.indexOf('REPLACE_WITH_YOUR_FORM_ID') !== -1) return;
         e.preventDefault();
         var data = new FormData(form);
+        var submitBtn = form.querySelector('button[type=submit]');
+        var originalLabel = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = window.NI_I18N[window.NI_getLang()]['form.submitPending'];
         fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
           .then(function (r) {
             form.style.display = 'none';
             document.getElementById('microcopy').style.display = 'none';
             document.getElementById('success').style.display = 'block';
+            window.va('event', { name: 'waitlist_signup', data: { form: 'hero', would_pay: data.get('would_pay') || 'none' } });
           })
-          .catch(function () { form.submit(); });
+          .catch(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalLabel;
+            form.submit();
+          });
       });
     }
+
+    // The final CTA form does a plain navigation to Formspree (no fetch), so this
+    // fires best-effort right before the browser navigates away.
+    var formFinal = document.getElementById('signupFinal');
+    if (formFinal) {
+      formFinal.addEventListener('submit', function () {
+        var wouldPay = formFinal.querySelector('input[name="would_pay"]:checked');
+        window.va('event', { name: 'waitlist_signup', data: { form: 'final_cta', would_pay: wouldPay ? wouldPay.value : 'none' } });
+      });
+    }
+  </script>
+
+  <!-- ================= INVESTOR-TYPE QUIZ ================= -->
+  <script>
+    (function () {
+      // Gate: /comparison/ is still a draft (placeholder ⚠️verify data, noindex,
+      // not linked from anywhere else on the site) pending data verification and
+      // the lawyer sign-off compliance-one-pager.md calls for. Flip this to true
+      // once both are done — the section below is identical for every archetype
+      // (never "your persona → this tool"), so it's compliant by design; it's
+      // just gated on the underlying data/legal readiness, not the code.
+      var SHOW_TOOL_COMPARISON_LINK = false;
+
+      // Pulled from window.NI_I18N so the quiz follows the page's language toggle.
+      function QUIZ_TYPES() { return window.NI_I18N[window.NI_getLang()].quizTypes; }
+      function QUIZ_QUESTIONS() { return window.NI_I18N[window.NI_getLang()].quizQuestions; }
+      function t(key) { return window.NI_I18N[window.NI_getLang()][key]; }
+
+      var quizStart = document.getElementById('quizStart');
+      var quizIntro = document.getElementById('quizIntro');
+      var quizBody = document.getElementById('quizBody');
+      var quizResult = document.getElementById('quizResult');
+      var quizQuestion = document.getElementById('quizQuestion');
+      var quizOptionsEl = document.getElementById('quizOptions');
+      var quizQCount = document.getElementById('quizQCount');
+      var quizProgressBar = document.getElementById('quizProgressBar');
+      var resultEmoji = document.getElementById('resultEmoji');
+      var resultTitle = document.getElementById('resultTitle');
+      var resultTagline = document.getElementById('resultTagline');
+      var quizRetake = document.getElementById('quizRetake');
+      var quizToast = document.getElementById('quizToast');
+
+      if (!quizStart) return;
+
+      var current = 0;
+      var tally = [0, 0, 0, 0];
+      var lastBestIndex = null;
+
+      function renderQuestion() {
+        var item = QUIZ_QUESTIONS()[current];
+        quizQuestion.textContent = item.q;
+        quizQCount.textContent = t('quiz.questionOf').replace('{n}', current + 1).replace('{total}', QUIZ_QUESTIONS().length);
+        quizProgressBar.style.width = Math.round((current / QUIZ_QUESTIONS().length) * 100) + '%';
+        quizOptionsEl.innerHTML = '';
+        item.options.forEach(function (text, idx) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'quiz-option';
+          btn.textContent = text;
+          btn.addEventListener('click', function () { answer(idx); });
+          quizOptionsEl.appendChild(btn);
+        });
+      }
+
+      function answer(idx) {
+        tally[idx]++;
+        current++;
+        if (current < QUIZ_QUESTIONS().length) {
+          renderQuestion();
+        } else {
+          quizProgressBar.style.width = '100%';
+          finish();
+        }
+      }
+
+      function renderResult() {
+        var type = QUIZ_TYPES()[lastBestIndex];
+        resultEmoji.textContent = type.emoji;
+        resultTitle.textContent = type.title;
+        resultTagline.textContent = type.tagline;
+        setupSharing(type);
+        setupToolExplore(type);
+        return type;
+      }
+
+      function finish() {
+        var best = 0;
+        for (var i = 1; i < tally.length; i++) { if (tally[i] > tally[best]) best = i; }
+        lastBestIndex = best;
+        quizBody.hidden = true;
+        quizResult.hidden = false;
+        var type = renderResult();
+        window.va('event', { name: 'quiz_completed', data: { archetype: type.key } });
+      }
+
+      function setupToolExplore(type) {
+        var toolExplore = document.getElementById('toolExplore');
+        if (!SHOW_TOOL_COMPARISON_LINK) {
+          toolExplore.hidden = true;
+          return;
+        }
+        toolExplore.hidden = false;
+        var link = document.getElementById('toolExploreLink');
+        // utm_content tags which archetype clicked through, for internal analytics only —
+        // the comparison page itself ignores it and shows the same table to everyone.
+        link.href = '/comparison/?utm_source=quiz_result&utm_medium=internal&utm_campaign=result_card&utm_content=' + type.key;
+      }
+
+      function resetQuiz() {
+        current = 0;
+        tally = [0, 0, 0, 0];
+        lastBestIndex = null;
+        quizResult.hidden = true;
+        quizBody.hidden = false;
+        renderQuestion();
+      }
+
+      quizStart.addEventListener('click', function () {
+        quizIntro.hidden = true;
+        quizBody.hidden = false;
+        renderQuestion();
+        window.va('event', { name: 'quiz_started' });
+      });
+      quizRetake.addEventListener('click', resetQuiz);
+
+      // Re-render whatever's currently on screen in the new language without
+      // losing progress (answers so far, or an already-computed result).
+      document.addEventListener('ni:langchange', function () {
+        if (lastBestIndex !== null && !quizResult.hidden) {
+          renderResult();
+        } else if (!quizBody.hidden) {
+          renderQuestion();
+        }
+      });
+
+      function shareLink(type) {
+        return 'https://new-investor-app.vercel.app/?utm_source=quiz_share&utm_medium=social&utm_campaign=result_card&utm_content=' + type.key + '#quiz';
+      }
+
+      function toast(msg) {
+        quizToast.textContent = msg;
+        quizToast.classList.add('show');
+        clearTimeout(toast._t);
+        toast._t = setTimeout(function () { quizToast.classList.remove('show'); }, 2200);
+      }
+
+      function setupSharing(type) {
+        var link = shareLink(type);
+        var text = t('quiz.shareText').replace('{title}', type.title).replace('{emoji}', type.emoji);
+
+        document.getElementById('shareTwitter').onclick = function () {
+          window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(link), '_blank', 'noopener');
+        };
+        document.getElementById('shareLinkedin').onclick = function () {
+          window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(link), '_blank', 'noopener');
+        };
+        document.getElementById('copyLink').onclick = function () {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(link).then(function () { toast(t('quiz.toastCopied')); }).catch(function () { window.prompt('Copy this link:', link); });
+          } else {
+            window.prompt('Copy this link:', link);
+          }
+        };
+        document.getElementById('downloadImage').onclick = function () {
+          downloadResultImage(type);
+        };
+      }
+
+      function roundRectPath(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+      }
+
+      function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+        for (var n = 0; n < words.length; n++) {
+          var testLine = line + words[n] + ' ';
+          if (ctx.measureText(testLine).width > maxWidth && n > 0) {
+            ctx.fillText(line, x, y);
+            line = words[n] + ' ';
+            y += lineHeight;
+          } else {
+            line = testLine;
+          }
+        }
+        ctx.fillText(line, x, y);
+      }
+
+      function downloadResultImage(type) {
+        var canvas = document.createElement('canvas');
+        canvas.width = 1200;
+        canvas.height = 630;
+        var ctx = canvas.getContext('2d');
+        var FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+
+        var bg = ctx.createRadialGradient(360, -80, 100, 360, 315, 1000);
+        bg.addColorStop(0, '#1d3226');
+        bg.addColorStop(0.55, '#0f1712');
+        bg.addColorStop(1, '#0b100c');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, 1200, 630);
+
+        var glow = ctx.createRadialGradient(1060, -60, 10, 1060, -60, 400);
+        glow.addColorStop(0, type.accent + '55');
+        glow.addColorStop(1, type.accent + '00');
+        ctx.fillStyle = glow;
+        ctx.fillRect(700, -300, 500, 600);
+
+        ctx.font = '600 20px ' + FONT;
+        var pillText = 'YOUR INVESTOR TYPE';
+        var pillPadX = 22, pillH = 44;
+        var pillW = ctx.measureText(pillText).width + pillPadX * 2;
+        roundRectPath(ctx, 76, 70, pillW, pillH, 22);
+        ctx.fillStyle = 'rgba(31,157,99,0.16)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(31,157,99,0.4)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.fillStyle = '#8fd6ac';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(pillText, 76 + pillPadX, 70 + pillH / 2 + 1);
+        ctx.textBaseline = 'alphabetic';
+
+        ctx.font = '86px ' + FONT;
+        ctx.fillText(type.emoji, 76, 260);
+
+        ctx.fillStyle = '#eaf3ee';
+        ctx.font = '800 56px ' + FONT;
+        ctx.fillText(type.title, 76, 340);
+
+        ctx.fillStyle = '#bcccc2';
+        ctx.font = '400 26px ' + FONT;
+        wrapText(ctx, type.tagline, 76, 392, 900, 36);
+
+        ctx.fillStyle = type.accent;
+        ctx.beginPath();
+        ctx.arc(60, 554, 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#eaf3ee';
+        ctx.font = '800 22px ' + FONT;
+        ctx.fillText('New Investor', 76, 560);
+
+        ctx.fillStyle = '#93a49a';
+        ctx.font = '600 20px ' + FONT;
+        ctx.textAlign = 'right';
+        ctx.fillText('new-investor-app.vercel.app', 1124, 560);
+        ctx.textAlign = 'left';
+
+        canvas.toBlob(function (blob) {
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'my-investor-type-' + type.key + '.png';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+        });
+      }
+    })();
   </script>
 
   <!-- Vercel Web Analytics (privacy-friendly, no cookie banner needed). Enable "Web Analytics" once in the Vercel dashboard for this project. -->

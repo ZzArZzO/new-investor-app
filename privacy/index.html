@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | New Investor</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0f1712" />
+  <meta name="description" content="How New Investor collects and uses data from the waitlist, lessons preview, and quiz." />
+
+  <style>
+    :root{
+      --ink:#0d130f; --paper:#f6f8f5; --card:#ffffff; --muted:#5f6b62; --line:#e2e8e0;
+      --green:#1f9d63; --green-deep:#0f7a4a; --green-soft:#e7f4ec;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);background:var(--paper);line-height:1.6;
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{transition-duration:0.001ms !important; animation-duration:0.001ms !important; scroll-behavior:auto !important}
+    }
+    :focus-visible{outline:2px solid var(--green);outline-offset:2px}
+    .skip-link{
+      position:absolute;left:12px;top:-60px;background:var(--green);color:#fff;
+      padding:10px 16px;border-radius:8px;font-weight:700;font-size:14px;z-index:100;transition:top .15s ease;
+    }
+    .skip-link:focus{top:12px}
+    .wrap{max-width:720px;margin:0 auto;padding:0 22px 60px}
+    .draft-banner{
+      background:#fff8e8;border-bottom:1px solid #eddca0;color:#6b5416;
+      padding:14px 20px;font-size:13px;text-align:center;line-height:1.5;
+    }
+    header.page{padding:36px 0 10px}
+    a{color:var(--green-deep)}
+    .back-link{font-size:14px;font-weight:700;text-decoration:none;display:inline-block;margin-bottom:18px}
+    h1{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-0.01em;margin-bottom:8px}
+    .updated{color:var(--muted);font-size:13px;margin-bottom:30px}
+    h2{font-size:18px;font-weight:800;margin:30px 0 10px}
+    p, li{font-size:15px;color:#2b342e;margin-bottom:12px}
+    ul{margin-left:20px;margin-bottom:12px}
+    li{margin-bottom:8px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0}
+    footer{padding:30px 0 46px;text-align:center;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div class="draft-banner">
+    This is a good-faith starting draft, written to be honest and reasonably complete — <strong>it is not legal advice</strong>. Have a qualified lawyer review it before this project handles real user accounts or scales up data collection (see the open questions in <code>compliance-one-pager.md</code>).
+  </div>
+
+  <main class="wrap" id="main-content">
+    <header class="page">
+      <a class="back-link" href="/">← New Investor</a>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Draft — last updated 2026-07-06</p>
+    </header>
+
+    <p>This explains what data New Investor collects through this website (the landing page, the lessons preview, and the quiz), why, and what your rights are. New Investor is currently a pre-launch educational project validating demand — not yet a registered company or a live product with real accounts.</p>
+
+    <h2>What we collect</h2>
+    <div class="card">
+      <p><strong>If you join the waitlist:</strong> your email address, your answer to the optional "would you pay for this?" question, and which link/channel brought you here (UTM parameters like source, medium, and campaign) — this is submitted to and stored by our form processor, Formspree.</p>
+      <p><strong>If you take the quiz:</strong> your answers are processed in your browser to show you a result. We do not currently store your individual answers on a server. If you use the share features, the result type and channel may appear in a shareable link's parameters, but no personal data is attached to it.</p>
+      <p><strong>If you use the lessons preview:</strong> your progress (which lessons you've completed) is stored only in your browser's local storage, on your device — we don't receive it, unless you explicitly sign in through the (not-yet-active) accounts feature described below.</p>
+      <p><strong>If you submit feedback</strong> at the end of the lessons preview: your written comments, an optional likelihood rating, and an optional email address, submitted to and stored by Formspree.</p>
+      <p><strong>Accounts (not yet live):</strong> we've built, but not yet turned on, an optional accounts system (via Supabase) so lesson progress can sync across devices. If and when this goes live, signing in would additionally store your email address and which lessons you've completed on our database, protected by access controls that only let you see your own data. This document will be updated before that feature is enabled for real users.</p>
+    </div>
+
+    <h2>Analytics</h2>
+    <p>We use Vercel Web Analytics, which is designed to work without cookies and without building an individual profile of you — it counts visits and a small number of named events (like "started the quiz" or "completed a lesson") in aggregate. It does not track you across other websites.</p>
+
+    <h2>Why we collect it</h2>
+    <ul>
+      <li>To email you when the course launches, if you joined the waitlist.</li>
+      <li>To understand whether people want this (the entire point of this pre-launch phase), which channels and messages resonate, and what's confusing or missing.</li>
+      <li>To improve the lessons and the product before building more of it.</li>
+    </ul>
+
+    <h2>Who we share it with</h2>
+    <ul>
+      <li><strong>Formspree</strong> (form processing) — handles waitlist and feedback submissions on our behalf.</li>
+      <li><strong>Vercel</strong> (hosting + analytics) — hosts this site and provides the cookieless analytics described above.</li>
+      <li><strong>Supabase</strong> (accounts, not yet active) — would host account/progress data if and when that feature is turned on.</li>
+    </ul>
+    <p>We don't sell your data, and we don't use it for advertising. These providers may process data outside the EU/EEA as part of their normal infrastructure (e.g. global cloud regions) — appropriate safeguards for this should be confirmed with a lawyer before this project handles data at any meaningful scale.</p>
+
+    <h2>How long we keep it</h2>
+    <p>Waitlist and feedback data is kept until we either launch (and email you) or decide not to proceed, at which point we'll delete it unless you've asked us to keep you informed of something else. You can ask us to delete your data at any time (see Your rights, below).</p>
+
+    <h2>Your rights</h2>
+    <p>Under GDPR (and similar laws elsewhere), you can ask to access, correct, delete, or export your data, or object to how we use it. To do any of this, contact us (see below). You can also complain to your national data protection authority — in the Netherlands, that's the <a href="https://www.autoriteitpersoonsgegevens.nl/" target="_blank" rel="noopener">Autoriteit Persoonsgegevens</a>.</p>
+
+    <h2>Children</h2>
+    <p>This site isn't directed at children, and we don't knowingly collect data from anyone under 16.</p>
+
+    <h2>Cookies</h2>
+    <p>We don't set our own cookies. Our analytics provider is cookieless by design. If a future version of this site embeds a third-party widget that sets cookies, this policy will be updated first.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>We'll update the date at the top of this page when this changes, and post a notice if changes are significant.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy or your data: reach out via the email address used to run the waitlist (Formspree), or wherever you found this link.</p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="yr"></span> New Investor · <a href="/">Home</a> · <a href="/terms/">Terms</a></p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

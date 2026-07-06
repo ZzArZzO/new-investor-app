@@ -29,7 +29,9 @@ Track per channel so you learn **which hook converts** (investing vs crypto), no
 | | | | | | |
 | **TOTAL** | | | | | |
 
-> Visitors per channel: use your analytics referrer breakdown, or a distinct link/UTM per post (e.g. `?ref=dutchfire`). Signups per channel: Formspree doesn't split by source automatically — either use a UTM + analytics, or add a hidden field to the form per campaign if you want exact attribution.
+> Visitors per channel: use your analytics referrer breakdown, or the per-community tagged links from `phase-0-launch-kit.md`. Signups per channel: the waitlist form now auto-captures `utm_source` / `utm_campaign` / `utm_content` from the link someone clicked and submits them as hidden fields — so every row in your Formspree submissions is already tagged by channel. Group/export by `utm_campaign` (`investing` / `crypto` / `network`) and `utm_content` (the specific subreddit/group) to fill this table with no manual attribution work.
+>
+> The form also captures an optional **"would you pay?"** answer (`would_pay`: yes / maybe / no) per signup — that's the founding-intent bonus signal in the guardrails section below. Tally the `yes` + `maybe` share directly from Formspree.
 
 ## Log — qualitative (the comments are data)
 
@@ -71,7 +73,7 @@ Capture these as you go — they're worth as much as the number:
 - **Minimum sample before deciding:** ~300 visitors. Fewer than that = keep driving traffic, don't over-read early noise.
 - **Don't rescue a weak result with paid ads.** Ads test whether you can *rent* attention, not whether the idea is good. Organic first.
 - **One iteration limit at each tier.** If two honest attempts can't clear the bar, respect the signal rather than endlessly tweaking.
-- **Founding-intent check (bonus signal):** if you added a "would you pay €X?" question or a founding-member offer, log the % who said yes — willingness-to-pay is worth more than raw signups.
+- **Founding-intent check (bonus signal):** the waitlist form's "would you pay?" question logs `yes` / `maybe` / `no` per signup automatically — pull the % who said yes (or yes+maybe) from Formspree. Willingness-to-pay is worth more than raw signups.
 
 ---
 

@@ -1,0 +1,14 @@
+{
+  "name": "new-investor-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "New Investor — landing page, lessons preview, and draft comparison table.",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "http-server": "^14.1.1"
+  }
+}

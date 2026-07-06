@@ -235,6 +235,130 @@ The whole course really reduces to this: understand what you're doing, keep cost
 
 ---
 
+# 🎁 Bonus — optional deeper dives
+
+> These extend the core 9-lesson arc rather than replacing any of it — surfaced after the capstone (or any time via the lesson picker), not required to "finish" the course. Same editorial voice and compliance guardrails apply.
+
+## Bonus 1 — Before you invest: your safety net
+
+**Core idea:** Investing works best on top of a foundation — a small emergency buffer and paid-down high-interest debt — so a market dip (Lesson 2) never forces you to sell at the worst possible time.
+
+**Reading.** Everything in this course assumes the money you're investing is money you won't need on short notice. For a lot of beginners, that assumption isn't true yet — and skipping this step is one of the most common reasons people abandon investing at the worst moment.
+
+An **emergency fund** is a cash buffer — commonly framed as a few months of essential expenses — held somewhere boring and accessible (a savings account, not the market). Its job isn't to grow; it's to exist so that a broken laptop, a medical bill, or a lost job doesn't force you to sell investments during a downturn. Remember Lesson 2: a drop only becomes a permanent loss if you're forced to sell into it. A safety net is what removes "forced."
+
+**High-interest debt** (credit cards are the classic example) usually charges more in interest than a diversified portfolio is expected to earn on average. Paying it down is, in effect, a guaranteed "return" equal to the interest rate you stop paying — which is why it commonly comes before investing, not after. Lower-interest debt (some mortgages, some student loans) is a more personal trade-off and less clear-cut.
+
+The common order people use, roughly: build a small starter buffer → pay off high-interest debt → build the full emergency fund → then invest consistently. It's a sequence, not a rule carved in stone, and life doesn't always allow doing it in order — but knowing the sequence exists helps you make the trade-off consciously instead of by accident.
+
+**Real-world example.** Someone starts investing €200/month while still carrying a credit card balance charging 20% interest. A cheaper laptop breaks, they don't have cash set aside, and they end up selling investments at a loss to cover it — while still paying 20% interest on the card. Redirecting that €200/month to the card first, then to a small cash buffer, then to investing, would have avoided both problems entirely.
+
+**Check:**
+1. *Why does an emergency fund matter for an investor specifically, not just in general?* — It prevents being forced to sell investments during a downturn to cover an unexpected cost, which is what turns temporary volatility into a permanent loss.
+2. *Why does high-interest debt commonly come before investing?* — Paying it off is close to a guaranteed return equal to the interest rate, which is often higher and far more certain than expected investment returns.
+
+---
+
+## Bonus 2 — Stablecoins & DeFi, honestly
+
+**Core idea:** Stablecoins try to hold a steady value and act as crypto's "plumbing"; DeFi rebuilds familiar financial products (lending, trading) using smart contracts instead of a bank — both are real, useful ideas, and both carry risks beginners regularly underestimate.
+
+**Reading.** Lesson 6 mentioned stablecoins in passing — here's the honest detail.
+
+A **stablecoin** is a crypto-asset designed to hold a steady value, usually pegged to a currency like the euro or dollar. There are a few designs: **fiat-collateralized** (a company holds real euros/dollars in reserve for each coin issued — the most common and generally the most straightforward to understand), **crypto-collateralized** (backed by other crypto, over-collateralized to absorb swings), and **algorithmic** (trying to hold the peg through code and incentives rather than reserves). Being honest: algorithmic stablecoins have a track record of catastrophic failures — some have lost their peg entirely and gone to zero within days. "Stable" describes the intent, not a guarantee.
+
+**DeFi** (decentralized finance) uses smart contracts to recreate things a bank or broker normally does — lending, borrowing, trading one asset for another — without that intermediary. The appeal is access and transparency (the code is often publicly viewable); the honest risks are real: **smart contract bugs** (a coding error can drain funds, and it has happened repeatedly across the industry), **no compensation scheme** if something goes wrong, and "**yield**" offers that are frequently just unregulated lending with hidden credit risk — a high advertised return on a DeFi platform isn't free money, it's compensation for a risk that isn't always obvious.
+
+This course won't point you toward specific stablecoins or DeFi platforms to use — the point here is understanding the shape of the thing, not a recommendation to use it. If you do explore this space, the same rules from Lesson 7 and 8 apply, only more so: understand what you're using before you use it, and size any exposure as something you could fully lose.
+
+**Real-world example.** A fiat-backed stablecoin pegged to the dollar lets someone move value between exchanges quickly without converting back to euros each time — useful plumbing. Separately, an algorithmic stablecoin promising a high "stable" yield lost its peg over a weekend and became nearly worthless — a reminder that the word "stable" in the name is a design goal, not a fact.
+
+**Check:**
+1. *What's the difference between a fiat-collateralized and an algorithmic stablecoin?* — A fiat-collateralized one is backed by real currency held in reserve; an algorithmic one tries to hold its value through code and incentives alone, with a much worse track record of failure.
+2. *What's a key risk of DeFi that doesn't exist in regulated traditional finance?* — Smart contract bugs can drain funds with no compensation scheme to fall back on; "yield" offers often hide credit risk rather than being free return.
+
+---
+
+## Bonus 3 — Understanding taxes on your investments
+
+**Core idea:** Investment gains are usually taxed in some way, the rules vary a lot by country, and knowing the broad categories helps you avoid surprises — but this lesson is general education, not tax advice for your specific situation.
+
+**Reading.** Taxes on investing tend to fall into a few broad categories, though exactly which apply — and how — depends entirely on where you live.
+
+**Capital gains tax** applies to the profit when you sell an investment for more than you paid. **Dividend tax** applies to income paid out by companies or funds you hold, sometimes withheld automatically before it reaches you. Some countries take a different approach entirely — the Netherlands, for example, has historically taxed a *deemed* return on your total wealth (including investments) rather than your actual realized gains, meaning the tax can apply whether or not you sold anything or the value dropped that year. Rules like this change periodically, so treat any specific figure you hear as something to verify at the time, not something to memorize here.
+
+The practical upshot for a beginner: most regulated brokers provide an annual overview or tax statement summarizing what you held and earned, which makes filing far simpler than tracking it yourself. It's still worth understanding *why* the numbers on that statement matter before your first tax season arrives, rather than being surprised by it.
+
+This is a good moment to repeat the obvious but important caveat: **this course explains categories, not your personal filing** — for anything specific to your situation, your country's tax authority or a qualified tax advisor is the right source, not a general course like this one.
+
+**Real-world example.** Someone sells a fund for a €2,000 profit after two years of holding it. Depending on where they live, that profit might be taxed as a capital gain when sold, or it might have already been taxed annually along the way as a deemed return on their wealth regardless of whether they sold — two genuinely different systems that call for checking local rules rather than assuming either applies.
+
+**Check:**
+1. *What's the difference between a capital gains tax system and a "deemed return" wealth tax system, at a high level?* — Capital gains tax applies to actual profit when you sell; a deemed-return system can tax an assumed return on your holdings each year regardless of whether you sold or what actually happened to the price.
+2. *Why does this course avoid giving specific tax figures or filing instructions?* — Tax rules vary by country and change over time, and personal tax guidance depends on individual circumstances — exactly the kind of "for you specifically" territory this course stays out of; a tax authority or advisor is the right source.
+
+---
+
+## Bonus 4 — Reading your first broker statement
+
+**Core idea:** A broker or exchange statement looks intimidating at first, but it's really just a handful of recurring items — holdings, transactions, cost basis, and fees — repeated in different layouts.
+
+**Reading.** Open almost any statement and you'll find the same building blocks:
+
+- **Holdings** — what you currently own and its current value. This number moves daily; remember Lesson 2, a drop here is only a permanent loss if you sell into it.
+- **Transactions** — a log of buys, sells, and any dividends paid out or reinvested.
+- **Cost basis** — what you originally paid for something, used later to work out gains or losses for tax purposes (see Bonus 3).
+- **Fees charged** — the specific euro amounts behind the percentages from Lesson 4; worth actually reading occasionally, since fees are easy to ignore when they're small line items.
+
+One distinction trips up almost every beginner: the **unrealized gain/loss** shown next to your holdings is just "what it's worth right now compared to what you paid" — it isn't a real profit or loss until you actually sell. A statement showing "-8%" on a fund you plan to hold for twenty years is not the same thing as losing money.
+
+**Real-world example.** Someone checks their statement a month after their first investment and sees their fund down 6%. They almost sell out of panic — then remember it's a paper number on money they don't need for decades, and leave it alone. Eighteen months later, the same statement shows +11%. Nothing was "wrong" either time; the number was just doing what markets do.
+
+**Check:**
+1. *What's the difference between your holdings value and your cost basis?* — Holdings value is what it's worth right now; cost basis is what you originally paid — the gap between them is your unrealized gain or loss.
+2. *Why is an "unrealized" loss on a statement not the same as losing money?* — It only becomes a real, permanent loss if you sell at that price; until then, it's just the current market value moving, as covered in Lesson 2.
+
+---
+
+## Bonus 5 — The other biases that trip people up
+
+**Core idea:** Panic-selling isn't the only behavioral trap — a handful of well-documented biases quietly shape decisions long before any crash, and just naming them helps you notice when they're happening.
+
+**Reading.** Lesson 4 covered panic-selling, timing the market, and chasing hot assets. A few more biases sit underneath those:
+
+- **Loss aversion** — losses tend to feel roughly twice as painful as an equivalent gain feels good. This is why people hold onto losing investments far too long "waiting to break even," and sell winners too early to "lock in" the good feeling.
+- **Recency bias** — giving too much weight to whatever just happened, as if a recent hot streak (or a recent crash) will simply continue. Markets have historically moved in cycles, not straight lines.
+- **Herd behavior** — doing something mainly because everyone around you seems to be doing it. It's exactly how speculative bubbles inflate, and exactly how panics spread once they turn.
+- **Confirmation bias** — noticing and remembering information that agrees with what you already believe, while skating past anything that doesn't. It quietly turns "research" into "looking for reasons to feel good about a decision you'd already made."
+
+None of these make you foolish — they're normal, well-documented patterns in how people think about money. The value is purely in recognizing them in the moment, since noticing "oh, this is recency bias" is often enough to stop and reconsider.
+
+**Real-world example.** Someone holds a losing stock for three years "waiting to break even" (loss aversion), mostly reading forum posts from other holders who share their optimism (confirmation bias), while chasing whatever else is trending that week (recency bias plus herd behavior). None of the four decisions individually feels irrational in the moment — that's exactly what makes these biases worth learning to spot.
+
+**Check:**
+1. *Why does loss aversion make people hold losing investments too long?* — Losses feel roughly twice as painful as equivalent gains feel good, so people avoid "locking in" a loss by selling, even when the evidence suggests they should.
+2. *How can confirmation bias quietly undermine "doing your research"?* — It leads people to notice and remember information that supports what they already believe, while overlooking evidence that contradicts it — research that only confirms is not the same as research that tests the idea.
+
+---
+
+## Bonus 6 — NFTs & collectibles, honestly
+
+**Core idea:** An NFT is a real piece of technology — a way to prove unique ownership of a digital (or digitally-recorded physical) item on a blockchain — that has also been a magnet for speculation disconnected from any underlying value.
+
+**Reading.** An **NFT** (non-fungible token) is a token on a blockchain that represents something unique and non-interchangeable — unlike a bitcoin, where any one unit is identical to any other, each NFT is distinct, similar to how one specific painting isn't interchangeable with another. NFTs have been used for digital art, collectibles, gaming items, event tickets, and membership passes — the common thread is proving *this specific one* belongs to *you*, recorded in a way that's hard to fake or duplicate.
+
+Here's the honest part. During hype cycles, some NFTs sold for extraordinary sums — driven far more by speculation, social signaling, and the hope that someone else would pay more later, than by any lasting utility. Many of those same items are worth a small fraction of their peak price today. That doesn't mean the underlying idea (provable, unique digital ownership) is fake or useless — ticketing and gaming applications, for instance, are genuine, practical use cases. But "buying because the price only goes up" is the exact same mistake with NFTs as with any other asset in Lesson 4 — scarcity alone doesn't create lasting demand.
+
+This course won't point you toward any specific NFT project or collection, for the same reason it won't point you toward a specific coin: the goal is understanding the shape of the thing, not a nudge to buy it.
+
+**Real-world example.** A collection that sold for the equivalent of a house during a 2021 hype peak trades for a few euros a few years later — same token, same artwork, wildly different price. The technology (proving unique ownership) worked exactly as designed the whole time; what changed was how much anyone was willing to pay, which is the part no amount of "provable scarcity" can guarantee.
+
+**Check:**
+1. *What does "non-fungible" mean, and how does it differ from a cryptocurrency like Bitcoin?* — Non-fungible means each token is unique and not interchangeable with another; a Bitcoin, by contrast, is identical in value to any other Bitcoin (fungible).
+2. *Why did many NFTs lose most of their value after 2021-era peaks?* — Much of the peak pricing reflected speculation and social signaling rather than lasting utility or demand — the same "chasing what just went up" pattern covered in Lesson 4.
+
+---
+
 ## Notes for turning these into app lessons
 
 - Each "Check" becomes the 2-question quiz that gates the streak/progress mechanic (soft nudge, not a hard gate).

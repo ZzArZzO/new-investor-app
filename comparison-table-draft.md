@@ -1,5 +1,7 @@
 # Tool Comparison Table — Draft v1
 
+> **Prototype exists at `/comparison/index.html`** — updated 2026-07-06 with sourced data (provider pages + secondary trackers, not a fresh live pull) replacing most of the placeholders below; a few figures remain `⚠️verify` (BUX/DEGIRO minimums, Peaks' fund manager, a Bitstamp fee conflict across sources). Full citations are on the page itself. It's `noindex`, not linked from anywhere on the live site, and carries a large "DRAFT — not live" banner. Do not link it from the site or add real affiliate tracking until the checklist at the bottom of this file is done and the lawyer has signed off per `compliance-one-pager.md` — sourced data is not the same as legal sign-off.
+
 > The "decoupled comparison" from the plan and `compliance-one-pager.md`. **Critical rules, non-negotiable:**
 > 1. **Shown to everyone**, identically — never "your quiz result → this one tool for you." (Keeps us out of MiFID "personal recommendation" territory.)
 > 2. **Facts only** — fees, minimums, what's regulated/protected. No "best," no "recommended for you," no ranking that implies suitability for an individual.
