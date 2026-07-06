@@ -332,13 +332,21 @@
   feedbackForm.addEventListener('submit', function (e) {
     e.preventDefault();
     var data = new FormData(feedbackForm);
+    var submitBtn = feedbackForm.querySelector('.feedback-submit');
+    var originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
     fetch(feedbackForm.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
       .then(function () {
         feedbackForm.querySelectorAll('textarea, input, button[type=submit]').forEach(function (el) { el.disabled = true; });
         feedbackSuccess.style.display = 'block';
         window.va('event', { name: 'feedback_submitted', data: { likelihood: data.get('likelihood') || 'none' } });
       })
-      .catch(function () { showToast('Something went wrong — please try again.'); });
+      .catch(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
+        showToast('Something went wrong — please try again.');
+      });
   });
 
   // ---------- init ----------
