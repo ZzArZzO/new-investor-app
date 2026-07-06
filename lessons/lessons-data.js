@@ -262,6 +262,74 @@ var LESSONS = [
       { q: 'What’s the difference between a capital gains tax system and a "deemed return" wealth tax system, at a high level?', a: 'Capital gains tax applies to actual profit when you sell; a deemed-return system can tax an assumed return on your holdings each year regardless of whether you sold or what actually happened to the price.' },
       { q: 'Why does this course avoid giving specific tax figures or filing instructions?', a: 'Tax rules vary by country and change over time, and personal tax guidance depends on individual circumstances — exactly the kind of "for you specifically" territory this course stays out of; a tax authority or advisor is the right source.' }
     ]
+  },
+  {
+    id: 13,
+    pillar: 'Bonus',
+    emoji: '🎁',
+    title: 'Reading your first broker statement',
+    coreIdea: 'A broker or exchange statement looks intimidating at first, but it’s really just a handful of recurring items — holdings, transactions, cost basis, and fees — repeated in different layouts.',
+    reading: [
+      'Open almost any statement and you’ll find the same building blocks:'
+    ],
+    list: [
+      '<strong>Holdings</strong> — what you currently own and its current value. This number moves daily; remember Lesson 2, a drop here is only a permanent loss if you sell into it.',
+      '<strong>Transactions</strong> — a log of buys, sells, and any dividends paid out or reinvested.',
+      '<strong>Cost basis</strong> — what you originally paid for something, used later to work out gains or losses for tax purposes (see Bonus 3).',
+      '<strong>Fees charged</strong> — the specific euro amounts behind the percentages from Lesson 4; worth actually reading occasionally, since fees are easy to ignore when they’re small line items.'
+    ],
+    readingAfterList: [
+      'One distinction trips up almost every beginner: the <strong>unrealized gain/loss</strong> shown next to your holdings is just "what it’s worth right now compared to what you paid" — it isn’t a real profit or loss until you actually sell. A statement showing "-8%" on a fund you plan to hold for twenty years is not the same thing as losing money.'
+    ],
+    chart: null,
+    example: 'Someone checks their statement a month after their first investment and sees their fund down 6%. They almost sell out of panic — then remember it’s a paper number on money they don’t need for decades, and leave it alone. Eighteen months later, the same statement shows +11%. Nothing was "wrong" either time; the number was just doing what markets do.',
+    checks: [
+      { q: 'What’s the difference between your holdings value and your cost basis?', a: 'Holdings value is what it’s worth right now; cost basis is what you originally paid — the gap between them is your unrealized gain or loss.' },
+      { q: 'Why is an "unrealized" loss on a statement not the same as losing money?', a: 'It only becomes a real, permanent loss if you sell at that price; until then, it’s just the current market value moving, as covered in Lesson 2.' }
+    ]
+  },
+  {
+    id: 14,
+    pillar: 'Bonus',
+    emoji: '🎁',
+    title: 'The other biases that trip people up',
+    coreIdea: 'Panic-selling isn’t the only behavioral trap — a handful of well-documented biases quietly shape decisions long before any crash, and just naming them helps you notice when they’re happening.',
+    reading: [
+      'Lesson 4 covered panic-selling, timing the market, and chasing hot assets. A few more biases sit underneath those:'
+    ],
+    list: [
+      '<strong>Loss aversion</strong> — losses tend to feel roughly twice as painful as an equivalent gain feels good. This is why people hold onto losing investments far too long "waiting to break even," and sell winners too early to "lock in" the good feeling.',
+      '<strong>Recency bias</strong> — giving too much weight to whatever just happened, as if a recent hot streak (or a recent crash) will simply continue. Markets have historically moved in cycles, not straight lines.',
+      '<strong>Herd behavior</strong> — doing something mainly because everyone around you seems to be doing it. It’s exactly how speculative bubbles inflate, and exactly how panics spread once they turn.',
+      '<strong>Confirmation bias</strong> — noticing and remembering information that agrees with what you already believe, while skating past anything that doesn’t. It quietly turns "research" into "looking for reasons to feel good about a decision you’d already made."'
+    ],
+    readingAfterList: [
+      'None of these make you foolish — they’re normal, well-documented patterns in how people think about money. The value is purely in recognizing them in the moment, since noticing "oh, this is recency bias" is often enough to stop and reconsider.'
+    ],
+    chart: null,
+    example: 'Someone holds a losing stock for three years "waiting to break even" (loss aversion), mostly reading forum posts from other holders who share their optimism (confirmation bias), while chasing whatever else is trending that week (recency bias plus herd behavior). None of the four decisions individually feels irrational in the moment — that’s exactly what makes these biases worth learning to spot.',
+    checks: [
+      { q: 'Why does loss aversion make people hold losing investments too long?', a: 'Losses feel roughly twice as painful as equivalent gains feel good, so people avoid "locking in" a loss by selling, even when the evidence suggests they should.' },
+      { q: 'How can confirmation bias quietly undermine "doing your research"?', a: 'It leads people to notice and remember information that supports what they already believe, while overlooking evidence that contradicts it — research that only confirms is not the same as research that tests the idea.' }
+    ]
+  },
+  {
+    id: 15,
+    pillar: 'Bonus',
+    emoji: '🎁',
+    title: 'NFTs & collectibles, honestly',
+    coreIdea: 'An NFT is a real piece of technology — a way to prove unique ownership of a digital (or digitally-recorded physical) item on a blockchain — that has also been a magnet for speculation disconnected from any underlying value.',
+    reading: [
+      'An <strong>NFT</strong> (non-fungible token) is a token on a blockchain that represents something unique and non-interchangeable — unlike a bitcoin, where any one unit is identical to any other, each NFT is distinct, similar to how one specific painting isn’t interchangeable with another. NFTs have been used for digital art, collectibles, gaming items, event tickets, and membership passes — the common thread is proving <em>this specific one</em> belongs to <em>you</em>, recorded in a way that’s hard to fake or duplicate.',
+      'Here’s the honest part. During hype cycles, some NFTs sold for extraordinary sums — driven far more by speculation, social signaling, and the hope that someone else would pay more later, than by any lasting utility. Many of those same items are worth a small fraction of their peak price today. That doesn’t mean the underlying idea (provable, unique digital ownership) is fake or useless — ticketing and gaming applications, for instance, are genuine, practical use cases. But "buying because the price only goes up" is the exact same mistake with NFTs as with any other asset in Lesson 4 — scarcity alone doesn’t create lasting demand.',
+      'This course won’t point you toward any specific NFT project or collection, for the same reason it won’t point you toward a specific coin: the goal is understanding the shape of the thing, not a nudge to buy it.'
+    ],
+    chart: null,
+    example: 'A collection that sold for the equivalent of a house during a 2021 hype peak trades for a few euros a few years later — same token, same artwork, wildly different price. The technology (proving unique ownership) worked exactly as designed the whole time; what changed was how much anyone was willing to pay, which is the part no amount of "provable scarcity" can guarantee.',
+    checks: [
+      { q: 'What does "non-fungible" mean, and how does it differ from a cryptocurrency like Bitcoin?', a: 'Non-fungible means each token is unique and not interchangeable with another; a Bitcoin, by contrast, is identical in value to any other Bitcoin (fungible).' },
+      { q: 'Why did many NFTs lose most of their value after 2021-era peaks?', a: 'Much of the peak pricing reflected speculation and social signaling rather than lasting utility or demand — the same "chasing what just went up" pattern covered in Lesson 4.' }
+    ]
   }
 ];
 

@@ -299,6 +299,66 @@ This is a good moment to repeat the obvious but important caveat: **this course 
 
 ---
 
+## Bonus 4 — Reading your first broker statement
+
+**Core idea:** A broker or exchange statement looks intimidating at first, but it's really just a handful of recurring items — holdings, transactions, cost basis, and fees — repeated in different layouts.
+
+**Reading.** Open almost any statement and you'll find the same building blocks:
+
+- **Holdings** — what you currently own and its current value. This number moves daily; remember Lesson 2, a drop here is only a permanent loss if you sell into it.
+- **Transactions** — a log of buys, sells, and any dividends paid out or reinvested.
+- **Cost basis** — what you originally paid for something, used later to work out gains or losses for tax purposes (see Bonus 3).
+- **Fees charged** — the specific euro amounts behind the percentages from Lesson 4; worth actually reading occasionally, since fees are easy to ignore when they're small line items.
+
+One distinction trips up almost every beginner: the **unrealized gain/loss** shown next to your holdings is just "what it's worth right now compared to what you paid" — it isn't a real profit or loss until you actually sell. A statement showing "-8%" on a fund you plan to hold for twenty years is not the same thing as losing money.
+
+**Real-world example.** Someone checks their statement a month after their first investment and sees their fund down 6%. They almost sell out of panic — then remember it's a paper number on money they don't need for decades, and leave it alone. Eighteen months later, the same statement shows +11%. Nothing was "wrong" either time; the number was just doing what markets do.
+
+**Check:**
+1. *What's the difference between your holdings value and your cost basis?* — Holdings value is what it's worth right now; cost basis is what you originally paid — the gap between them is your unrealized gain or loss.
+2. *Why is an "unrealized" loss on a statement not the same as losing money?* — It only becomes a real, permanent loss if you sell at that price; until then, it's just the current market value moving, as covered in Lesson 2.
+
+---
+
+## Bonus 5 — The other biases that trip people up
+
+**Core idea:** Panic-selling isn't the only behavioral trap — a handful of well-documented biases quietly shape decisions long before any crash, and just naming them helps you notice when they're happening.
+
+**Reading.** Lesson 4 covered panic-selling, timing the market, and chasing hot assets. A few more biases sit underneath those:
+
+- **Loss aversion** — losses tend to feel roughly twice as painful as an equivalent gain feels good. This is why people hold onto losing investments far too long "waiting to break even," and sell winners too early to "lock in" the good feeling.
+- **Recency bias** — giving too much weight to whatever just happened, as if a recent hot streak (or a recent crash) will simply continue. Markets have historically moved in cycles, not straight lines.
+- **Herd behavior** — doing something mainly because everyone around you seems to be doing it. It's exactly how speculative bubbles inflate, and exactly how panics spread once they turn.
+- **Confirmation bias** — noticing and remembering information that agrees with what you already believe, while skating past anything that doesn't. It quietly turns "research" into "looking for reasons to feel good about a decision you'd already made."
+
+None of these make you foolish — they're normal, well-documented patterns in how people think about money. The value is purely in recognizing them in the moment, since noticing "oh, this is recency bias" is often enough to stop and reconsider.
+
+**Real-world example.** Someone holds a losing stock for three years "waiting to break even" (loss aversion), mostly reading forum posts from other holders who share their optimism (confirmation bias), while chasing whatever else is trending that week (recency bias plus herd behavior). None of the four decisions individually feels irrational in the moment — that's exactly what makes these biases worth learning to spot.
+
+**Check:**
+1. *Why does loss aversion make people hold losing investments too long?* — Losses feel roughly twice as painful as equivalent gains feel good, so people avoid "locking in" a loss by selling, even when the evidence suggests they should.
+2. *How can confirmation bias quietly undermine "doing your research"?* — It leads people to notice and remember information that supports what they already believe, while overlooking evidence that contradicts it — research that only confirms is not the same as research that tests the idea.
+
+---
+
+## Bonus 6 — NFTs & collectibles, honestly
+
+**Core idea:** An NFT is a real piece of technology — a way to prove unique ownership of a digital (or digitally-recorded physical) item on a blockchain — that has also been a magnet for speculation disconnected from any underlying value.
+
+**Reading.** An **NFT** (non-fungible token) is a token on a blockchain that represents something unique and non-interchangeable — unlike a bitcoin, where any one unit is identical to any other, each NFT is distinct, similar to how one specific painting isn't interchangeable with another. NFTs have been used for digital art, collectibles, gaming items, event tickets, and membership passes — the common thread is proving *this specific one* belongs to *you*, recorded in a way that's hard to fake or duplicate.
+
+Here's the honest part. During hype cycles, some NFTs sold for extraordinary sums — driven far more by speculation, social signaling, and the hope that someone else would pay more later, than by any lasting utility. Many of those same items are worth a small fraction of their peak price today. That doesn't mean the underlying idea (provable, unique digital ownership) is fake or useless — ticketing and gaming applications, for instance, are genuine, practical use cases. But "buying because the price only goes up" is the exact same mistake with NFTs as with any other asset in Lesson 4 — scarcity alone doesn't create lasting demand.
+
+This course won't point you toward any specific NFT project or collection, for the same reason it won't point you toward a specific coin: the goal is understanding the shape of the thing, not a nudge to buy it.
+
+**Real-world example.** A collection that sold for the equivalent of a house during a 2021 hype peak trades for a few euros a few years later — same token, same artwork, wildly different price. The technology (proving unique ownership) worked exactly as designed the whole time; what changed was how much anyone was willing to pay, which is the part no amount of "provable scarcity" can guarantee.
+
+**Check:**
+1. *What does "non-fungible" mean, and how does it differ from a cryptocurrency like Bitcoin?* — Non-fungible means each token is unique and not interchangeable with another; a Bitcoin, by contrast, is identical in value to any other Bitcoin (fungible).
+2. *Why did many NFTs lose most of their value after 2021-era peaks?* — Much of the peak pricing reflected speculation and social signaling rather than lasting utility or demand — the same "chasing what just went up" pattern covered in Lesson 4.
+
+---
+
 ## Notes for turning these into app lessons
 
 - Each "Check" becomes the 2-question quiz that gates the streak/progress mechanic (soft nudge, not a hard gate).

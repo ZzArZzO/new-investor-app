@@ -142,7 +142,10 @@ Interested in investing broadly, including newer or alternative assets; higher r
 
 ## Bonus modules (drafted, optional deeper dives)
 
-Three additional lessons extend the core 9 without lengthening the required arc — surfaced after the capstone in the reader, not gating "completion." Full content in `lesson-content-draft-v1.md`:
+Six additional lessons extend the core 9 without lengthening the required arc — surfaced after the capstone in the reader, not gating "completion." Full content in `lesson-content-draft-v1.md`:
 - **Bonus 1 — Before you invest: your safety net.** Emergency fund + high-interest debt, framed as the prerequisite the core lessons assume.
 - **Bonus 2 — Stablecoins & DeFi, honestly.** Extends Lesson 6's passing mention; same no-hype, no-platform-recommendation guardrails.
 - **Bonus 3 — Understanding taxes on your investments.** Category-level only (capital gains vs. deemed-return systems), explicit "not tax advice" framing — same MiFID-style editorial-not-personal posture as the rest of the course.
+- **Bonus 4 — Reading your first broker statement.** Practical companion to Lesson 5's mechanics — holdings, transactions, cost basis, fees, and the unrealized-vs-realized distinction from Lesson 2.
+- **Bonus 5 — The other biases that trip people up.** Extends Lesson 4's mistakes list with loss aversion, recency bias, herd behavior, and confirmation bias.
+- **Bonus 6 — NFTs & collectibles, honestly.** Same no-hype, no-project-recommendation treatment as the crypto pillar — what an NFT actually is, and the honest gap between hype-cycle pricing and lasting utility.
