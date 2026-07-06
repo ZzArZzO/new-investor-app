@@ -113,7 +113,7 @@ Notice that all three are *behavioural*. The biggest threat to a beginner's retu
 - A **robo-advisor** asks you a few questions and then builds and manages a diversified portfolio for you automatically. More hands-off, slightly higher fees for the convenience.
 - A **bank's** investing product is the most familiar and simplest, but often the most expensive and most limited.
 
-Whichever you use, in the EU/Netherlands it matters that the provider is **regulated** (e.g. authorised by the AFM) and that your assets sit under investor-protection schemes. Regulated, licensed, and boring is exactly what you want here.
+Whichever you use, in the EU it matters that the provider is **regulated** (authorised by an EU national regulator) and that your assets sit under investor-protection schemes. Regulated, licensed, and boring is exactly what you want here.
 
 The **mechanics** of a first investment, step by step:
 1. **Open an account** with your chosen provider.

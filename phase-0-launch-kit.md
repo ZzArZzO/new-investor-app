@@ -43,14 +43,14 @@ What to track: **unique visitors** and **form submissions**. Signup rate = submi
 
 ## Step 4 — Drive traffic (organic, €0)
 
-Post in communities where first-time EU/NL investors already hang out. **Don't spam** — lead with value, mention the waitlist once, genuinely reply to comments. Space posts out over a few days across different communities.
+Post in communities where first-time EU investors already hang out. **Don't spam** — lead with value, mention the waitlist once, genuinely reply to comments. Space posts out over a few days across different communities.
 
 Post across **both** investing and crypto communities and note which converts better — that's a free read on whether investing or crypto is your stronger acquisition hook.
 
 ### Where to post
 - **Investing — Reddit:** r/DutchFIRE, r/eupersonalfinance, r/Netherlands, r/beleggen (Dutch), r/investingforbeginners
-- **Crypto/blockchain — Reddit:** r/CryptoCurrency (beginner/daily threads), r/BitcoinBeginners, r/CryptoCurrencyMeta beginner spaces, r/ethfinance, relevant EU/NL crypto subs — lead with the *honest, learn-the-risks* angle, which stands out in these communities
-- **Facebook groups:** Dutch/EU personal-finance, FIRE, and crypto-beginner groups; expat-in-NL groups
+- **Crypto/blockchain — Reddit:** r/CryptoCurrency (beginner/daily threads), r/BitcoinBeginners, r/CryptoCurrencyMeta beginner spaces, r/ethfinance, relevant EU crypto subs — lead with the *honest, learn-the-risks* angle, which stands out in these communities
+- **Facebook groups:** EU personal-finance, FIRE, and crypto-beginner groups
 - **Discord/Slack:** personal-finance, FIRE, and beginner-crypto servers
 - **Your own network:** WhatsApp/LinkedIn — friends who've said "I want to start investing but don't know how" *or* "I want to get into crypto but don't want to get scammed" are your perfect first testers
 
@@ -64,7 +64,7 @@ Post across **both** investing and crypto communities and note which converts be
 >
 > I keep meeting people (myself included, a while back) who *want* to start investing or get into crypto but bounce off — the stocks apps ignore crypto, the crypto world is full of hype and people trying to sell you something, and nobody slows down to honestly explain what you're actually doing.
 >
-> So I'm building the opposite: a short course (~5 min lessons) that covers both worlds from zero — the foundations, traditional investing, and a straight, no-hype take on crypto/blockchain *including* the risks — built specifically around EU/NL rules and only regulated, licensed platforms.
+> So I'm building the opposite: a short course (~5 min lessons) that covers both worlds from zero — the foundations, traditional investing, and a straight, no-hype take on crypto/blockchain *including* the risks — built specifically around EU rules and only regulated, licensed platforms.
 >
 > One-page description here: https://new-investor-app.vercel.app
 >
@@ -74,7 +74,7 @@ Post across **both** investing and crypto communities and note which converts be
 
 > **A calm "learn before you invest" course covering investing *and* crypto — for first-timers in Europe**
 >
-> Most apps push you to deposit first and learn later — and make you pick a "stocks app" or a "crypto app." I'm building the reverse: short lessons that take you from zero across both worlds, with an honest, no-hype take on crypto's risks, built around EU/NL tools and rules.
+> Most apps push you to deposit first and learn later — and make you pick a "stocks app" or a "crypto app." I'm building the reverse: short lessons that take you from zero across both worlds, with an honest, no-hype take on crypto's risks, built around EU tools and rules.
 >
 > Early access + a say in what gets built if you join the waitlist: https://new-investor-app.vercel.app
 >
