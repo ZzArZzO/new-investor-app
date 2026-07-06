@@ -1,0 +1,15 @@
+# Vercel
+.vercel/
+
+# Dependencies (if any tooling is added later)
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
