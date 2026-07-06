@@ -54,37 +54,39 @@ Post across **both** investing and crypto communities and note which converts be
 - **Discord/Slack:** personal-finance, FIRE, and beginner-crypto servers
 - **Your own network:** WhatsApp/LinkedIn — friends who've said "I want to start investing but don't know how" *or* "I want to get into crypto but don't want to get scammed" are your perfect first testers
 
-> Read each community's self-promotion rules first. Some require a "feedback wanted" framing rather than a launch announcement — the post below is written that way on purpose.
+> Read each community's self-promotion rules first. Some want a genuine question, not a launch announcement. The posts below are written that way.
 
-> Tip: tune the framing to the community. In investing subs, lead with the investing line; in crypto subs, lead with the *honest, no-scam, learn-the-risks* crypto line. Same product, different door in.
+> Tip: lead with the investing angle in investing subs, and the honest/no-scam crypto angle in crypto subs. Same product, different way in.
 
-### Post A — "feedback" framing (best for strict subs)
+### Post A — r/BitcoinBeginners (crypto angle)
 
-> **Building a calm, no-hype way to learn investing *and* crypto for first-timers in Europe — would love a gut check**
->
-> I keep meeting people (myself included, a while back) who *want* to start investing or get into crypto but bounce off — the stocks apps ignore crypto, the crypto world is full of hype and people trying to sell you something, and nobody slows down to honestly explain what you're actually doing.
->
-> So I'm building the opposite: a short course (~5 min lessons) that covers both worlds from zero — the foundations, traditional investing, and a straight, no-hype take on crypto/blockchain *including* the risks — built specifically around EU rules and only regulated, licensed platforms.
->
-> One-page description here: https://new-investor-app.vercel.app
->
-> Does this resonate, or is it solving a problem you don't think people have? Honest feedback very welcome — including "this already exists, use X."
+**Title:** Building an honest way to learn crypto (and investing) for total beginners in Europe. Does this sound useful or pointless?
 
-### Post B — shorter, more direct (for relaxed communities)
+> Most "learn crypto" stuff out there is either pure hype or someone trying to shill you a coin. I got sick of it so I started building the opposite.
+>
+> It's short lessons, like 5 minutes each, that actually explain what blockchain and crypto are, how wallets and exchanges work, how not to get scammed, and why keeping crypto to a small amount you can afford to lose is the sane move. It's built around EU rules and only ever points to MiCA licensed platforms. No coin recommendations, ever.
+>
+> I put up a quick page here if you want a look: https://new-investor-app.vercel.app
+>
+> Would this have actually helped you when you were starting out, or is it a waste of time? Genuinely want the honest version, even if it's "this already exists, go use X".
 
-> **A calm "learn before you invest" course covering investing *and* crypto — for first-timers in Europe**
+### Post B — r/DutchFIRE (investing angle)
+
+**Title:** I'm building a calm way to learn investing and crypto from scratch, for people in Europe. Would love a gut check
+
+> A while back I really wanted to start investing but every app just wanted me to deposit money and figure it out later. Nobody actually slowed down to explain what I was doing first. Crypto was even worse, just hype and people selling stuff.
 >
-> Most apps push you to deposit first and learn later — and make you pick a "stocks app" or a "crypto app." I'm building the reverse: short lessons that take you from zero across both worlds, with an honest, no-hype take on crypto's risks, built around EU tools and rules.
+> So I started building the thing I wish I'd had. Short lessons that take you from knowing nothing to actually making your first move, whether that's stocks or crypto. Built around how things work in Europe, and it only points to regulated, licensed platforms. No hype, no hot tips.
 >
-> Early access + a say in what gets built if you join the waitlist: https://new-investor-app.vercel.app
+> Quick one page description here: https://new-investor-app.vercel.app
 >
-> Happy to answer anything about the approach in the comments.
+> Does this resonate, or am I solving a problem nobody really has? Tell me straight.
 
 ### Post C — LinkedIn / personal network
 
-> I'm working on a side project: a calm, jargon-free way for people in Europe to actually understand investing *and* crypto before risking any money — short lessons from zero, with a straight take on crypto that doesn't pretend the risks aren't real.
+> Been working on a side project. A calm, no jargon way to actually learn investing and crypto before putting real money in. Short lessons, built around how things work in Europe, nothing pushy.
 >
-> If you (or someone you know) has ever said "I want to start investing but it's overwhelming" or "I want to get into crypto but I'm scared of getting scammed," I'd love for you to join the waitlist and tell me what you'd want from it: https://new-investor-app.vercel.app
+> If you've ever thought "I want to start investing but it's overwhelming" or "I want to get into crypto but I don't want to get scammed", I'd genuinely love for you to take a look and tell me what you think: https://new-investor-app.vercel.app
 
 ---
 
