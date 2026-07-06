@@ -207,6 +207,18 @@
       padding:10px 16px;font-size:14px;font-weight:700;cursor:pointer;color:var(--ink);
     }
     .result-actions button:hover{border-color:var(--green);color:var(--green-deep)}
+    .tool-explore{
+      background:#fff;border:1px solid var(--line);border-radius:14px;
+      padding:18px 20px;margin-bottom:16px;text-align:center;
+    }
+    .tool-explore-lead{font-weight:700;font-size:15px;margin-bottom:6px;color:var(--ink)}
+    .tool-explore-sub{font-size:13px;color:var(--muted);margin-bottom:14px}
+    .tool-explore-link{
+      display:inline-block;font-size:14px;font-weight:700;color:var(--green-deep);
+      background:var(--green-soft);border:1px solid rgba(31,157,99,.3);
+      padding:9px 16px;border-radius:999px;text-decoration:none;
+    }
+    .tool-explore-link:hover{background:#dcf0e4}
     .quiz-retake{background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer}
     .quiz-toast{
       position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
@@ -324,6 +336,11 @@
             <button type="button" id="copyLink">Copy link</button>
             <button type="button" id="downloadImage">Download image</button>
           </div>
+          <div class="tool-explore" id="toolExplore" hidden>
+            <p class="tool-explore-lead">Curious what's actually out there?</p>
+            <p class="tool-explore-sub">We're compiling a plain-facts comparison of brokers and MiCA-licensed exchanges — the same list for everyone, no personalized picks based on your result.</p>
+            <a class="tool-explore-link" id="toolExploreLink" href="/comparison/" rel="noopener">Preview the draft comparison table →</a>
+          </div>
           <button type="button" class="quiz-retake" id="quizRetake">Retake quiz</button>
         </div>
       </div>
@@ -425,6 +442,14 @@
   <!-- ================= INVESTOR-TYPE QUIZ ================= -->
   <script>
     (function () {
+      // Gate: /comparison/ is still a draft (placeholder ⚠️verify data, noindex,
+      // not linked from anywhere else on the site) pending data verification and
+      // the lawyer sign-off compliance-one-pager.md calls for. Flip this to true
+      // once both are done — the section below is identical for every archetype
+      // (never "your persona → this tool"), so it's compliant by design; it's
+      // just gated on the underlying data/legal readiness, not the code.
+      var SHOW_TOOL_COMPARISON_LINK = false;
+
       var QUIZ_TYPES = [
         { key: 'cautious', emoji: '🟢', title: 'The Cautious Starter', tagline: 'You want safety and simplicity above all — build the habit first, add risk later.', accent: '#1f9d63' },
         { key: 'steady',   emoji: '🔵', title: 'The Steady Builder',   tagline: 'You want to grow wealth long-term without obsessing over it day to day.', accent: '#2f7bd1' },
@@ -507,6 +532,20 @@
         resultTitle.textContent = type.title;
         resultTagline.textContent = type.tagline;
         setupSharing(type);
+        setupToolExplore(type);
+      }
+
+      function setupToolExplore(type) {
+        var toolExplore = document.getElementById('toolExplore');
+        if (!SHOW_TOOL_COMPARISON_LINK) {
+          toolExplore.hidden = true;
+          return;
+        }
+        toolExplore.hidden = false;
+        var link = document.getElementById('toolExploreLink');
+        // utm_content tags which archetype clicked through, for internal analytics only —
+        // the comparison page itself ignores it and shows the same table to everyone.
+        link.href = '/comparison/?utm_source=quiz_result&utm_medium=internal&utm_campaign=result_card&utm_content=' + type.key;
       }
 
       function resetQuiz() {
