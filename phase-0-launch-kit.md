@@ -66,7 +66,7 @@ Post across **both** investing and crypto communities and note which converts be
 >
 > So I'm building the opposite: a short course (~5 min lessons) that covers both worlds from zero — the foundations, traditional investing, and a straight, no-hype take on crypto/blockchain *including* the risks — built specifically around EU/NL rules and only regulated, licensed platforms.
 >
-> One-page description here: [LINK]
+> One-page description here: https://new-investor-app.vercel.app
 >
 > Does this resonate, or is it solving a problem you don't think people have? Honest feedback very welcome — including "this already exists, use X."
 
@@ -76,7 +76,7 @@ Post across **both** investing and crypto communities and note which converts be
 >
 > Most apps push you to deposit first and learn later — and make you pick a "stocks app" or a "crypto app." I'm building the reverse: short lessons that take you from zero across both worlds, with an honest, no-hype take on crypto's risks, built around EU/NL tools and rules.
 >
-> Early access + a say in what gets built if you join the waitlist: [LINK]
+> Early access + a say in what gets built if you join the waitlist: https://new-investor-app.vercel.app
 >
 > Happy to answer anything about the approach in the comments.
 
@@ -84,7 +84,7 @@ Post across **both** investing and crypto communities and note which converts be
 
 > I'm working on a side project: a calm, jargon-free way for people in Europe to actually understand investing *and* crypto before risking any money — short lessons from zero, with a straight take on crypto that doesn't pretend the risks aren't real.
 >
-> If you (or someone you know) has ever said "I want to start investing but it's overwhelming" or "I want to get into crypto but I'm scared of getting scammed," I'd love for you to join the waitlist and tell me what you'd want from it: [LINK]
+> If you (or someone you know) has ever said "I want to start investing but it's overwhelming" or "I want to get into crypto but I'm scared of getting scammed," I'd love for you to join the waitlist and tell me what you'd want from it: https://new-investor-app.vercel.app
 
 ---
 
