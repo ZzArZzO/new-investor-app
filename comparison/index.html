@@ -17,6 +17,16 @@
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       color:var(--ink);background:var(--paper);line-height:1.55;
     }
+    @media (prefers-reduced-motion: reduce){
+      *{transition-duration:0.001ms !important; animation-duration:0.001ms !important; scroll-behavior:auto !important}
+    }
+    :focus-visible{outline:2px solid var(--green);outline-offset:2px}
+    .skip-link{
+      position:absolute;left:12px;top:-60px;background:var(--green);color:#fff;
+      padding:10px 16px;border-radius:8px;font-weight:700;font-size:14px;z-index:100;
+      transition:top .15s ease;
+    }
+    .skip-link:focus{top:12px}
     .wrap{max-width:920px;margin:0 auto;padding:0 20px 60px}
 
     .draft-banner{
@@ -58,12 +68,14 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <div class="draft-banner">
     🚧 INTERNAL DRAFT — not live, not linked from the site, not indexed.<br />
     Placeholder data throughout (⚠️ = verify before use). Pending lawyer sign-off — see <code>compliance-one-pager.md</code> and <code>comparison-table-draft.md</code> in the repo.
   </div>
 
-  <div class="wrap">
+  <main class="wrap" id="main-content">
     <header class="page">
       <h1>Broker &amp; exchange comparison — draft</h1>
       <p>This is a working prototype of the comparison table described in <code>comparison-table-draft.md</code>. It exists to test the layout and the "shown to everyone, facts only, no personalized ranking" shape required by <code>compliance-one-pager.md</code> — not to publish real pricing yet.</p>
@@ -190,7 +202,7 @@
         <li>Only then: link it from the site, add real affiliate tracking links, and remove the noindex tag and this banner.</li>
       </ul>
     </section>
-  </div>
+  </main>
 
   <footer>
     <div class="wrap">

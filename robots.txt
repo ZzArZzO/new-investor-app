@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /lessons/
+Disallow: /comparison/
