@@ -235,6 +235,70 @@ The whole course really reduces to this: understand what you're doing, keep cost
 
 ---
 
+# 🎁 Bonus — optional deeper dives
+
+> These extend the core 9-lesson arc rather than replacing any of it — surfaced after the capstone (or any time via the lesson picker), not required to "finish" the course. Same editorial voice and compliance guardrails apply.
+
+## Bonus 1 — Before you invest: your safety net
+
+**Core idea:** Investing works best on top of a foundation — a small emergency buffer and paid-down high-interest debt — so a market dip (Lesson 2) never forces you to sell at the worst possible time.
+
+**Reading.** Everything in this course assumes the money you're investing is money you won't need on short notice. For a lot of beginners, that assumption isn't true yet — and skipping this step is one of the most common reasons people abandon investing at the worst moment.
+
+An **emergency fund** is a cash buffer — commonly framed as a few months of essential expenses — held somewhere boring and accessible (a savings account, not the market). Its job isn't to grow; it's to exist so that a broken laptop, a medical bill, or a lost job doesn't force you to sell investments during a downturn. Remember Lesson 2: a drop only becomes a permanent loss if you're forced to sell into it. A safety net is what removes "forced."
+
+**High-interest debt** (credit cards are the classic example) usually charges more in interest than a diversified portfolio is expected to earn on average. Paying it down is, in effect, a guaranteed "return" equal to the interest rate you stop paying — which is why it commonly comes before investing, not after. Lower-interest debt (some mortgages, some student loans) is a more personal trade-off and less clear-cut.
+
+The common order people use, roughly: build a small starter buffer → pay off high-interest debt → build the full emergency fund → then invest consistently. It's a sequence, not a rule carved in stone, and life doesn't always allow doing it in order — but knowing the sequence exists helps you make the trade-off consciously instead of by accident.
+
+**Real-world example.** Someone starts investing €200/month while still carrying a credit card balance charging 20% interest. A cheaper laptop breaks, they don't have cash set aside, and they end up selling investments at a loss to cover it — while still paying 20% interest on the card. Redirecting that €200/month to the card first, then to a small cash buffer, then to investing, would have avoided both problems entirely.
+
+**Check:**
+1. *Why does an emergency fund matter for an investor specifically, not just in general?* — It prevents being forced to sell investments during a downturn to cover an unexpected cost, which is what turns temporary volatility into a permanent loss.
+2. *Why does high-interest debt commonly come before investing?* — Paying it off is close to a guaranteed return equal to the interest rate, which is often higher and far more certain than expected investment returns.
+
+---
+
+## Bonus 2 — Stablecoins & DeFi, honestly
+
+**Core idea:** Stablecoins try to hold a steady value and act as crypto's "plumbing"; DeFi rebuilds familiar financial products (lending, trading) using smart contracts instead of a bank — both are real, useful ideas, and both carry risks beginners regularly underestimate.
+
+**Reading.** Lesson 6 mentioned stablecoins in passing — here's the honest detail.
+
+A **stablecoin** is a crypto-asset designed to hold a steady value, usually pegged to a currency like the euro or dollar. There are a few designs: **fiat-collateralized** (a company holds real euros/dollars in reserve for each coin issued — the most common and generally the most straightforward to understand), **crypto-collateralized** (backed by other crypto, over-collateralized to absorb swings), and **algorithmic** (trying to hold the peg through code and incentives rather than reserves). Being honest: algorithmic stablecoins have a track record of catastrophic failures — some have lost their peg entirely and gone to zero within days. "Stable" describes the intent, not a guarantee.
+
+**DeFi** (decentralized finance) uses smart contracts to recreate things a bank or broker normally does — lending, borrowing, trading one asset for another — without that intermediary. The appeal is access and transparency (the code is often publicly viewable); the honest risks are real: **smart contract bugs** (a coding error can drain funds, and it has happened repeatedly across the industry), **no compensation scheme** if something goes wrong, and "**yield**" offers that are frequently just unregulated lending with hidden credit risk — a high advertised return on a DeFi platform isn't free money, it's compensation for a risk that isn't always obvious.
+
+This course won't point you toward specific stablecoins or DeFi platforms to use — the point here is understanding the shape of the thing, not a recommendation to use it. If you do explore this space, the same rules from Lesson 7 and 8 apply, only more so: understand what you're using before you use it, and size any exposure as something you could fully lose.
+
+**Real-world example.** A fiat-backed stablecoin pegged to the dollar lets someone move value between exchanges quickly without converting back to euros each time — useful plumbing. Separately, an algorithmic stablecoin promising a high "stable" yield lost its peg over a weekend and became nearly worthless — a reminder that the word "stable" in the name is a design goal, not a fact.
+
+**Check:**
+1. *What's the difference between a fiat-collateralized and an algorithmic stablecoin?* — A fiat-collateralized one is backed by real currency held in reserve; an algorithmic one tries to hold its value through code and incentives alone, with a much worse track record of failure.
+2. *What's a key risk of DeFi that doesn't exist in regulated traditional finance?* — Smart contract bugs can drain funds with no compensation scheme to fall back on; "yield" offers often hide credit risk rather than being free return.
+
+---
+
+## Bonus 3 — Understanding taxes on your investments
+
+**Core idea:** Investment gains are usually taxed in some way, the rules vary a lot by country, and knowing the broad categories helps you avoid surprises — but this lesson is general education, not tax advice for your specific situation.
+
+**Reading.** Taxes on investing tend to fall into a few broad categories, though exactly which apply — and how — depends entirely on where you live.
+
+**Capital gains tax** applies to the profit when you sell an investment for more than you paid. **Dividend tax** applies to income paid out by companies or funds you hold, sometimes withheld automatically before it reaches you. Some countries take a different approach entirely — the Netherlands, for example, has historically taxed a *deemed* return on your total wealth (including investments) rather than your actual realized gains, meaning the tax can apply whether or not you sold anything or the value dropped that year. Rules like this change periodically, so treat any specific figure you hear as something to verify at the time, not something to memorize here.
+
+The practical upshot for a beginner: most regulated brokers provide an annual overview or tax statement summarizing what you held and earned, which makes filing far simpler than tracking it yourself. It's still worth understanding *why* the numbers on that statement matter before your first tax season arrives, rather than being surprised by it.
+
+This is a good moment to repeat the obvious but important caveat: **this course explains categories, not your personal filing** — for anything specific to your situation, your country's tax authority or a qualified tax advisor is the right source, not a general course like this one.
+
+**Real-world example.** Someone sells a fund for a €2,000 profit after two years of holding it. Depending on where they live, that profit might be taxed as a capital gain when sold, or it might have already been taxed annually along the way as a deemed return on their wealth regardless of whether they sold — two genuinely different systems that call for checking local rules rather than assuming either applies.
+
+**Check:**
+1. *What's the difference between a capital gains tax system and a "deemed return" wealth tax system, at a high level?* — Capital gains tax applies to actual profit when you sell; a deemed-return system can tax an assumed return on your holdings each year regardless of whether you sold or what actually happened to the price.
+2. *Why does this course avoid giving specific tax figures or filing instructions?* — Tax rules vary by country and change over time, and personal tax guidance depends on individual circumstances — exactly the kind of "for you specifically" territory this course stays out of; a tax authority or advisor is the right source.
+
+---
+
 ## Notes for turning these into app lessons
 
 - Each "Check" becomes the 2-question quiz that gates the streak/progress mechanic (soft nudge, not a hard gate).

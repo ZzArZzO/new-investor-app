@@ -83,6 +83,20 @@
     #resetProgressBtn:hover{background:#f6dbd8}
     #closeSettingsBtn{background:none;border:1px solid var(--line);color:var(--ink)}
 
+    .account-section{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+    .account-status{font-size:13px;color:var(--muted);margin-bottom:10px}
+    .account-hint{font-size:12px;color:var(--muted);margin-top:8px}
+    #accountEmail{
+      width:100%;border:1px solid var(--line);border-radius:8px;padding:8px 10px;
+      font-size:13px;margin-bottom:8px;font-family:inherit;
+    }
+    #accountEmail:focus{outline:2px solid var(--green);border-color:transparent}
+    #accountSignInBtn, #accountSignOutBtn{
+      background:var(--green);color:#fff;border:0;border-radius:8px;
+      padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer;width:100%;
+    }
+    #accountSignInBtn:hover, #accountSignOutBtn:hover{background:var(--green-deep)}
+
     /* ---------- LESSON DOTS ---------- */
     .pillar-nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:20px 0 4px}
     .lesson-dot{
@@ -215,6 +229,20 @@
       <button type="button" id="resetProgressBtn">Reset progress</button>
       <button type="button" id="closeSettingsBtn">Close</button>
     </div>
+
+    <div class="account-section" id="accountSection">
+      <p class="account-status" id="accountStatus">Checking account status…</p>
+      <div id="accountSignedOut" hidden>
+        <label class="sr-only" for="accountEmail">Email</label>
+        <input type="email" id="accountEmail" placeholder="you@email.com" />
+        <button type="button" id="accountSignInBtn">Email me a sign-in link</button>
+        <p class="account-hint" id="accountHint"></p>
+      </div>
+      <div id="accountSignedIn" hidden>
+        <p class="account-hint">Signed in as <strong id="accountEmailDisplay"></strong></p>
+        <button type="button" id="accountSignOutBtn">Sign out</button>
+      </div>
+    </div>
   </div>
 
   <main class="wrap lesson-wrap" id="lessonMain">
@@ -226,7 +254,7 @@
     <section class="lesson-complete" id="lessonComplete" hidden aria-labelledby="completeTitle">
       <div class="badge">🎉</div>
       <h2 id="completeTitle">You've previewed the whole course.</h2>
-      <p class="lead">That's all 9 lessons — Foundations, Investing, Crypto &amp; blockchain, and the capstone. Two minutes of honest feedback helps us build the real thing well.</p>
+      <p class="lead">That's the core 9 lessons plus 3 bonus deep-dives — Foundations, Investing, Crypto &amp; blockchain, the capstone, and the bonus round. Two minutes of honest feedback helps us build the real thing well.</p>
 
       <form class="feedback-card" id="feedbackForm" action="https://formspree.io/f/xgojdqvj" method="POST">
         <input type="hidden" name="form_type" value="lesson_feedback" />
@@ -266,6 +294,12 @@
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Optional accounts backend (Supabase) — safe no-op until backend/README.md's setup steps are done.
+       Loaded synchronously (no defer/async) so window.supabase exists before auth.js/lessons.js run. -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="config.js"></script>
+  <script src="auth.js"></script>
 
   <script src="lessons-data.js"></script>
   <script src="lessons.js"></script>

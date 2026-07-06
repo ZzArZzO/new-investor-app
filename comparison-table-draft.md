@@ -1,5 +1,7 @@
 # Tool Comparison Table — Draft v1
 
+> **Prototype exists at `/comparison/index.html`** — same placeholder data as below, rendered as the actual planned UI (table, disclosure banner, risk banner). It's `noindex`, not linked from anywhere on the live site, and carries a large "DRAFT — not live" banner. Do not link it from the site or add real affiliate tracking until the checklist at the bottom of this file is done and the lawyer has signed off per `compliance-one-pager.md`.
+
 > The "decoupled comparison" from the plan and `compliance-one-pager.md`. **Critical rules, non-negotiable:**
 > 1. **Shown to everyone**, identically — never "your quiz result → this one tool for you." (Keeps us out of MiFID "personal recommendation" territory.)
 > 2. **Facts only** — fees, minimums, what's regulated/protected. No "best," no "recommended for you," no ranking that implies suitability for an individual.

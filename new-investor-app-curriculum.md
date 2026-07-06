@@ -139,3 +139,10 @@ Interested in investing broadly, including newer or alternative assets; higher r
 - The archetype result screen is the natural place for the tool-comparison step (Lesson 5 + the crypto exchange comparison) — this is where the affiliate/referral revenue plugs in. Keep it a **comparison shown to everyone**, not a single "your persona → this exact broker" recommendation (see the plan's regulatory note).
 - **Crypto guardrails, always on:** no price predictions, no "top coins to buy," no urgency. Only MiCA-licensed exchanges in any comparison. A visible "crypto is high-risk, you can lose everything" note wherever crypto tools appear.
 - If you ever move from "illustrative portfolios" to real personalized recommendations tied to someone's actual account, that's the point where the broker/exchange-partnership/licensing conversation — and MiFID II **and** MiCA — come back into play in a much bigger way.
+
+## Bonus modules (drafted, optional deeper dives)
+
+Three additional lessons extend the core 9 without lengthening the required arc — surfaced after the capstone in the reader, not gating "completion." Full content in `lesson-content-draft-v1.md`:
+- **Bonus 1 — Before you invest: your safety net.** Emergency fund + high-interest debt, framed as the prerequisite the core lessons assume.
+- **Bonus 2 — Stablecoins & DeFi, honestly.** Extends Lesson 6's passing mention; same no-hype, no-platform-recommendation guardrails.
+- **Bonus 3 — Understanding taxes on your investments.** Category-level only (capital gains vs. deemed-return systems), explicit "not tax advice" framing — same MiFID-style editorial-not-personal posture as the rest of the course.

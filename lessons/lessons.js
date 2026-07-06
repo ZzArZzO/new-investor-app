@@ -20,6 +20,15 @@
   var feedbackForm = document.getElementById('feedbackForm');
   var feedbackSuccess = document.getElementById('feedbackSuccess');
 
+  var accountStatus = document.getElementById('accountStatus');
+  var accountSignedOut = document.getElementById('accountSignedOut');
+  var accountSignedIn = document.getElementById('accountSignedIn');
+  var accountEmail = document.getElementById('accountEmail');
+  var accountSignInBtn = document.getElementById('accountSignInBtn');
+  var accountHint = document.getElementById('accountHint');
+  var accountEmailDisplay = document.getElementById('accountEmailDisplay');
+  var accountSignOutBtn = document.getElementById('accountSignOutBtn');
+
   var progress = loadProgress();
   var current = progress.current || 1;
   var showingComplete = false;
@@ -182,7 +191,10 @@
   }
 
   nextBtn.addEventListener('click', function () {
-    if (progress.completed.indexOf(current) === -1) progress.completed.push(current);
+    if (progress.completed.indexOf(current) === -1) {
+      progress.completed.push(current);
+      NIAuth.markLessonComplete(current);
+    }
     if (current < TOTAL) {
       goToLesson(current + 1);
     } else {
@@ -230,6 +242,73 @@
     if (e.key === 'ArrowLeft' && !prevBtn.disabled) prevBtn.click();
   });
 
+  // ---------- account (optional Supabase backend) ----------
+  function renderAccountUI() {
+    var user = NIAuth.getUser();
+    if (!NIAuth.isConfigured()) {
+      accountStatus.textContent = 'Accounts aren’t set up yet for this preview — your progress is only saved on this device.';
+      accountSignedOut.hidden = true;
+      accountSignedIn.hidden = true;
+      return;
+    }
+    accountStatus.textContent = 'Sign in to keep your progress across devices.';
+    if (user) {
+      accountSignedOut.hidden = true;
+      accountSignedIn.hidden = false;
+      accountEmailDisplay.textContent = user.email || '';
+    } else {
+      accountSignedOut.hidden = false;
+      accountSignedIn.hidden = true;
+    }
+  }
+
+  function mergeServerProgress(serverCompleted) {
+    if (!serverCompleted) return;
+    var changed = false;
+    serverCompleted.forEach(function (id) {
+      if (progress.completed.indexOf(id) === -1) { progress.completed.push(id); changed = true; }
+      if (id > progress.furthest) { progress.furthest = id; changed = true; }
+    });
+    // Push any lesson completed locally (e.g. as a guest) up to the server too.
+    progress.completed.forEach(function (id) {
+      if (serverCompleted.indexOf(id) === -1) NIAuth.markLessonComplete(id);
+    });
+    if (changed) {
+      saveProgress();
+      renderDots();
+    }
+  }
+
+  accountSignInBtn.addEventListener('click', function () {
+    var email = accountEmail.value.trim();
+    if (!email) return;
+    accountSignInBtn.disabled = true;
+    accountHint.textContent = 'Sending…';
+    NIAuth.signInWithEmail(email).then(function (res) {
+      accountSignInBtn.disabled = false;
+      if (res && res.error) {
+        accountHint.textContent = res.error.message || 'Something went wrong.';
+      } else {
+        accountHint.textContent = 'Check your email for a sign-in link.';
+      }
+    }).catch(function (e) {
+      accountSignInBtn.disabled = false;
+      accountHint.textContent = e.message || 'Something went wrong.';
+    });
+  });
+
+  accountSignOutBtn.addEventListener('click', function () {
+    NIAuth.signOut().then(function () {
+      renderAccountUI();
+      showToast('Signed out');
+    });
+  });
+
+  NIAuth.onChange(function () {
+    renderAccountUI();
+    NIAuth.fetchProgress().then(mergeServerProgress);
+  });
+
   // ---------- UTM tagging (consistent with the main landing page) ----------
   (function attachUtm() {
     var params = new URLSearchParams(window.location.search);
@@ -263,4 +342,9 @@
   renderDots();
   goToLesson(current, { silent: true });
   updateTopbar();
+  renderAccountUI();
+  NIAuth.init().then(function (user) {
+    renderAccountUI();
+    if (user) NIAuth.fetchProgress().then(mergeServerProgress);
+  });
 })();
