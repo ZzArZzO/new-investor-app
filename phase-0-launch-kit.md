@@ -47,6 +47,30 @@ Post in communities where first-time EU investors already hang out. **Don't spam
 
 Post across **both** investing and crypto communities and note which converts better — that's a free read on whether investing or crypto is your stronger acquisition hook.
 
+### Give every post its own tagged link
+
+The landing page now auto-captures `utm_source` / `utm_medium` / `utm_campaign` / `utm_content` from the URL and forwards them as hidden fields on the waitlist form — so every Formspree submission already says which post it came from. No manual tallying needed; just use a distinct link per post.
+
+**Link template:** `https://new-investor-app.vercel.app/?utm_source=<channel>&utm_medium=organic&utm_campaign=<investing|crypto|network>&utm_content=<community>`
+
+| Where | `utm_source` | `utm_campaign` | `utm_content` (swap per post) | Ready-to-paste link |
+|---|---|---|---|---|
+| r/DutchFIRE | `reddit` | `investing` | `dutchfire` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=investing&utm_content=dutchfire` |
+| r/eupersonalfinance | `reddit` | `investing` | `eupersonalfinance` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=investing&utm_content=eupersonalfinance` |
+| r/Netherlands | `reddit` | `investing` | `netherlands` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=investing&utm_content=netherlands` |
+| r/beleggen | `reddit` | `investing` | `beleggen` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=investing&utm_content=beleggen` |
+| r/investingforbeginners | `reddit` | `investing` | `investingforbeginners` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=investing&utm_content=investingforbeginners` |
+| r/CryptoCurrency | `reddit` | `crypto` | `cryptocurrency` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=crypto&utm_content=cryptocurrency` |
+| r/BitcoinBeginners | `reddit` | `crypto` | `bitcoinbeginners` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=crypto&utm_content=bitcoinbeginners` |
+| r/ethfinance | `reddit` | `crypto` | `ethfinance` | `https://new-investor-app.vercel.app/?utm_source=reddit&utm_medium=organic&utm_campaign=crypto&utm_content=ethfinance` |
+| Facebook groups (investing) | `facebook` | `investing` | name of the group | `https://new-investor-app.vercel.app/?utm_source=facebook&utm_medium=organic&utm_campaign=investing&utm_content=<group>` |
+| Facebook groups (crypto) | `facebook` | `crypto` | name of the group | `https://new-investor-app.vercel.app/?utm_source=facebook&utm_medium=organic&utm_campaign=crypto&utm_content=<group>` |
+| Discord/Slack | `discord` (or `slack`) | `investing` or `crypto` | server name | `https://new-investor-app.vercel.app/?utm_source=discord&utm_medium=organic&utm_campaign=investing&utm_content=<server>` |
+| LinkedIn / personal network | `linkedin` | `network` | `post` | `https://new-investor-app.vercel.app/?utm_source=linkedin&utm_medium=organic&utm_campaign=network&utm_content=post` |
+| WhatsApp / DMs | `whatsapp` | `network` | `dm` | `https://new-investor-app.vercel.app/?utm_source=whatsapp&utm_medium=organic&utm_campaign=network&utm_content=dm` |
+
+These `utm_campaign` values (`investing` / `crypto` / `network`) map directly onto the "Type" column in `phase-0-results-tracker.md`, and `utm_content` tells you exactly which subreddit/group/post drove each signup — check your Formspree submissions (or export to CSV) and group by those two fields to fill the tracker table without guesswork.
+
 ### Where to post
 - **Investing — Reddit:** r/DutchFIRE, r/eupersonalfinance, r/Netherlands, r/beleggen (Dutch), r/investingforbeginners
 - **Crypto/blockchain — Reddit:** r/CryptoCurrency (beginner/daily threads), r/BitcoinBeginners, r/CryptoCurrencyMeta beginner spaces, r/ethfinance, relevant EU crypto subs — lead with the *honest, learn-the-risks* angle, which stands out in these communities
@@ -56,7 +80,7 @@ Post across **both** investing and crypto communities and note which converts be
 
 > Read each community's self-promotion rules first. Some require a "feedback wanted" framing rather than a launch announcement — the post below is written that way on purpose.
 
-> Tip: tune the framing to the community. In investing subs, lead with the investing line; in crypto subs, lead with the *honest, no-scam, learn-the-risks* crypto line. Same product, different door in.
+> Tip: tune the framing to the community. In investing subs, lead with the investing line; in crypto subs, lead with the *honest, no-scam, learn-the-risks* crypto line. Same product, different door in. Always swap in that community's tagged link from the table above — never the bare URL.
 
 ### Post A — "feedback" framing (best for strict subs)
 
@@ -66,7 +90,7 @@ Post across **both** investing and crypto communities and note which converts be
 >
 > So I'm building the opposite: a short course (~5 min lessons) that covers both worlds from zero — the foundations, traditional investing, and a straight, no-hype take on crypto/blockchain *including* the risks — built specifically around EU rules and only regulated, licensed platforms.
 >
-> One-page description here: https://new-investor-app.vercel.app
+> One-page description here: **[your tagged link for this community]**
 >
 > Does this resonate, or is it solving a problem you don't think people have? Honest feedback very welcome — including "this already exists, use X."
 
@@ -76,7 +100,7 @@ Post across **both** investing and crypto communities and note which converts be
 >
 > Most apps push you to deposit first and learn later — and make you pick a "stocks app" or a "crypto app." I'm building the reverse: short lessons that take you from zero across both worlds, with an honest, no-hype take on crypto's risks, built around EU tools and rules.
 >
-> Early access + a say in what gets built if you join the waitlist: https://new-investor-app.vercel.app
+> Early access + a say in what gets built if you join the waitlist: **[your tagged link for this community]**
 >
 > Happy to answer anything about the approach in the comments.
 
@@ -84,7 +108,7 @@ Post across **both** investing and crypto communities and note which converts be
 
 > I'm working on a side project: a calm, jargon-free way for people in Europe to actually understand investing *and* crypto before risking any money — short lessons from zero, with a straight take on crypto that doesn't pretend the risks aren't real.
 >
-> If you (or someone you know) has ever said "I want to start investing but it's overwhelming" or "I want to get into crypto but I'm scared of getting scammed," I'd love for you to join the waitlist and tell me what you'd want from it: https://new-investor-app.vercel.app
+> If you (or someone you know) has ever said "I want to start investing but it's overwhelming" or "I want to get into crypto but I'm scared of getting scammed," I'd love for you to join the waitlist and tell me what you'd want from it: **[your tagged link — see table above]**
 
 ---
 
