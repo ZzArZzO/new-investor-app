@@ -46,4 +46,33 @@ test.describe('landing page — waitlist + attribution', () => {
     await page.keyboard.press('Tab');
     await expect(page.locator(':focus')).toHaveText(/Skip to content/);
   });
+
+  test('hero form submits via fetch and shows the inline success message, not a redirect', async ({ page }) => {
+    // Regression guard: the placeholder-detection guard in index.html once checked
+    // for the real Formspree ID instead of the literal placeholder text, which
+    // silently disabled this fetch enhancement and sent every signup through a
+    // full-page redirect to Formspree instead. See tests/waitlist.spec.js history.
+    await page.route('https://formspree.io/**', route =>
+      route.fulfill({ status: 200, contentType: 'application/json', body: '{}' })
+    );
+    await page.goto('/');
+    await page.fill('#signup input[type=email]', 'test@example.com');
+    await page.click('#signup button[type=submit]');
+    await expect(page).toHaveURL(/\/$|index\.html$/); // stayed on the page, no redirect
+    await expect(page.locator('#success')).toBeVisible();
+  });
+
+  test('fires waitlist_signup, quiz_started, and quiz_completed analytics events', async ({ page }) => {
+    await page.route('https://formspree.io/**', route =>
+      route.fulfill({ status: 200, contentType: 'application/json', body: '{}' })
+    );
+    await page.goto('/');
+    await page.click('#quizStart');
+    for (let i = 0; i < 4; i++) await page.locator('.quiz-option').nth(0).click();
+    await page.fill('#signup input[type=email]', 'test@example.com');
+    await page.click('#signup button[type=submit]');
+    await page.waitForTimeout(200);
+    const events = await page.evaluate(() => (window.vaq || []).map(a => a[1].name));
+    expect(events).toEqual(['quiz_started', 'quiz_completed', 'waitlist_signup']);
+  });
 });

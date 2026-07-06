@@ -61,6 +61,19 @@ test.describe('lessons reader', () => {
     expect(hidden.utm_source).toBe('direct');
   });
 
+  test('fires lesson_completed, course_completed, and feedback_submitted analytics events', async ({ page }) => {
+    await page.route('https://formspree.io/**', route =>
+      route.fulfill({ status: 200, contentType: 'application/json', body: '{}' })
+    );
+    for (let i = 0; i < 12; i++) await page.click('#nextBtn');
+    await page.click('.feedback-submit');
+    await page.waitForTimeout(200);
+    const events = await page.evaluate(() => (window.vaq || []).map(a => a[1].name));
+    expect(events.filter(n => n === 'lesson_completed')).toHaveLength(12);
+    expect(events).toContain('course_completed');
+    expect(events).toContain('feedback_submitted');
+  });
+
   test('account section degrades gracefully with no backend configured', async ({ page }) => {
     await page.click('#settingsBtn');
     await expect(page.locator('#accountStatus')).toContainText('set up yet');

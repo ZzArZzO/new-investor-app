@@ -188,12 +188,14 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
     var title = document.getElementById('completeTitle');
     if (title) { title.setAttribute('tabindex', '-1'); title.focus({ preventScroll: true }); }
+    window.va('event', { name: 'course_completed', data: { lessons: TOTAL } });
   }
 
   nextBtn.addEventListener('click', function () {
     if (progress.completed.indexOf(current) === -1) {
       progress.completed.push(current);
       NIAuth.markLessonComplete(current);
+      window.va('event', { name: 'lesson_completed', data: { lesson_id: current } });
     }
     if (current < TOTAL) {
       goToLesson(current + 1);
@@ -334,6 +336,7 @@
       .then(function () {
         feedbackForm.querySelectorAll('textarea, input, button[type=submit]').forEach(function (el) { el.disabled = true; });
         feedbackSuccess.style.display = 'block';
+        window.va('event', { name: 'feedback_submitted', data: { likelihood: data.get('likelihood') || 'none' } });
       })
       .catch(function () { showToast('Something went wrong — please try again.'); });
   });

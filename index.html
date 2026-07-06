@@ -22,6 +22,10 @@
   <meta name="twitter:description" content="A calm course covering investing, crypto and blockchain for first-timers in Europe. About 5 minutes a day." />
   <meta name="twitter:image" content="https://new-investor-app.vercel.app/og-image.png" />
 
+  <!-- Vercel Web Analytics custom-events queue shim — must exist before any va('event', ...) call
+       fires, and before /_vercel/insights/script.js loads at the bottom of the page. -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+
   <style>
     :root{
       --bg:#0f1712;
@@ -365,7 +369,7 @@
     <div class="wrap">
       <h2>Be one of the first.</h2>
       <p class="sub">We’re building this now. Join the waitlist and you’ll get early access — and a say in what gets built.</p>
-      <form class="signup" action="https://formspree.io/f/xgojdqvj" method="POST" onsubmit="return true">
+      <form class="signup" id="signupFinal" action="https://formspree.io/f/xgojdqvj" method="POST" onsubmit="return true">
         <div class="signup-row">
           <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
           <button type="submit">Join the waitlist</button>
@@ -425,7 +429,7 @@
     if (form) {
       form.addEventListener('submit', function (e) {
         // If the form action still has the placeholder, let it submit normally so you notice.
-        if (form.action.indexOf('xgojdqvj') !== -1) return;
+        if (form.action.indexOf('REPLACE_WITH_YOUR_FORM_ID') !== -1) return;
         e.preventDefault();
         var data = new FormData(form);
         fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
@@ -433,8 +437,19 @@
             form.style.display = 'none';
             document.getElementById('microcopy').style.display = 'none';
             document.getElementById('success').style.display = 'block';
+            window.va('event', { name: 'waitlist_signup', data: { form: 'hero', would_pay: data.get('would_pay') || 'none' } });
           })
           .catch(function () { form.submit(); });
+      });
+    }
+
+    // The final CTA form does a plain navigation to Formspree (no fetch), so this
+    // fires best-effort right before the browser navigates away.
+    var formFinal = document.getElementById('signupFinal');
+    if (formFinal) {
+      formFinal.addEventListener('submit', function () {
+        var wouldPay = formFinal.querySelector('input[name="would_pay"]:checked');
+        window.va('event', { name: 'waitlist_signup', data: { form: 'final_cta', would_pay: wouldPay ? wouldPay.value : 'none' } });
       });
     }
   </script>
@@ -533,6 +548,7 @@
         resultTagline.textContent = type.tagline;
         setupSharing(type);
         setupToolExplore(type);
+        window.va('event', { name: 'quiz_completed', data: { archetype: type.key } });
       }
 
       function setupToolExplore(type) {
@@ -560,6 +576,7 @@
         quizIntro.hidden = true;
         quizBody.hidden = false;
         renderQuestion();
+        window.va('event', { name: 'quiz_started' });
       });
       quizRetake.addEventListener('click', resetQuiz);
 

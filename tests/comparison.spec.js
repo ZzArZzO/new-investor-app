@@ -27,9 +27,10 @@ test.describe('comparison table (draft, not live)', () => {
     expect(fromLessons).toBe(false);
   });
 
-  test('every fee/status cell not yet verified is flagged', async ({ page }) => {
+  test('remaining unconfirmed cells stay flagged after the 2026-07-06 research pass', async ({ page }) => {
     await page.goto('/comparison/index.html');
     const verifyCount = await page.locator('.verify').count();
-    expect(verifyCount).toBeGreaterThan(10);
+    expect(verifyCount).toBeGreaterThan(0);
+    await expect(page.locator('#sources-heading')).toBeVisible();
   });
 });
