@@ -149,3 +149,15 @@ Six additional lessons extend the core 9 without lengthening the required arc �
 - **Bonus 4 — Reading your first broker statement.** Practical companion to Lesson 5's mechanics — holdings, transactions, cost basis, fees, and the unrealized-vs-realized distinction from Lesson 2.
 - **Bonus 5 — The other biases that trip people up.** Extends Lesson 4's mistakes list with loss aversion, recency bias, herd behavior, and confirmation bias.
 - **Bonus 6 — NFTs & collectibles, honestly.** Same no-hype, no-project-recommendation treatment as the crypto pillar — what an NFT actually is, and the honest gap between hype-cycle pricing and lasting utility.
+
+## i18n (EN/NL, landing page only so far)
+
+The landing page (`index.html`) has a working EN/NL toggle — a small pill in the hero corner, choice persisted in `localStorage`, `<html lang>` updated live. The pattern:
+
+- `translations.js` holds one flat dictionary per language (`window.NI_I18N.en`, `.nl`), plus per-language `quizTypes`/`quizQuestions` arrays (same order/keys across languages, only the text differs — this is what lets a language switch mid-quiz re-render without losing your answers).
+- HTML elements opt in with `data-i18n="key"` (textContent), `data-i18n-html="key"` (innerHTML, for strings with `<em>`/`<strong>`/`<span>`), or `data-i18n-placeholder="key"` (input placeholders).
+- The engine (inline script in `index.html`, right before the quiz script) applies the current language on load and re-applies on toggle; it dispatches a `ni:langchange` DOM event so other scripts (the quiz) can refresh their own dynamically-rendered content instead of the engine needing to know about them.
+
+**To extend this to `/lessons/`:** add the same `translations.js`-style dictionary (or a new `lessons/translations.js`) with keys for the static chrome (buttons, settings panel, feedback form) plus a `nl` version of each lesson's `title`/`coreIdea`/`reading`/`example`/`checks` fields in `lessons-data.js`, then thread a language toggle through the same `data-i18n` + `ni:langchange` pattern used here. The 15 lessons' worth of copy is the actual work; the plumbing already exists as a template in `index.html`.
+
+**Known limitation:** this is a client-side, runtime toggle — `<title>`/`<meta>` tags (and anything a crawler or social-preview bot reads without executing JS) stay English regardless of the toggle. Proper multi-language SEO would need separate URLs (e.g. `/nl/`), which is a bigger change than this scaffolding pass.

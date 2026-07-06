@@ -68,11 +68,23 @@
 
     /* ---------- HERO ---------- */
     .hero{
+      position:relative;
       background:radial-gradient(120% 120% at 50% 0%, #1a2b21 0%, var(--bg) 60%);
       color:#eaf3ee;
       padding:64px 0 72px;
       text-align:center;
     }
+    .lang-switch{
+      position:absolute;top:16px;right:16px;display:flex;gap:2px;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
+      border-radius:999px;padding:3px;
+    }
+    .lang-btn{
+      background:none;border:0;color:#93a49a;font-size:12px;font-weight:700;
+      padding:5px 10px;border-radius:999px;cursor:pointer;
+    }
+    .lang-btn[aria-pressed="true"]{background:var(--green);color:#fff}
+    .lang-btn:hover{color:#fff}
     .eyebrow{
       display:inline-block;
       font-size:13px;letter-spacing:.08em;text-transform:uppercase;
@@ -254,56 +266,60 @@
 
   <!-- ================= HERO ================= -->
   <header class="hero">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" class="lang-btn" data-lang="nl" aria-pressed="false">NL</button>
+    </div>
     <div class="wrap">
-      <span class="eyebrow">Investing · Crypto · Blockchain — for first-timers in Europe</span>
-      <h1>Understand investing and crypto before you risk a single euro.</h1>
-      <p class="sub">A calm course that takes you from <em>“I don’t get any of this”</em> to confidently making your first move — in stocks <em>or</em> crypto. About 5 minutes a day. No hype, no hot tips, no jargon.</p>
+      <span class="eyebrow" data-i18n="hero.eyebrow">Investing · Crypto · Blockchain — for first-timers in Europe</span>
+      <h1 data-i18n="hero.title">Understand investing and crypto before you risk a single euro.</h1>
+      <p class="sub" data-i18n-html="hero.sub">A calm course that takes you from <em>“I don’t get any of this”</em> to confidently making your first move — in stocks <em>or</em> crypto. About 5 minutes a day. No hype, no hot tips, no jargon.</p>
 
       <form class="signup" id="signup" action="https://formspree.io/f/xgojdqvj" method="POST">
         <div class="signup-row">
-          <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
-          <button type="submit">Join the waitlist</button>
+          <input type="email" name="email" data-i18n-placeholder="form.emailPlaceholder" placeholder="you@email.com" required aria-label="Email address" />
+          <button type="submit" data-i18n="form.submit">Join the waitlist</button>
         </div>
         <div class="pay-question">
-          <p class="pay-label">Would you pay a few euros a month for this once it's live? <span>(optional, helps us a lot)</span></p>
+          <p class="pay-label" data-i18n-html="form.payLabel">Would you pay a few euros a month for this once it's live? <span>(optional, helps us a lot)</span></p>
           <div class="pay-options">
-            <label class="pay-pill"><input type="radio" name="would_pay" value="yes" /><span>Yes</span></label>
-            <label class="pay-pill"><input type="radio" name="would_pay" value="maybe" /><span>Maybe</span></label>
-            <label class="pay-pill"><input type="radio" name="would_pay" value="no" /><span>No, free only</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="yes" /><span data-i18n="form.payYes">Yes</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="maybe" /><span data-i18n="form.payMaybe">Maybe</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="no" /><span data-i18n="form.payNoFree">No, free only</span></label>
           </div>
         </div>
       </form>
-      <p class="microcopy" id="microcopy">Be first to get access. No spam — one email when we launch.</p>
-      <div class="form-success" id="success">You’re on the list. 🎉 We’ll email you when the first lessons are ready.</div>
+      <p class="microcopy" id="microcopy" data-i18n="form.microcopy">Be first to get access. No spam — one email when we launch.</p>
+      <div class="form-success" id="success" data-i18n="form.success">You’re on the list. 🎉 We’ll email you when the first lessons are ready.</div>
     </div>
   </header>
 
   <!-- ================= WHAT YOU'LL LEARN ================= -->
   <section id="main-content">
     <div class="wrap">
-      <p class="kicker">What you’ll learn</p>
-      <h2>Two worlds, one calm course.</h2>
-      <p class="lead">Short lessons — one idea, a real example, a quick check, done in 5–8 minutes. Start with the shared foundations, then go as deep as you want into investing, crypto, or both.</p>
-      <p style="margin:-14px 0 30px"><a class="preview-link" href="/lessons/">👀 Preview the first lessons, free →</a></p>
+      <p class="kicker" data-i18n="learn.kicker">What you’ll learn</p>
+      <h2 data-i18n="learn.title">Two worlds, one calm course.</h2>
+      <p class="lead" data-i18n="learn.lead">Short lessons — one idea, a real example, a quick check, done in 5–8 minutes. Start with the shared foundations, then go as deep as you want into investing, crypto, or both.</p>
+      <p style="margin:-14px 0 30px"><a class="preview-link" href="/lessons/" data-i18n="learn.previewLink">👀 Preview the first lessons, free →</a></p>
 
-      <p class="pillar-label">🌱 Foundations <span>— the ideas that apply to everything</span></p>
+      <p class="pillar-label" data-i18n-html="learn.pillarFoundations">🌱 Foundations <span>— the ideas that apply to everything</span></p>
       <ul class="modules">
-        <li><span class="num">1</span><div><div class="mtitle">Why put your money to work</div><div class="mdesc">Why cash quietly loses value, and what compound growth really does over time.</div></div></li>
-        <li><span class="num">2</span><div><div class="mtitle">Risk &amp; time</div><div class="mdesc">What “risk” actually means, and why your time horizon changes everything.</div></div></li>
+        <li><span class="num">1</span><div><div class="mtitle" data-i18n="learn.m1Title">Why put your money to work</div><div class="mdesc" data-i18n="learn.m1Desc">Why cash quietly loses value, and what compound growth really does over time.</div></div></li>
+        <li><span class="num">2</span><div><div class="mtitle" data-i18n="learn.m2Title">Risk &amp; time</div><div class="mdesc" data-i18n="learn.m2Desc">What “risk” actually means, and why your time horizon changes everything.</div></div></li>
       </ul>
 
-      <p class="pillar-label">📈 Investing <span>— stocks, funds &amp; the traditional markets</span></p>
+      <p class="pillar-label" data-i18n-html="learn.pillarInvesting">📈 Investing <span>— stocks, funds &amp; the traditional markets</span></p>
       <ul class="modules">
-        <li><span class="num">3</span><div><div class="mtitle">The building blocks</div><div class="mdesc">Stocks, bonds, ETFs, index funds — in plain language, no jargon.</div></div></li>
-        <li><span class="num">4</span><div><div class="mtitle">Diversification, fees &amp; mistakes</div><div class="mdesc">Why fees matter more than you think, and the beginner traps to avoid.</div></div></li>
-        <li><span class="num">5</span><div><div class="mtitle">Your first investment</div><div class="mdesc">Choosing a broker, your first deposit, placing your first order — step by step.</div></div></li>
+        <li><span class="num">3</span><div><div class="mtitle" data-i18n="learn.m3Title">The building blocks</div><div class="mdesc" data-i18n="learn.m3Desc">Stocks, bonds, ETFs, index funds — in plain language, no jargon.</div></div></li>
+        <li><span class="num">4</span><div><div class="mtitle" data-i18n="learn.m4Title">Diversification, fees &amp; mistakes</div><div class="mdesc" data-i18n="learn.m4Desc">Why fees matter more than you think, and the beginner traps to avoid.</div></div></li>
+        <li><span class="num">5</span><div><div class="mtitle" data-i18n="learn.m5Title">Your first investment</div><div class="mdesc" data-i18n="learn.m5Desc">Choosing a broker, your first deposit, placing your first order — step by step.</div></div></li>
       </ul>
 
-      <p class="pillar-label">₿ Crypto &amp; blockchain <span>— honestly, including the risks</span></p>
+      <p class="pillar-label" data-i18n-html="learn.pillarCrypto">₿ Crypto &amp; blockchain <span>— honestly, including the risks</span></p>
       <ul class="modules">
-        <li><span class="num">6</span><div><div class="mtitle">What blockchain &amp; crypto actually are</div><div class="mdesc">The real idea behind it — and what crypto is, and isn’t — without the hype.</div></div></li>
-        <li><span class="num">7</span><div><div class="mtitle">Wallets, exchanges &amp; staying safe</div><div class="mdesc">Custody, self-custody, and how to spot the scams that target beginners.</div></div></li>
-        <li><span class="num">8</span><div><div class="mtitle">Risk, reward &amp; a sensible slice</div><div class="mdesc">Why it’s high-risk, and how people keep it to a bounded “could-go-to-zero” slice.</div></div></li>
+        <li><span class="num">6</span><div><div class="mtitle" data-i18n="learn.m6Title">What blockchain &amp; crypto actually are</div><div class="mdesc" data-i18n="learn.m6Desc">The real idea behind it — and what crypto is, and isn’t — without the hype.</div></div></li>
+        <li><span class="num">7</span><div><div class="mtitle" data-i18n="learn.m7Title">Wallets, exchanges &amp; staying safe</div><div class="mdesc" data-i18n="learn.m7Desc">Custody, self-custody, and how to spot the scams that target beginners.</div></div></li>
+        <li><span class="num">8</span><div><div class="mtitle" data-i18n="learn.m8Title">Risk, reward &amp; a sensible slice</div><div class="mdesc" data-i18n="learn.m8Desc">Why it’s high-risk, and how people keep it to a bounded “could-go-to-zero” slice.</div></div></li>
       </ul>
     </div>
   </section>
@@ -311,19 +327,19 @@
   <!-- ================= ARCHETYPES ================= -->
   <section class="arch-band">
     <div class="wrap">
-      <p class="kicker">Find your type</p>
-      <h2>What kind of investor are you?</h2>
-      <p class="lead">A short quiz (no income or savings questions — ever) sorts you into one of four types, so the course speaks to how <em>you</em> actually think about money.</p>
+      <p class="kicker" data-i18n="archetype.kicker">Find your type</p>
+      <h2 data-i18n="archetype.title">What kind of investor are you?</h2>
+      <p class="lead" data-i18n-html="archetype.lead">A short quiz (no income or savings questions — ever) sorts you into one of four types, so the course speaks to how <em>you</em> actually think about money.</p>
       <div class="cards">
-        <div class="card"><div class="emoji">🟢</div><h3>The Cautious Starter</h3><p>Wants safety and simplicity above all. Build the habit first, add risk later.</p></div>
-        <div class="card"><div class="emoji">🔵</div><h3>The Steady Builder</h3><p>Wants to grow wealth long-term without obsessing over it day to day.</p></div>
-        <div class="card"><div class="emoji">🟠</div><h3>The Hands-On Explorer</h3><p>Enjoys research and wants some control over where the money goes.</p></div>
-        <div class="card"><div class="emoji">🟣</div><h3>The Curious Diversifier</h3><p>Interested in a bit of everything, including newer, higher-risk assets.</p></div>
+        <div class="card"><div class="emoji">🟢</div><h3 data-i18n="archetype.cautiousTitle">The Cautious Starter</h3><p data-i18n="archetype.cautiousDesc">Wants safety and simplicity above all. Build the habit first, add risk later.</p></div>
+        <div class="card"><div class="emoji">🔵</div><h3 data-i18n="archetype.steadyTitle">The Steady Builder</h3><p data-i18n="archetype.steadyDesc">Wants to grow wealth long-term without obsessing over it day to day.</p></div>
+        <div class="card"><div class="emoji">🟠</div><h3 data-i18n="archetype.handsonTitle">The Hands-On Explorer</h3><p data-i18n="archetype.handsonDesc">Enjoys research and wants some control over where the money goes.</p></div>
+        <div class="card"><div class="emoji">🟣</div><h3 data-i18n="archetype.curiousTitle">The Curious Diversifier</h3><p data-i18n="archetype.curiousDesc">Interested in a bit of everything, including newer, higher-risk assets.</p></div>
       </div>
 
       <div class="quiz" id="quiz">
         <div class="quiz-intro" id="quizIntro">
-          <button class="quiz-btn" id="quizStart" type="button">Take the 30-second quiz →</button>
+          <button class="quiz-btn" id="quizStart" type="button" data-i18n="quiz.startBtn">Take the 30-second quiz →</button>
         </div>
         <div class="quiz-body" id="quizBody" hidden>
           <div class="quiz-progress"><div class="quiz-progress-bar" id="quizProgressBar"></div></div>
@@ -333,23 +349,23 @@
         </div>
         <div class="quiz-result" id="quizResult" hidden aria-live="polite">
           <div class="result-card">
-            <p class="result-eyebrow">Your investor type</p>
+            <p class="result-eyebrow" data-i18n="quiz.resultEyebrow">Your investor type</p>
             <div class="result-emoji" id="resultEmoji"></div>
             <h3 id="resultTitle"></h3>
             <p id="resultTagline"></p>
           </div>
           <div class="result-actions">
-            <button type="button" id="shareTwitter">Share on X</button>
-            <button type="button" id="shareLinkedin">Share on LinkedIn</button>
-            <button type="button" id="copyLink">Copy link</button>
-            <button type="button" id="downloadImage">Download image</button>
+            <button type="button" id="shareTwitter" data-i18n="quiz.shareX">Share on X</button>
+            <button type="button" id="shareLinkedin" data-i18n="quiz.shareLinkedin">Share on LinkedIn</button>
+            <button type="button" id="copyLink" data-i18n="quiz.copyLink">Copy link</button>
+            <button type="button" id="downloadImage" data-i18n="quiz.downloadImage">Download image</button>
           </div>
           <div class="tool-explore" id="toolExplore" hidden>
-            <p class="tool-explore-lead">Curious what's actually out there?</p>
-            <p class="tool-explore-sub">We're compiling a plain-facts comparison of brokers and MiCA-licensed exchanges — the same list for everyone, no personalized picks based on your result.</p>
-            <a class="tool-explore-link" id="toolExploreLink" rel="noopener">Preview the draft comparison table →</a>
+            <p class="tool-explore-lead" data-i18n="quiz.toolExploreLead">Curious what's actually out there?</p>
+            <p class="tool-explore-sub" data-i18n="quiz.toolExploreSub">We're compiling a plain-facts comparison of brokers and MiCA-licensed exchanges — the same list for everyone, no personalized picks based on your result.</p>
+            <a class="tool-explore-link" id="toolExploreLink" rel="noopener" data-i18n="quiz.toolExploreLink">Preview the draft comparison table →</a>
           </div>
-          <button type="button" class="quiz-retake" id="quizRetake">Retake quiz</button>
+          <button type="button" class="quiz-retake" id="quizRetake" data-i18n="quiz.retake">Retake quiz</button>
         </div>
       </div>
     </div>
@@ -360,30 +376,30 @@
   <!-- ================= WHY ================= -->
   <section class="why">
     <div class="wrap">
-      <p class="kicker">Why this exists</p>
-      <h2>Investing feels intimidating. Crypto feels like a minefield.</h2>
-      <p>Every app wants you to <strong>deposit money now</strong>. The stocks apps ignore crypto; the crypto apps are full of hype and people trying to sell you something. Almost none of them slow down to honestly teach you what you’re actually doing.</p>
-      <p>This is the opposite: <strong>learn first, invest second</strong> — across <strong>both</strong> worlds. Understand the handful of ideas that matter, get a straight, no-hype take on crypto <em>including</em> the risks, decide what fits you, and take the first step feeling calm instead of anxious.</p>
-      <p>It’s built around how this works in <strong>Europe</strong> specifically — the real tools, the protections, the fees, and only regulated, licensed platforms — not a US app with the wrong currency.</p>
+      <p class="kicker" data-i18n="why.kicker">Why this exists</p>
+      <h2 data-i18n="why.title">Investing feels intimidating. Crypto feels like a minefield.</h2>
+      <p data-i18n-html="why.p1">Every app wants you to <strong>deposit money now</strong>. The stocks apps ignore crypto; the crypto apps are full of hype and people trying to sell you something. Almost none of them slow down to honestly teach you what you’re actually doing.</p>
+      <p data-i18n-html="why.p2">This is the opposite: <strong>learn first, invest second</strong> — across <strong>both</strong> worlds. Understand the handful of ideas that matter, get a straight, no-hype take on crypto <em>including</em> the risks, decide what fits you, and take the first step feeling calm instead of anxious.</p>
+      <p data-i18n-html="why.p3">It’s built around how this works in <strong>Europe</strong> specifically — the real tools, the protections, the fees, and only regulated, licensed platforms — not a US app with the wrong currency.</p>
     </div>
   </section>
 
   <!-- ================= FINAL CTA ================= -->
   <section class="final">
     <div class="wrap">
-      <h2>Be one of the first.</h2>
-      <p class="sub">We’re building this now. Join the waitlist and you’ll get early access — and a say in what gets built.</p>
+      <h2 data-i18n="final.title">Be one of the first.</h2>
+      <p class="sub" data-i18n="final.sub">We’re building this now. Join the waitlist and you’ll get early access — and a say in what gets built.</p>
       <form class="signup" id="signupFinal" action="https://formspree.io/f/xgojdqvj" method="POST" onsubmit="return true">
         <div class="signup-row">
-          <input type="email" name="email" placeholder="you@email.com" required aria-label="Email address" />
-          <button type="submit">Join the waitlist</button>
+          <input type="email" name="email" data-i18n-placeholder="form.emailPlaceholder" placeholder="you@email.com" required aria-label="Email address" />
+          <button type="submit" data-i18n="form.submit">Join the waitlist</button>
         </div>
         <div class="pay-question">
-          <p class="pay-label">Would you pay a few euros a month for this once it's live? <span>(optional, helps us a lot)</span></p>
+          <p class="pay-label" data-i18n-html="form.payLabel">Would you pay a few euros a month for this once it's live? <span>(optional, helps us a lot)</span></p>
           <div class="pay-options">
-            <label class="pay-pill"><input type="radio" name="would_pay" value="yes" /><span>Yes</span></label>
-            <label class="pay-pill"><input type="radio" name="would_pay" value="maybe" /><span>Maybe</span></label>
-            <label class="pay-pill"><input type="radio" name="would_pay" value="no" /><span>No, free only</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="yes" /><span data-i18n="form.payYes">Yes</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="maybe" /><span data-i18n="form.payMaybe">Maybe</span></label>
+            <label class="pay-pill"><input type="radio" name="would_pay" value="no" /><span data-i18n="form.payNoFree">No, free only</span></label>
           </div>
         </div>
       </form>
@@ -392,10 +408,63 @@
 
   <footer>
     <div class="wrap">
-      <p class="disc">This is an educational project. It provides general information about investing, not personal financial advice. Investing involves risk, including the possible loss of the money you invest.</p>
-      <p>© <span id="yr"></span> New Investor · Made in Europe · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
+      <p class="disc" data-i18n="footer.disc">This is an educational project. It provides general information about investing, not personal financial advice. Investing involves risk, including the possible loss of the money you invest.</p>
+      <p>© <span id="yr"></span> New Investor · <span data-i18n="footer.madeIn">Made in Europe</span> · <a href="/privacy/" data-i18n="footer.privacy">Privacy</a> · <a href="/terms/" data-i18n="footer.terms">Terms</a></p>
     </div>
   </footer>
+
+  <!-- ================= i18n ================= -->
+  <script src="translations.js"></script>
+  <script>
+    (function () {
+      var STORAGE_KEY = 'ni_lang';
+      var currentLang = 'en';
+      try {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'en' || saved === 'nl') {
+          currentLang = saved;
+        } else if (navigator.language && navigator.language.toLowerCase().indexOf('nl') === 0) {
+          currentLang = 'nl';
+        }
+      } catch (e) {}
+
+      function applyTranslations() {
+        var dict = window.NI_I18N[currentLang];
+        document.documentElement.lang = currentLang;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] != null) el.textContent = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-html');
+          if (dict[key] != null) el.innerHTML = dict[key];
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-placeholder');
+          if (dict[key] != null) el.placeholder = dict[key];
+        });
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === currentLang ? 'true' : 'false');
+        });
+      }
+
+      function setLang(lang) {
+        var isValid = lang === 'en' || lang === 'nl';
+        if (!isValid || lang === currentLang) return;
+        currentLang = lang;
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+        applyTranslations();
+        document.dispatchEvent(new CustomEvent('ni:langchange', { detail: { lang: lang } }));
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { setLang(btn.getAttribute('data-lang')); });
+      });
+
+      window.NI_getLang = function () { return currentLang; };
+      applyTranslations();
+    })();
+  </script>
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
@@ -439,7 +508,7 @@
         var submitBtn = form.querySelector('button[type=submit]');
         var originalLabel = submitBtn.textContent;
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Joining…';
+        submitBtn.textContent = window.NI_I18N[window.NI_getLang()]['form.submitPending'];
         fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
           .then(function (r) {
             form.style.display = 'none';
@@ -477,31 +546,10 @@
       // just gated on the underlying data/legal readiness, not the code.
       var SHOW_TOOL_COMPARISON_LINK = false;
 
-      var QUIZ_TYPES = [
-        { key: 'cautious', emoji: '🟢', title: 'The Cautious Starter', tagline: 'You want safety and simplicity above all — build the habit first, add risk later.', accent: '#1f9d63' },
-        { key: 'steady',   emoji: '🔵', title: 'The Steady Builder',   tagline: 'You want to grow wealth long-term without obsessing over it day to day.', accent: '#2f7bd1' },
-        { key: 'handson',  emoji: '🟠', title: 'The Hands-On Explorer', tagline: 'You enjoy research and want some control over where the money goes.', accent: '#d8822f' },
-        { key: 'curious',  emoji: '🟣', title: 'The Curious Diversifier', tagline: 'You’re interested in a bit of everything, including newer, higher-risk assets.', accent: '#8b5fd1' }
-      ];
-
-      var QUIZ_QUESTIONS = [
-        {
-          q: 'When you imagine your money invested, what matters most?',
-          options: ['Knowing I won’t lose sleep over it', 'Watching it quietly grow over years', 'Understanding exactly where it’s going', 'Having a mix, including some new stuff']
-        },
-        {
-          q: 'How do you feel about crypto?',
-          options: ['Too risky for me, not right now', 'Maybe a tiny slice, way later', 'I want to really understand it before touching it', 'Curious — I want some exposure now']
-        },
-        {
-          q: 'How often do you want to check on your investments?',
-          options: ['As rarely as possible', 'Occasionally, a quick look', 'Regularly — I like to stay on top of it', 'Whenever something new catches my eye']
-        },
-        {
-          q: 'Pick a starting move that sounds like you:',
-          options: ['Open a savings-like account, ease in slowly', 'Set up an automatic monthly investment and forget it', 'Research a few individual stocks or funds myself', 'Split it — some safe, some experimental']
-        }
-      ];
+      // Pulled from window.NI_I18N so the quiz follows the page's language toggle.
+      function QUIZ_TYPES() { return window.NI_I18N[window.NI_getLang()].quizTypes; }
+      function QUIZ_QUESTIONS() { return window.NI_I18N[window.NI_getLang()].quizQuestions; }
+      function t(key) { return window.NI_I18N[window.NI_getLang()][key]; }
 
       var quizStart = document.getElementById('quizStart');
       var quizIntro = document.getElementById('quizIntro');
@@ -521,12 +569,13 @@
 
       var current = 0;
       var tally = [0, 0, 0, 0];
+      var lastBestIndex = null;
 
       function renderQuestion() {
-        var item = QUIZ_QUESTIONS[current];
+        var item = QUIZ_QUESTIONS()[current];
         quizQuestion.textContent = item.q;
-        quizQCount.textContent = 'Question ' + (current + 1) + ' of ' + QUIZ_QUESTIONS.length;
-        quizProgressBar.style.width = Math.round((current / QUIZ_QUESTIONS.length) * 100) + '%';
+        quizQCount.textContent = t('quiz.questionOf').replace('{n}', current + 1).replace('{total}', QUIZ_QUESTIONS().length);
+        quizProgressBar.style.width = Math.round((current / QUIZ_QUESTIONS().length) * 100) + '%';
         quizOptionsEl.innerHTML = '';
         item.options.forEach(function (text, idx) {
           var btn = document.createElement('button');
@@ -541,7 +590,7 @@
       function answer(idx) {
         tally[idx]++;
         current++;
-        if (current < QUIZ_QUESTIONS.length) {
+        if (current < QUIZ_QUESTIONS().length) {
           renderQuestion();
         } else {
           quizProgressBar.style.width = '100%';
@@ -549,17 +598,23 @@
         }
       }
 
-      function finish() {
-        var best = 0;
-        for (var i = 1; i < tally.length; i++) { if (tally[i] > tally[best]) best = i; }
-        var type = QUIZ_TYPES[best];
-        quizBody.hidden = true;
-        quizResult.hidden = false;
+      function renderResult() {
+        var type = QUIZ_TYPES()[lastBestIndex];
         resultEmoji.textContent = type.emoji;
         resultTitle.textContent = type.title;
         resultTagline.textContent = type.tagline;
         setupSharing(type);
         setupToolExplore(type);
+        return type;
+      }
+
+      function finish() {
+        var best = 0;
+        for (var i = 1; i < tally.length; i++) { if (tally[i] > tally[best]) best = i; }
+        lastBestIndex = best;
+        quizBody.hidden = true;
+        quizResult.hidden = false;
+        var type = renderResult();
         window.va('event', { name: 'quiz_completed', data: { archetype: type.key } });
       }
 
@@ -579,6 +634,7 @@
       function resetQuiz() {
         current = 0;
         tally = [0, 0, 0, 0];
+        lastBestIndex = null;
         quizResult.hidden = true;
         quizBody.hidden = false;
         renderQuestion();
@@ -591,6 +647,16 @@
         window.va('event', { name: 'quiz_started' });
       });
       quizRetake.addEventListener('click', resetQuiz);
+
+      // Re-render whatever's currently on screen in the new language without
+      // losing progress (answers so far, or an already-computed result).
+      document.addEventListener('ni:langchange', function () {
+        if (lastBestIndex !== null && !quizResult.hidden) {
+          renderResult();
+        } else if (!quizBody.hidden) {
+          renderQuestion();
+        }
+      });
 
       function shareLink(type) {
         return 'https://new-investor-app.vercel.app/?utm_source=quiz_share&utm_medium=social&utm_campaign=result_card&utm_content=' + type.key + '#quiz';
@@ -605,7 +671,7 @@
 
       function setupSharing(type) {
         var link = shareLink(type);
-        var text = 'I’m ' + type.title + ' ' + type.emoji + ' — find your investor type with this 30-second quiz:';
+        var text = t('quiz.shareText').replace('{title}', type.title).replace('{emoji}', type.emoji);
 
         document.getElementById('shareTwitter').onclick = function () {
           window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(link), '_blank', 'noopener');
@@ -615,7 +681,7 @@
         };
         document.getElementById('copyLink').onclick = function () {
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(link).then(function () { toast('Link copied!'); }).catch(function () { window.prompt('Copy this link:', link); });
+            navigator.clipboard.writeText(link).then(function () { toast(t('quiz.toastCopied')); }).catch(function () { window.prompt('Copy this link:', link); });
           } else {
             window.prompt('Copy this link:', link);
           }
