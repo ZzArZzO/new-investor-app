@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Check } from "lucide-react";
 import { ACTION_STEPS } from "@/content/action-steps";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { trackEvent } from "@/lib/analytics";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 
@@ -17,6 +18,7 @@ export function ActionChecklistCard() {
 
   function handleStep(id: string, route: string | undefined, done: boolean) {
     toggleActionStep(id);
+    if (!done) trackEvent("action_step_completed", { step: id });
     if (!done && route) router.push(route);
   }
 

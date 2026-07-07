@@ -5,6 +5,7 @@ import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 import { HOLDING_TYPES, holdingTypeMeta } from "@/content/holdings";
 import { fmtEur, todayStr } from "@/lib/date";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { trackEvent } from "@/lib/analytics";
 import { AddHoldingForm } from "./add-holding-form";
 import { StatTile } from "@/components/ui/stat-tile";
 import { Button } from "@/components/ui/button";
@@ -28,6 +29,11 @@ export function PortfolioTracker() {
 
   const loggedToday = state.contributions.last === todayStr();
   const empty = state.holdings.length === 0;
+
+  function handleLogContribution() {
+    logContribution();
+    trackEvent("contribution_logged");
+  }
 
   return (
     <div className="flex flex-col gap-3.5">
@@ -82,7 +88,7 @@ export function PortfolioTracker() {
         <p className="mt-1 text-sm text-muted-foreground">
           Contributions logged: {state.contributions.count} · streak 🔥 {state.streak.count || 0}
         </p>
-        <Button disabled={loggedToday} onClick={logContribution} className="mt-3 h-11 w-full rounded-xl">
+        <Button disabled={loggedToday} onClick={handleLogContribution} className="mt-3 h-11 w-full rounded-xl">
           Log a contribution (+10 XP)
         </Button>
       </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { TOOLS } from "@/content/tools";
 import { TOOL_COMPONENTS } from "@/components/tools/tool-registry";
+import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export default function ToolsPage() {
@@ -22,7 +23,10 @@ export default function ToolsPage() {
           <button
             key={tool.id}
             type="button"
-            onClick={() => setActiveId(tool.id)}
+            onClick={() => {
+              setActiveId(tool.id);
+              if (activeId !== tool.id) trackEvent("tool_opened", { tool: tool.id });
+            }}
             className={cn(
               "flex min-h-30 flex-col gap-1.5 rounded-2xl border bg-card p-4 text-left shadow-sm transition-colors",
               activeId === tool.id ? "border-primary" : "border-border hover:border-primary",

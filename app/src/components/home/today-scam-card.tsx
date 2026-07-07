@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { SCAM_SCENARIOS } from "@/content/scam-scenarios";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -35,6 +36,7 @@ export function TodayScamCard() {
     if (playedToday) return;
     setPicked(saidScam);
     playDailyScam();
+    trackEvent("daily_scam_played", { correct: saidScam === scam.isScam });
   }
 
   const answered = picked !== null;

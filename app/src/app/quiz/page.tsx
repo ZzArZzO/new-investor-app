@@ -8,6 +8,7 @@ import { QUIZ, scoreQuiz } from "@/content/quiz";
 import type { PersonaKey } from "@/content/types";
 import { Progress } from "@/components/ui/progress";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { trackEvent } from "@/lib/analytics";
 
 export default function QuizPage() {
   const router = useRouter();
@@ -27,6 +28,7 @@ export default function QuizPage() {
     } else {
       const persona = scoreQuiz(next);
       setPersona(persona);
+      trackEvent("quiz_completed", { persona });
       router.push("/result");
     }
   }

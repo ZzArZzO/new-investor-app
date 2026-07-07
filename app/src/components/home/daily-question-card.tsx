@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { DAILY_CARDS } from "@/content/daily-cards";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -31,6 +32,7 @@ export function DailyQuestionCard() {
     if (answeredToday) return;
     setPicked(value);
     answerDailyQuestion();
+    trackEvent("daily_question_answered", { correct: value === card.a });
   }
 
   const showFeedback = picked !== null;

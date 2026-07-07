@@ -6,6 +6,7 @@ import type { HoldingType } from "@/content/types";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { trackEvent } from "@/lib/analytics";
 
 const inputCls =
   "h-10 w-full rounded-lg border border-border bg-background px-3 text-sm outline-none focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40";
@@ -30,6 +31,7 @@ export function AddHoldingForm() {
       contributed: contributedNum,
       value: value.trim() !== "" && v >= 0 ? v : undefined,
     });
+    trackEvent("holding_added", { type });
     setLabel("");
     setContributed("");
     setValue("");

@@ -10,6 +10,7 @@ import { GlossaryReading } from "@/components/lessons/glossary-reading";
 import { LessonQuickCheck } from "@/components/lessons/lesson-quick-check";
 import { Button } from "@/components/ui/button";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { trackEvent } from "@/lib/analytics";
 import { useState } from "react";
 
 interface LessonViewProps {
@@ -26,6 +27,7 @@ export function LessonView({ lesson }: LessonViewProps) {
 
   function finish() {
     completeLesson(lesson.id);
+    trackEvent("lesson_completed", { lesson: lesson.id });
     router.push("/lessons");
   }
 
