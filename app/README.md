@@ -1,24 +1,32 @@
-# New Investor — App Prototype (Phase 2)
+# New Investor — App
 
-A self-contained, interactive prototype of the product. **No build step, no backend, no dependencies** — just open `app/index.html` in a browser.
+Next.js (App Router) + Tailwind + shadcn/ui rebuild of the investing/crypto education app. Same content and features
+as the original static prototype (now preserved at `legacy-prototype/`), redesigned with the "Calm Clarity" visual
+direction: warm paper background, Fraunces serif headlines, muted forest green, editorial and low-hype tone.
 
-## What's in it
-- **Archetype quiz** — 8 behavioural questions (no financial-detail inputs), tally → one of 4 personas. Result is descriptive only, not personal advice.
-- **Lessons** — all 9 lessons across the three pillars (Foundations, Investing, Crypto & blockchain, Capstone), each with reading, a real example, and a 2-question interactive check. Lessons unlock in order; progress + a simple streak persist in `localStorage`.
-- **Comparison table** — brokers/robo-advisors and MiCA-licensed exchanges, shown to everyone, facts-only, with affiliate disclosure + a crypto risk banner. All figures marked `*` = verify before real use.
+See `docs/superpowers/specs/2026-07-07-app-redesign-design.md` (repo root) for the full design spec.
 
-## Compliance guardrails baked in (see `../compliance-one-pager.md`)
-- Editorial voice throughout ("people often…", never "you should buy…").
-- Quiz uses no income/savings data; persona output is a published, descriptive type.
-- Tool comparison is shown to all users, decoupled from the quiz result.
-- Crypto lessons + the crypto table carry a persistent high-risk warning; only MiCA-licensed exchanges are listed.
-- Persistent "educational, not advice" disclaimer on every screen.
+## Getting started
 
-## Status
-This is a **branch-only prototype (`app-mvp`)**, intentionally not deployed to the public site. It's for review and pilot testing, pending Phase 0 demand validation.
+```bash
+npm install
+npm run dev
+```
 
-## Next steps if it graduates to a real build
-- Swap `localStorage` for real accounts if needed; add the streak/notification mechanics.
-- Replace the illustrative comparison data with verified, dated figures; re-check the CASP register.
-- Rebuild the lesson visuals (see `../lesson-visuals/`) as live components.
-- Wire the affiliate links once broker/exchange partnerships exist.
+Open [http://localhost:3000](http://localhost:3000).
+
+## Structure
+
+- `src/content/` — typed data modules (lessons, quiz, personas, tools, comparison tables, glossary, badges)
+- `src/lib/` — pure logic: date/format helpers, tool math (compound/fee/sandbox calculations), app-state reducers
+- `src/hooks/` — `useAppState` (localStorage-backed progress) + its React context provider
+- `src/components/` — `ui/` (shadcn primitives + Calm Clarity primitives), `layout/` (top bar, bottom tab bar),
+  `home/`, `lessons/`, `tools/` (the 5 interactive tools)
+- `src/app/(main)/` — the 4 tab routes (Home, Lessons, Tools, Compare); `src/app/quiz` and `src/app/result` are
+  full-screen flows outside the tab shell
+
+## Scripts
+
+- `npm run dev` / `npm run build` / `npm start`
+- `npm run lint`
+- `npm test` — Vitest unit tests for the pure math/logic modules (`tool-math`, `app-state-logic`, quiz scoring)

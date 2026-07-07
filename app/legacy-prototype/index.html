@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>New Investor — learn investing &amp; crypto</title>
+<style>
+  :root{
+    --bg:#f4f7f3; --card:#ffffff; --ink:#0d130f; --muted:#5f6b62;
+    --line:#e2e8e0; --green:#1f9d63; --green-deep:#0f7a4a; --green-soft:#e7f4ec;
+    --amber:#d98c2b; --amber-soft:#fbf1e2; --red:#c94b3b; --slate:#8399a0;
+    --shadow:0 1px 3px rgba(0,0,0,.06),0 6px 20px rgba(0,0,0,.04);
+    --radius:16px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1712; --card:#152119; --ink:#e8f0ea; --muted:#9fb0a6;
+      --line:#243128; --green:#34b878; --green-deep:#7fd6a6; --green-soft:#16281d;
+      --amber:#e0a24a; --amber-soft:#2a2113; --red:#e0705f; --slate:#9fb4bb;
+      --shadow:0 1px 3px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.25);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;min-height:100vh}
+  .app{max-width:560px;margin:0 auto;padding:0 16px 96px;min-height:100vh}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;padding:14px 2px;margin-bottom:8px}
+  .brand{font-weight:800;letter-spacing:-.02em;font-size:18px;display:flex;align-items:center;gap:8px;cursor:pointer;background:none;border:0;color:inherit}
+  .brand .dot{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--green),var(--green-deep));display:grid;place-items:center;color:#fff;font-size:13px}
+  .streak{font-size:13px;font-weight:700;color:var(--amber);background:var(--amber-soft);padding:5px 10px;border-radius:999px}
+
+  h1{font-size:26px;line-height:1.15;letter-spacing:-.02em;font-weight:800;margin-bottom:10px}
+  h2{font-size:20px;line-height:1.2;letter-spacing:-.01em;font-weight:800;margin-bottom:8px}
+  p.lead{color:var(--muted);font-size:16px;margin-bottom:20px}
+  .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:var(--green-deep);margin-bottom:8px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:14px}
+  .hero{background:radial-gradient(120% 120% at 50% 0%,var(--green-soft),var(--card));}
+
+  button.btn{appearance:none;border:0;border-radius:12px;font-size:16px;font-weight:700;padding:14px 18px;cursor:pointer;width:100%;transition:transform .05s,background .2s,opacity .2s}
+  button.btn:active{transform:translateY(1px)}
+  .btn.primary{background:var(--green);color:#fff}
+  .btn.primary:hover{background:var(--green-deep)}
+  .btn.ghost{background:transparent;color:var(--green-deep);border:1.5px solid var(--line)}
+  .btn.small{width:auto;padding:10px 14px;font-size:14px}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .row{display:flex;gap:10px}
+
+  /* progress */
+  .prog{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin:6px 0 18px}
+  .prog > i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .4s}
+
+  /* pillar + lesson list */
+  .wontdo-list{list-style:none;display:grid;gap:7px;margin-top:4px}
+  .wontdo-list li{font-size:14px;color:var(--ink);padding-left:22px;position:relative}
+  .wontdo-list li::before{content:"✕";position:absolute;left:0;top:1px;color:var(--red);font-weight:800;font-size:12px}
+  .pillar-h{font-weight:800;font-size:15px;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
+  .pillar-h .cnt{font-weight:600;color:var(--muted);font-size:13px}
+  .lrow{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;cursor:pointer;box-shadow:var(--shadow);text-align:left;width:100%;color:inherit;font:inherit}
+  .lrow:disabled{opacity:.55;cursor:not-allowed}
+  .lrow .badge{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--green-soft);color:var(--green-deep);font-weight:800;display:grid;place-items:center;font-size:14px}
+  .lrow.done .badge{background:var(--green);color:#fff}
+  .lrow .t{font-weight:700;font-size:15px}
+  .lrow .d{color:var(--muted);font-size:13px;margin-top:1px}
+  .lrow .chev{margin-left:auto;color:var(--muted);font-size:18px}
+
+  /* lesson view */
+  .reading{font-size:16px;margin:14px 0}
+  .reading p{margin-bottom:12px}
+  .callout{border-radius:12px;padding:14px 16px;font-size:15px;margin:14px 0}
+  .callout.eg{background:var(--green-soft)}
+  .callout.eg b{color:var(--green-deep)}
+  .risk{background:var(--amber-soft);border:1px solid color-mix(in srgb,var(--amber) 40%,transparent);color:var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;margin:14px 0;font-weight:600}
+
+  /* quiz + checks */
+  .opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:15px 16px;margin-bottom:10px;font-size:15px;cursor:pointer;color:inherit;font-weight:500;transition:border-color .15s,background .15s}
+  .opt:hover{border-color:var(--green)}
+  .opt.sel{border-color:var(--green);background:var(--green-soft)}
+  .opt.correct{border-color:var(--green);background:var(--green-soft)}
+  .opt.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 12%,transparent)}
+  .opt.dim{opacity:.5}
+  .feedback{border-radius:12px;padding:14px 16px;margin:6px 0 14px;font-size:15px;display:none}
+  .feedback.show{display:block}
+  .feedback.ok{background:var(--green-soft);color:var(--green-deep)}
+  .feedback.no{background:color-mix(in srgb,var(--red) 12%,transparent);color:var(--red)}
+  .qnum{font-size:13px;color:var(--muted);font-weight:700;margin-bottom:6px}
+
+  /* persona result */
+  .persona-emoji{font-size:44px}
+  .tag{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--green-soft);color:var(--green-deep);margin-bottom:10px}
+
+  /* comparison table */
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  td b{font-weight:700}
+  .disclose{font-size:12px;color:var(--muted);background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;margin:12px 0}
+
+  /* footer disclaimer */
+  .disclaimer{font-size:11.5px;color:var(--muted);text-align:center;line-height:1.5;margin-top:28px;padding:0 6px}
+
+  .back{background:none;border:0;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;padding:8px 0;margin-bottom:4px;display:inline-flex;align-items:center;gap:5px}
+  .hide{display:none !important}
+  .center{text-align:center}
+  .pill-note{font-size:12px;color:var(--muted);margin-top:4px}
+
+  /* ===== interactive tools ===== */
+  /* tools hub */
+  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 4px}
+  .tool-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);cursor:pointer;text-align:left;color:inherit;font:inherit;display:flex;flex-direction:column;gap:6px;min-height:118px}
+  .tool-card:hover{border-color:var(--green)}
+  .tool-card .ico{font-size:24px}
+  .tool-card .tt{font-weight:800;font-size:15px;letter-spacing:-.01em}
+  .tool-card .td{font-size:12.5px;color:var(--muted);line-height:1.35}
+  .tool-card.wide{grid-column:1 / -1;flex-direction:row;align-items:center;min-height:0;gap:12px}
+  .tool-card.wide .ico{font-size:22px}
+
+  /* embedded tool block inside lessons + hub */
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow);margin:14px 0}
+  .tool-head{font-weight:800;font-size:15px;margin-bottom:2px;display:flex;align-items:center;gap:8px}
+  .tool-sub{font-size:12.5px;color:var(--muted);margin-bottom:12px}
+  .tool-note{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:12px;line-height:1.45}
+
+  /* sliders */
+  .slider{margin:12px 0}
+  .slider label{display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:6px}
+  .slider label .val{color:var(--green-deep)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:var(--line);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid var(--card);box-shadow:0 1px 4px rgba(0,0,0,.2)}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--green);cursor:pointer;border:3px solid var(--card)}
+
+  /* chart output */
+  .chart{width:100%;height:auto;display:block;margin:6px 0 2px;overflow:visible}
+  .chart .grid{stroke:var(--line);stroke-width:1}
+  .chart .area{fill:var(--green-soft)}
+  .chart .line{fill:none;stroke:var(--green);stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+  .chart .line.alt{stroke:var(--slate);stroke-dasharray:5 4}
+  .chart .lbl{fill:var(--muted);font-size:10px;font-weight:600}
+  .stat-row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+  .stat{flex:1 1 0;min-width:96px;background:var(--green-soft);border-radius:10px;padding:10px 12px}
+  .stat .k{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+  .stat .v{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+  .stat.warn{background:var(--amber-soft)}
+  .stat.warn .v{color:var(--amber)}
+
+  /* fee bars */
+  .fbars{display:flex;flex-direction:column;gap:10px;margin:8px 0}
+  .fbar{display:flex;align-items:center;gap:10px;font-size:13px}
+  .fbar .track{flex:1;height:22px;background:var(--line);border-radius:8px;overflow:hidden}
+  .fbar .fill{height:100%;border-radius:8px;transition:width .3s}
+  .fbar.lo .fill{background:var(--green)}
+  .fbar.hi .fill{background:var(--amber)}
+  .fbar .cap{width:120px;color:var(--muted);font-weight:700}
+  .fbar .amt{width:74px;text-align:right;font-weight:800}
+
+  /* donut */
+  .donut-wrap{display:flex;align-items:center;gap:16px;margin:8px 0}
+  .donut{flex:0 0 auto}
+  .legend{list-style:none;display:grid;gap:8px;font-size:13px;flex:1}
+  .legend li{display:flex;align-items:center;gap:8px}
+  .legend .sw{width:12px;height:12px;border-radius:3px;flex:0 0 auto}
+  .legend .lv{margin-left:auto;font-weight:800;color:var(--muted)}
+
+  /* scam game */
+  .msg-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:6px 0 14px;background:var(--bg)}
+  .msg-head{display:flex;align-items:center;gap:8px;padding:10px 12px;background:color-mix(in srgb,var(--slate) 14%,transparent);font-size:13px}
+  .msg-head .av{width:28px;height:28px;border-radius:50%;background:var(--slate);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;flex:0 0 auto}
+  .msg-head .who{font-weight:700}
+  .msg-head .ch{margin-left:auto;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+  .msg-body{padding:14px 14px 16px;font-size:14.5px;line-height:1.5;white-space:pre-wrap}
+  .flags{list-style:none;display:grid;gap:6px;margin-top:8px}
+  .flags li{font-size:13px;padding-left:20px;position:relative;color:var(--ink)}
+  .flags li::before{content:"⚑";position:absolute;left:0;color:var(--amber);font-size:12px}
+  .scam-score{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:8px}
+
+  /* glossary term */
+  .term{background:none;border:0;padding:0;font:inherit;color:var(--green-deep);font-weight:700;border-bottom:1.5px dotted var(--green);cursor:pointer}
+  .term:hover{background:var(--green-soft)}
+  .gloss-def{background:var(--green-soft);border-radius:10px;padding:11px 13px;font-size:13.5px;margin:8px 0;color:var(--ink)}
+  .gloss-def b{color:var(--green-deep)}
+
+  /* daily card */
+  .daily{background:radial-gradient(120% 120% at 100% 0%,var(--amber-soft),var(--card))}
+  .daily .qtxt{font-weight:700;font-size:15px;margin:6px 0 12px}
+
+  /* badges + xp */
+  .xp-line{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--muted);margin-top:6px}
+  .badge-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .bchip{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--green-soft);color:var(--green-deep)}
+  .bchip.locked{background:var(--line);color:var(--muted);opacity:.7}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120%);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:999px;font-size:14px;font-weight:700;box-shadow:var(--shadow);z-index:50;transition:transform .35s cubic-bezier(.2,.9,.3,1.3);display:flex;align-items:center;gap:8px;max-width:90vw}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  /* generic segmented control */
+  .seg-ctrl{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0 12px}
+  .seg-ctrl button{flex:1 1 auto;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:9px 10px;font-size:12.5px;font-weight:700;color:var(--muted);cursor:pointer}
+  .seg-ctrl button.on{border-color:var(--green);background:var(--green-soft);color:var(--green-deep)}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <button class="brand" onclick="go('home')"><span class="dot">▲</span> New Investor</button>
+    <span class="streak" id="streak">🔥 0</span>
+  </div>
+
+  <!-- ============ HOME ============ -->
+  <div id="view-home" class="view">
+    <div class="card hero">
+      <div class="kicker">Investing · Crypto · Blockchain</div>
+      <h1>Learn to invest, calmly.</h1>
+      <p class="lead">Short lessons that take you from “I don’t get any of this” to your first move, in stocks or crypto. No hype, no hot tips.</p>
+      <button class="btn primary" onclick="startQuizOrLessons()" id="homeCta">Find your investor type</button>
+      <div class="row" style="margin-top:10px">
+        <button class="btn ghost" onclick="go('lessons')">Browse lessons</button>
+        <button class="btn ghost" onclick="go('tools')">🛠️ Tools</button>
+      </div>
+    </div>
+
+    <!-- daily question -->
+    <div class="card daily" id="dailyCard">
+      <div class="kicker">Today's question · keep your streak</div>
+      <div id="dailyBody"></div>
+    </div>
+
+    <div class="card">
+      <div class="kicker">What we'll never do</div>
+      <ul class="wontdo-list">
+        <li>No price predictions or "this coin is going to X"</li>
+        <li>No coin picks or "buy this" recommendations, ever</li>
+        <li>No leveraged trading tutorials or margin/futures content</li>
+        <li>No paid coin promotions or influencer partnerships</li>
+        <li>No "guaranteed returns" language, anywhere</li>
+      </ul>
+    </div>
+
+    <div class="card" id="progressCard">
+      <div class="kicker">Your progress</div>
+      <div class="prog"><i id="progBar" style="width:0%"></i></div>
+      <div id="progText" class="pill-note">0 of 9 lessons done</div>
+      <div class="xp-line" id="xpLine">✨ <span id="xpVal">0</span> XP</div>
+      <div id="personaLine" class="hide" style="margin-top:12px;font-weight:700"></div>
+      <div class="badge-strip" id="badgeStrip"></div>
+    </div>
+
+    <p class="disclaimer" id="disc"></p>
+  </div>
+
+  <!-- ============ QUIZ ============ -->
+  <div id="view-quiz" class="view hide">
+    <button class="back" onclick="go('home')">← Home</button>
+    <div class="qnum" id="quizProg">Question 1 of 8</div>
+    <div class="prog"><i id="quizBar" style="width:0%"></i></div>
+    <h2 id="quizQ"></h2>
+    <div id="quizOpts" style="margin-top:14px"></div>
+  </div>
+
+  <!-- ============ RESULT ============ -->
+  <div id="view-result" class="view hide">
+    <button class="back" onclick="go('home')">← Home</button>
+    <div class="card center">
+      <div class="persona-emoji" id="pEmoji"></div>
+      <div class="tag" style="margin-top:8px">Your type</div>
+      <h1 id="pName" style="margin-bottom:6px"></h1>
+      <p class="lead" id="pDesc"></p>
+    </div>
+    <div class="card">
+      <div class="kicker">How people like this often think</div>
+      <p id="pApproach" style="font-size:15px"></p>
+      <p class="pill-note" style="margin-top:10px">This is a general illustration, not personal advice. It never uses your income or savings.</p>
+    </div>
+    <button class="btn primary" onclick="go('lessons')">Start the lessons →</button>
+    <button class="btn ghost" style="margin-top:10px" onclick="go('compare')">See tools &amp; platforms</button>
+    <p class="disclaimer" id="disc2"></p>
+  </div>
+
+  <!-- ============ LESSONS LIST ============ -->
+  <div id="view-lessons" class="view hide">
+    <button class="back" onclick="go('home')">← Home</button>
+    <h2>Lessons</h2>
+    <div class="prog"><i id="lessonsBar" style="width:0%"></i></div>
+    <div id="lessonsList"></div>
+    <button class="btn ghost" style="margin-top:8px" onclick="go('compare')">See tools &amp; platforms →</button>
+    <p class="disclaimer" id="disc3"></p>
+  </div>
+
+  <!-- ============ SINGLE LESSON ============ -->
+  <div id="view-lesson" class="view hide">
+    <button class="back" onclick="go('lessons')">← All lessons</button>
+    <div class="kicker" id="lPillar"></div>
+    <h2 id="lTitle"></h2>
+    <div class="callout eg" style="background:var(--green-soft)"><b>The idea:</b> <span id="lCore"></span></div>
+    <div id="lRisk" class="risk hide">⚠️ Crypto is high-risk. You can lose everything. Only ever use MiCA-licensed platforms, and never invest more than you can afford to lose.</div>
+    <div class="reading" id="lReading"></div>
+    <div class="callout eg"><b>In real life:</b> <span id="lExample"></span></div>
+
+    <div id="lToolMount"></div>
+
+    <div id="checkWrap" style="margin-top:20px">
+      <div class="kicker">Quick check</div>
+      <div id="lCheck"></div>
+    </div>
+    <button class="btn primary hide" id="lDone" onclick="finishLesson()">Complete lesson ✓</button>
+    <p class="disclaimer" id="disc4"></p>
+  </div>
+
+  <!-- ============ TOOLS HUB ============ -->
+  <div id="view-tools" class="view hide">
+    <button class="back" onclick="go('home')">← Home</button>
+    <h2>Interactive tools</h2>
+    <p class="lead">Play with the ideas from the lessons. Every number here is illustrative — a way to build intuition, never a recommendation.</p>
+    <div class="tools-grid" id="toolsGrid"></div>
+    <div id="toolStage"></div>
+    <p class="disclaimer" id="disc6"></p>
+  </div>
+
+  <!-- ============ COMPARISON ============ -->
+  <div id="view-compare" class="view hide">
+    <button class="back" onclick="go('home')">← Home</button>
+    <h2>Tools &amp; platforms</h2>
+    <p class="lead">The landscape, shown to everyone. Facts only. We don’t tell you what to buy.</p>
+    <div class="disclose">Some links may be affiliate links: we could earn a fee if you open an account through them, at no cost to you. This never changes what’s listed or the order.</div>
+
+    <div class="kicker" style="margin-top:18px">Investing · brokers &amp; robo-advisors</div>
+    <div class="card" style="overflow-x:auto;padding:12px">
+      <table id="brokerTable"></table>
+    </div>
+
+    <div class="kicker" style="margin-top:18px">Crypto · MiCA-licensed exchanges only</div>
+    <div class="risk">⚠️ Crypto is high-risk: prices are very volatile and you can lose everything. There’s generally no investor-compensation scheme. Only ever use MiCA-licensed platforms.</div>
+    <div class="card" style="overflow-x:auto;padding:12px">
+      <table id="cryptoTable"></table>
+    </div>
+    <p class="pill-note">Every figure here is illustrative and must be verified against each provider’s current pricing before real use. Exchanges shown are examples reported as MiCA-licensed and should be re-checked on the ESMA CASP register.</p>
+    <p class="disclaimer" id="disc5"></p>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+
+/* ---------------- storage (safe) ---------------- */
+var store = {
+  get: function(k,def){ try{ var v=localStorage.getItem(k); return v==null?def:JSON.parse(v);}catch(e){return def;} },
+  set: function(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+};
+var state = {
+  done: store.get('ni_done', []),      // array of lesson ids
+  persona: store.get('ni_persona', null),
+  streak: store.get('ni_streak', {count:0,last:null}), // {count, last:'YYYY-MM-DD'}
+  daily: store.get('ni_daily', {last:null}),           // {last:'YYYY-MM-DD'}
+  xp: store.get('ni_xp', 0),
+  badges: store.get('ni_badges', [])                   // array of badge ids
+};
+
+/* ---------------- date + daily helpers ---------------- */
+function todayStr(){ var d=new Date(); return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+function yesterdayStr(){ var d=new Date(); d.setDate(d.getDate()-1); return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+function daySeed(str){ var h=0; for(var i=0;i<str.length;i++){ h=((h<<5)-h+str.charCodeAt(i))|0; } return Math.abs(h); }
+function fmtEur(n){ return '€'+Math.round(n).toLocaleString('en-US'); }
+
+/* ---------------- data ---------------- */
+var DISCLAIMER = 'Educational information, not personal financial advice. Investing involves risk, including loss of the money you invest. Crypto is high-risk and can go to zero.';
+
+var QUIZ = [
+  {q:"When you think about investing or crypto, what’s your first reaction?",
+   o:["Nervous but curious","Excited to learn","Ready to dive in","I’ve already dabbled a bit"]},
+  {q:"Your investment drops 20% in a month. What’s your gut reaction?",
+   o:["Panic, want to sell","Uncomfortable, but I’d hold","Interesting, maybe buy more","Doesn’t bother me much"]},
+  {q:"How hands-on do you want to be?",
+   o:["Set it and forget it","Check in monthly","Like following markets regularly","Want full control over picks"]},
+  {q:"What’s your time horizon for this money?",
+   o:["Under 3 years","3–7 years","7+ years","Honestly not sure yet"]},
+  {q:"What’s pulling you toward this?",
+   o:["Grow savings safely","Beat inflation, build a habit","Learn a skill, get involved","Curiosity about stocks/crypto"]},
+  {q:"How much research do you want to do before buying?",
+   o:["None, just point me somewhere sensible","A little","A fair amount","A lot, I enjoy this part"]},
+  {q:"Which sounds most like you?",
+   o:["One simple, diversified fund","A small mix I understand well","Picking individual companies sometimes","Exploring crypto and newer assets too"]},
+  {q:"How would friends describe your risk approach in life?",
+   o:["Cautious","Balanced","Adventurous","Depends on the day"]}
+];
+
+var PERSONAS = {
+  A:{emoji:"🟢",name:"The Cautious Starter",
+     desc:"You want safety and simplicity above all, and there’s nothing wrong with that.",
+     approach:"People in this group often start with a single, globally diversified fund weighted toward stability, and build the habit before adding any risk. Crypto, if it appears at all, tends to be a tiny “learn with a few euros” amount, or skipped until they feel comfortable."},
+  B:{emoji:"🔵",name:"The Steady Builder",
+     desc:"You want to build wealth over the long term without obsessing over it day to day.",
+     approach:"People here commonly use a globally diversified index fund with monthly automatic contributions, and sometimes hold a small, clearly-bounded crypto slice kept separate from the core."},
+  C:{emoji:"🟠",name:"The Hands-On Explorer",
+     desc:"You enjoy research and want some control over where your money goes.",
+     approach:"People in this group often use a “core and satellite” shape: a solid index fund as the base, plus a smaller portion in individual stocks, sector ETFs, or a deliberately-sized crypto slice they’ve researched themselves."},
+  D:{emoji:"🟣",name:"The Curious Diversifier",
+     desc:"You’re interested in a bit of everything, including newer, higher-risk assets.",
+     approach:"People here often keep a diversified core, plus a small, clearly-bounded allocation to higher-volatility assets like crypto, framed explicitly as the “high risk, could go to zero” slice and held on a regulated, MiCA-licensed platform."}
+};
+
+var LESSONS = [
+  {id:"l1",pillar:"🌱 Foundations",crypto:false,title:"Why put your money to work",
+   core:"Cash slowly loses value to inflation, so investing is how people try to keep and grow what they have.",
+   reading:"<p>Money left as cash keeps its number but buys less over time, because prices rise. At 2–3% inflation a year, cash can lose roughly half its purchasing power over about 25 years. Doing nothing isn’t really “safe”, it’s a slow, invisible loss.</p><p>Investing tries to beat that by putting money into assets that can grow. Nothing is guaranteed and values move up and down, but the point isn’t to get rich quick. It’s to stop your savings shrinking and let time do the work.</p><p>That’s <b>compounding</b>: your returns earn their own returns, so growth stacks on growth. The biggest lever isn’t picking the perfect investment, it’s starting early and giving compounding years to work.</p>",
+   example:"Two friends invest €150/month at a 7% average return. Anna invests from 25 to 35 then stops (€18k in total). Ben invests from 35 to 65 (€54k in total). Anna often ends up with more (~€197k vs ~€183k), just because her money had an extra decade to compound.",
+   check:[
+    {q:"Why isn’t holding all your long-term savings as cash actually “safe”?",o:["Inflation slowly erodes its purchasing power","Banks are about to fail","The number in your account drops"],a:0,why:"The number stays the same, but it buys less over time."},
+    {q:"What makes compounding powerful?",o:["Returns earn their own returns over time","It guarantees you can’t lose money","It only works for the rich"],a:0,why:"Growth stacks on growth the longer you stay invested."}
+   ]},
+  {id:"l2",pillar:"🌱 Foundations",crypto:false,title:"Risk & time",
+   core:"Short-term ups and downs (volatility) are very different from permanent loss, and your time horizon decides which one matters.",
+   reading:"<p><b>Volatility</b> is the normal bouncing of prices. A broad market might drop 20% in a bad year and recover later. It feels scary, but for a long-term investor who doesn’t sell, it’s mostly noise.</p><p><b>Permanent loss</b> is money that doesn’t come back: a single company going bankrupt, or panic-selling at the bottom and locking in the loss. Volatility only becomes permanent if you’re forced or scared into selling low.</p><p>That’s why <b>time horizon</b> changes everything. Need the money in a year? A 20% drop is a real problem. Don’t need it for 20 years? You can ride it out. “Safe” depends on when you’ll spend it.</p>",
+   example:"In early 2020 markets fell fast. Someone near retirement who panic-sold turned a dip into a real loss. A 30-year-old who kept buying picked up shares cheaply and was ahead within a couple of years. Same event, opposite outcomes.",
+   check:[
+    {q:"Volatility is…",o:["Temporary price movement that can recover","Money that’s gone forever"],a:0,why:"It only becomes permanent if you sell into it."},
+    {q:"Why does a 20% drop matter differently at 25 vs 60?",o:["Time horizon: a young investor can wait for recovery","Young people simply have more money","Markets treat ages differently"],a:0,why:"With time, a dip can even be a chance to buy cheaply."}
+   ]},
+  {id:"l3",pillar:"📈 Investing",crypto:false,title:"The building blocks",
+   core:"A few basics, shares, bonds, funds, ETFs and index funds, cover most of what beginners ever need.",
+   reading:"<p>A <b>share</b> is a tiny slice of a company. A <b>bond</b> is basically a loan to a government or company that pays interest. A <b>fund</b> is a basket that spreads your money across many investments at once. An <b>ETF</b> is a fund you buy and sell like a share.</p><p>An <b>index fund</b> simply mirrors a whole market instead of paying someone to pick winners. “Just buy the index” is common advice because most professional pickers don’t beat a broad index over the long run, and index funds cost far less. Instead of hunting for the needle, you buy the haystack.</p>",
+   example:"A single “world index” ETF can hold shares in over 1,500 companies across dozens of countries in one product. Buy it once and you own a sliver of hundreds of businesses, automatically diversified, no stock-picking needed.",
+   check:[
+    {q:"A single share vs an index fund?",o:["A share is one company; an index fund spreads across a whole market","They’re basically the same thing"],a:0,why:"The fund spreads your risk across many companies."},
+    {q:"Why is “just buy the index” common advice?",o:["Most active pickers don’t beat a broad index, and it’s cheaper","Because index funds guarantee a profit"],a:0,why:"Lower cost plus broad ownership tends to win over time."}
+   ]},
+  {id:"l4",pillar:"📈 Investing",crypto:false,title:"Diversification, fees & mistakes",
+   core:"Spreading money lowers risk, small fees compound into big money, and most beginner damage is self-inflicted.",
+   reading:"<p><b>Diversification</b> is the closest thing to a free lunch: own 500 companies and one going bust barely registers; own one and it can wipe you out. Spreading money means no single failure sinks you, and historically it hasn’t cost much growth.</p><p><b>Fees</b> are the quiet killer. 0.1% vs 1.5% a year feels tiny, but over decades it compounds against you into a large chunk of your final pot. <b>Common mistakes</b> are mostly behavioural: timing the market, chasing whatever went up, and panic-selling. The biggest threat to your returns is usually you.</p>",
+   example:"€10,000 invested for 30 years at the same 7% market return: with a 0.2% fee it grows to about €76k; with a 1.5% fee, about €52k. Same market, and fees quietly took roughly a third.",
+   check:[
+    {q:"Why is diversification a “free lunch”?",o:["It lowers risk without giving up much long-term return","Because it’s literally free to buy"],a:0,why:"No single failure can sink a spread-out portfolio."},
+    {q:"Why do small fees matter so much?",o:["They compound against you year after year","They’re charged every single day"],a:0,why:"A tiny percentage becomes huge over decades."}
+   ]},
+  {id:"l5",pillar:"📈 Investing",crypto:false,title:"Choosing a tool & your first investment",
+   core:"Different tools suit different people, and a first investment is simpler than it looks once you see the steps.",
+   reading:"<p>A <b>broker</b> lets you buy funds and shares yourself: lowest cost, most control. A <b>robo-advisor</b> builds and manages a portfolio for you automatically for a slightly higher fee. A <b>bank</b> product is familiar but often pricier. In the EU, what matters is that the provider is regulated and your assets sit under investor-protection schemes.</p><p>The steps: open an account, verify your ID (KYC), make a first deposit, place an order. A <b>market order</b> buys now at the current price; a <b>limit order</b> only buys at a price you set. Expect the value to wobble in the first weeks. That’s normal.</p>",
+   example:"Someone opens a regulated broker account, passes the ID check in a day, deposits €100, and buys €100 of a low-cost world index ETF. A week later it’s €98, then €103. Nothing’s wrong, they’ve simply started.",
+   check:[
+    {q:"Broker vs robo-advisor, the main trade-off?",o:["Broker is cheaper but you decide; robo manages it for a higher fee","Robo-advisors are unregulated"],a:0,why:"You’re trading control for convenience."},
+    {q:"Market order vs limit order?",o:["Market buys now at current price; limit only buys at a price you set","They’re the same thing"],a:0,why:"A limit order waits for your price; a market order doesn’t."}
+   ]},
+  {id:"l6",pillar:"₿ Crypto & blockchain",crypto:true,title:"What blockchain & crypto actually are",
+   core:"A blockchain is a shared record no single party controls; a crypto-asset is built on one, and what it is matters more than any price.",
+   reading:"<p>Strip the hype and a <b>blockchain</b> is a shared digital ledger copied across many computers, with no single owner, where past entries are very hard to change. A <b>cryptocurrency</b> is an asset that lives on one. Bitcoin was the first, designed to be scarce; Ethereum added programs called smart contracts.</p><p>The honest part: unlike a share, a crypto-asset usually represents no business, no profits and no cash flows. Its value comes from supply, demand and belief. That’s why it behaves so differently from stocks and can swing enormously. <b>Stablecoins</b> try to hold a steady value; <b>tokens</b> are everything else, some serious, many worthless.</p>",
+   example:"Think of a blockchain like a shared spreadsheet thousands of people hold identical copies of, where rows can be added by agreement but old ones can’t be edited, and nobody owns the document. Bitcoin is one such sheet tracking who holds how much.",
+   check:[
+    {q:"The defining feature of a blockchain?",o:["A shared record with no single owner, very hard to alter","A company that controls all crypto"],a:0,why:"No single party runs it, that’s the whole idea."},
+    {q:"How is a typical crypto-asset different from a share?",o:["It usually has no business, profits or cash flows behind it","It always pays a dividend"],a:0,why:"Its value comes from supply, demand and belief."}
+   ]},
+  {id:"l7",pillar:"₿ Crypto & blockchain",crypto:true,title:"Wallets, exchanges & staying safe",
+   core:"How you hold crypto is a real choice, and the biggest beginner danger is theft and scams, not price.",
+   reading:"<p><b>Custodial</b> means an exchange holds your crypto for you: convenient, but you’re trusting that platform, which is why we only mention MiCA-licensed ones. <b>Self-custody</b> means you hold your own keys: full control, full responsibility. Lose your recovery phrase and it’s gone forever, no reset, no helpline.</p><p>Crypto attracts fraud because transactions are usually irreversible. The classics: <b>seed-phrase theft</b> (never type your recovery phrase into a website or share it), <b>fake support</b> in DMs, <b>“guaranteed returns”</b> (always a scam), and <b>rug pulls</b>. Slow down, assume unsolicited messages are hostile, and never let urgency rush you.</p>",
+   example:"A beginner gets a DM from “official support” saying their wallet needs verifying, just enter your recovery phrase here. Doing that hands over the keys and empties the wallet in minutes. The rule is absolute: a recovery phrase is never entered anywhere except to restore your own wallet.",
+   check:[
+    {q:"“Not your keys, not your coins” means…",o:["If someone else holds your keys, you’re trusting them","You should never own crypto"],a:0,why:"Only self-custody gives full control, and full responsibility."},
+    {q:"If “support” asks for your recovery phrase, you should…",o:["Never share it, it’s always a scam","Share it if they seem official"],a:0,why:"No legitimate service ever asks for your recovery phrase."}
+   ]},
+  {id:"l8",pillar:"₿ Crypto & blockchain",crypto:true,title:"Risk, reward & a sensible slice",
+   core:"Crypto is genuinely high-risk with no safety net, so people who hold it keep it to a small, bounded slice they can afford to lose.",
+   reading:"<p>Being straight: crypto is highly volatile, it’s normal to fall 50%+, and individual tokens can go to zero. There’s generally no investor-compensation scheme, so if a platform fails or you’re defrauded there may be no recourse.</p><p>That doesn’t make it “bad”, it means it belongs in a different mental box from your core. Many people use a <b>core and satellite</b> idea: the bulk in a boring diversified core, and only a small bounded slice, an amount they could lose entirely without derailing their life, in higher-risk assets. The test people use: if this went to zero tomorrow, would it change my life? If yes, the slice is too big. Decide the size once, in the cold light of day, don’t top it up in a hype frenzy.</p>",
+   example:"Someone with €10,000 invested sets their crypto slice at 5% (€500) on a MiCA-licensed exchange, with €9,500 in a diversified index fund. Triples? Nice bonus. Goes to zero? It stings but changes nothing important. They chose the size once and don’t chase it.",
+   check:[
+    {q:"Why does crypto belong in a different “mental box”?",o:["Far more volatile, can go to zero, usually no compensation scheme","Because it’s guaranteed to grow"],a:0,why:"It’s exposure without betting your foundation on it."},
+    {q:"The test for whether a crypto slice is too big?",o:["If losing it entirely would change your life, it’s too big","If it’s more than one euro"],a:0,why:"Only hold what you can genuinely afford to lose."}
+   ]},
+  {id:"l9",pillar:"🧭 Capstone",crypto:false,title:"One portfolio, both worlds",
+   core:"Traditional investing and a bounded crypto slice fit in one simple plan, and success is mostly a few good habits repeated.",
+   reading:"<p>The <b>core and satellite</b> shape ties it together: a diversified low-cost core does the long-term work, and an optional small bounded satellite (individual picks or crypto) adds engagement without risking the plan. Your type leans this one way or another, but the shape is the same.</p><p>Then it’s habits: <b>dollar-cost averaging</b> (invest a fixed amount on a schedule, automatically), <b>rebalancing</b> occasionally so a surging satellite doesn’t become an oversized risk, and <b>checking rarely</b>, because frequent checking tends to trigger emotional mistakes. Revisit your type every 6–12 months as your life changes.</p>",
+   example:"A Steady Builder sets up €200/month into a world index fund and €20/month into a MiCA-licensed exchange for a small crypto slice (~9% of contributions). They rebalance once a year, check quarterly, and otherwise live their life. The boring monthly habit does the work.",
+   check:[
+    {q:"The “core + satellite” idea?",o:["A diversified core does the work; a small bounded satellite adds engagement","Put everything into crypto"],a:0,why:"The satellite is deliberately small and bounded."},
+    {q:"Why check your portfolio less often?",o:["Frequent checking tends to trigger emotional, ill-timed decisions","The app charges you per view"],a:0,why:"Set-and-mostly-forget beats constant fiddling."}
+   ]}
+];
+
+var BROKERS = [
+  ["DEGIRO","Self-directed broker","EU-regulated","Low per-trade fees*"],
+  ["Trade Republic","Broker / app","EU-regulated (BaFin)","Free ETF savings plans*"],
+  ["Scalable Capital","Broker + robo","EU-regulated","Flat-fee tiers*"],
+  ["BUX","Broker / app","EU-regulated","Commission-free core*"]
+];
+var CRYPTO = [
+  ["Bitvavo","Netherlands (AFM)*","Trading fees*"],
+  ["Finst","Netherlands (AFM)*","Trading fees*"],
+  ["Kraken","Luxembourg / Ireland*","Trading fees*"],
+  ["Coinbase","Luxembourg*","Trading fees*"],
+  ["Bitpanda","EU (Austria)*","Trading/spread*"]
+];
+
+/* ---------------- interactive tools data ---------------- */
+// which tool embeds in which lesson
+var LESSON_TOOLS = {l1:'compound', l4:'fee', l7:'scam', l8:'sandbox', l9:'allocation'};
+
+// tool registry for the hub grid + the mount dispatcher
+var TOOLS = [
+  {id:'compound',  ico:'📈', name:'Compound playground', desc:'Watch small monthly amounts snowball over time.', crypto:false, render:'renderCompound'},
+  {id:'fee',       ico:'🪙', name:'Fee eroder',          desc:'See how a tiny yearly fee quietly eats your returns.', crypto:false, render:'renderFeeEroder'},
+  {id:'scam',      ico:'🕵️', name:'Spot the scam',       desc:'Safe or scam? Train your eye on real crypto traps.', crypto:true,  render:'renderScam'},
+  {id:'sandbox',   ico:'🧪', name:'Portfolio sandbox',   desc:'Mix asset types, then stress-test them through history.', crypto:true, render:'renderSandbox'},
+  {id:'allocation',ico:'🍩', name:'Core + satellite',    desc:'Shape a core-and-satellite split and gut-check the risk.', crypto:true, render:'renderAllocation'}
+];
+
+// scam-spotting scenarios — teaches Lesson 7 red flags, names no assets
+var SCAM_SCENARIOS = [
+  {id:'s1', channel:'DM', from:'Wallet Support', isScam:true,
+   body:'⚠️ Your wallet flagged unusual activity. To secure it, verify your 12-word recovery phrase at wallet-verify-secure.net within 30 minutes or access will be locked.',
+   why:'No real service ever needs your recovery phrase — it IS your wallet. Urgency + a look-alike link are classic theft.',
+   flags:['Asks for your recovery phrase','Manufactured 30-minute urgency','Look-alike "verify" domain']},
+  {id:'s2', channel:'email', from:'ETF Broker', isScam:false,
+   body:'Your monthly statement is ready. Log in at your broker directly to view it. We will never ask for your password or 2FA code by email.',
+   why:'Neutral, no urgency, asks for nothing, and tells you to navigate to the site yourself. That is how legitimate messages read.',
+   flags:[]},
+  {id:'s3', channel:'DM', from:'CryptoKing_Signals', isScam:true,
+   body:'Send 0.1 ETH to this address and get 0.5 ETH back — guaranteed, today only. First 100 people. My followers are already 5x up. DM me GO.',
+   why:'"Send money, get more back guaranteed" is always a scam. No one gives away free returns; guaranteed multiples do not exist.',
+   flags:['"Guaranteed" returns','Send-to-receive-more trick','Fake scarcity ("first 100")']},
+  {id:'s4', channel:'popup', from:'Airdrop Claim', isScam:true,
+   body:'🎉 You are eligible for a 2,400 TOKEN airdrop! Connect your wallet and approve the transaction to claim before it expires.',
+   why:'"Approve" on a shady site can hand over spending permission for your funds. Unexpected airdrops that need approvals are a common drain.',
+   flags:['Unsolicited "you won" prize','Blind wallet-approve request','Countdown pressure']},
+  {id:'s5', channel:'email', from:'Exchange Security', isScam:false,
+   body:'A new device signed in to your account. If this was you, no action is needed. If not, reset your password from the app. We never include login links in these alerts.',
+   why:'Informational, gives a safe self-serve action, and explicitly avoids embedding a login link. Legitimate.',
+   flags:[]},
+  {id:'s6', channel:'DM', from:'Support Team ✅', isScam:true,
+   body:'Hi, saw your post about a stuck withdrawal. I can fix it — just share your seed phrase or screen-share and enter it so I can restore your balance.',
+   why:'Fake "support" that slides into your DMs after you post a problem. Real support never DMs first or asks for your seed phrase.',
+   flags:['Unsolicited support DM','Requests seed phrase','Screen-share to capture keys']},
+  {id:'s7', channel:'popup', from:'Trading Bot Pro', isScam:true,
+   body:'Our AI bot returns 3% DAILY with zero risk. Deposit €250 to activate. Withdraw anytime. Join 40,000 members compounding to millions.',
+   why:'"Zero risk" with fixed daily returns is mathematically impossible and a hallmark of Ponzi-style fraud.',
+   flags:['"Zero risk" + fixed daily %','Deposit-to-activate','Impossible compounding claim']},
+  {id:'s8', channel:'email', from:'Tax Refund Office', isScam:true,
+   body:'You are owed a €327.50 crypto tax refund. Confirm your exchange login and card details on the linked portal to release payment.',
+   why:'Refund bait that harvests your exchange login and card. Authorities do not process refunds through crypto login forms.',
+   flags:['Unexpected refund hook','Asks for exchange login','Collects card details']},
+  {id:'s9', channel:'DM', from:'Elon (giveaway)', isScam:true,
+   body:'To celebrate the launch I am giving back! Send any amount of ETH to the address below and it will be returned DOUBLED. Verified event.',
+   why:'The classic celebrity "double your crypto" giveaway. Impersonation + send-to-double is pure theft.',
+   flags:['Celebrity impersonation','Send-to-double promise','Irreversible one-way transfer']},
+  {id:'s10', channel:'email', from:'Your Broker', isScam:false,
+   body:'Reminder: your recurring €100 ETF savings-plan buys on the 1st. No action needed. Manage or pause it anytime from your account settings.',
+   why:'A routine confirmation of something you set up, with no request and a self-serve way to change it. Legitimate.',
+   flags:[]},
+  {id:'s11', channel:'popup', from:'New Coin Presale', isScam:true,
+   body:'🚀 Last chance! This coin is about to 100x. Presale ends in 09:58. Buy now before whales pump it — millionaires are being made TODAY.',
+   why:'Price-prediction hype, countdown, and FOMO with no substance. "About to 100x" is a manipulation tactic, not information.',
+   flags:['Price-prediction hype ("100x")','Countdown FOMO','"Buy before it moons" pressure']},
+  {id:'s12', channel:'DM', from:'Recruiter — remote job', isScam:true,
+   body:'Easy remote task: buy crypto with your own money, forward it to our vendor wallet, keep 10%. Start today, paid daily.',
+   why:'A money-mule / advance-fee scam dressed as a job. You front real money and are left holding the loss.',
+   flags:['"Use your own money first"','Forward funds to a stranger','Too-easy daily pay']}
+];
+
+// portfolio sandbox — illustrative yearly-return SEQUENCES per asset type (not predictions)
+var SANDBOX_SCENARIOS = [
+  {id:'good', name:'A good decade', desc:'Ten broadly rising years, the kind long-term investors hope for.',
+   ret:{index:[.14,.08,.11,.06,.16,.09,.12,.05,.13,.10], bonds:[.03,.02,.04,.03,.02,.03,.04,.02,.03,.03], crypto:[.60,.30,.90,-.20,.55,.40,.70,-.10,.35,.25]}},
+  {id:'crash', name:'A 2020-style crash + recovery', desc:'A sudden deep drop, then a climb back over the following years.',
+   ret:{index:[-.34,.16,.18,.12,-.08,.15,.10,.09,.11,.07], bonds:[.06,.04,.02,-.02,.03,.02,.03,.02,.02,.03], crypto:[-.55,.40,.80,-.30,.50,.30,-.15,.45,.20,.15]}},
+  {id:'lost', name:'A lost decade for stocks', desc:'A flat, choppy stretch where the market ends roughly where it started.',
+   ret:{index:[.05,-.12,.08,-.06,.10,-.15,.09,.04,-.08,.07], bonds:[.04,.05,.03,.04,.03,.05,.02,.03,.04,.03], crypto:[.20,-.40,.30,-.50,.25,-.30,.15,.10,-.20,.05]}},
+  {id:'cryptozero', name:'The crypto slice goes to zero', desc:'A reminder of Lesson 8: a single high-risk asset can simply not come back.',
+   ret:{index:[.09,.07,.11,.06,.08,.10,.05,.09,.07,.08], bonds:[.03,.03,.02,.03,.03,.02,.03,.03,.02,.03], crypto:[.40,-.50,-.60,-.70,-.80,-.90,-.95,-.99,-.99,-.99]}}
+];
+
+// glossary — plain-language, term -> definition
+var GLOSSARY = {
+  'inflation':'The slow rise in prices over time, which means the same €1 buys a little less each year.',
+  'compounding':'When your returns start earning their own returns, so growth stacks on growth the longer you stay invested.',
+  'volatility':'The normal up-and-down bouncing of prices. Temporary — it only becomes a real loss if you sell into it.',
+  'permanent loss':'Money that does not come back, e.g. a company going bankrupt or panic-selling at the bottom.',
+  'time horizon':'How long until you actually need the money. It changes what "safe" means for you.',
+  'share':'A tiny slice of ownership in a single company.',
+  'bond':'Essentially a loan to a government or company that pays you interest.',
+  'fund':'A basket that spreads your money across many investments at once.',
+  'ETF':'A fund you can buy and sell like a share, usually low-cost.',
+  'index fund':'A fund that simply mirrors a whole market instead of paying someone to pick winners.',
+  'diversification':'Spreading money across many holdings so no single failure can sink you.',
+  'expense ratio':'The yearly fee a fund charges, shown as a percentage of what you hold.',
+  'broker':'A platform that lets you buy funds and shares yourself — lowest cost, most control.',
+  'robo-advisor':'A service that builds and manages a portfolio for you automatically, for a slightly higher fee.',
+  'KYC':'"Know Your Customer" — the ID check a regulated platform runs before you can invest.',
+  'market order':'An order that buys now at the current price.',
+  'limit order':'An order that only buys at a price you set.',
+  'blockchain':'A shared digital ledger copied across many computers, with no single owner, where past entries are very hard to change.',
+  'cryptocurrency':'A digital asset that lives on a blockchain; unlike a share it usually has no business or cash flows behind it.',
+  'stablecoin':'A crypto-asset that tries to hold a steady value, often pegged to a currency.',
+  'custodial':'When an exchange holds your crypto for you — convenient, but you are trusting that platform.',
+  'self-custody':'When you hold your own keys — full control, and full responsibility.',
+  'recovery phrase':'The secret word list that restores a self-custody wallet. Anyone who has it controls the funds — never share it.',
+  'MiCA':'The EU’s Markets in Crypto-Assets regulation; a licensed platform under it is a regulated CASP.',
+  'dollar-cost averaging':'Investing a fixed amount on a regular schedule, automatically, whatever the price.',
+  'rebalancing':'Occasionally trimming what has grown too big so your risk stays where you intended.',
+  'core and satellite':'A boring diversified core doing the long-term work, plus a small bounded satellite for engagement.'
+};
+
+// daily questions — rotated deterministically by date
+var DAILY_CARDS = [
+  {q:'Cash sitting idle for 20 years is "safe" because the number never drops.', a:false, why:'Inflation quietly erodes what that cash can buy — doing nothing is a slow, invisible loss.'},
+  {q:'A 20% drop matters far less to a 25-year-old with a long time horizon than to someone retiring next year.', a:true, why:'With decades to recover, volatility is mostly noise; near retirement it can be a real problem.'},
+  {q:'Most professional stock-pickers beat a broad, low-cost index fund over the long run.', a:false, why:'Most do not, which is why "just buy the index" is such common advice.'},
+  {q:'A 1.5% yearly fee versus 0.2% can quietly cost you a third of your final pot over decades.', a:true, why:'Small fees compound against you year after year.'},
+  {q:'A legitimate support agent might ask for your recovery phrase to help fix your wallet.', a:false, why:'Never. The recovery phrase IS the wallet — no real service ever asks for it.'},
+  {q:'Diversification lowers risk without giving up much long-term return.', a:true, why:'It is the closest thing to a free lunch in investing.'},
+  {q:'A typical crypto-asset represents ownership of a business with profits, like a share does.', a:false, why:'Most have no business or cash flows — value comes from supply, demand and belief.'},
+  {q:'"Only invest what you can afford to lose" is the literal rule for a crypto slice, not a cliché.', a:true, why:'There is generally no compensation scheme; the slice should be small and bounded.'},
+  {q:'Checking your portfolio constantly tends to improve your returns.', a:false, why:'Frequent checking usually triggers emotional, ill-timed decisions.'},
+  {q:'Dollar-cost averaging means investing a fixed amount on a schedule, whatever the price.', a:true, why:'It turns investing into a boring, automatic habit — which is the point.'}
+];
+
+// badges — {id, ico, name, test(state)->bool}
+var BADGES = [
+  {id:'firststep', ico:'🌱', name:'First step',      test:function(){return state.done.length>=1;}},
+  {id:'foundations', ico:'🧱', name:'Foundations',   test:function(){return state.done.indexOf('l1')>-1 && state.done.indexOf('l2')>-1;}},
+  {id:'graduate', ico:'🎓', name:'Graduate',         test:function(){return state.done.length>=LESSONS.length;}},
+  {id:'scamsleuth', ico:'🕵️', name:'Scam sleuth',    test:function(){return state.badges.indexOf('scamsleuth')>-1;}}, // awarded on a perfect scam round
+  {id:'weekstreak', ico:'🔥', name:'7-day streak',   test:function(){return (state.streak&&state.streak.count>=7);}},
+  {id:'tinkerer', ico:'🛠️', name:'Tinkerer',        test:function(){return state.badges.indexOf('tinkerer')>-1;}} // awarded on first tool use
+];
+
+/* ---------------- navigation ---------------- */
+function go(name){
+  document.querySelectorAll('.view').forEach(function(v){v.classList.add('hide');});
+  document.getElementById('view-'+name).classList.remove('hide');
+  window.scrollTo(0,0);
+  if(name==='home') renderHome();
+  if(name==='lessons') renderLessons();
+  if(name==='compare') renderCompare();
+  if(name==='tools') renderTools();
+}
+
+/* ---------------- home ---------------- */
+function renderHome(){
+  var n = state.done.length, pct = Math.round(n/LESSONS.length*100);
+  document.getElementById('progBar').style.width = pct+'%';
+  document.getElementById('progText').textContent = n+' of '+LESSONS.length+' lessons done';
+  document.getElementById('streak').textContent = '🔥 '+(state.streak.count||0);
+  document.getElementById('xpVal').textContent = state.xp||0;
+  var pl = document.getElementById('personaLine');
+  if(state.persona){ pl.classList.remove('hide'); pl.innerHTML = PERSONAS[state.persona].emoji+' You’re '+PERSONAS[state.persona].name; }
+  else pl.classList.add('hide');
+  document.getElementById('homeCta').textContent = state.persona ? 'Retake the type quiz' : 'Find your investor type';
+  renderDaily();
+  renderBadges();
+}
+function startQuizOrLessons(){ startQuiz(); }
+
+/* ---------------- quiz ---------------- */
+var quizAnswers = [];
+var quizI = 0;
+function startQuiz(){ quizAnswers=[]; quizI=0; go('quiz'); renderQuiz(); }
+function renderQuiz(){
+  var item = QUIZ[quizI];
+  document.getElementById('quizProg').textContent = 'Question '+(quizI+1)+' of '+QUIZ.length;
+  document.getElementById('quizBar').style.width = Math.round(quizI/QUIZ.length*100)+'%';
+  document.getElementById('quizQ').textContent = item.q;
+  var box = document.getElementById('quizOpts'); box.innerHTML='';
+  var letters=['A','B','C','D'];
+  item.o.forEach(function(text,idx){
+    var b=document.createElement('button'); b.className='opt'; b.textContent=text;
+    b.onclick=function(){ quizAnswers[quizI]=letters[idx]; quizI++;
+      if(quizI<QUIZ.length){ renderQuiz(); } else { finishQuiz(); } };
+    box.appendChild(b);
+  });
+}
+function finishQuiz(){
+  var tally={A:0,B:0,C:0,D:0};
+  quizAnswers.forEach(function(l){ tally[l]++; });
+  var best='B', bestN=-1;
+  ['A','B','C','D'].forEach(function(k){ if(tally[k]>bestN){bestN=tally[k];best=k;} });
+  // tie handling: if the top is tied, default to B (Steady Builder)
+  var top=Math.max(tally.A,tally.B,tally.C,tally.D);
+  var tied=['A','B','C','D'].filter(function(k){return tally[k]===top;});
+  if(tied.length>1){ best = tied.indexOf('B')>-1 ? 'B' : tied[0]; }
+  state.persona=best; store.set('ni_persona',best);
+  var p=PERSONAS[best];
+  document.getElementById('pEmoji').textContent=p.emoji;
+  document.getElementById('pName').textContent=p.name;
+  document.getElementById('pDesc').textContent=p.desc;
+  document.getElementById('pApproach').textContent=p.approach;
+  go('result');
+}
+
+/* ---------------- lessons list ---------------- */
+function renderLessons(){
+  var list=document.getElementById('lessonsList'); list.innerHTML='';
+  var pillars=[]; LESSONS.forEach(function(l){ if(pillars.indexOf(l.pillar)<0)pillars.push(l.pillar); });
+  var doneCount=state.done.length;
+  document.getElementById('lessonsBar').style.width=Math.round(doneCount/LESSONS.length*100)+'%';
+  pillars.forEach(function(pl){
+    var group=LESSONS.filter(function(l){return l.pillar===pl;});
+    var h=document.createElement('div'); h.className='pillar-h';
+    var dn=group.filter(function(l){return state.done.indexOf(l.id)>-1;}).length;
+    h.innerHTML=pl+' <span class="cnt">'+dn+'/'+group.length+'</span>'; list.appendChild(h);
+    group.forEach(function(l){
+      var idx=LESSONS.indexOf(l);
+      var unlocked = idx===0 || state.done.indexOf(LESSONS[idx-1].id)>-1 || state.done.indexOf(l.id)>-1;
+      var done=state.done.indexOf(l.id)>-1;
+      var b=document.createElement('button'); b.className='lrow'+(done?' done':''); b.disabled=!unlocked;
+      b.innerHTML='<span class="badge">'+(done?'✓':(idx+1))+'</span><span><span class="t">'+l.title+'</span><span class="d">'+(unlocked?(done?'Completed':'Tap to start'):'Finish the previous lesson first')+'</span></span><span class="chev">›</span>';
+      if(unlocked) b.onclick=function(){ openLesson(l.id); };
+      list.appendChild(b);
+    });
+  });
+}
+
+/* ---------------- single lesson ---------------- */
+var currentLesson=null, checkState=[];
+function openLesson(id){
+  var l=LESSONS.filter(function(x){return x.id===id;})[0]; currentLesson=l;
+  document.getElementById('lPillar').textContent=l.pillar;
+  document.getElementById('lTitle').textContent=l.title;
+  document.getElementById('lCore').textContent=l.core;
+  document.getElementById('lReading').innerHTML=l.reading;
+  linkifyGlossary(document.getElementById('lReading'));
+  document.getElementById('lExample').textContent=l.example;
+  document.getElementById('lRisk').classList.toggle('hide', !l.crypto);
+  // embed the matching interactive tool, if any
+  var mount=document.getElementById('lToolMount'); mount.innerHTML='';
+  var toolId=LESSON_TOOLS[l.id];
+  if(toolId){ var t=toolById(toolId); var box=document.createElement('div'); mount.appendChild(box); window[t.render](box); }
+  checkState=l.check.map(function(){return false;});
+  renderCheck();
+  document.getElementById('lDone').classList.add('hide');
+  go('lesson');
+}
+function renderCheck(){
+  var wrap=document.getElementById('lCheck'); wrap.innerHTML='';
+  currentLesson.check.forEach(function(c,ci){
+    var qd=document.createElement('div'); qd.style.marginBottom='18px';
+    var qn=document.createElement('div'); qn.className='qnum'; qn.textContent='Question '+(ci+1); qd.appendChild(qn);
+    var qq=document.createElement('div'); qq.style.fontWeight='700'; qq.style.marginBottom='10px'; qq.textContent=c.q; qd.appendChild(qq);
+    c.o.forEach(function(text,oi){
+      var b=document.createElement('button'); b.className='opt'; b.textContent=text;
+      b.onclick=function(){ answerCheck(ci,oi,qd,c); };
+      qd.appendChild(b);
+    });
+    var fb=document.createElement('div'); fb.className='feedback'; fb.id='fb'+ci; qd.appendChild(fb);
+    wrap.appendChild(qd);
+  });
+}
+function answerCheck(ci,oi,qd,c){
+  if(checkState[ci]) return; // already answered
+  var opts=qd.querySelectorAll('.opt');
+  opts.forEach(function(b,i){
+    b.style.pointerEvents='none';
+    if(i===c.a) b.classList.add('correct');
+    else if(i===oi) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+  var fb=document.getElementById('fb'+ci);
+  var ok = oi===c.a;
+  fb.className='feedback show '+(ok?'ok':'no');
+  fb.textContent=(ok?'✓ Right. ':'Not quite. ')+c.why;
+  checkState[ci]=true;
+  if(checkState.every(Boolean)) document.getElementById('lDone').classList.remove('hide');
+}
+function finishLesson(){
+  if(state.done.indexOf(currentLesson.id)<0){
+    state.done.push(currentLesson.id); store.set('ni_done',state.done);
+    awardXp(20); bumpStreak(); checkBadges();
+  }
+  go('lessons');
+}
+
+/* ---------------- comparison ---------------- */
+function renderCompare(){
+  var bt=document.getElementById('brokerTable');
+  bt.innerHTML='<tr><th>Provider</th><th>Type</th><th>Regulation</th><th>Cost*</th></tr>'+
+    BROKERS.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>';}).join('');
+  var ct=document.getElementById('cryptoTable');
+  ct.innerHTML='<tr><th>Exchange</th><th>CASP licence*</th><th>Cost*</th></tr>'+
+    CRYPTO.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';}).join('');
+}
+
+/* ================= interactive tools ================= */
+/* -- tiny DOM + format helpers -- */
+function el(tag,cls,text){ var e=document.createElement(tag); if(cls)e.className=cls; if(text!=null)e.textContent=text; return e; }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function slug(s){ return String(s).replace(/[^a-z0-9]+/gi,'-'); }
+function toolById(id){ return TOOLS.filter(function(t){return t.id===id;})[0]; }
+function badgeById(id){ return BADGES.filter(function(b){return b.id===id;})[0]; }
+function addSlider(ctr,label,min,max,step,val,fmt,onchange){
+  var w=el('div','slider');
+  var lab=document.createElement('label'); lab.appendChild(el('span',null,label));
+  var vv=el('span','val'); lab.appendChild(vv); w.appendChild(lab);
+  var inp=document.createElement('input'); inp.type='range'; inp.min=min; inp.max=max; inp.step=step; inp.value=val;
+  vv.textContent=fmt(val);
+  inp.oninput=function(){ vv.textContent=fmt(+inp.value); onchange(+inp.value); markToolUsed(); };
+  w.appendChild(inp); ctr.appendChild(w); return inp;
+}
+
+/* -- SVG chart builders (no library) -- */
+function buildLine(series){
+  var W=340,H=160,padL=4,padR=4,padT=8,padB=16, maxV=0, maxLen=0;
+  series.forEach(function(s){ maxLen=Math.max(maxLen,s.v.length); s.v.forEach(function(y){ if(y>maxV)maxV=y; }); });
+  if(maxV<=0)maxV=1;
+  var iw=W-padL-padR, ih=H-padT-padB;
+  function X(i,len){ return padL+(len<=1?0:i/(len-1))*iw; }
+  function Y(y){ return padT+ih-(y/maxV)*ih; }
+  var svg='<svg class="chart" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" role="img" aria-label="chart">';
+  svg+='<line class="grid" x1="'+padL+'" y1="'+(padT+ih)+'" x2="'+(W-padR)+'" y2="'+(padT+ih)+'"/>';
+  series.forEach(function(s){
+    var pts=s.v.map(function(y,i){ return X(i,s.v.length).toFixed(1)+','+Y(y).toFixed(1); });
+    if(s.area){ svg+='<polygon class="area" points="'+padL+','+(padT+ih)+' '+pts.join(' ')+' '+X(s.v.length-1,s.v.length).toFixed(1)+','+(padT+ih)+'"/>'; }
+    svg+='<polyline class="'+(s.cls||'line')+'" points="'+pts.join(' ')+'"/>';
+  });
+  return svg+'</svg>';
+}
+function buildDonut(segs){
+  var R=52,C=2*Math.PI*R,sw=18, total=0; segs.forEach(function(s){ total+=s.v; }); if(total<=0)total=1;
+  var off=0,out='';
+  segs.forEach(function(s){ var len=s.v/total*C;
+    out+='<circle cx="60" cy="60" r="'+R+'" fill="none" stroke="'+s.color+'" stroke-width="'+sw+'" stroke-dasharray="'+len.toFixed(2)+' '+(C-len).toFixed(2)+'" stroke-dashoffset="'+(-off).toFixed(2)+'" transform="rotate(-90 60 60)"/>';
+    off+=len; });
+  return '<svg class="donut" width="120" height="120" viewBox="0 0 120 120" aria-hidden="true">'+out+'</svg>';
+}
+function fvSeries(pmt,years,ratePct){ var r=ratePct/100/12, bal=0, arr=[0]; for(var m=1;m<=years*12;m++){ bal=bal*(1+r)+pmt; if(m%12===0)arr.push(bal); } return arr; }
+
+/* -- tools hub -- */
+function renderTools(){
+  var grid=document.getElementById('toolsGrid'); grid.innerHTML='';
+  TOOLS.forEach(function(t){
+    var b=el('button','tool-card');
+    b.innerHTML='<span class="ico">'+t.ico+'</span><span class="tt">'+t.name+'</span><span class="td">'+t.desc+'</span>'+(t.crypto?'<span class="td" style="color:var(--amber)">⚠️ crypto · high-risk</span>':'');
+    b.onclick=function(){ openTool(t.id); };
+    grid.appendChild(b);
+  });
+  document.getElementById('toolStage').innerHTML='';
+}
+function openTool(id){
+  var t=toolById(id), stage=document.getElementById('toolStage'); stage.innerHTML='';
+  stage.appendChild(el('h2',null,t.ico+' '+t.name));
+  if(t.crypto){ var r=el('div','risk','⚠️ Crypto is high-risk and can go to zero. Illustrative only — no coin names, no predictions.'); stage.appendChild(r); }
+  var box=el('div'); stage.appendChild(box); window[t.render](box);
+  markToolUsed(); stage.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* -- 1. compound playground -- */
+function renderCompound(mount){
+  var s={pmt:150,yrs:25,rate:7}; mount.innerHTML='';
+  var box=el('div','tool');
+  box.appendChild(el('div','tool-head','📈 Compound playground'));
+  box.appendChild(el('div','tool-sub','Drag the sliders. Watch how a steady monthly amount can snowball as its returns start earning returns.'));
+  var ctr=el('div'); box.appendChild(ctr); var out=el('div'); box.appendChild(out);
+  box.appendChild(el('div','tool-note','Illustrative only. Assumes a constant average return compounded monthly; real returns vary year to year and can be negative. Not a projection of any specific product.'));
+  mount.appendChild(box);
+  addSlider(ctr,'Monthly amount',10,1000,10,s.pmt,function(v){return fmtEur(v);},function(v){s.pmt=v;draw();});
+  addSlider(ctr,'Years invested',1,40,1,s.yrs,function(v){return v+' yr';},function(v){s.yrs=v;draw();});
+  addSlider(ctr,'Average return / yr',0,12,0.5,s.rate,function(v){return v+'%';},function(v){s.rate=v;draw();});
+  function draw(){
+    var arr=fvSeries(s.pmt,s.yrs,s.rate), end=arr[arr.length-1], contrib=s.pmt*s.yrs*12, growth=Math.max(0,end-contrib);
+    out.innerHTML=buildLine([{v:arr,cls:'line',area:true}])+
+      '<div class="stat-row"><div class="stat"><div class="k">You put in</div><div class="v">'+fmtEur(contrib)+'</div></div>'+
+      '<div class="stat"><div class="k">Growth</div><div class="v">'+fmtEur(growth)+'</div></div>'+
+      '<div class="stat"><div class="k">Ends near</div><div class="v">'+fmtEur(end)+'</div></div></div>';
+  }
+  draw();
+}
+
+/* -- 2. fee eroder -- */
+function renderFeeEroder(mount){
+  var s={fee:1.0,yrs:30}, LUMP=10000, GROSS=7; mount.innerHTML='';
+  var box=el('div','tool');
+  box.appendChild(el('div','tool-head','🪙 Fee eroder'));
+  box.appendChild(el('div','tool-sub','A tiny yearly fee feels harmless. Over decades it quietly compounds against you. (Illustrative '+fmtEur(LUMP)+' at a '+GROSS+'% gross return.)'));
+  var ctr=el('div'); box.appendChild(ctr); var out=el('div'); box.appendChild(out);
+  box.appendChild(el('div','tool-note','Illustrative only. Fixed lump sum and a constant gross return, for comparison; real returns and fee structures vary. Not advice on any specific product.'));
+  mount.appendChild(box);
+  addSlider(ctr,'Yearly fee',0,2,0.1,s.fee,function(v){return (+v).toFixed(1)+'%';},function(v){s.fee=v;draw();});
+  addSlider(ctr,'Years invested',5,40,1,s.yrs,function(v){return v+' yr';},function(v){s.yrs=v;draw();});
+  function feeBar(cls,cap,val,maxV){ return '<div class="fbar '+cls+'"><span class="cap">'+cap+'</span><span class="track"><span class="fill" style="width:'+Math.round(val/maxV*100)+'%"></span></span><span class="amt">'+fmtEur(val)+'</span></div>'; }
+  function draw(){
+    var low=LUMP*Math.pow(1+(GROSS-0.2)/100,s.yrs), ch=LUMP*Math.pow(1+(GROSS-s.fee)/100,s.yrs), lost=Math.max(0,low-ch), maxV=Math.max(low,ch);
+    out.innerHTML='<div class="fbars">'+feeBar('lo','Low-cost 0.2%',low,maxV)+feeBar('hi',(+s.fee).toFixed(1)+'% fee',ch,maxV)+'</div>'+
+      '<div class="stat-row"><div class="stat warn"><div class="k">Fees quietly took</div><div class="v">'+fmtEur(lost)+'</div></div>'+
+      '<div class="stat"><div class="k">That’s of</div><div class="v">'+fmtEur(low)+'</div></div></div>';
+  }
+  draw();
+}
+
+/* -- 3. spot the scam -- */
+function renderScam(mount){
+  var n=SCAM_SCENARIOS.length, start=daySeed(todayStr())%n;
+  var order=[]; for(var k=0;k<n;k++){ order.push((start+k)%n); }
+  var i=0,score=0,answered=false; mount.innerHTML='';
+  var box=el('div','tool');
+  box.appendChild(el('div','tool-head','🕵️ Spot the scam'));
+  box.appendChild(el('div','tool-sub','Safe or scam? Decide, then see the red flags. This is about the traps — it names no coins and predicts no prices.'));
+  var scoreEl=el('div','scam-score'); box.appendChild(scoreEl);
+  var stage=el('div'); box.appendChild(stage);
+  box.appendChild(el('div','tool-note','Educational scenarios modelled on common real-world crypto scams. Rule of thumb: anything asking for your recovery phrase, or promising guaranteed returns, is a scam.'));
+  mount.appendChild(box);
+  function renderOne(){
+    answered=false; var sc=SCAM_SCENARIOS[order[i]];
+    scoreEl.textContent='Message '+(i+1)+' of '+n+' · score '+score;
+    var chLabel={DM:'Direct message',email:'Email',popup:'Pop-up'}[sc.channel]||sc.channel;
+    stage.innerHTML='<div class="msg-card"><div class="msg-head"><span class="av">'+esc(sc.from.slice(0,1).toUpperCase())+'</span><span class="who">'+esc(sc.from)+'</span><span class="ch">'+chLabel+'</span></div><div class="msg-body">'+esc(sc.body)+'</div></div>'+
+      '<div class="row"><button class="opt" style="text-align:center" data-a="safe">✅ Safe</button><button class="opt" style="text-align:center" data-a="scam">🚩 Scam</button></div>'+
+      '<div class="feedback" id="scamFb"></div>';
+    stage.querySelectorAll('[data-a]').forEach(function(b){ b.onclick=function(){ answer(b.getAttribute('data-a'),sc); }; });
+  }
+  function answer(choice,sc){
+    if(answered)return; answered=true; markToolUsed();
+    var said=(choice==='scam'), ok=(said===sc.isScam); if(ok)score++;
+    stage.querySelectorAll('[data-a]').forEach(function(b){ b.style.pointerEvents='none'; var v=b.getAttribute('data-a');
+      if((v==='scam')===sc.isScam) b.classList.add('correct'); else if((v==='scam')===said) b.classList.add('wrong'); else b.classList.add('dim'); });
+    var flags=sc.flags.length?'<ul class="flags">'+sc.flags.map(function(f){return '<li>'+esc(f)+'</li>';}).join('')+'</ul>':'';
+    var fb=document.getElementById('scamFb'); fb.className='feedback show '+(ok?'ok':'no');
+    fb.innerHTML='<b>'+(ok?'✓ Correct — ':'✕ Not quite — ')+(sc.isScam?'this is a scam.':'this one is safe.')+'</b><br>'+esc(sc.why)+flags;
+    scoreEl.textContent='Message '+(i+1)+' of '+n+' · score '+score;
+    var nx=el('button','btn primary',(i+1<n)?'Next message →':'See results'); nx.style.marginTop='12px';
+    nx.onclick=function(){ if(i+1<n){ i++; renderOne(); } else { finishRound(); } }; stage.appendChild(nx);
+  }
+  function finishRound(){
+    awardXp(10); var perfect=(score===n); if(perfect) grantBadge('scamsleuth'); checkBadges();
+    stage.innerHTML='<div class="callout eg" style="text-align:center"><div style="font-size:32px">'+(perfect?'🏆':'🕵️')+'</div><b>'+score+' / '+n+' correct</b><br>'+(perfect?'Perfect round — you spotted every trap.':'Good practice. The red flags repeat: recovery-phrase requests, guaranteed returns, urgency, and send-to-receive-more.')+'</div>';
+    var again=el('button','btn primary','Play again'); again.onclick=function(){ i=0;score=0;renderOne(); }; stage.appendChild(again);
+    scoreEl.textContent='Round complete · '+score+'/'+n;
+  }
+  renderOne();
+}
+
+/* -- 4. portfolio sandbox -- */
+function renderSandbox(mount){
+  var s={index:60,bonds:30,crypto:10,scen:'crash'}; mount.innerHTML='';
+  var box=el('div','tool');
+  box.appendChild(el('div','tool-head','🧪 Portfolio sandbox'));
+  box.appendChild(el('div','tool-sub','Mix asset types, then run the same mix through different illustrative decades. Feel how time and volatility interact.'));
+  var ctr=el('div'); box.appendChild(ctr);
+  var seg=el('div','seg-ctrl'); box.appendChild(seg); var out=el('div'); box.appendChild(out);
+  box.appendChild(el('div','tool-note','Illustrative, hypothetical return sequences — not historical data for any specific asset, not a forecast, and no coin is named. Real outcomes will differ.'));
+  mount.appendChild(box);
+  addSlider(ctr,'World index %',0,100,5,s.index,function(v){return v+'%';},function(v){s.index=v;draw();});
+  addSlider(ctr,'Bonds %',0,100,5,s.bonds,function(v){return v+'%';},function(v){s.bonds=v;draw();});
+  addSlider(ctr,'Crypto slice %',0,100,5,s.crypto,function(v){return v+'%';},function(v){s.crypto=v;draw();});
+  SANDBOX_SCENARIOS.forEach(function(sc){ var b=el('button',null,sc.name); b.onclick=function(){ s.scen=sc.id; syncSeg(); draw(); }; b.setAttribute('data-id',sc.id); seg.appendChild(b); });
+  function syncSeg(){ seg.querySelectorAll('button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-id')===s.scen); }); }
+  function draw(){
+    syncSeg();
+    var tot=s.index+s.bonds+s.crypto||1, sc=SANDBOX_SCENARIOS.filter(function(x){return x.id===s.scen;})[0], yrs=sc.ret.index.length;
+    var idx=100*s.index/tot, bnd=100*s.bonds/tot, cry=100*s.crypto/tot;
+    var path=[idx+bnd+cry], peak=path[0], maxdd=0;
+    for(var y=0;y<yrs;y++){ idx*=(1+sc.ret.index[y]); bnd*=(1+sc.ret.bonds[y]); cry*=(1+sc.ret.crypto[y]); var t=idx+bnd+cry; path.push(t); if(t>peak)peak=t; var dd=(peak-t)/peak; if(dd>maxdd)maxdd=dd; }
+    var end=path[path.length-1];
+    out.innerHTML=buildLine([{v:path,cls:'line',area:true}])+
+      '<div class="stat-row"><div class="stat"><div class="k">Start</div><div class="v">100</div></div>'+
+      '<div class="stat"><div class="k">After '+yrs+' yrs</div><div class="v">'+Math.round(end)+'</div></div>'+
+      '<div class="stat warn"><div class="k">Worst drop</div><div class="v">-'+Math.round(maxdd*100)+'%</div></div></div>'+
+      '<div class="pill-note">'+esc(sc.desc)+' · Weights shown are normalised to 100%.</div>';
+  }
+  draw();
+}
+
+/* -- 5. core + satellite allocation -- */
+function renderAllocation(mount){
+  var s={core:70,sat:20,crypto:10}; mount.innerHTML='';
+  var box=el('div','tool');
+  box.appendChild(el('div','tool-head','🍩 Core + satellite'));
+  box.appendChild(el('div','tool-sub','Shape a core-and-satellite split and read the honest gut-check on your crypto slice.'));
+  var ctr=el('div'); box.appendChild(ctr); var out=el('div'); box.appendChild(out);
+  box.appendChild(el('div','tool-note','Illustrative shapes in percentages only — it never uses your real money, income or savings, and is not a recommendation to hold any particular mix.'));
+  mount.appendChild(box);
+  addSlider(ctr,'Diversified core %',0,100,5,s.core,function(v){return v+'%';},function(v){s.core=v;draw();});
+  addSlider(ctr,'Satellite (stocks/sector) %',0,100,5,s.sat,function(v){return v+'%';},function(v){s.sat=v;draw();});
+  addSlider(ctr,'Crypto slice %',0,100,5,s.crypto,function(v){return v+'%';},function(v){s.crypto=v;draw();});
+  function draw(){
+    var tot=s.core+s.sat+s.crypto||1, c=s.core/tot*100, sa=s.sat/tot*100, cr=s.crypto/tot*100;
+    var legend='<ul class="legend"><li><span class="sw" style="background:var(--green)"></span>Diversified core<span class="lv">'+Math.round(c)+'%</span></li>'+
+      '<li><span class="sw" style="background:var(--amber)"></span>Satellite<span class="lv">'+Math.round(sa)+'%</span></li>'+
+      '<li><span class="sw" style="background:var(--red)"></span>Crypto slice<span class="lv">'+Math.round(cr)+'%</span></li></ul>';
+    var msg = cr<=5 ? 'A small, bounded crypto slice — the shape most long-term plans use. If it went to zero, the plan barely notices.'
+      : cr<=20 ? 'A noticeable but still-bounded crypto slice. Worth asking Lesson 8’s question honestly before you size it.'
+      : 'That’s a large high-risk slice. Lesson 8’s test: if it went to zero tomorrow, would it change your life? If yes, it’s too big.';
+    out.innerHTML='<div class="donut-wrap">'+buildDonut([{v:c,color:'var(--green)'},{v:sa,color:'var(--amber)'},{v:cr,color:'var(--red)'}])+legend+'</div>'+
+      '<div class="'+(cr>20?'risk':'callout eg')+'">'+msg+'</div>';
+  }
+  draw();
+}
+
+/* -- 8. glossary linkify -- */
+function linkifyGlossary(root){
+  var html=root.innerHTML;
+  Object.keys(GLOSSARY).sort(function(a,b){return b.length-a.length;}).forEach(function(term){
+    var re=new RegExp('(?![^<]*>)\\b('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')\\b','i');
+    if(re.test(html)) html=html.replace(re,'<button class="term" data-term="'+esc(term)+'" onclick="toggleGloss(this)">$1</button>');
+  });
+  root.innerHTML=html;
+}
+function toggleGloss(btn){
+  var term=btn.getAttribute('data-term'), id='gd-'+slug(term), open=document.getElementById(id);
+  document.querySelectorAll('.gloss-def').forEach(function(e){e.remove();});
+  if(open) return; // was open -> now closed
+  var def=el('span','gloss-def'); def.id=id; def.style.display='block'; def.innerHTML='<b>'+esc(term)+':</b> '+esc(GLOSSARY[term]);
+  btn.parentNode.insertBefore(def,btn.nextSibling);
+}
+
+/* -- 6. daily card + streak -- */
+function renderDaily(){
+  var body=document.getElementById('dailyBody'); if(!body)return;
+  var card=DAILY_CARDS[daySeed(todayStr())%DAILY_CARDS.length];
+  if(state.daily.last===todayStr()){
+    body.innerHTML='<div class="qtxt">✓ Done for today — come back tomorrow to keep the streak going.</div><div class="pill-note">Current streak: 🔥 '+(state.streak.count||0)+'</div>';
+    return;
+  }
+  body.innerHTML='<div class="qtxt">'+esc(card.q)+'</div>';
+  var row=el('div','row');
+  [['True',true],['False',false]].forEach(function(p){ var b=el('button','btn ghost',p[0]); b.onclick=function(){ answerDaily(p[1],card); }; row.appendChild(b); });
+  body.appendChild(row); body.appendChild(el('div','feedback')).id='dailyFb';
+}
+function answerDaily(val,card){
+  if(state.daily.last===todayStr())return;
+  var ok=(val===card.a), fb=document.getElementById('dailyFb');
+  fb.className='feedback show '+(ok?'ok':'no'); fb.textContent=(ok?'✓ Right. ':'Not quite. ')+card.why;
+  document.querySelectorAll('#dailyBody .btn').forEach(function(b){ b.disabled=true; });
+  state.daily={last:todayStr()}; store.set('ni_daily',state.daily);
+  awardXp(5); bumpStreak(); checkBadges();
+}
+
+/* -- gamification core -- */
+function awardXp(n){ state.xp=(state.xp||0)+n; store.set('ni_xp',state.xp); var v=document.getElementById('xpVal'); if(v)v.textContent=state.xp; }
+function bumpStreak(){
+  var t=todayStr(), y=yesterdayStr(), s=state.streak||{count:0,last:null};
+  if(s.last===t) return;
+  s.count=(s.last===y)?(s.count||0)+1:1; s.last=t; state.streak=s; store.set('ni_streak',s);
+  var el2=document.getElementById('streak'); if(el2) el2.textContent='🔥 '+s.count;
+}
+function grantBadge(id){
+  if(state.badges.indexOf(id)>-1) return false;
+  state.badges.push(id); store.set('ni_badges',state.badges);
+  var b=badgeById(id); toast((b?b.ico+' ':'')+'Badge unlocked: '+(b?b.name:id)); renderBadges(); return true;
+}
+function checkBadges(){ BADGES.forEach(function(b){ try{ if(b.test() && state.badges.indexOf(b.id)<0) grantBadge(b.id); }catch(e){} }); }
+function markToolUsed(){ grantBadge('tinkerer'); }
+function renderBadges(){
+  var strip=document.getElementById('badgeStrip'); if(!strip)return; strip.innerHTML='';
+  BADGES.forEach(function(b){ var owned=state.badges.indexOf(b.id)>-1; var c=el('span','bchip'+(owned?'':' locked')); c.innerHTML=b.ico+' '+esc(b.name); strip.appendChild(c); });
+}
+var _toastT=null;
+function toast(msg){ var t=document.getElementById('toast'); if(!t)return; t.textContent=msg; t.classList.add('show'); if(_toastT)clearTimeout(_toastT); _toastT=setTimeout(function(){ t.classList.remove('show'); },2600); }
+
+/* ---------------- init ---------------- */
+['disc','disc2','disc3','disc4','disc5','disc6'].forEach(function(id){var e=document.getElementById(id); if(e)e.textContent=DISCLAIMER;});
+checkBadges();
+renderHome();
+</script>
+</body>
+</html>
