@@ -52,6 +52,9 @@
   .prog > i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .4s}
 
   /* pillar + lesson list */
+  .wontdo-list{list-style:none;display:grid;gap:7px;margin-top:4px}
+  .wontdo-list li{font-size:14px;color:var(--ink);padding-left:22px;position:relative}
+  .wontdo-list li::before{content:"✕";position:absolute;left:0;top:1px;color:var(--red);font-weight:800;font-size:12px}
   .pillar-h{font-weight:800;font-size:15px;margin:22px 0 10px;display:flex;align-items:center;gap:8px}
   .pillar-h .cnt{font-weight:600;color:var(--muted);font-size:13px}
   .lrow{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;cursor:pointer;box-shadow:var(--shadow);text-align:left;width:100%;color:inherit;font:inherit}
@@ -118,6 +121,17 @@
       <p class="lead">Short lessons that take you from “I don’t get any of this” to your first move, in stocks or crypto. No hype, no hot tips.</p>
       <button class="btn primary" onclick="startQuizOrLessons()" id="homeCta">Find your investor type</button>
       <button class="btn ghost" style="margin-top:10px" onclick="go('lessons')">Browse the lessons</button>
+    </div>
+
+    <div class="card">
+      <div class="kicker">What we'll never do</div>
+      <ul class="wontdo-list">
+        <li>No price predictions or "this coin is going to X"</li>
+        <li>No coin picks or "buy this" recommendations, ever</li>
+        <li>No leveraged trading tutorials or margin/futures content</li>
+        <li>No paid coin promotions or influencer partnerships</li>
+        <li>No "guaranteed returns" language, anywhere</li>
+      </ul>
     </div>
 
     <div class="card" id="progressCard">
