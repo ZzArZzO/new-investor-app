@@ -130,10 +130,13 @@
     /* ---------- WHY ---------- */
     .why p{font-size:17px;color:#33403a;margin-bottom:16px}
     .why strong{color:var(--ink)}
-    .wontdo{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:24px}
-    .wontdo-label{font-weight:800;font-size:15px;margin-bottom:12px;color:var(--ink)}
-    .wontdo ul{list-style:none;display:grid;gap:9px}
-    .wontdo li{font-size:15px;color:#33403a;padding-left:24px;position:relative}
+    .promise-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+    @media(max-width:640px){.promise-grid{grid-template-columns:1fr}}
+    .willdo,.wontdo{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+    .willdo-label,.wontdo-label{font-weight:800;font-size:15px;margin-bottom:12px;color:var(--ink)}
+    .willdo ul,.wontdo ul{list-style:none;display:grid;gap:9px}
+    .willdo li,.wontdo li{font-size:15px;color:#33403a;padding-left:24px;position:relative}
+    .willdo li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800;font-size:13px;top:2px}
     .wontdo li::before{content:"✕";position:absolute;left:0;color:var(--red, #c94b3b);font-weight:800;font-size:13px;top:2px}
 
     /* ---------- FINAL CTA ---------- */
@@ -217,15 +220,27 @@
       <p>This is the opposite: <strong>learn first, invest second</strong>, across <strong>both</strong> worlds. Understand the handful of ideas that matter, get a straight, no-hype take on crypto <em>including</em> the risks, decide what fits you, and take the first step feeling calm instead of anxious.</p>
       <p>It’s built around how this works in <strong>Europe</strong> specifically: the real tools, the protections, the fees, and only regulated, licensed platforms. Not a US app with the wrong currency.</p>
 
-      <div class="wontdo">
-        <p class="wontdo-label">What we’ll never do, so you don’t have to take our word for it</p>
-        <ul>
-          <li>No price predictions or “this coin is going to X”</li>
-          <li>No coin picks or “buy this” recommendations, ever</li>
-          <li>No leveraged trading tutorials or margin/futures content</li>
-          <li>No paid coin promotions or influencer partnerships</li>
-          <li>No “guaranteed returns” language, anywhere</li>
-        </ul>
+      <div class="promise-grid">
+        <div class="wontdo">
+          <p class="wontdo-label">What we’ll never do</p>
+          <ul>
+            <li>No price predictions or “this coin is going to X”</li>
+            <li>No coin picks or “buy this” recommendations, ever</li>
+            <li>No leveraged trading tutorials or margin/futures content</li>
+            <li>No paid coin promotions or influencer partnerships</li>
+            <li>No “guaranteed returns” language, anywhere</li>
+          </ul>
+        </div>
+        <div class="willdo">
+          <p class="willdo-label">What we do instead</p>
+          <ul>
+            <li>Teach how investing and crypto actually work, in plain language</li>
+            <li>A quiz that sorts you into a type, not a personal recommendation</li>
+            <li>Straight talk on risk, fees, and what’s protected, stocks and crypto alike</li>
+            <li>Only regulated EU brokers and MiCA-licensed exchanges</li>
+            <li>Self-custody and scam-spotting, so the obvious traps don’t get you</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
