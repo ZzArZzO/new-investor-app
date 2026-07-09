@@ -35,12 +35,16 @@ export interface BrokerRow {
   type: string;
   regulation: string;
   cost: string;
+  minimum: string;
+  notable: string;
+  link: string;
 }
 
 export interface CryptoExchangeRow {
   name: string;
   licence: string;
   cost: string;
+  notable: string;
 }
 
 export type ToolId = "compound" | "fee" | "scam" | "sandbox" | "allocation";

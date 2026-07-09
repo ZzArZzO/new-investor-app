@@ -14,7 +14,10 @@ export type AnalyticsEvent =
   | "tool_opened"
   | "holding_added"
   | "contribution_logged"
-  | "action_step_completed";
+  | "action_step_completed"
+  | "broker_link_clicked"
+  | "exchange_link_clicked"
+  | "results_email_captured";
 
 type AnalyticsProps = Record<string, string | number | boolean | null>;
 

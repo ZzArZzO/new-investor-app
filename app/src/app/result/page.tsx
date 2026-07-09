@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { PERSONAS } from "@/content/quiz";
 import { Button } from "@/components/ui/button";
 import { useAppStateContext } from "@/hooks/app-state-context";
+import { SaveResultsCard } from "@/components/result/save-results-card";
 
 export default function ResultPage() {
   const router = useRouter();
@@ -41,6 +42,8 @@ export default function ResultPage() {
       <Button variant="outline" onClick={() => router.push("/compare")} className="h-11 w-full rounded-xl">
         See tools &amp; platforms
       </Button>
+
+      <SaveResultsCard />
 
       <p className="mt-2 px-1 pb-2 text-center text-[11.5px] leading-relaxed text-muted-foreground">
         Educational information, not personal financial advice. Investing involves risk, including loss of the money you

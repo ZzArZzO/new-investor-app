@@ -1,5 +1,8 @@
-import { BROKERS, CRYPTO_EXCHANGES } from "@/content/brokers";
+"use client";
+
+import { BROKERS, COMPARE_LAST_CHECKED, CRYPTO_EXCHANGES } from "@/content/brokers";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ComparePage() {
   return (
@@ -12,6 +15,8 @@ export default function ComparePage() {
         never changes what&rsquo;s listed or the order.
       </div>
 
+      <div className="mt-2 text-[12px] font-semibold text-muted-foreground">Data last verified: {COMPARE_LAST_CHECKED}</div>
+
       <div className="mt-4.5 mb-2 text-xs font-bold uppercase tracking-wide text-primary">Investing · brokers &amp; robo-advisors</div>
       <div className="rounded-2xl bg-card p-3 shadow-sm">
         <Table>
@@ -20,7 +25,10 @@ export default function ComparePage() {
               <TableHead>Provider</TableHead>
               <TableHead>Type</TableHead>
               <TableHead>Regulation</TableHead>
-              <TableHead>Cost*</TableHead>
+              <TableHead>Cost</TableHead>
+              <TableHead>Minimum</TableHead>
+              <TableHead>Notable</TableHead>
+              <TableHead>Link</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -30,6 +38,19 @@ export default function ComparePage() {
                 <TableCell>{b.type}</TableCell>
                 <TableCell>{b.regulation}</TableCell>
                 <TableCell>{b.cost}</TableCell>
+                <TableCell>{b.minimum}</TableCell>
+                <TableCell>{b.notable}</TableCell>
+                <TableCell>
+                  <a
+                    href={b.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent("broker_link_clicked", { provider: b.name })}
+                    className="font-semibold text-accent-foreground underline"
+                  >
+                    Visit
+                  </a>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -46,16 +67,22 @@ export default function ComparePage() {
           <TableHeader>
             <TableRow>
               <TableHead>Exchange</TableHead>
-              <TableHead>CASP licence*</TableHead>
-              <TableHead>Cost*</TableHead>
+              <TableHead>CASP licence</TableHead>
+              <TableHead>Cost</TableHead>
+              <TableHead>Notable</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {CRYPTO_EXCHANGES.map((c) => (
-              <TableRow key={c.name}>
+              <TableRow
+                key={c.name}
+                onClick={() => trackEvent("exchange_link_clicked", { provider: c.name })}
+                className="cursor-pointer"
+              >
                 <TableCell className="font-bold">{c.name}</TableCell>
                 <TableCell>{c.licence}</TableCell>
                 <TableCell>{c.cost}</TableCell>
+                <TableCell>{c.notable}</TableCell>
               </TableRow>
             ))}
           </TableBody>

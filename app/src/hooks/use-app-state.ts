@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useSession } from "next-auth/react";
 import type { AppState, Holding, HoldingType, PersonaKey } from "@/content/types";
 import { badgeById } from "@/content/badges";
 import { todayStr, yesterdayStr } from "@/lib/date";
@@ -66,6 +67,37 @@ function saveState(state: AppState): void {
   }
 }
 
+async function fetchServerState(): Promise<Partial<AppState> | null> {
+  const res = await fetch("/api/state");
+  const body: { state: Partial<AppState> | null } = await res.json();
+  return body.state;
+}
+
+async function migrateLocalState(local: AppState): Promise<Partial<AppState>> {
+  const res = await fetch("/api/state/migrate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(local),
+  });
+  const body: { state: Partial<AppState> } = await res.json();
+  return body.state;
+}
+
+/** Heuristic: does this local state hold anything worth not silently losing? */
+function hasMeaningfulProgress(s: AppState): boolean {
+  return s.done.length > 0 || s.persona !== null || s.xp > 0 || s.holdings.length > 0 || s.actions.length > 0;
+}
+
+async function putServerState(state: AppState): Promise<void> {
+  await fetch("/api/state", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(state),
+  }).catch(() => {
+    // Best-effort sync — a dropped PUT just means the next state change retries it.
+  });
+}
+
 export interface AddHoldingInput {
   label: string;
   type: HoldingType;
@@ -87,6 +119,10 @@ export interface UseAppStateResult {
   toggleActionStep: (stepId: string) => void;
   playDailyScam: () => void;
   toastMessage: string | null;
+  replaceState: (next: AppState) => void;
+  /** True for one session when signing in found existing server progress that this device's local progress wasn't merged into. */
+  migrationNotice: boolean;
+  dismissMigrationNotice: () => void;
 }
 
 function newId(): string {
@@ -101,22 +137,46 @@ export function useAppState(): UseAppStateResult {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prevBadges = useRef<string[]>([]);
+  const { status } = useSession();
+  const [migrationNotice, setMigrationNotice] = useState(false);
 
   useEffect(() => {
-    // Deliberate one-time sync from localStorage after mount: SSR has no
-    // access to it, so state starts at defaults and adopts real values here
-    // to avoid a hydration mismatch (same pattern as next-themes).
+    // Deliberate one-time sync after mount: SSR has no access to
+    // localStorage/session, so state starts at defaults and adopts real
+    // values here to avoid a hydration mismatch (same pattern as next-themes).
+    if (status === "loading") return;
+
+    if (status === "authenticated") {
+      (async () => {
+        const local = loadState();
+        const serverState = await fetchServerState();
+        // No row yet for this user = first login on this device — upload
+        // whatever's in localStorage once (server wins on future logins).
+        const resolved = serverState ?? (await migrateLocalState(local));
+        if (serverState && hasMeaningfulProgress(local)) setMigrationNotice(true);
+        const merged = { ...initialAppState(), ...resolved };
+        prevBadges.current = merged.badges;
+        setState(merged);
+        setHydrated(true);
+      })();
+      return;
+    }
+
     const loaded = loadState();
     prevBadges.current = loaded.badges;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setState(loaded);
     setHydrated(true);
-  }, []);
+  }, [status]);
 
   useEffect(() => {
     if (!hydrated) return;
+    if (status === "authenticated") {
+      const handle = setTimeout(() => putServerState(state), 800);
+      return () => clearTimeout(handle);
+    }
     saveState(state);
-  }, [state, hydrated]);
+  }, [state, hydrated, status]);
 
   useEffect(() => {
     const newly = state.badges.filter((id) => !prevBadges.current.includes(id));
@@ -199,6 +259,14 @@ export function useAppState(): UseAppStateResult {
     });
   }, []);
 
+  const replaceState = useCallback((next: AppState) => {
+    // A deliberate full overwrite (import), not an incremental action —
+    // bypasses the reducer helpers above on purpose.
+    setState(next);
+  }, []);
+
+  const dismissMigrationNotice = useCallback(() => setMigrationNotice(false), []);
+
   return {
     state,
     hydrated,
@@ -213,5 +281,8 @@ export function useAppState(): UseAppStateResult {
     toggleActionStep,
     playDailyScam,
     toastMessage,
+    replaceState,
+    migrationNotice,
+    dismissMigrationNotice,
   };
 }

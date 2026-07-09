@@ -21,3 +21,16 @@ export function daySeed(str: string): number {
 export function fmtEur(n: number): string {
   return `€${Math.round(n).toLocaleString("en-US")}`;
 }
+
+/** The Monday of the ISO week containing `now`, at local midnight. */
+export function mondayOf(now: Date = new Date()): Date {
+  const mondayOffset = (now.getDay() + 6) % 7;
+  const monday = new Date(now);
+  monday.setDate(now.getDate() - mondayOffset);
+  return monday;
+}
+
+/** Deterministically picks one item per ISO week from a list, rotating by the week's Monday date. */
+export function pickForWeek<T>(items: readonly T[], now: Date = new Date()): T {
+  return items[daySeed(todayStr(mondayOf(now))) % items.length];
+}

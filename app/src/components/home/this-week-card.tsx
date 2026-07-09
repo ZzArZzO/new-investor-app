@@ -2,20 +2,14 @@
 
 import { useMemo } from "react";
 import { WEEKLY_ITEMS } from "@/content/weekly-items";
-import { daySeed, todayStr } from "@/lib/date";
+import { pickForWeek } from "@/lib/date";
 import { useAppStateContext } from "@/hooks/app-state-context";
 
 const KIND_LABEL = { concept: "Concept", myth: "Myth vs fact", tip: "Tip of the week" } as const;
 
 export function ThisWeekCard() {
   const { hydrated } = useAppStateContext();
-  const item = useMemo(() => {
-    const now = new Date();
-    const mondayOffset = (now.getDay() + 6) % 7;
-    const monday = new Date(now);
-    monday.setDate(now.getDate() - mondayOffset);
-    return WEEKLY_ITEMS[daySeed(todayStr(monday)) % WEEKLY_ITEMS.length];
-  }, []);
+  const item = useMemo(() => pickForWeek(WEEKLY_ITEMS), []);
 
   if (!hydrated) return null;
 
