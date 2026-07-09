@@ -5,6 +5,7 @@ import { FREE_LESSONS, LESSONS } from "@/content/lessons";
 import { Progress } from "@/components/ui/progress";
 import { LessonRow } from "@/components/lessons/lesson-row";
 import { UpgradeSheet } from "@/components/plus/upgrade-sheet";
+import { PLUS_FAKEDOOR_ENABLED } from "@/lib/plus-flag";
 import { useAppStateContext } from "@/hooks/app-state-context";
 
 const FOUNDATIONS_PILLAR = LESSONS[0].pillar;
@@ -61,7 +62,7 @@ export default function LessonsPage() {
                     done={done.includes(l.id)}
                     unlocked={unlocked}
                     lockedLabel={trackOpen ? "Finish the previous lesson first" : `Finish ${FOUNDATIONS_PILLAR} first`}
-                    plus={l.tier === "plus" && plan !== "plus" && !done.includes(l.id)}
+                    plus={PLUS_FAKEDOOR_ENABLED && l.tier === "plus" && plan !== "plus" && !done.includes(l.id)}
                     onPlusClick={() => setSheetOpen(true)}
                   />
                 );

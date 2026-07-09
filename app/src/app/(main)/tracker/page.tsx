@@ -1,5 +1,6 @@
 import { PortfolioTracker } from "@/components/tracker/portfolio-tracker";
 import { LockedCard } from "@/components/plus/locked-card";
+import { PLUS_FAKEDOOR_ENABLED } from "@/lib/plus-flag";
 
 export default function TrackerPage() {
   return (
@@ -12,11 +13,13 @@ export default function TrackerPage() {
         </p>
       </div>
       <PortfolioTracker />
-      <LockedCard
-        title="Portfolio insights"
-        description="See the fees you're paying and how far your mix has drifted from the targets you set — computed on your own numbers, never a recommendation."
-        feature="tracker_insights"
-      />
+      {PLUS_FAKEDOOR_ENABLED && (
+        <LockedCard
+          title="Portfolio insights"
+          description="See the fees you're paying and how far your mix has drifted from the targets you set — computed on your own numbers, never a recommendation."
+          feature="tracker_insights"
+        />
+      )}
       <p className="mt-2 px-1.5 pb-2 text-center text-[11.5px] leading-relaxed text-muted-foreground">
         Educational information, not personal financial advice. The app fetches no prices and gives no recommendations.
       </p>

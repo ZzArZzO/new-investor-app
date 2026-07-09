@@ -46,6 +46,12 @@ new users is easy, lowering is not. One product, two intervals; no lifetime plan
 
 ## Phase A — shipped (fake-door, zero billing)
 
+> **Launch decision (2026-07-09, founder): first launch has NO visible paid tier.** All
+> fake-door surfaces sit behind `NEXT_PUBLIC_PLUS_FAKEDOOR` (`app/src/lib/plus-flag.ts`),
+> **off by default** — every lesson is free and no pricing is shown. Flip the flag to `1`
+> in a later deploy to run the willingness-to-pay test below once the free product has
+> traction. Side benefit: launch retention metrics (#1–#5) stay unpolluted by locked cards.
+
 - Locked "Plus" lesson rows + locked "Portfolio insights" card on the tracker, all opening
   one `UpgradeSheet` (`app/src/components/plus/`): honest "coming soon", real prices shown,
   waitlist email capture via the existing Formspree pattern (`source: plus_waitlist`,

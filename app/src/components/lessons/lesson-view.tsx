@@ -9,6 +9,7 @@ import { TOOL_COMPONENTS } from "@/components/tools/tool-registry";
 import { GlossaryReading } from "@/components/lessons/glossary-reading";
 import { LessonQuickCheck } from "@/components/lessons/lesson-quick-check";
 import { LockedCard } from "@/components/plus/locked-card";
+import { PLUS_FAKEDOOR_ENABLED } from "@/lib/plus-flag";
 import { Button } from "@/components/ui/button";
 import { useAppStateContext } from "@/hooks/app-state-context";
 import { trackEvent } from "@/lib/analytics";
@@ -26,8 +27,9 @@ export function LessonView({ lesson }: LessonViewProps) {
   const toolId = LESSON_TOOLS[lesson.id];
   const ToolComponent = toolId ? TOOL_COMPONENTS[toolId] : null;
 
-  // Plus-tier lessons aren't purchasable yet — direct links get the honest teaser, not the content.
-  if (lesson.tier === "plus" && plan !== "plus") {
+  // Plus-tier lessons aren't purchasable yet — direct links get the honest teaser, not the
+  // content. Only while the fake-door test is switched on; otherwise everything is free.
+  if (PLUS_FAKEDOOR_ENABLED && lesson.tier === "plus" && plan !== "plus") {
     return (
       <div className="pt-1">
         <Link href="/lessons" className="mb-1 inline-flex items-center gap-1 py-2 text-sm font-semibold text-muted-foreground">

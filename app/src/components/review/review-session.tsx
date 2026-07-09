@@ -9,6 +9,7 @@ import { todayStr } from "@/lib/date";
 import { trackEvent } from "@/lib/analytics";
 import { useAppStateContext } from "@/hooks/app-state-context";
 import { UpgradeSheet } from "@/components/plus/upgrade-sheet";
+import { PLUS_FAKEDOOR_ENABLED } from "@/lib/plus-flag";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -50,14 +51,16 @@ export function ReviewSession() {
         <div className="mt-3.5 rounded-2xl bg-card p-5 text-center shadow-sm">
           <p className="text-[15px] font-semibold">✓ You&rsquo;re done for today.</p>
           <p className="mt-1.5 text-sm text-muted-foreground">
-            Free accounts get {FREE_REVIEW_CARDS_PER_DAY} review cards a day — come back tomorrow to keep the
-            spacing working.
+            {FREE_REVIEW_CARDS_PER_DAY} cards a day is the sweet spot — spacing works best in small daily doses.
+            Come back tomorrow.
           </p>
-          <Button variant="outline" onClick={() => setSheetOpen(true)} className="mt-3.5 h-10 rounded-xl">
-            Unlimited review is coming with Plus
-          </Button>
+          {PLUS_FAKEDOOR_ENABLED && (
+            <Button variant="outline" onClick={() => setSheetOpen(true)} className="mt-3.5 h-10 rounded-xl">
+              Unlimited review is coming with Plus
+            </Button>
+          )}
         </div>
-        <UpgradeSheet open={sheetOpen} onOpenChange={setSheetOpen} feature="review_cap" />
+        {PLUS_FAKEDOOR_ENABLED && <UpgradeSheet open={sheetOpen} onOpenChange={setSheetOpen} feature="review_cap" />}
       </div>
     );
   }
