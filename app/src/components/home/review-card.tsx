@@ -7,7 +7,7 @@ import { useAppStateContext } from "@/hooks/app-state-context";
 
 /** Home entry point for the spaced-repetition deck — appears once there's anything to review. */
 export function ReviewCard() {
-  const { state, hydrated } = useAppStateContext();
+  const { state, hydrated, plan } = useAppStateContext();
   if (!hydrated) return null;
 
   const today = todayStr();
@@ -15,7 +15,7 @@ export function ReviewCard() {
   if (state.done.length === 0) return null;
 
   const due = dueReviewItems(state, today).length;
-  const quota = remainingReviewQuota(state, today);
+  const quota = plan === "plus" ? Number.POSITIVE_INFINITY : remainingReviewQuota(state, today);
 
   if (quota === 0) {
     return (

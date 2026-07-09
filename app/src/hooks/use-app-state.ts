@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import type { AppState, Holding, HoldingType, PersonaKey } from "@/content/types";
+import type { Plan } from "@/lib/entitlement";
 import { badgeById } from "@/content/badges";
 import { daysAgoStr, daysFromNowStr, todayStr, yesterdayStr } from "@/lib/date";
 import {
@@ -69,10 +70,10 @@ function saveState(state: AppState): void {
   }
 }
 
-async function fetchServerState(): Promise<Partial<AppState> | null> {
+async function fetchServerState(): Promise<{ state: Partial<AppState> | null; plan: Plan }> {
   const res = await fetch("/api/state");
-  const body: { state: Partial<AppState> | null } = await res.json();
-  return body.state;
+  const body: { state: Partial<AppState> | null; plan?: Plan } = await res.json();
+  return { state: body.state, plan: body.plan === "plus" ? "plus" : "free" };
 }
 
 async function migrateLocalState(local: AppState): Promise<Partial<AppState>> {
@@ -110,6 +111,8 @@ export interface AddHoldingInput {
 export interface UseAppStateResult {
   state: AppState;
   hydrated: boolean;
+  /** "plus" when the signed-in account has the Plus experience (tester allowlist for now, Stripe later). UI-only. */
+  plan: Plan;
   completeLesson: (lessonId: string) => void;
   setPersona: (persona: PersonaKey) => void;
   answerDailyQuestion: () => void;
@@ -145,6 +148,7 @@ export function useAppState(): UseAppStateResult {
   const prevBadges = useRef<string[]>([]);
   const { status } = useSession();
   const [migrationNotice, setMigrationNotice] = useState(false);
+  const [plan, setPlan] = useState<Plan>("free");
 
   useEffect(() => {
     // Deliberate one-time sync after mount: SSR has no access to
@@ -155,13 +159,14 @@ export function useAppState(): UseAppStateResult {
     if (status === "authenticated") {
       (async () => {
         const local = loadState();
-        const serverState = await fetchServerState();
+        const server = await fetchServerState();
         // No row yet for this user = first login on this device — upload
         // whatever's in localStorage once (server wins on future logins).
-        const resolved = serverState ?? (await migrateLocalState(local));
-        if (serverState && hasMeaningfulProgress(local)) setMigrationNotice(true);
+        const resolved = server.state ?? (await migrateLocalState(local));
+        if (server.state && hasMeaningfulProgress(local)) setMigrationNotice(true);
         const merged = { ...initialAppState(), ...resolved };
         prevBadges.current = merged.badges;
+        setPlan(server.plan);
         setState(merged);
         setHydrated(true);
       })();
@@ -309,6 +314,8 @@ export function useAppState(): UseAppStateResult {
   return {
     state,
     hydrated,
+    // Plus is account-bound: signing out always reads as free.
+    plan: status === "authenticated" ? plan : "free",
     completeLesson,
     setPersona,
     answerDailyQuestion,

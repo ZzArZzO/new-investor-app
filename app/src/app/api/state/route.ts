@@ -4,6 +4,7 @@ import { auth } from "@/auth";
 import { db } from "@/db/client";
 import { userAppState } from "@/db/schema";
 import { appStateSchema } from "@/lib/app-state-schema";
+import { planForEmail } from "@/lib/entitlement";
 
 export async function GET() {
   const session = await auth();
@@ -14,7 +15,7 @@ export async function GET() {
     .from(userAppState)
     .where(eq(userAppState.userId, session.user.id));
 
-  return NextResponse.json({ state: row?.state ?? null });
+  return NextResponse.json({ state: row?.state ?? null, plan: planForEmail(session.user.email) });
 }
 
 export async function PUT(req: Request) {

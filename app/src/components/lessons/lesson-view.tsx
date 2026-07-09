@@ -20,14 +20,14 @@ interface LessonViewProps {
 
 export function LessonView({ lesson }: LessonViewProps) {
   const router = useRouter();
-  const { completeLesson, queueReviewItems } = useAppStateContext();
+  const { completeLesson, queueReviewItems, plan } = useAppStateContext();
   const [readyToComplete, setReadyToComplete] = useState(false);
 
   const toolId = LESSON_TOOLS[lesson.id];
   const ToolComponent = toolId ? TOOL_COMPONENTS[toolId] : null;
 
   // Plus-tier lessons aren't purchasable yet — direct links get the honest teaser, not the content.
-  if (lesson.tier === "plus") {
+  if (lesson.tier === "plus" && plan !== "plus") {
     return (
       <div className="pt-1">
         <Link href="/lessons" className="mb-1 inline-flex items-center gap-1 py-2 text-sm font-semibold text-muted-foreground">

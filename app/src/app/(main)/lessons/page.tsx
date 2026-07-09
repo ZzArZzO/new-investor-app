@@ -10,7 +10,7 @@ import { useAppStateContext } from "@/hooks/app-state-context";
 const FOUNDATIONS_PILLAR = LESSONS[0].pillar;
 
 export default function LessonsPage() {
-  const { state, hydrated } = useAppStateContext();
+  const { state, hydrated, plan } = useAppStateContext();
   const done = hydrated ? state.done : [];
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -58,7 +58,7 @@ export default function LessonsPage() {
                     done={done.includes(l.id)}
                     unlocked={unlocked}
                     lockedLabel={trackOpen ? "Finish the previous lesson first" : `Finish ${FOUNDATIONS_PILLAR} first`}
-                    plus={l.tier === "plus" && !done.includes(l.id)}
+                    plus={l.tier === "plus" && plan !== "plus" && !done.includes(l.id)}
                     onPlusClick={() => setSheetOpen(true)}
                   />
                 );

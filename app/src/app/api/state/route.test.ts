@@ -55,14 +55,14 @@ describe("GET /api/state", () => {
     authMock.mockResolvedValue(SESSION);
     selectWhere.mockResolvedValue([]);
     const res = await GET();
-    expect(await res.json()).toEqual({ state: null });
+    expect(await res.json()).toEqual({ state: null, plan: "free" });
   });
 
   it("returns the stored state", async () => {
     authMock.mockResolvedValue(SESSION);
     selectWhere.mockResolvedValue([{ state: VALID_STATE }]);
     const res = await GET();
-    expect(await res.json()).toEqual({ state: VALID_STATE });
+    expect(await res.json()).toEqual({ state: VALID_STATE, plan: "free" });
   });
 });
 

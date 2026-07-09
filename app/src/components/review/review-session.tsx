@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
-import { FREE_REVIEW_CARDS_PER_DAY, remainingReviewQuota } from "@/lib/app-state-logic";
+import { FREE_REVIEW_CARDS_PER_DAY, dueReviewItems, remainingReviewQuota } from "@/lib/app-state-logic";
 import { composeReviewSession, type ReviewCardData } from "@/lib/review-logic";
 import { todayStr } from "@/lib/date";
 import { trackEvent } from "@/lib/analytics";
@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function ReviewSession() {
-  const { state, hydrated, answerReviewCard } = useAppStateContext();
+  const { state, hydrated, answerReviewCard, plan } = useAppStateContext();
   const today = todayStr();
 
   // The session is composed once after hydration and then held stable —
@@ -26,10 +26,12 @@ export function ReviewSession() {
 
   useEffect(() => {
     if (!hydrated || session !== null) return;
+    // Plus lifts the daily cap; sessions still come in sane batches of up to 10.
+    const limit = plan === "plus" ? Math.max(dueReviewItems(state, today).length, 10) : remainingReviewQuota(state, today);
     // Deliberate one-time capture after hydration (same pattern as use-app-state).
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setSession(composeReviewSession(state, today, remainingReviewQuota(state, today)));
-  }, [hydrated, session, state, today]);
+    setSession(composeReviewSession(state, today, limit));
+  }, [hydrated, session, state, today, plan]);
 
   if (!hydrated || session === null) return null;
 
