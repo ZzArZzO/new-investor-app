@@ -1,17 +1,26 @@
-# Phase 1 → Phase 2 Gate — retention decision criteria
-*Drafted: 2026-07-08 · Owner decision doc · Not deployed (`*.md` excluded via `.vercelignore`)*
+# Retention Gate — what to prove before the expensive backend
+*Drafted: 2026-07-08 · Updated: 2026-07-09 · Owner decision doc · Not deployed (`*.md` excluded via `.vercelignore`)*
 
 ## Purpose
 
 Phase 1 shipped the client-side **recurring-utility layer** (manual portfolio tracker,
 daily "spot the scam" habit, weekly rotating content, first-investment action checklist)
-into the Next.js app, instrumented with Vercel Web Analytics. Phase 2 (accounts, live
-price alerts, push notifications, freemium paywall) is a weeks-long build plus ongoing
-infra, content, and legal cost.
+into the Next.js app, instrumented with Vercel Web Analytics.
 
-**This doc defines the numbers that green-light Phase 2 — so we don't build the expensive
-backend unless the recurring layer is genuinely pulling people back.** The core question:
-did we turn a *course people finish and leave* into a *companion people return to*?
+**Account sync already shipped ahead of this gate — and that's fine.** NextAuth +
+Neon/Drizzle accounts, the settings page, cross-device state sync, and GDPR account
+deletion landed on `app-mvp` (commit `3b8453b`) as **opt-in, reversible infrastructure**.
+It sits *beside* the habit loop, not inside it: a signed-out visitor gets the exact same
+tracker/streak/daily experience, and nothing about accounts changes the retention
+behavior this gate measures. Building it early cost little and locked in nothing, so it
+did not need to wait on the numbers below.
+
+**What this gate still governs is the genuinely expensive, hard-to-reverse work:
+live price alerts, push notifications, and the freemium paywall.** Those need ongoing
+infra, content, and legal cost, and — unlike account plumbing — they're only worth
+building if people actually come back. This doc defines the numbers that green-light
+them. The core question is unchanged: did we turn a *course people finish and leave*
+into a *companion people return to*?
 
 ## Ground rules before reading any number
 

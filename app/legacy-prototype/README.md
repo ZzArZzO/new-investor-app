@@ -18,7 +18,11 @@ A self-contained, interactive prototype of the product. **No build step, no back
 This is a **branch-only prototype (`app-mvp`)**, intentionally not deployed to the public site. It's for review and pilot testing, pending Phase 0 demand validation.
 
 ## Next steps if it graduates to a real build
-- Swap `localStorage` for real accounts if needed; add the streak/notification mechanics.
+- ~~Swap `localStorage` for real accounts~~ — **done.** Opt-in NextAuth accounts with
+  cross-device sync and GDPR deletion shipped on `app-mvp` (see `../src/auth.ts` and the
+  settings page). Local-only progress still works signed out; accounts sit beside it.
+- Still open: the live **price-alert / push-notification** mechanics (gated on retention —
+  see `../../phase-gate.md`).
 - Replace the illustrative comparison data with verified, dated figures; re-check the CASP register.
 - Rebuild the lesson visuals (see `../lesson-visuals/`) as live components.
 - Wire the affiliate links once broker/exchange partnerships exist.
