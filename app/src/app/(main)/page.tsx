@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { HeroCard } from "@/components/home/hero-card";
 import { DailyQuestionCard } from "@/components/home/daily-question-card";
+import { ReviewCard } from "@/components/home/review-card";
 import { TodayScamCard } from "@/components/home/today-scam-card";
 import { TrackerSnapshotCard } from "@/components/home/tracker-snapshot-card";
 import { ActionChecklistCard } from "@/components/home/action-checklist-card";
@@ -30,6 +31,7 @@ export default function HomePage() {
       />
 
       <DailyQuestionCard />
+      <ReviewCard />
       <TodayScamCard />
       <TrackerSnapshotCard />
       <ActionChecklistCard />

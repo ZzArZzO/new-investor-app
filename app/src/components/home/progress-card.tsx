@@ -1,6 +1,6 @@
 "use client";
 
-import { LESSONS } from "@/content/lessons";
+import { FREE_LESSONS } from "@/content/lessons";
 import { PERSONAS } from "@/content/quiz";
 import { BADGES } from "@/content/badges";
 import { Progress } from "@/components/ui/progress";
@@ -11,15 +11,16 @@ export function ProgressCard() {
   const { state, hydrated } = useAppStateContext();
   if (!hydrated) return null;
 
-  const done = state.done.length;
-  const pct = Math.round((done / LESSONS.length) * 100);
+  // Progress is measured against the free curriculum so it can always reach 100%.
+  const done = state.done.filter((id) => FREE_LESSONS.some((l) => l.id === id)).length;
+  const pct = Math.round((done / FREE_LESSONS.length) * 100);
 
   return (
     <section className="rounded-2xl bg-card p-5 shadow-sm">
       <div className="text-xs font-bold uppercase tracking-wide text-primary">Your progress</div>
       <Progress value={pct} className="mt-3" />
       <p className="mt-2 text-sm text-muted-foreground">
-        {done} of {LESSONS.length} lessons done
+        {done} of {FREE_LESSONS.length} lessons done
       </p>
       <div className="mt-2 flex items-center gap-1.5 text-sm font-bold text-muted-foreground">
         ✨ <span>{state.xp || 0}</span> XP

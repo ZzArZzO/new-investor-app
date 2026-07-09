@@ -44,6 +44,7 @@ Measured over the window above. Event names are the custom events wired in
 | 3 | **Returning-visitor share** ✅ | Vercel's new-vs-returning split over the window. Category norm is ~10%. | ≥ 25% | 12–25% | < 12% |
 | 4 | **Intent → money path** ✅◐ | `action_step_completed` (provider step) ÷ visitors, plus `/compare` page views. Shows the funnel reaching the affiliate moment. | ≥ 8% | 3–8% | < 3% |
 | 5 | **Activation** (context, not a gate) ✅ | `quiz_completed` ÷ visitors; `lesson_completed` count. Confirms people engage at all. | quiz ≥ 30% | 15–30% | < 15% |
+| 6 | **Willingness-to-pay** (context for Phase-2 paywall scope, not a gate) ✅ | `plus_waitlist_joined` ÷ `upgrade_sheet_viewed` (interest→intent), cross-checked with `upgrade_sheet_viewed` ÷ visitors (reach). Fake-door shows real €5.99/€39.99 pricing (`subscription-plan.md`). | join ≥ 10% | 3–10% | < 3% |
 
 ## Decision rule
 
@@ -86,7 +87,8 @@ single snapshot.
 2. From **Visitors**: record unique **Visitors (V)** and the **Returning %**.
 3. From **Events**, record counts: `daily_scam_played` (DS), `daily_question_answered`
    (DQ), `holding_added` (HA), `contribution_logged` (CL), `action_step_completed` (AS),
-   `quiz_completed` (QC), `lesson_completed` (LC), `tool_opened`.
+   `quiz_completed` (QC), `lesson_completed` (LC), `tool_opened`, `upgrade_sheet_viewed`
+   (UV), `plus_waitlist_joined` (WJ), `review_session_completed`.
 4. From **Pages**, record `/compare` views.
 5. Compute the five gate metrics:
    - **#1 Repeat-day habit** = (DS + DQ) ÷ V
@@ -94,6 +96,7 @@ single snapshot.
    - **#3 Returning share** = Returning %
    - **#4 Intent** = AS(provider) ÷ V (cross-check with `/compare` views)
    - **#5 Activation** = QC ÷ V
+   - **#6 Willingness-to-pay** = WJ ÷ UV (context; also note UV ÷ V)
 6. If **V < 150 or < 4 weeks of traffic → write "insufficient, keep collecting"** and stop.
    Otherwise colour each metric 🟢/🟡/🔴 against the scorecard and apply the decision rule.
 

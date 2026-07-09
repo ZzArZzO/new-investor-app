@@ -8,6 +8,7 @@ import { LESSON_TOOLS } from "@/content/tools";
 import { TOOL_COMPONENTS } from "@/components/tools/tool-registry";
 import { GlossaryReading } from "@/components/lessons/glossary-reading";
 import { LessonQuickCheck } from "@/components/lessons/lesson-quick-check";
+import { LockedCard } from "@/components/plus/locked-card";
 import { Button } from "@/components/ui/button";
 import { useAppStateContext } from "@/hooks/app-state-context";
 import { trackEvent } from "@/lib/analytics";
@@ -19,11 +20,33 @@ interface LessonViewProps {
 
 export function LessonView({ lesson }: LessonViewProps) {
   const router = useRouter();
-  const { completeLesson } = useAppStateContext();
+  const { completeLesson, queueReviewItems } = useAppStateContext();
   const [readyToComplete, setReadyToComplete] = useState(false);
 
   const toolId = LESSON_TOOLS[lesson.id];
   const ToolComponent = toolId ? TOOL_COMPONENTS[toolId] : null;
+
+  // Plus-tier lessons aren't purchasable yet — direct links get the honest teaser, not the content.
+  if (lesson.tier === "plus") {
+    return (
+      <div className="pt-1">
+        <Link href="/lessons" className="mb-1 inline-flex items-center gap-1 py-2 text-sm font-semibold text-muted-foreground">
+          <ChevronLeft className="size-4" aria-hidden="true" />
+          All lessons
+        </Link>
+        <div className="text-xs font-bold uppercase tracking-wide text-primary">{lesson.pillar}</div>
+        <h2 className="mt-1 font-heading text-xl font-medium">{lesson.title}</h2>
+        <div className="my-3.5 rounded-lg bg-accent-soft px-3.5 py-3 text-[15px]">
+          <b>The idea:</b> {lesson.core}
+        </div>
+        <LockedCard
+          title="This lesson is part of Plus"
+          description="Plus is coming soon — join the waitlist and we'll email you when it launches."
+          feature="lesson_page"
+        />
+      </div>
+    );
+  }
 
   function finish() {
     completeLesson(lesson.id);
@@ -63,7 +86,15 @@ export function LessonView({ lesson }: LessonViewProps) {
         </div>
       )}
 
-      <LessonQuickCheck key={lesson.id} checks={lesson.check} onAllAnswered={() => setReadyToComplete(true)} />
+      <LessonQuickCheck
+        key={lesson.id}
+        checks={lesson.check}
+        onAllAnswered={(_, missed) => {
+          setReadyToComplete(true);
+          // Missed questions come back tomorrow as spaced-repetition review cards.
+          if (missed.length > 0) queueReviewItems(missed.map((i) => `check:${lesson.id}:${i}`));
+        }}
+      />
 
       {readyToComplete && (
         <Button onClick={finish} className="mt-5 h-11 w-full rounded-xl">

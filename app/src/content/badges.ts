@@ -1,5 +1,5 @@
 import { ACTION_STEPS } from "./action-steps";
-import { LESSONS } from "./lessons";
+import { FREE_LESSONS } from "./lessons";
 import type { AppState, Badge } from "./types";
 
 export const BADGES: Badge[] = [
@@ -10,7 +10,8 @@ export const BADGES: Badge[] = [
     name: "Foundations",
     test: (s: AppState) => s.done.includes("l1") && s.done.includes("l2"),
   },
-  { id: "graduate", ico: "🎓", name: "Graduate", test: (s: AppState) => s.done.length >= LESSONS.length },
+  // Graduate = every free lesson done (Plus-tier lessons can't gate a badge).
+  { id: "graduate", ico: "🎓", name: "Graduate", test: (s: AppState) => FREE_LESSONS.every((l) => s.done.includes(l.id)) },
   // awarded on a perfect scam round
   { id: "scamsleuth", ico: "🕵️", name: "Scam sleuth", test: (s: AppState) => s.badges.includes("scamsleuth") },
   { id: "weekstreak", ico: "🔥", name: "7-day streak", test: (s: AppState) => (s.streak?.count ?? 0) >= 7 },

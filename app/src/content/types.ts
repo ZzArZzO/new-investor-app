@@ -10,6 +10,10 @@ export interface Persona {
   name: string;
   desc: string;
   approach: string;
+  /** URL segment for the published persona page (/types/[slug]). */
+  slug: string;
+  strengths: string[];
+  blindSpots: string[];
 }
 
 export interface LessonCheck {
@@ -28,6 +32,8 @@ export interface Lesson {
   reading: string;
   example: string;
   check: LessonCheck[];
+  /** "plus" marks a lesson as part of the (not-yet-purchasable) Plus tier. Absent = free. */
+  tier?: "plus";
 }
 
 export interface BrokerRow {
@@ -93,6 +99,8 @@ export interface DailyCard {
 export interface StreakState {
   count: number;
   last: string | null;
+  /** Earned streak freezes (max 2). One is auto-consumed to bridge a single missed day. Optional: states saved before this field existed lack it. */
+  freezes?: number;
 }
 
 export interface DailyState {
@@ -144,6 +152,27 @@ export interface ActionStep {
   route?: string;
 }
 
+/**
+ * One spaced-repetition card. `id` encodes the source:
+ * "check:<lessonId>:<questionIndex>" for a missed quick-check question,
+ * "term:<glossary key>" for a glossary term.
+ */
+export interface ReviewItem {
+  id: string;
+  /** YYYY-MM-DD the card is next due. */
+  due: string;
+  /** Index into the review interval ladder (0 = shortest). */
+  ease: number;
+}
+
+export interface ReviewState {
+  items: ReviewItem[];
+  /** Day the daily counter refers to. */
+  day: string | null;
+  /** Cards answered on `day` — free tier caps this per day. */
+  doneToday: number;
+}
+
 export interface AppState {
   done: string[];
   persona: PersonaKey | null;
@@ -155,6 +184,8 @@ export interface AppState {
   contributions: ContributionState;
   scamDaily: ScamDailyState;
   actions: string[];
+  /** Optional: states saved before the review deck existed lack it. */
+  review?: ReviewState;
 }
 
 export interface Badge {

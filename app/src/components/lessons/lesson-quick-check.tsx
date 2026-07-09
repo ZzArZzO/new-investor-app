@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 interface LessonQuickCheckProps {
   checks: LessonCheck[];
-  onAllAnswered: (allCorrect: boolean) => void;
+  onAllAnswered: (allCorrect: boolean, missedIndices: number[]) => void;
 }
 
 /** Render with `key={lesson.id}` from the parent so state resets on lesson change instead of via an effect. */
@@ -19,7 +19,8 @@ export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProp
     next[qi] = oi;
     setAnswers(next);
     if (next.every((a) => a !== null)) {
-      onAllAnswered(next.every((a, i) => a === checks[i].a));
+      const missed = checks.map((c, i) => (next[i] === c.a ? -1 : i)).filter((i) => i >= 0);
+      onAllAnswered(missed.length === 0, missed);
     }
   }
 

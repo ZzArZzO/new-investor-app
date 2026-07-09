@@ -8,6 +8,18 @@ export function yesterdayStr(now: Date = new Date()): string {
   return todayStr(d);
 }
 
+export function daysAgoStr(days: number, now: Date = new Date()): string {
+  const d = new Date(now);
+  d.setDate(d.getDate() - days);
+  return todayStr(d);
+}
+
+export function daysFromNowStr(days: number, now: Date = new Date()): string {
+  const d = new Date(now);
+  d.setDate(d.getDate() + days);
+  return todayStr(d);
+}
+
 /** Deterministic non-cryptographic string hash, used to rotate daily content by date. */
 export function daySeed(str: string): number {
   let h = 0;

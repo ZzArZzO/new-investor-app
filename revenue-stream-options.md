@@ -41,6 +41,12 @@ alerts / push notifications, richer portfolio tracking, or an ad-free/priority e
 prerequisite for subscriptions — identity, per-user state, a settings surface. A paywall
 would bolt onto it rather than needing new plumbing.
 
+**Status update (2026-07-09).** Option A now has a concrete design and a live test:
+`subscription-plan.md` fixes the tier split and pricing (€5.99/mo · €39.99/yr), and the app
+ships a **fake-door "Plus" waitlist** (locked deep-dive tracks + tracker insights card →
+upgrade sheet → email capture at the real price). Willingness-to-pay is read weekly as
+metric #6 in `phase-gate.md`. Real Stripe billing remains gated on the retention scorecard.
+
 ---
 
 ## Option B — B2B / white-label licensing

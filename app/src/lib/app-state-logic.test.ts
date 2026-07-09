@@ -1,17 +1,23 @@
 import { describe, expect, it } from "vitest";
 import {
+  FREE_REVIEW_CARDS_PER_DAY,
+  MAX_STREAK_FREEZES,
+  dueReviewItems,
   initialAppState,
+  remainingReviewQuota,
   withActionToggled,
   withBadgesChecked,
   withContributionLogged,
   withHoldingAdded,
   withHoldingRemoved,
   withLessonCompleted,
+  withReviewAnswered,
+  withReviewItemsAdded,
   withScamDailyPlayed,
   withStreakBumped,
   withXp,
 } from "./app-state-logic";
-import type { Holding } from "@/content/types";
+import type { AppState, Holding } from "@/content/types";
 
 const holding: Holding = { id: "h1", label: "World index ETF", type: "index", contributed: 1000, added: "2026-07-07" };
 
@@ -40,7 +46,7 @@ describe("withXp", () => {
 describe("withStreakBumped", () => {
   it("starts a streak at 1 on first use", () => {
     const state = withStreakBumped(initialAppState(), "2026-07-07", "2026-07-06");
-    expect(state.streak).toEqual({ count: 1, last: "2026-07-07" });
+    expect(state.streak).toEqual({ count: 1, last: "2026-07-07", freezes: 0 });
   });
 
   it("increments when the last active day was yesterday", () => {
@@ -65,6 +71,104 @@ describe("withStreakBumped", () => {
     const already = { ...initialAppState(), streak: { count: 2, last: "2026-07-07" } };
     const state = withStreakBumped(already, "2026-07-07", "2026-07-06");
     expect(state).toBe(already);
+  });
+});
+
+describe("streak freezes", () => {
+  it("bridges a single missed day by consuming a freeze", () => {
+    const start = { ...initialAppState(), streak: { count: 5, last: "2026-07-05", freezes: 1 } };
+    const state = withStreakBumped(start, "2026-07-07", "2026-07-06", "2026-07-05");
+    expect(state.streak).toEqual({ count: 6, last: "2026-07-07", freezes: 0 });
+  });
+
+  it("resets after a single missed day when no freeze is banked", () => {
+    const start = { ...initialAppState(), streak: { count: 5, last: "2026-07-05", freezes: 0 } };
+    const state = withStreakBumped(start, "2026-07-07", "2026-07-06", "2026-07-05");
+    expect(state.streak.count).toBe(1);
+  });
+
+  it("does not bridge a two-day gap even with freezes banked", () => {
+    const start = { ...initialAppState(), streak: { count: 5, last: "2026-07-04", freezes: 2 } };
+    const state = withStreakBumped(start, "2026-07-07", "2026-07-06", "2026-07-05");
+    expect(state.streak.count).toBe(1);
+    expect(state.streak.freezes).toBe(2);
+  });
+
+  it("earns a freeze when the streak crosses a 7-day multiple", () => {
+    const start = { ...initialAppState(), streak: { count: 6, last: "2026-07-06", freezes: 0 } };
+    const state = withStreakBumped(start, "2026-07-07", "2026-07-06", "2026-07-05");
+    expect(state.streak).toEqual({ count: 7, last: "2026-07-07", freezes: 1 });
+  });
+
+  it("caps banked freezes at the maximum", () => {
+    const start = { ...initialAppState(), streak: { count: 13, last: "2026-07-06", freezes: MAX_STREAK_FREEZES } };
+    const state = withStreakBumped(start, "2026-07-07", "2026-07-06", "2026-07-05");
+    expect(state.streak.freezes).toBe(MAX_STREAK_FREEZES);
+  });
+
+  it("tolerates states saved before freezes existed", () => {
+    const start = { ...initialAppState(), streak: { count: 3, last: "2026-07-06" } };
+    const state = withStreakBumped(start, "2026-07-07", "2026-07-06", "2026-07-05");
+    expect(state.streak.count).toBe(4);
+    expect(state.streak.freezes).toBe(0);
+  });
+});
+
+describe("review deck", () => {
+  const nextDue = (days: number) => `2026-07-${String(7 + days).padStart(2, "0")}`;
+
+  it("queues new cards and skips ones already in the deck", () => {
+    let state = withReviewItemsAdded(initialAppState(), ["check:l1:0"], "2026-07-08");
+    state = withReviewItemsAdded(state, ["check:l1:0", "term:inflation"], "2026-07-09");
+    expect(state.review?.items).toEqual([
+      { id: "check:l1:0", due: "2026-07-08", ease: 0 },
+      { id: "term:inflation", due: "2026-07-09", ease: 0 },
+    ]);
+  });
+
+  it("is a no-op when every id is already queued", () => {
+    const once = withReviewItemsAdded(initialAppState(), ["check:l1:0"], "2026-07-08");
+    expect(withReviewItemsAdded(once, ["check:l1:0"], "2026-07-09")).toBe(once);
+  });
+
+  it("climbs the interval ladder on a correct answer", () => {
+    let state = withReviewItemsAdded(initialAppState(), ["check:l1:0"], "2026-07-07");
+    state = withReviewAnswered(state, "check:l1:0", true, "2026-07-07", nextDue);
+    expect(state.review?.items[0]).toEqual({ id: "check:l1:0", ease: 1, due: nextDue(3) });
+  });
+
+  it("drops back to the start on a wrong answer", () => {
+    let state: AppState = { ...initialAppState(), review: { items: [{ id: "check:l1:0", due: "2026-07-07", ease: 3 }], day: null, doneToday: 0 } };
+    state = withReviewAnswered(state, "check:l1:0", false, "2026-07-07", nextDue);
+    expect(state.review?.items[0]).toEqual({ id: "check:l1:0", ease: 0, due: nextDue(1) });
+  });
+
+  it("adds a first-time card (glossary top-up) to the deck when answered", () => {
+    const state = withReviewAnswered(initialAppState(), "term:inflation", true, "2026-07-07", nextDue);
+    expect(state.review?.items).toEqual([{ id: "term:inflation", ease: 0, due: nextDue(1) }]);
+  });
+
+  it("counts answered cards against the daily quota and resets next day", () => {
+    let state = withReviewAnswered(initialAppState(), "term:a", true, "2026-07-07", nextDue);
+    state = withReviewAnswered(state, "term:b", false, "2026-07-07", nextDue);
+    expect(remainingReviewQuota(state, "2026-07-07")).toBe(FREE_REVIEW_CARDS_PER_DAY - 2);
+    expect(remainingReviewQuota(state, "2026-07-08")).toBe(FREE_REVIEW_CARDS_PER_DAY);
+  });
+
+  it("returns only cards due on or before today", () => {
+    const state = {
+      ...initialAppState(),
+      review: {
+        items: [
+          { id: "a", due: "2026-07-06", ease: 0 },
+          { id: "b", due: "2026-07-07", ease: 0 },
+          { id: "c", due: "2026-07-08", ease: 0 },
+        ],
+        day: null,
+        doneToday: 0,
+      },
+    };
+    expect(dueReviewItems(state, "2026-07-07").map((i) => i.id)).toEqual(["a", "b"]);
   });
 });
 

@@ -210,7 +210,7 @@ export const LESSONS: Lesson[] = [
     reading:
       "<p>The <b>core and satellite</b> shape ties it together: a diversified low-cost core does the long-term work, and an optional small bounded satellite (individual picks or crypto) adds engagement without risking the plan. Your type leans this one way or another, but the shape is the same.</p><p>Then it's habits: <b>dollar-cost averaging</b> (invest a fixed amount on a schedule, automatically), <b>rebalancing</b> occasionally so a surging satellite doesn't become an oversized risk, and <b>checking rarely</b>, because frequent checking tends to trigger emotional mistakes. Revisit your type every 6–12 months as your life changes.</p>",
     example:
-      "A Steady Builder sets up €200/month into a world index fund and €20/month into a MiCA-licensed exchange for a small crypto slice (~9% of contributions). They rebalance once a year, check quarterly, and otherwise live their life. The boring monthly habit does the work.",
+      "A Steady Autopilot sets up €200/month into a world index fund and €20/month into a MiCA-licensed exchange for a small crypto slice (~9% of contributions). They rebalance once a year, check quarterly, and otherwise live their life. The boring monthly habit does the work.",
     check: [
       {
         q: "The “core + satellite” idea?",
@@ -226,4 +226,437 @@ export const LESSONS: Lesson[] = [
       },
     ],
   },
+  {
+    id: "l10",
+    pillar: "💶 Money before investing",
+    crypto: false,
+    title: "Before you invest: your safety net",
+    core: "An emergency fund and clearing expensive debt come before any investing — they're the foundation everything else stands on.",
+    reading:
+      "<p>Investing works when you can leave the money alone. Life doesn't always let you: a broken laptop, a rent jump, a gap between jobs. An <b>emergency fund</b> — commonly around 3–6 months of essential expenses, in a plain savings account — is what lets your investments ride out a bad market instead of being sold at the worst moment.</p><p><b>Expensive debt</b> changes the order too. A credit card or overdraft charging 12–20% a year is a guaranteed loss running against you. No sensible investment reliably beats that, so paying it off first is the one \"guaranteed return\" that actually exists. Low-rate debt, like many mortgages or Dutch student loans, is a different, gentler category people usually don't rush.</p><p>None of this is wasted time. Building the fund is the same habit as investing — a fixed amount, every month, automatically. You're training the muscle before the stakes go up.</p>",
+    example:
+      "Lisa has €1,200 on a credit card at 16% and €50/month to spare. Putting that €50 into an ETF earning maybe 7% while the card charges 16% loses her money every month. She clears the card first (a guaranteed 16% \"return\"), then builds a €3,000 buffer, then starts investing — in that order.",
+    check: [
+      {
+        q: "Why does an emergency fund come before investing?",
+        o: [
+          "So a surprise expense never forces you to sell investments at a bad moment",
+          "Because you need at least €10,000 to open a broker account",
+          "Savings accounts grow faster than investments",
+        ],
+        a: 0,
+        why: "The fund absorbs life's surprises so your investments can stay untouched.",
+      },
+      {
+        q: "You have credit-card debt at 16%. What's the closest thing to a guaranteed return?",
+        o: ["Paying that debt off", "A world index ETF", "A high-yield crypto product"],
+        a: 0,
+        why: "Clearing 16% debt is a certain 16% saved — no investment reliably matches that.",
+      },
+    ],
+  },
+  {
+    id: "l11",
+    pillar: "💶 Money before investing",
+    crypto: false,
+    title: "Finding your first €100",
+    core: "You don't find money to invest by earning more willpower — you find it by paying yourself first and automating it.",
+    reading:
+      "<p>The classic approach — spend the month, invest \"what's left\" — fails because there's rarely anything left. The fix is to flip the order: <b>pay yourself first</b>. The day your salary lands, a standing order moves a fixed amount to savings or investments before you can spend it. What remains is simply what you live on.</p><p>The amount matters less than you think. €25–€50 a month is a real start: it builds the habit, and habits scale with income while good intentions don't. A quick look at one month of transactions usually surfaces an unused subscription or two — that's your first €100 hiding in plain sight.</p><p><b>Automation</b> is the whole trick. A manual transfer requires a good day, every month, forever. A standing order requires one good decision, once. Every lesson in this app about behaviour points the same way: remove yourself from the loop wherever you can.</p>",
+    example:
+      "Tom earns €2,100/month and swears he can't invest. One month of statements shows €11.99 for a streaming service he forgot, €9.99 for an app trial that renewed, and ~€40 of food delivery fees. He sets a €50 standing order for the 26th — the day after payday. Six months later he hasn't missed it once, because he never had to decide.",
+    check: [
+      {
+        q: "What does \"pay yourself first\" mean?",
+        o: [
+          "Move a fixed amount to savings/investing on payday, before spending",
+          "Buy yourself something nice each payday",
+          "Only invest whatever is left at month's end",
+        ],
+        a: 0,
+        why: "Flipping the order is what makes the amount actually exist.",
+      },
+      {
+        q: "Why automate the monthly transfer?",
+        o: [
+          "One good decision replaces the need for willpower every month",
+          "Banks pay extra interest on standing orders",
+          "Manual transfers are usually blocked",
+        ],
+        a: 0,
+        why: "Removing yourself from the loop is the most reliable money habit there is.",
+      },
+    ],
+  },
+  {
+    id: "l12",
+    pillar: "🧠 Your brain & money",
+    crypto: false,
+    title: "Loss aversion & panic-selling",
+    core: "Losses feel roughly twice as strong as equal gains, which is exactly why people sell at the bottom — knowing this is half the defence.",
+    reading:
+      "<p><b>Loss aversion</b> is one of the most replicated findings in behavioural science: losing €100 feels about twice as intense as winning €100 feels good. Your brain treats a falling portfolio as a threat, and threats scream <i>do something</i>. In investing, \"something\" usually means selling — locking in the loss precisely when history says patience pays.</p><p>This is why market drops trigger waves of panic-selling, and why the average investor in a fund famously earns less than the fund itself: money floods in after good years and flees after bad ones. The market's returns were fine; the <i>behaviour</i> ate the difference.</p><p>The defences are structural, not heroic. Decide your plan in calm weather. Automate contributions so buying continues through dips. Check rarely. And when a drop comes, re-read your own reasons before touching anything — a note to your future self, written today, beats your instincts in a crash.</p>",
+    example:
+      "In a rough year the market falls 25%. Ana feels sick watching her €5,000 become €3,750 and sells to \"stop the bleeding.\" Ben, equally uncomfortable, has a rule: he never sells in a drawdown, and his €150/month keeps buying automatically. Three years later the market has recovered — Ana locked in her loss, Ben bought cheap without needing courage in the moment.",
+    check: [
+      {
+        q: "What does loss aversion do to investors in a crash?",
+        o: [
+          "Pushes them to sell and lock in losses, because losing feels twice as strong",
+          "Makes them too calm about risk",
+          "Only affects inexperienced investors",
+        ],
+        a: 0,
+        why: "The urge to 'do something' in a drop is wired in — pros feel it too.",
+      },
+      {
+        q: "What's the best defence against panic-selling?",
+        o: [
+          "Rules and automation decided in calm weather, checked rarely",
+          "Watching the market closely so you can react fast",
+          "Only investing in assets that never fall",
+        ],
+        a: 0,
+        why: "Structure beats willpower — nothing 'never falls'.",
+      },
+    ],
+  },
+  {
+    id: "l13",
+    pillar: "🧠 Your brain & money",
+    crypto: false,
+    title: "FOMO, hype & social media",
+    core: "Social feeds show you winners, hide losers, and profit from your urgency — the fear of missing out is a sales tool, not a signal.",
+    reading:
+      "<p><b>FOMO</b> — fear of missing out — is the feeling that everyone is getting rich without you. Social media manufactures it at scale: the friend who bought early posts screenshots, the thousands who bought late stay quiet. That's <b>survivorship bias</b> — you only see the survivors, so the odds look wildly better than they are.</p><p>Watch for the machinery: \"finfluencers\" paid to promote products, group chats hyping a coin the organisers already own (a <b>pump and dump</b>), countdowns and \"last chance\" framing. Urgency is the tell. Real long-term investing has no deadline — a world index fund bought next month is almost the same as one bought today. Only sellers need you to hurry.</p><p>A practical filter: if you heard about it because it already went up, you're late by definition. Chasing what just surged means buying at peak attention — usually peak price. The boring plan you already have doesn't stop being right because a stranger posted a screenshot.</p>",
+    example:
+      "A TikTok clip shows someone who turned €500 into €40,000 on a token. What it doesn't show: the 60,000 people who bought after the clip went viral and funded the early buyers' exit. Sam feels the pull, then notices the tells — screenshots, urgency, a Telegram group \"about to explode\" — and closes the app. His €150/month plan doesn't care what's trending.",
+    check: [
+      {
+        q: "Why do social feeds make risky bets look safer than they are?",
+        o: [
+          "Winners post, losers stay quiet — you only see the survivors",
+          "Platforms verify all financial claims",
+          "Most viral picks really do keep going up",
+        ],
+        a: 0,
+        why: "Survivorship bias hides the thousands of losses behind each viral win.",
+      },
+      {
+        q: "What's the strongest tell that a 'tip' serves the seller, not you?",
+        o: [
+          "Manufactured urgency — deadlines, 'last chance', countdowns",
+          "It mentions a diversified index fund",
+          "It's longer than one paragraph",
+        ],
+        a: 0,
+        why: "Long-term investing has no deadline; only sellers need you to hurry.",
+      },
+    ],
+  },
+  {
+    id: "l14",
+    pillar: "🧠 Your brain & money",
+    crypto: false,
+    title: "Overconfidence, anchoring & checking too much",
+    core: "Feeling skilled after a lucky win, clinging to old prices, and checking daily are three quiet habits that drain returns.",
+    reading:
+      "<p><b>Overconfidence</b> grows fastest after a win. A lucky first pick feels like skill, so the next bet gets bigger — right as the luck runs out. The honest question is: could I explain <i>why</i> this went up, and would I have known it in advance? Markets humble the confident on a schedule.</p><p><b>Anchoring</b> is the pull of a meaningless number. \"It was at €80, now it's €50 — it's cheap!\" But the €80 price isn't evidence of anything; things that fall often fall further, and \"back to what I paid\" is not a strategy. The only question that matters is whether it's worth owning at today's price.</p><p>And <b>checking too much</b>: markets are roughly a coin-flip day to day, so a daily checker sees losses constantly — and each one stings double (Lesson 12). Zoom out to yearly and the picture flips overwhelmingly positive for diversified investors. Same investment, different checking habit, completely different emotional ride.</p>",
+    example:
+      "Kim's first stock doubled, so she tripled her next bet on a \"sure thing\" — and lost 40%. Meanwhile she keeps holding a fund she overpaid for \"until it gets back to my price,\" and checks the app every morning, feeling awful on red days. Three habits, one fix: she moves to a monthly automatic plan and deletes the app from her home screen.",
+    check: [
+      {
+        q: "Why is a big early win dangerous for a beginner?",
+        o: [
+          "Luck gets mistaken for skill, so the next bets get bigger and riskier",
+          "It means taxes will be higher",
+          "Early wins are usually reversed by the platform",
+        ],
+        a: 0,
+        why: "Overconfidence peaks right when luck tends to run out.",
+      },
+      {
+        q: "\"It was €80, now €50, so it's a bargain\" is an example of…",
+        o: [
+          "Anchoring — treating an old price as if it means something",
+          "Sensible value investing",
+          "Diversification",
+        ],
+        a: 0,
+        why: "The old price isn't evidence; what matters is whether it's worth owning today.",
+      },
+    ],
+  },
+  {
+    id: "l15",
+    pillar: "🔥 Financial independence",
+    crypto: false,
+    title: "Savings rate is the engine",
+    core: "How much of your income you keep matters far more than investment returns — it's the one lever fully in your hands.",
+    reading:
+      "<p><b>Financial independence</b> (FI) is the point where your investments could cover your living costs, making work a choice. The surprising math: how fast you get there barely depends on your salary, and only partly on returns. It depends overwhelmingly on your <b>savings rate</b> — the share of income you keep.</p><p>The reason is a double effect: saving more grows the pot faster <i>and</i> proves you live on less, which shrinks the pot you need. Someone saving 10% of income needs roughly a working lifetime; at 25% the horizon drops to around three decades; at 50%, illustratively, under two. These are rough, assumption-heavy numbers — but the shape of the curve is what matters.</p><p>This reframes the whole game. You can't control markets, and chasing higher returns means higher risk. But nudging a savings rate from 10% to 15% is concrete, boring, and completely yours. FI thinking is useful even if you never retire early: every percentage point is options, breathing room, and a smaller dependence on any one employer.</p>",
+    example:
+      "Two friends earn the same €2,800/month. Eva saves 10% (€280), Nora saves 30% (€840) by keeping her old flat and cooking. At an assumed 7% return, Eva's pot could cover her spending in roughly 45 years, Nora's in roughly 25 — not because Nora picked better funds, but because she both saves more and needs less. Illustrative math, real principle.",
+    check: [
+      {
+        q: "Why does savings rate beat investment returns as the main FI lever?",
+        o: [
+          "It grows the pot faster AND shrinks the pot you need — and you control it",
+          "Higher savings rates earn higher interest by law",
+          "Returns don't matter at all",
+        ],
+        a: 0,
+        why: "The double effect is the engine; returns help but aren't in your hands.",
+      },
+      {
+        q: "What does financial independence actually mean?",
+        o: [
+          "Investments could cover your living costs, so work becomes a choice",
+          "Never working again is mandatory",
+          "Owning at least one rental property",
+        ],
+        a: 0,
+        why: "FI is about options, not a forced early retirement.",
+      },
+    ],
+  },
+  {
+    id: "l16",
+    pillar: "🔥 Financial independence",
+    crypto: false,
+    tier: "plus",
+    title: "The 4% rule, honestly",
+    core: "The 4% rule is a rough planning compass built on old US data — useful for a ballpark, dangerous as a promise.",
+    reading:
+      "<p>The <b>4% rule</b> comes from a 1990s study of US market history: a retiree withdrawing 4% of their starting pot yearly, adjusted for inflation, would have survived most historical 30-year periods. Flip it around and you get the famous shortcut: your \"FI number\" is roughly <b>25× your yearly spending</b>. Spend €24,000 a year, and the ballpark pot is €600,000.</p><p>Now the honest part. It's based on the past of one unusually lucky market (the US), assumes exactly 30 years, ignores most fees and taxes, and never adapts — a real person would simply spend less in a terrible year. Researchers argue for anything between 3% and 5% depending on assumptions, which swings that €600,000 target by hundreds of thousands. It is a compass, not a contract.</p><p>How to use it well: as a first sketch of scale (\"my spending × 25 — interesting\"), as motivation to see how spending drives the target, and as a reminder that <b>sequence of returns</b> (Lesson 2) matters — a crash early in withdrawal years hurts far more than one later. How to use it badly: quitting your job the day a spreadsheet says 25× is reached.</p>",
+    example:
+      "Jasper spends about €2,000/month, so €24,000/year × 25 ≈ €600,000 — his first ballpark FI number. Then he stress-tests it: at a more cautious 3.5% withdrawal it's ~€686,000, and cutting his spending €200/month drops the 4% target by €60,000. The exact number is fuzzy; what he learned is that his spending, not his salary, sets the goalposts.",
+    check: [
+      {
+        q: "Your rough \"FI number\" under the 4% rule is…",
+        o: [
+          "About 25× your yearly spending",
+          "10× your yearly salary",
+          "Whatever your broker suggests",
+        ],
+        a: 0,
+        why: "4% withdrawals ≈ 1/25 of the pot — spending, not salary, drives it.",
+      },
+      {
+        q: "Why is the 4% rule a compass, not a promise?",
+        o: [
+          "It's built on past US data, fixed assumptions, and ignores fees, taxes and flexibility",
+          "It was mathematically disproven",
+          "It only works for amounts over €1 million",
+        ],
+        a: 0,
+        why: "Useful for scale, not a guarantee — real plans adapt.",
+      },
+    ],
+  },
+  {
+    id: "l17",
+    pillar: "🔥 Financial independence",
+    crypto: false,
+    tier: "plus",
+    title: "Coast, Barista & realistic timelines",
+    core: "FI isn't all-or-nothing — intermediate versions like Coast FI make the idea useful decades before any finish line.",
+    reading:
+      "<p>The all-or-nothing version of FIRE — grind, save half your income, retire at 40 — fits very few lives. The useful versions are intermediate. <b>Coast FI</b>: you've invested enough, early enough, that compounding alone should grow it to a retirement-sized pot by a normal retirement age — you still work to pay the bills, but you could stop <i>saving</i>. <b>Barista FI</b>: your investments cover part of your costs, so a lighter or more meaningful job covers the rest.</p><p>Coast FI numbers are startlingly small at a young age, because time does the heavy lifting: illustratively, at 7% average returns money doubles roughly every decade, so €50,000 invested at 25 could be ~€400,000 at 55 with nothing added. The earlier you start, the lower the bar — this is Lesson 1's compounding wearing a different coat.</p><p>The realistic framing: treat these as <b>milestones, not identities</b>. Emergency fund → first €10k → Coast FI → Barista FI → full FI. Each step buys concrete freedom (a career change, a sabbatical, part-time parenting years) even if you never reach — or want — the last one. Assumptions stay assumptions: real returns vary, and none of this is a schedule you can promise yourself.</p>",
+    example:
+      "Mila, 27, has €40,000 invested. At an assumed 7%, doubling roughly each decade, that's ~€320,000 at 57 without another euro added. She hasn't retired — she's reached Coast FI for a modest retirement: everything she saves from here brings the date closer or the lifestyle up, and a lower-paying job she loves just became affordable. Illustrative numbers, real freedom.",
+    check: [
+      {
+        q: "Coast FI means…",
+        o: [
+          "Compounding alone should reach a retirement pot by normal retirement age — saving became optional",
+          "You live near the coast on dividends",
+          "You've fully retired early",
+        ],
+        a: 0,
+        why: "Work still pays the bills; the future is already funded.",
+      },
+      {
+        q: "Why are Coast FI targets so much smaller at 25 than at 45?",
+        o: [
+          "More decades of compounding do the heavy lifting",
+          "Young people get better interest rates",
+          "They aren't — the target is the same at every age",
+        ],
+        a: 0,
+        why: "At ~7%, money doubles roughly every decade — each extra decade halves the bar.",
+      },
+    ],
+  },
+  {
+    id: "l18",
+    pillar: "🏠 Real estate",
+    crypto: false,
+    title: "REITs vs buying property",
+    core: "You can own real estate by buying a building — or by buying shares in hundreds of them; the trade-offs are opposite.",
+    reading:
+      "<p>Owning property directly means one asset, one location, a large mortgage, and real work: tenants, maintenance, taxes, vacancy risk. It can build serious wealth — leverage amplifies gains — but it's concentrated (the opposite of Lesson 4's diversification), illiquid (selling takes months), and the entry ticket in the Netherlands is steep.</p><p>A <b>REIT</b> (real estate investment trust) is a company that owns income-producing property — offices, warehouses, homes, data centres — whose shares trade like any stock. Many pay out most of their rental income as dividends. A single REIT <b>ETF</b> spreads you across hundreds of buildings in dozens of cities for the price of one share, sellable in seconds.</p><p>The honest trade-offs: REITs are liquid, diversified, and effortless, but they swing with the stock market (sometimes harder — they fell more than the broad market in 2008) and offer no leverage benefit or home to live in. Direct property is tangible and leveraged but concentrated, illiquid and labour-intensive. Many index investors already own some real estate without noticing — world index funds typically include REITs.</p>",
+    example:
+      "Sofie has €15,000. As a deposit it isn't close to buying an Amsterdam flat. In a global REIT ETF it buys her a slice of ~300 properties across Europe, the US and Asia, with rental income arriving as dividends — no tenants calling about a boiler at midnight, but also no leveraged windfall if one street gentrifies.",
+    check: [
+      {
+        q: "The core difference between a REIT ETF and buying a flat?",
+        o: [
+          "Hundreds of buildings, liquid, hands-off vs one building, illiquid, hands-on with leverage",
+          "REITs aren't really real estate",
+          "Buying a flat is always more profitable",
+        ],
+        a: 0,
+        why: "Diversification and liquidity vs concentration and leverage — opposite trade-offs.",
+      },
+      {
+        q: "Do REITs escape stock-market swings?",
+        o: [
+          "No — they trade like stocks and can fall hard in a crash",
+          "Yes — property values never drop",
+          "Yes — regulators freeze their prices in crashes",
+        ],
+        a: 0,
+        why: "In 2008 REITs fell harder than the broad market. Liquid, but volatile.",
+      },
+    ],
+  },
+  {
+    id: "l19",
+    pillar: "🏠 Real estate",
+    crypto: false,
+    tier: "plus",
+    title: "Property in a portfolio, honestly",
+    core: "Real estate is a sector, not a magic asset class — a modest, deliberate slice beats both property worship and total avoidance.",
+    reading:
+      "<p>Housing culture — especially in the Netherlands, where prices climbed for a generation — breeds a belief that property only goes up. History disagrees: Dutch prices fell roughly 20% after 2008 and took nearly a decade to recover; Japan's are famously below their 1990 peak in many areas. Real estate cycles, like everything else. \"You can't lose with bricks\" is anchoring (Lesson 14) wearing a hard hat.</p><p>What's a sensible <i>investment</i> slice? A world index fund already holds real estate companies at market weight — typically a few percent. Wanting more is a deliberate <b>tilt</b>: some investors add a REIT ETF as 5–10% of a portfolio for the income and inflation-linked rents, sized like any satellite (Lesson 9) — small enough that a property crash doesn't sink the plan.</p><p>And the home you live in? It's shelter first, investment second: it pays no rent to you, costs maintenance and taxes, and you can't sell the kitchen when markets dip. Buying a home can be a fine <i>life</i> decision without being treated as the portfolio. The honest rule is the same everywhere: no asset class is sacred, and anything can be overpaid for.</p>",
+    example:
+      "Daan, renting in Utrecht, feels \"behind\" friends who bought in 2015. Instead of stretching into a maximum mortgage at any price, he keeps his diversified core and adds a 7% REIT ETF slice — property exposure without the concentration. If he later buys a home, it'll be because he wants to live in it for a decade, not because bricks are \"guaranteed.\"",
+    check: [
+      {
+        q: "What does history say about \"property only goes up\"?",
+        o: [
+          "It cycles like everything — Dutch prices fell ~20% after 2008; parts of Japan never regained 1990 peaks",
+          "It's true for houses, just not apartments",
+          "Correct — property has never fallen",
+        ],
+        a: 0,
+        why: "Long booms breed the belief; the record contradicts it.",
+      },
+      {
+        q: "How do investors who want extra real estate usually size it?",
+        o: [
+          "As a deliberate satellite tilt — e.g. 5–10% in a REIT ETF — on top of the core",
+          "Replace the whole index core with property",
+          "Exactly 50% in all cases",
+        ],
+        a: 0,
+        why: "Sized like any satellite: meaningful, but never able to sink the plan.",
+      },
+    ],
+  },
+  {
+    id: "l20",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    title: "Self-custody done right",
+    core: "If you choose self-custody, the setup ritual is everything — the recovery phrase on paper, verified, and never digital.",
+    reading:
+      "<p>Lesson 7 covered the choice: an exchange holds your crypto (custodial) or you do (<b>self-custody</b>). If you choose self-custody, the security model is brutally simple — whoever has the <b>recovery phrase</b> owns the funds. There is no reset button, no support line, no fraud department. That's the deal you're accepting.</p><p>The ritual, done right: generate the wallet offline or on a <b>hardware wallet</b>; write the 12–24 words on paper (twice, stored in two places — never a photo, never a cloud note, never a password manager you also use for email); verify you can actually restore from those words <i>before</i> sending anything meaningful; then send a tiny test amount first. Boring, and boring is the point.</p><p>The threats to design against: phishing sites that ask you to \"validate\" your phrase (always theft), malware reading your clipboard and screenshots, and blind-signing <b>approvals</b> on sketchy sites that quietly grant spending rights over your tokens. A hardware wallet helps because the keys never touch your internet-connected computer — but it protects nothing if you type the phrase into a website anyway. The human is the attack surface.</p>",
+    example:
+      "Rick buys a hardware wallet, writes the 24 words on two paper cards — one at home, one at his parents' — then does a restore drill on the empty wallet to prove the backup works. Only then does he move €200 as a test, checks it arrived, and sends the rest. Two weeks later a \"wallet update\" email asks him to re-enter his phrase; he deletes it without a second thought. The drill made the scam obvious.",
+    check: [
+      {
+        q: "Where should a recovery phrase live?",
+        o: [
+          "On paper, in two safe places — never typed into websites, photos or cloud notes",
+          "In a screenshot, for quick access",
+          "In an email draft to yourself",
+        ],
+        a: 0,
+        why: "Anything digital can be read by malware or phished — paper can't be hacked remotely.",
+      },
+      {
+        q: "Why test a restore before sending real money?",
+        o: [
+          "A backup you've never tested might not work — and there's no support line to call",
+          "It earns a security bonus from the network",
+          "Restoring resets the fees",
+        ],
+        a: 0,
+        why: "Self-custody has no reset button; the drill is the only proof your backup is real.",
+      },
+    ],
+  },
+  {
+    id: "l21",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    tier: "plus",
+    title: "Staking & \"earn\" products, honestly",
+    core: "\"Earn % on your crypto\" spans everything from protocol staking to uncollateralised lending — the % is what you're paid for a risk, so always ask which one.",
+    reading:
+      "<p><b>Staking</b>, at its cleanest, means locking coins to help run a proof-of-stake network in exchange for protocol rewards — a few percent a year on networks like Ethereum. The risks there: your coins may be locked for a period (while their price swings freely), and technical penalties (<b>slashing</b>) can trim a validator's stake. The reward is paid <i>in the same volatile asset</i> — 4% yield means little if the coin halves.</p><p>Then there's everything else sold as \"earn\": exchange staking programs (you're trusting the platform on top of the protocol), and lending products where the platform takes your crypto and lends it out. That last one is how several famous firms died in 2022 — Celsius offered up to ~17% \"yield\" until it collapsed, taking customers' funds into bankruptcy. The unbeatable rule: <b>yield is payment for risk</b>. If you can't name the risk, you are the risk.</p><p>A MiCA-licensed exchange (the only kind we ever reference) is regulated for how it operates — that does <i>not</i> make any yield product inside it risk-free, and crypto still has no deposit-guarantee scheme. The honest checklist before any \"earn\" button: Where does the yield come from? Can I unstake instantly or am I locked? Who holds the keys? What happens if the platform fails? If any answer is fuzzy, the answer is no.</p>",
+    example:
+      "Two offers on Noor's screen: ~3% for staking ETH via her regulated exchange, and a slick app promising \"12% flexible yield.\" She can explain the 3% (protocol rewards, minus the exchange's cut, with lock-up risk). Nobody can explain the 12% — the app lends her coins to unnamed parties. She remembers Celsius paid 17% right up until it paid nothing, and skips it.",
+    check: [
+      {
+        q: "What is a crypto yield fundamentally?",
+        o: [
+          "Payment for a risk — if you can't name the risk, don't take the yield",
+          "Free interest, like a savings account",
+          "A government-guaranteed reward",
+        ],
+        a: 0,
+        why: "Every % has a source: lock-ups, slashing, platform failure, or lending risk.",
+      },
+      {
+        q: "Does a licensed exchange make its \"earn\" products safe?",
+        o: [
+          "No — regulation covers operations, not the risk inside yield products, and there's no deposit guarantee",
+          "Yes — licensing guarantees all yields",
+          "Yes — the EU refunds any crypto losses",
+        ],
+        a: 0,
+        why: "MiCA licensing matters for how a platform operates; the product risk is still yours.",
+      },
+    ],
+  },
+  {
+    id: "l22",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    tier: "plus",
+    title: "DeFi & smart-contract risk",
+    core: "DeFi replaces institutions with code — which removes the banker and adds the bug, and there's no undo button either way.",
+    reading:
+      "<p><b>DeFi</b> (decentralised finance) is financial plumbing — trading, lending, borrowing — run by <b>smart contracts</b>: programs on a blockchain that execute automatically. No bank, no opening hours, no permission needed. That's genuinely novel. It also means no fraud department, no reversals, and no compensation scheme when something breaks. The code is the counterparty.</p><p>The risk list is concrete. <b>Bugs and hacks</b>: billions have been drained from DeFi protocols through exploited code — audits reduce but never remove this. <b>Rug pulls</b>: the team itself drains the pool. <b>Stablecoin failure</b>: Terra/Luna wiped out roughly $40 billion in 2022 when its \"stable\" coin collapsed to nearly zero in a week. <b>Approval drains</b>: signing a malicious permission that lets a contract spend your tokens later. Yield in DeFi is usually highest exactly where these risks are thickest — that's not a coincidence, it's Lesson 21's rule again.</p><p>Where does that leave a beginner? Understanding DeFi is genuinely worthwhile — it's the most interesting part of the technology. <i>Using</i> it with meaningful money is expert territory: if you ever experiment, it's with self-custody mastered (Lesson 20), on-chain permissions understood, and an amount whose total loss you'd shrug at. \"I don't fully understand this yet\" is a complete and honourable reason to stay out.</p>",
+    example:
+      "A protocol offers 30% yield on a stablecoin pair. Jonas, curious, digs in: the yield is paid in the protocol's own token, the \"audit\" is a PDF from an unknown firm, and the anonymous team controls the contract's admin keys. Any one of those is a red flag; together they're a siren. He files it under \"interesting to watch, not to fund\" — and when the token collapses two months later, watching cost him nothing.",
+    check: [
+      {
+        q: "What replaces the bank in DeFi — and what does that remove?",
+        o: [
+          "Smart-contract code — removing support, reversals and any compensation scheme",
+          "A decentralised customer-service team",
+          "The EU deposit-guarantee fund",
+        ],
+        a: 0,
+        why: "The code is the counterparty: autonomous, and unforgiving when it breaks.",
+      },
+      {
+        q: "Why does the highest DeFi yield sit next to the highest risk?",
+        o: [
+          "Yield is payment for risk — thick yield means thick risk, hidden or not",
+          "Regulators set DeFi yields",
+          "It's random which protocols pay more",
+        ],
+        a: 0,
+        why: "Terra paid ~20% on its stablecoin right up until $40bn evaporated.",
+      },
+    ],
+  },
 ];
+
+/** Lessons available on the free tier (Plus-marked lessons excluded). */
+export const FREE_LESSONS: Lesson[] = LESSONS.filter((l) => l.tier !== "plus");

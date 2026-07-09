@@ -17,7 +17,10 @@ export type AnalyticsEvent =
   | "action_step_completed"
   | "broker_link_clicked"
   | "exchange_link_clicked"
-  | "results_email_captured";
+  | "results_email_captured"
+  | "review_session_completed"
+  | "upgrade_sheet_viewed"
+  | "plus_waitlist_joined";
 
 type AnalyticsProps = Record<string, string | number | boolean | null>;
 

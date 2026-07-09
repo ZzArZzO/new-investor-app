@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import type { AppState, Holding, HoldingType, PersonaKey } from "@/content/types";
 import { badgeById } from "@/content/badges";
-import { todayStr, yesterdayStr } from "@/lib/date";
+import { daysAgoStr, daysFromNowStr, todayStr, yesterdayStr } from "@/lib/date";
 import {
   initialAppState,
   withActionToggled,
@@ -16,6 +16,8 @@ import {
   withHoldingRemoved,
   withLessonCompleted,
   withPersona,
+  withReviewAnswered,
+  withReviewItemsAdded,
   withScamDailyPlayed,
   withStreakBumped,
   withXp,
@@ -118,6 +120,10 @@ export interface UseAppStateResult {
   logContribution: () => void;
   toggleActionStep: (stepId: string) => void;
   playDailyScam: () => void;
+  /** Queues spaced-repetition cards (e.g. missed quick-check questions), due tomorrow. */
+  queueReviewItems: (ids: string[]) => void;
+  /** Records one answered review card: schedules its next due date, awards XP, bumps the streak. */
+  answerReviewCard: (id: string, correct: boolean) => void;
   toastMessage: string | null;
   replaceState: (next: AppState) => void;
   /** True for one session when signing in found existing server progress that this device's local progress wasn't merged into. */
@@ -189,12 +195,32 @@ export function useAppState(): UseAppStateResult {
     toastTimer.current = setTimeout(() => setToastMessage(null), 2600);
   }, [state.badges]);
 
+  const prevFreezes = useRef<number | null>(null);
+  useEffect(() => {
+    const freezes = state.streak.freezes ?? 0;
+    // First reading after hydration is baseline, not a change.
+    if (!hydrated || prevFreezes.current === null) {
+      prevFreezes.current = hydrated ? freezes : null;
+      return;
+    }
+    const before = prevFreezes.current;
+    prevFreezes.current = freezes;
+    if (freezes === before) return;
+    const message =
+      freezes < before
+        ? "🧊 Streak freeze used — your streak survived a missed day."
+        : "🧊 Streak freeze earned! It auto-covers one missed day.";
+    setToastMessage(message);
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToastMessage(null), 2600);
+  }, [state.streak.freezes, hydrated]);
+
   const completeLesson = useCallback((lessonId: string) => {
     setState((prev) => {
       if (prev.done.includes(lessonId)) return prev;
       let next = withLessonCompleted(prev, lessonId);
       next = withXp(next, 20);
-      next = withStreakBumped(next, todayStr(), yesterdayStr());
+      next = withStreakBumped(next, todayStr(), yesterdayStr(), daysAgoStr(2));
       return withBadgesChecked(next).state;
     });
   }, []);
@@ -209,7 +235,7 @@ export function useAppState(): UseAppStateResult {
       if (prev.daily.last === today) return prev;
       let next = withDailyAnswered(prev, today);
       next = withXp(next, 5);
-      next = withStreakBumped(next, today, yesterdayStr());
+      next = withStreakBumped(next, today, yesterdayStr(), daysAgoStr(2));
       return withBadgesChecked(next).state;
     });
   }, []);
@@ -239,7 +265,7 @@ export function useAppState(): UseAppStateResult {
       if (prev.contributions.last === today) return prev;
       let next = withContributionLogged(prev, today);
       next = withXp(next, 10);
-      next = withStreakBumped(next, today, yesterdayStr());
+      next = withStreakBumped(next, today, yesterdayStr(), daysAgoStr(2));
       return withBadgesChecked(next).state;
     });
   }, []);
@@ -254,7 +280,20 @@ export function useAppState(): UseAppStateResult {
       if (prev.scamDaily.last === today) return prev;
       let next = withScamDailyPlayed(prev, today, yesterdayStr());
       next = withXp(next, 5);
-      next = withStreakBumped(next, today, yesterdayStr());
+      next = withStreakBumped(next, today, yesterdayStr(), daysAgoStr(2));
+      return withBadgesChecked(next).state;
+    });
+  }, []);
+
+  const queueReviewItems = useCallback((ids: string[]) => {
+    setState((prev) => withReviewItemsAdded(prev, ids, daysFromNowStr(1)));
+  }, []);
+
+  const answerReviewCard = useCallback((id: string, correct: boolean) => {
+    setState((prev) => {
+      let next = withReviewAnswered(prev, id, correct, todayStr(), (days) => daysFromNowStr(days));
+      next = withXp(next, 3);
+      next = withStreakBumped(next, todayStr(), yesterdayStr(), daysAgoStr(2));
       return withBadgesChecked(next).state;
     });
   }, []);
@@ -280,6 +319,8 @@ export function useAppState(): UseAppStateResult {
     logContribution,
     toggleActionStep,
     playDailyScam,
+    queueReviewItems,
+    answerReviewCard,
     toastMessage,
     replaceState,
     migrationNotice,

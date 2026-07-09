@@ -21,7 +21,7 @@ export const appStateSchema = z
   .object({
     done: z.array(z.string()),
     persona: z.enum(["A", "B", "C", "D"]).nullable(),
-    streak: z.object({ count: z.number(), last: z.string().nullable() }),
+    streak: z.object({ count: z.number(), last: z.string().nullable(), freezes: z.number().optional() }),
     daily: z.object({ last: z.string().nullable() }),
     xp: z.number(),
     badges: z.array(z.string()),
@@ -29,6 +29,13 @@ export const appStateSchema = z
     contributions: z.object({ last: z.string().nullable(), count: z.number() }),
     scamDaily: z.object({ last: z.string().nullable(), streak: z.number(), best: z.number() }),
     actions: z.array(z.string()),
+    review: z
+      .object({
+        items: z.array(z.object({ id: z.string(), due: z.string(), ease: z.number() })),
+        day: z.string().nullable(),
+        doneToday: z.number(),
+      })
+      .optional(),
   })
   .partial();
 
