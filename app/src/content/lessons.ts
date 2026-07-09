@@ -656,6 +656,173 @@ export const LESSONS: Lesson[] = [
       },
     ],
   },
+  {
+    id: "l23",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "Reading the label: the KID & the factsheet",
+    core: "Every EU fund legally hands you a Key Information Document — three pages that answer most questions people never ask.",
+    reading:
+      "<p>Before you buy a fund or ETF in the EU, the platform must show you a <b>KID</b> (Key Information Document) — a standardised three-pager the fund is legally required to produce. Most people click past it. Don't: it's the one place the important stuff is written in plain(ish) language.</p><p>What to read: the <b>risk indicator</b>, a 1–7 scale (a world equity ETF typically sits around 4; anything at 6–7 is telling you it swings hard). The <b>performance scenarios</b> — what you might get back in a bad, moderate and good outcome; the point isn't the numbers, it's noticing a bad scenario exists. And <b>costs over time</b>, which turns percentages into euros taken from your pot.</p><p>The <b>factsheet</b> adds the practical fields: <b>TER</b> (the yearly fee — Lesson 4 showed why 0.2% vs 1.5% matters enormously), whether it's <b>accumulating</b> (dividends reinvested automatically) or <b>distributing</b> (paid out to you), the fund's size and age, and <b>UCITS</b> in the name — the EU regulatory standard for retail funds, with rules on diversification and custody built in. Two minutes of label-reading beats hours of opinions.</p>",
+    example:
+      "Nora compares two world ETFs her broker offers. Both track similar indexes. The KIDs show the same risk score (4), but one factsheet says TER 0.12%, accumulating, fund size €8bn; the other says TER 0.45%, distributing, €40m. Same market exposure — but over 30 years the fee gap alone is thousands of euros, and she wanted dividends reinvested anyway. The labels made the choice boring and obvious.",
+    check: [
+      {
+        q: "What does the KID's 1–7 number tell you?",
+        o: [
+          "How much the investment tends to swing — a risk scale",
+          "A quality score — 7 is the best fund",
+          "How many stars analysts gave it",
+        ],
+        a: 0,
+        why: "It's a risk indicator, not a rating. A 6 isn't 'better' than a 4 — it's wilder.",
+      },
+      {
+        q: "Accumulating vs distributing means…",
+        o: [
+          "Dividends are reinvested automatically vs paid out to you",
+          "The fund is growing vs shrinking",
+          "Monthly vs yearly fees",
+        ],
+        a: 0,
+        why: "Same investments — just what happens to the dividends.",
+      },
+    ],
+  },
+  {
+    id: "l24",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "What if my broker goes bust?",
+    core: "Your investments aren't the broker's property — segregation, a €20k compensation floor, and a €100k deposit guarantee form the EU safety net, and knowing it beats fearing it.",
+    reading:
+      "<p>The fear that stops many beginners: \"if the app disappears, does my money disappear?\" Mostly, no — and it's worth understanding exactly why. EU brokers must keep client investments <b>segregated</b>: your ETF shares are held apart from the broker's own assets, usually at a separate custodian. If the broker fails, those shares are still yours — typically transferred to another broker, not sucked into the bankruptcy.</p><p>Behind that sits the <b>investor compensation scheme</b>: an EU-mandated floor of at least <b>€20,000</b> per person per firm, covering the rare ugly case where assets went missing (fraud, administration failure). Read that carefully: it covers <i>missing assets</i> — it does <b>not</b> cover your investment simply losing value. Markets falling is investing, not a failure event.</p><p>Uninvested <b>cash</b> follows different rules: money held as a bank deposit is covered by a <b>deposit guarantee scheme</b> up to <b>€100,000</b> per person per bank. Some brokers park cash in money-market funds instead — protected as segregated assets, not by the deposit guarantee. Where to check all this: the provider's own \"how are my assets protected\" page, and the register of its national regulator. Crypto, one more time: generally <i>no</i> compensation scheme at all — which is exactly why it belongs in the small, bounded slice.</p>",
+    example:
+      "Emma has €6,000 in a world ETF and €800 cash at a regulated EU broker that suddenly enters administration. Her ETF shares were segregated at a custodian — after some tense weeks, they're transferred to another broker, untouched. Her €800 was a bank deposit, covered many times over by the €100k guarantee. What the schemes would never have covered: the €400 her ETF happened to be down that month. That part is just markets.",
+    check: [
+      {
+        q: "What does the €20k investor compensation scheme cover?",
+        o: [
+          "Assets that went missing when a firm fails — never ordinary market losses",
+          "Any investment that loses value",
+          "Losses up to €20k per year, guaranteed",
+        ],
+        a: 0,
+        why: "It's for failure-with-missing-assets. Markets falling is investing, not an insured event.",
+      },
+      {
+        q: "Why does segregation matter?",
+        o: [
+          "Your investments are held apart from the broker's own assets, so they're still yours if it fails",
+          "It spreads your money across many stocks",
+          "It hides your holdings from tax authorities",
+        ],
+        a: 0,
+        why: "Segregated assets typically transfer to another broker — they don't join the bankruptcy.",
+      },
+    ],
+  },
+  {
+    id: "l25",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "Leverage kills: CFDs, margin & the 74–89%",
+    core: "EU regulators force CFD platforms to print their own losing statistics — 74–89% of retail accounts lose money — and understanding why is the cheapest lesson in finance.",
+    reading:
+      "<p>Sooner or later an ad offers you trading with <b>leverage</b>: control €10,000 of market with €1,000 down, usually via a <b>CFD</b> (contract for difference — a bet on a price move, where you never own the asset). The pitch is amplified gains. The math is symmetric: with 10× leverage, a 10% move against you doesn't dent your position — it <b>wipes out your entire stake</b>. Normal market wobble becomes fatal.</p><p>This isn't opinion; it's the regulator's own data. EU rules force every CFD provider to display what share of its retail clients lose money — when ESMA measured across providers, it found <b>74–89% of retail CFD accounts lose</b>, with average losses in the thousands. The EU responded by capping retail leverage, banning <b>binary options</b> outright, and mandating negative-balance protection so you can't end up owing more than you deposited. When a regulator makes a product carry a health warning, believe the label.</p><p>The trap works on psychology, not information: fast feedback, near-misses, and the feeling of being <i>almost</i> right — the same loop as a slot machine (Lesson 12's loss aversion plus Lesson 14's overconfidence, on fast-forward). Long-term investing needs none of it: no leverage, no expiry dates, no margin calls. If you ever feel the pull, re-read the number the platform is legally forced to show you. It's telling you your odds.</p>",
+    example:
+      "Milan opens a CFD position: €500 stake, 20× leverage, €10,000 exposure. The market dips 4% during a normal choppy week — nothing dramatic, long-term investors barely notice. But 4% of €10,000 is €400 of his €500 gone; a margin call closes the position before it can recover. The same €500 in an unleveraged world ETF would have been down €20, on its way to recovering like every other wobble. Same market. Different survival odds.",
+    check: [
+      {
+        q: "With 10× leverage, what does a 10% move against you do?",
+        o: [
+          "Wipes out your entire stake",
+          "Loses you 10%, same as without leverage",
+          "Nothing — leverage only amplifies gains",
+        ],
+        a: 0,
+        why: "Leverage multiplies both directions; ordinary volatility becomes fatal.",
+      },
+      {
+        q: "What do EU CFD platforms have to tell you by law?",
+        o: [
+          "The share of their retail clients who lose money — typically 74–89%",
+          "Which trades to make",
+          "Nothing — CFDs are unregulated",
+        ],
+        a: 0,
+        why: "ESMA forces the warning because its own data showed most retail accounts lose.",
+      },
+    ],
+  },
+  {
+    id: "l26",
+    pillar: "🏛️ Taxes & pensions",
+    crypto: false,
+    tier: "plus",
+    title: "Investment taxes in the EU: the four questions",
+    core: "Tax rules differ per country, but the four questions are the same everywhere — and answering them once can be worth more than years of picking funds.",
+    reading:
+      "<p>There is no single EU investment tax — each country sets its own. But wherever you live, the same <b>four questions</b> decide what you keep: (1) How are <b>capital gains</b> taxed when you sell — and does holding longer change it? (2) How are <b>dividends</b> taxed as they arrive? (3) Does my country tax funds <b>yearly even without selling</b> (some tax assumed or unrealized gains — the Netherlands and Germany both do versions of this)? (4) Are there <b>tax-favoured accounts or wrappers</b> I'm ignoring (many countries offer pension or investment accounts with real advantages)?</p><p>One piece of plumbing is worth knowing everywhere: <b>withholding tax</b>. When a US company pays a dividend, the US takes a slice before it ever reaches your fund. Funds domiciled in <b>Ireland</b> pay 15% under the US–Ireland treaty instead of the default 30% — one big reason most flagship UCITS ETFs are Irish (look for \"IE\" at the start of the ISIN on the factsheet — Lesson 23). It's also why <b>accumulating vs distributing</b> isn't just a convenience choice: several countries tax the two differently.</p><p>What to actually do: find your country's official tax-authority page on investment income (every EU country has one), answer the four questions once, and prefer the boring structural wins — the right domicile, the right account type, the right share class — over tax cleverness. And the banner rule: this lesson explains <i>concepts that exist</i>; what applies to you depends on your country and situation. <b>This is education, not tax advice.</b></p>",
+    example:
+      "Tomas, investing €200/month, spends one Saturday on the four questions for his country. He discovers a tax-favoured investment account he wasn't using, and that his chosen world ETF is Irish-domiciled (15% US withholding instead of 30% — already handled inside the fund). Total effort: an afternoon. Over 30 years, the account wrapper alone plausibly beats a decade of trying to pick better funds — and unlike fund-picking, it was a decision he only had to get right once.",
+    check: [
+      {
+        q: "Why are most flagship UCITS ETFs domiciled in Ireland?",
+        o: [
+          "The US–Ireland treaty halves withholding tax on US dividends (15% vs 30%)",
+          "Ireland has no financial regulator",
+          "EU law requires all ETFs to be Irish",
+        ],
+        a: 0,
+        why: "A structural tax win handled inside the fund — visible in the ISIN starting with IE.",
+      },
+      {
+        q: "What's the smartest general approach to investment taxes?",
+        o: [
+          "Answer the four questions for your country once; prefer structural wins over cleverness",
+          "Ignore taxes until the tax office writes to you",
+          "Copy tax strategies from social media",
+        ],
+        a: 0,
+        why: "Domicile, account type and share class are one-time decisions that quietly compound.",
+      },
+    ],
+  },
+  {
+    id: "l27",
+    pillar: "🏛️ Taxes & pensions",
+    crypto: false,
+    tier: "plus",
+    title: "Pensions in the EU: the three pillars",
+    core: "Almost every EU country builds retirement on the same three pillars — and your DIY investing is pillar three, sitting on top of two you should check first.",
+    reading:
+      "<p>Across the EU, retirement income follows the same skeleton. <b>Pillar 1</b> is the state pension: funded by today's workers for today's retirees, tied to your contribution years. It's the floor — and with Europe ageing, most governments openly say the floor alone won't maintain your lifestyle. <b>Pillar 2</b> is occupational: schemes your employer pays into, common in some countries and sectors, rare in others. <b>Pillar 3</b> is personal: private pension products and, ultimately, everything this app teaches you to do yourself.</p><p>The order of operations matters more than any fund choice. First, <b>find your pillar-1 statement</b> — most countries have an online portal showing your projected state pension; most people have never looked. Second, <b>check pillar 2</b>: an employer scheme, especially one with matching contributions, is usually the best deal available to you — it's part of your salary you may be leaving unclaimed. Only then does pillar-3 DIY investing take the stage, often with tax advantages your country attaches to it (Lesson 26's fourth question).</p><p>Two more things worth knowing: the EU created <b>PEPP</b>, a pan-European personal pension wrapper designed to be portable across borders — young and rare so far, but worth watching if you move countries. And the honest framing: only around a quarter of EU citizens hold any pillar-3 product at all. The <b>pension gap</b> — the difference between what pillar 1 will pay and what your life costs — is precisely the number your monthly investing habit exists to close. That's not doom; it's a target.</p>",
+    example:
+      "Ines, 29, logs into her country's pension portal for the first time: projected state pension, €1,150/month in today's money — against current spending of €1,900. Gap: €750/month. Her employer offers a pension scheme matching 3% of salary that she never opted into — free money, fixed first. The rest becomes her pillar-3 target: her €250/month index habit now has a purpose with a number on it, instead of being an abstract 'saving for later'.",
+    check: [
+      {
+        q: "What should you check before doing any pillar-3 DIY pension investing?",
+        o: [
+          "Your projected state pension and any employer scheme — especially matching contributions",
+          "Nothing — private investing replaces the other pillars",
+          "Only which funds performed best last year",
+        ],
+        a: 0,
+        why: "Employer matching is usually the best deal available — unclaimed salary.",
+      },
+      {
+        q: "The 'pension gap' is…",
+        o: [
+          "The difference between what pillar 1 will pay and what your life actually costs",
+          "The years between quitting work and receiving the state pension",
+          "A tax on early retirement",
+        ],
+        a: 0,
+        why: "It's the concrete number your long-term investing exists to close.",
+      },
+    ],
+  },
 ];
 
 /** Lessons available on the free tier (Plus-marked lessons excluded). */

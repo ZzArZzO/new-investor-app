@@ -10,6 +10,11 @@
 > new lesson tracks also shipped (money basics, behavioral finance, FIRE, real estate, crypto
 > deep-dive — see `app/src/content/lessons.ts`).
 >
+> **v3.1 (2026-07-10):** two more tracks from `content-gap-research.md` (OECD framework gap
+> closure): 🛡️ Protections & traps (KID/factsheet literacy, broker-failure protections,
+> CFD/leverage warning — free) and 🏛️ Taxes & pensions (EU tax four-questions, three
+> pillars + PEPP — Plus). Curriculum now 27 lessons across 11 tracks.
+>
 > **v2 change:** restructured around **three co-primary pillars — Investing, Crypto, and Blockchain** — instead of an investing curriculum with a crypto footnote. Crypto/blockchain is now a full track, framed honestly and risk-first. See `let-s-now-plan-this-vast-moon.md` (plan) and `market-and-competition-research.md` (research) for the surrounding strategy.
 
 ## Design principle (keep this pinned above everything else)

@@ -202,4 +202,34 @@ export const DAILY_CARDS: DailyCard[] = [
     a: false,
     why: "A banked streak freeze bridges a single missed day automatically. Earn them by showing up.",
   },
+  {
+    q: "The KID's 1–7 number is a quality rating — higher means a better fund.",
+    a: false,
+    why: "It's a risk scale, not a rating. A 6 isn't better than a 4 — it swings harder.",
+  },
+  {
+    q: "If your EU broker goes bankrupt, your segregated ETF shares are typically still yours.",
+    a: true,
+    why: "Client assets are held apart from the broker's own and usually transfer to another broker.",
+  },
+  {
+    q: "The €20k investor compensation scheme refunds you when your investments lose value.",
+    a: false,
+    why: "It covers missing assets when a firm fails — never ordinary market losses.",
+  },
+  {
+    q: "With 10× leverage, a 10% move against you wipes out your whole stake.",
+    a: true,
+    why: "Leverage multiplies both directions — normal volatility becomes fatal.",
+  },
+  {
+    q: "EU CFD platforms must publish the share of their retail clients who lose money.",
+    a: true,
+    why: "ESMA found 74–89% of retail CFD accounts lose — the warning is mandatory.",
+  },
+  {
+    q: "Checking your projected state pension and employer matching comes before DIY pension investing.",
+    a: true,
+    why: "Employer matching is unclaimed salary — usually the best deal available to you.",
+  },
 ];

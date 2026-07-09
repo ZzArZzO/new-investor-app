@@ -1,6 +1,12 @@
 # Content Gap Research — what to teach next
 *Drafted: 2026-07-10 · Research doc · Not deployed (`*.md` excluded via `.vercelignore`)*
 
+> **Status: top 5 implemented (2026-07-10).** Two new tracks in
+> `app/src/content/lessons.ts`: 🛡️ Protections & traps (l23 KID/factsheet, l24 broker-bust
+> protections, l25 CFD/leverage — all free) and 🏛️ Taxes & pensions (l26 EU tax four
+> questions, l27 three pillars + PEPP — both Plus). Plus 13 new glossary terms and 6 daily
+> cards. Items 6–15 remain the second-wave backlog.
+
 Gap analysis of the 22-lesson curriculum vs competitor curricula (Finelo, Investmate, Zogo,
 Bloom, Khan Academy, Morningstar, iShares/Vanguard), the EU/OECD-INFE Financial Competence
 Framework for Adults (2022), Eurobarometer FL525, and beginner-demand signals
