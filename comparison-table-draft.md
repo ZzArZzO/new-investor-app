@@ -28,16 +28,16 @@ Columns for the live UI: **Provider · Type · Regulation/protection · Headline
 
 ## Section 2 — Crypto: MiCA-licensed exchanges only
 
-> **Hard gate:** a platform appears here **only** if it holds a current MiCA CASP authorization (check the [ESMA CASP register](https://casptracker.eu/)). All 6 below were confirmed CASP-authorized on 2026-07-09 against national registers / official announcements — **re-verify periodically; authorizations can be withdrawn.**
+> **Hard gate:** a platform appears here **only** if it holds a current MiCA CASP authorization. All 6 below were independently re-verified on **2026-07-09** against a national competent authority's own CASP register — the [AMF France CASP white list](https://www.amf-france.org/en/warnings/white-lists/daspcasp/) (which mirrors ESMA notifications per home regulator), plus the Austrian FMA's direct authorization notice for Bitpanda. All 6 pass — none is press-release-only. **Re-verify periodically; authorizations can be withdrawn.** Belt-and-suspenders step for an audit trail: grep the six legal-entity names below against the weekly ESMA CASP register CSV on esma.europa.eu.
 
-| Exchange | CASP authorization (regulator, date) | Cost model | Notable (neutral facts) |
-|---|---|---|---|
-| **Bitvavo** | ✅ AFM, Netherlands (Jun 2025) | Maker/taker from 0.15% / 0.25% (entry tier) | NL-based; widely used in the Netherlands |
-| **Finst** | ✅ AFM, Netherlands (Jul 2025) | Flat 0.15% per trade, no spread markup | NL-based, low-fee positioning; ex-DEGIRO founders |
-| **Kraken** | ✅ Central Bank of Ireland (Jun 2025) | Kraken Pro maker/taker from 0.40% / 0.80% (entry tier) | Large global exchange (note: Ireland, not Luxembourg) |
-| **Coinbase** | ✅ CSSF, Luxembourg (Jun 2025) | Advanced Trade from 0.40% / 0.60%; simple/instant buys ~1.49% + fee ⚠️verify | Large global exchange, beginner-oriented UX |
-| **Bitpanda** | ✅ FMA, Austria (Apr 2025) | Standard buys ~1.49% spread; Fusion pro tier from ~0.25% ⚠️verify | EU-based, offers crypto + other assets |
-| **Bitstamp** | ✅ CSSF, Luxembourg (May 2025) | Maker/taker from 0.30% / 0.40% (entry tier) ⚠️verify | Long-established EU exchange |
+| Exchange | Legal entity (on register) | CASP authorization (regulator, date) | Cost model | Notable (neutral facts) |
+|---|---|---|---|---|
+| **Bitvavo** | Bitvavo B.V. | ✅ AFM, Netherlands (Jun 2025) | Maker/taker from 0.15% / 0.25% (entry tier) | NL-based; widely used in the Netherlands |
+| **Finst** | Finst B.V. | ✅ AFM, Netherlands (Jul 2025) | Flat 0.15% per trade, no spread markup | NL-based, low-fee positioning; ex-DEGIRO founders |
+| **Kraken** | Payward Europe Solutions Limited | ✅ Central Bank of Ireland (Jun 2025) | Kraken Pro maker/taker from 0.40% / 0.80% (entry tier) | Large global exchange (note: Ireland, not Luxembourg) |
+| **Coinbase** | Coinbase Luxembourg S.A. | ✅ CSSF, Luxembourg (Jun 2025) | Advanced Trade from 0.40% / 0.60%; simple/instant buys ~1.49% + fee ⚠️verify | Large global exchange. **The CASP holder is Coinbase Luxembourg S.A. — not the older "Coinbase Europe Limited" (a pre-MiCA registration).** |
+| **Bitpanda** | Bitpanda GmbH | ✅ FMA, Austria (Apr 2025) | Standard buys ~1.49% spread; Fusion pro tier from ~0.25% ⚠️verify | EU-based, offers crypto + other assets |
+| **Bitstamp** | Bitstamp Europe S.A. | ✅ CSSF, Luxembourg (May 2025) | Maker/taker from 0.30% / 0.40% (entry tier) ⚠️verify | Long-established EU exchange |
 
 **Mandatory crypto banner above this section (always visible):**
 > ⚠️ *Crypto is high-risk — prices are extremely volatile and you can lose your entire investment. There is generally no investor-compensation scheme. Only ever use MiCA-licensed platforms, and never invest more than you can afford to lose.*
