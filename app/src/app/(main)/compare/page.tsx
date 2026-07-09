@@ -57,7 +57,7 @@ export default function ComparePage() {
         </Table>
       </div>
 
-      <div className="mt-4.5 mb-2 text-xs font-bold uppercase tracking-wide text-primary">Crypto · MiCA-licensed exchanges only</div>
+      <div className="mt-4.5 mb-2 text-xs font-bold uppercase tracking-wide text-primary">Crypto · MiCA-licensed platforms only</div>
       <div className="mb-3 rounded-lg bg-amber-soft px-3.5 py-3 text-[14px] font-semibold">
         ⚠️ Crypto is high-risk: prices are very volatile and you can lose everything. There&rsquo;s generally no
         investor-compensation scheme. Only ever use MiCA-licensed platforms.

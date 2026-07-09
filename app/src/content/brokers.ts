@@ -66,7 +66,7 @@ export const CRYPTO_EXCHANGES: CryptoExchangeRow[] = [
   },
   {
     name: "Kraken",
-    licence: "MiCA CASP — Central Bank of Ireland (Jun 2025); Payward Europe Solutions Ltd",
+    licence: "MiCA CASP — Central Bank of Ireland (Jun 2025); Payward Europe Solutions Limited",
     cost: "Kraken Pro maker/taker from 0.40% / 0.80% (entry tier)",
     notable: "Large global exchange",
   },
