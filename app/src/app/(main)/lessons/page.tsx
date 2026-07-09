@@ -45,10 +45,13 @@ export default function LessonsPage() {
             </div>
             <div className="flex flex-col gap-2.5">
               {group.map((l, gIdx) => {
-                // Tracks unlock once Foundations is done; within a track, lessons unlock sequentially.
+                // Tracks unlock once Foundations is done; within a track, lessons unlock
+                // sequentially. Plus accounts skip progression locks entirely.
                 const trackOpen = pillar === FOUNDATIONS_PILLAR || foundationsDone;
                 const unlocked =
-                  done.includes(l.id) || (trackOpen && (gIdx === 0 || done.includes(group[gIdx - 1].id)));
+                  plan === "plus" ||
+                  done.includes(l.id) ||
+                  (trackOpen && (gIdx === 0 || done.includes(group[gIdx - 1].id)));
                 return (
                   <LessonRow
                     key={l.id}
