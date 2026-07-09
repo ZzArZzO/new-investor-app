@@ -36,6 +36,31 @@ export default function ResultPage() {
         </p>
       </div>
 
+      <div className="rounded-2xl bg-card p-5 shadow-sm">
+        <div className="text-xs font-bold uppercase tracking-wide text-primary">Your strengths & blind spots</div>
+        <ul className="mt-2 grid gap-1.5">
+          {persona.strengths.slice(0, 2).map((s) => (
+            <li key={s} className="relative pl-5.5 text-[14px]">
+              <span className="absolute left-0 top-0.5 text-xs font-bold text-primary">✓</span>
+              {s}
+            </li>
+          ))}
+          {persona.blindSpots.slice(0, 2).map((s) => (
+            <li key={s} className="relative pl-5.5 text-[14px]">
+              <span className="absolute left-0 top-0.5 text-xs font-bold text-destructive">!</span>
+              {s}
+            </li>
+          ))}
+        </ul>
+        <button
+          type="button"
+          onClick={() => router.push(`/types/${persona.slug}`)}
+          className="mt-3 text-[13.5px] font-semibold text-primary underline underline-offset-2"
+        >
+          Read the full {persona.name} profile — or see all four types
+        </button>
+      </div>
+
       <Button onClick={() => router.push("/lessons")} className="h-11 w-full rounded-xl">
         Start the lessons →
       </Button>

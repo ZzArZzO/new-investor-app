@@ -8,7 +8,7 @@ describe("scoreQuiz", () => {
     expect(scoreQuiz(answers)).toBe("C");
   });
 
-  it("defaults a tie to B (Steady Builder) when B is among the tied letters", () => {
+  it("defaults a tie to B (Steady Autopilot) when B is among the tied letters", () => {
     const answers: PersonaKey[] = ["A", "A", "B", "B"];
     expect(scoreQuiz(answers)).toBe("B");
   });
