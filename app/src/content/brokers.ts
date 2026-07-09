@@ -54,37 +54,37 @@ export const BROKERS: BrokerRow[] = [
 export const CRYPTO_EXCHANGES: CryptoExchangeRow[] = [
   {
     name: "Bitvavo",
-    licence: "MiCA CASP — AFM, Netherlands (Jun 2025)",
+    licence: "MiCA CASP — AFM, Netherlands (Jun 2025); Bitvavo B.V.",
     cost: "Maker/taker from 0.15% / 0.25% (entry tier)",
     notable: "NL-based; widely used in the Netherlands",
   },
   {
     name: "Finst",
-    licence: "MiCA CASP — AFM, Netherlands (Jul 2025)",
+    licence: "MiCA CASP — AFM, Netherlands (Jul 2025); Finst B.V.",
     cost: "Flat 0.15% per trade, no spread markup",
     notable: "NL-based, low-fee positioning; founded by ex-DEGIRO team",
   },
   {
     name: "Kraken",
-    licence: "MiCA CASP — Central Bank of Ireland (Jun 2025)",
+    licence: "MiCA CASP — Central Bank of Ireland (Jun 2025); Payward Europe Solutions Ltd",
     cost: "Kraken Pro maker/taker from 0.40% / 0.80% (entry tier)",
     notable: "Large global exchange",
   },
   {
     name: "Coinbase",
-    licence: "MiCA CASP — CSSF, Luxembourg (Jun 2025)",
+    licence: "MiCA CASP — CSSF, Luxembourg (Jun 2025); Coinbase Luxembourg S.A.",
     cost: "Advanced Trade from 0.40% / 0.60%; simple buys ~1.49% + fee ⚠️",
     notable: "Large global exchange, beginner-oriented UX",
   },
   {
     name: "Bitpanda",
-    licence: "MiCA CASP — FMA, Austria (Apr 2025)",
+    licence: "MiCA CASP — FMA, Austria (Apr 2025); Bitpanda GmbH",
     cost: "Standard buys ~1.49% spread; Fusion pro tier from ~0.25% ⚠️",
     notable: "EU-based, offers crypto + other assets",
   },
   {
     name: "Bitstamp",
-    licence: "MiCA CASP — CSSF, Luxembourg (May 2025)",
+    licence: "MiCA CASP — CSSF, Luxembourg (May 2025); Bitstamp Europe S.A.",
     cost: "Maker/taker from 0.30% / 0.40% (entry tier) ⚠️",
     notable: "Long-established EU exchange",
   },
