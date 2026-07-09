@@ -55,6 +55,38 @@
 
 ---
 
+## Regime 3 — GDPR: the personal-data line
+
+> **New since this doc was first drafted.** The original version assumed a "no personal data beyond a waitlist email" footprint. That's no longer true: optional user accounts now exist in the app (`app-mvp` branch) — email addresses, bcrypt password hashes, Google OAuth identities, and a per-user JSON blob of app progress, all persisted in a Postgres database. That is a materially larger GDPR surface, and it means we are acting as a **data controller**, not just a mailing-list holder. Everything below is our own reasoning for the lawyer to confirm — **not** a legal conclusion.
+
+**The rule (one line).** GDPR governs any processing of EU residents' personal data. A controller needs a **lawful basis** for each processing purpose, must honour **data-subject rights** (access, deletion, portability), must have a **contract (DPA)** with each processor it sends data to, and must be able to handle a **breach** within 72 hours.
+
+**Where we stand today (to confirm):**
+- **What we hold.** Waitlist emails (Formspree); and for account-holders: email, bcrypt password hash, Google OAuth profile, and app-progress state (lessons done, streaks, self-entered holdings labels/amounts). Note: holdings amounts are user-entered figures — sensitive-adjacent, though not special-category data.
+- **Lawful basis (our reading).** Account creation and sync = **performance of a contract** (the user asked us to store their progress). Retention emails (streak nudges, weekly digest via Resend) = **arguably consent or legitimate interest** — this is the softest spot; confirm whether an explicit opt-in and a working unsubscribe are required before we send.
+- **Deletion is already built.** `DELETE /api/account` erases the user row and cascades to sessions, accounts, and app-state (`onDelete: "cascade"` in the Drizzle schema). That satisfies the *mechanism* of the right-to-erasure; confirm the *policy* around it (timeframe, backups, Formspree-side deletion).
+
+### Do / Don't (GDPR)
+
+| ✅ Do | ❌ Don't |
+|---|---|
+| Name every subprocessor in a privacy policy (see list below) | Send user data to a tool without a DPA in place |
+| Keep the built-in account-deletion path working and discoverable | Treat "delete my account" as a support-ticket afterthought |
+| State a clear lawful basis + retention period per data type | Keep data "just in case," with no stated purpose or expiry |
+| Make retention emails opt-out (unsubscribe in every send) | Assume account signup = consent to marketing email |
+| Store only what the feature needs (email + progress) | Collect financial-detail fields we've deliberately avoided (keep it that way) |
+
+**Subprocessors to disclose (verify each has a DPA / SCCs where data leaves the EU):**
+- **Neon** (Postgres hosting — where accounts + app-state live)
+- **Resend** (transactional/retention email — receives account email addresses)
+- **Google** (OAuth sign-in — identity only)
+- **Vercel** (hosting + Web Analytics — cookieless/aggregate, but confirm)
+- **Formspree** (waitlist capture — receives emails; separate from accounts)
+
+**Hard rule:** a public **privacy policy** listing what we collect, why, the lawful basis, the subprocessors above, and how to delete an account must be live **before** the app is promoted from Preview to a public production URL. It does not exist yet.
+
+---
+
 ## Cross-cutting: the affiliate / referral posture
 
 The EU **Retail Investment Strategy** (final political agreement 18 Dec 2025) tightens rules on paid promotion of investment products, explicitly targeting "finfluencer"-style arrangements — written agreements with promoters, disclosure, firm-level control. It phases in over ~24–30 months. ([Consilium](https://www.consilium.europa.eu/en/press/press-releases/2025/12/18/retail-investment-strategy-council-and-parliament-agree-on-package-to-empower-consumers-while-boosting-markets/)) Implications for us:
@@ -82,7 +114,8 @@ The EU **Retail Investment Strategy** (final political agreement 18 Dec 2025) ti
 3. **MiCA marketing:** does an educational app that lists MiCA-licensed exchanges and earns referral fees count as a "marketing communication" for those exchanges — and if so, what obligations attach?
 4. **Do we need any registration/authorization at all** to operate as (a) an educational publisher and (b) an affiliate referrer for brokers and MiCA-licensed exchanges, in NL specifically?
 5. **RIS finfluencer rules:** what will we need in place (written agreements, disclosures) as those phase in, and does our comparison-table model sidestep or trigger them?
-6. **Data/GDPR:** confirm the waitlist + quiz-answer handling is fine at the "no financial data" level we're operating at.
+6. **Data/GDPR — waitlist tier:** confirm the waitlist email + quiz-answer handling is fine at the "no financial data" level (this was the whole GDPR question when the doc was first written).
+7. **Data/GDPR — accounts tier (new):** now that real accounts exist (email, password hash, Google OAuth, app-progress incl. user-entered holding amounts — see "Regime 3" above), confirm: (a) our lawful-basis reading per purpose, especially whether retention emails need explicit opt-in consent vs. legitimate interest; (b) that the built-in `DELETE /api/account` erasure + a privacy policy naming Neon/Resend/Google/Vercel/Formspree is sufficient before public launch; (c) whether user-entered holding amounts raise the data-sensitivity bar at all. **Blocking item: no privacy policy exists yet.**
 
 ---
 
