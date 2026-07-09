@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { useAppStateContext } from "@/hooks/app-state-context";
@@ -203,9 +204,14 @@ export default function SettingsPage() {
         </Button>
       </div>
 
-      <p className="mt-2 px-1 pb-2 text-center text-[11.5px] leading-relaxed text-muted-foreground">
+      <p className="mt-2 px-1 text-center text-[11.5px] leading-relaxed text-muted-foreground">
         Educational information, not personal financial advice. If you create an account, we store your email and app
         progress to sync it across devices — nothing else.
+      </p>
+      <p className="px-1 pb-2 text-center text-[11.5px] text-muted-foreground">
+        <Link href="/privacy" className="underline">
+          Privacy policy
+        </Link>
       </p>
     </div>
   );
