@@ -46,12 +46,14 @@
 |---|---|
 | Explain what a blockchain / crypto actually is | Predict prices ("BTC to €X") |
 | State the risks plainly ("high-risk, can go to zero") | Imply guaranteed or likely returns |
-| Only ever reference **MiCA-licensed** exchanges (verify on the CASP register) | Link to or name an unlicensed/offshore exchange |
+| Only ever reference **MiCA-licensed** exchanges (verify on the **ESMA central CASP register** — the master CSV, not a mirror) | Link to or name an unlicensed/offshore exchange |
 | "Fair, clear, non-misleading" — sober tone | Hype, urgency, "top coins to buy now," FOMO |
 | Teach self-custody & scam-avoidance | Give a specific "buy this coin" instruction |
 | Show a visible "you can lose everything" note wherever crypto tools appear | Bury or omit the risk warning |
 
 **Hard rule:** before any crypto exchange appears in a comparison or referral, confirm it holds a current CASP authorization (public register / ESMA). Re-check periodically — authorizations change.
+
+**Verification status (last done 2026-07-09).** All 6 exchanges currently listed — Bitvavo, Finst, Kraken, Coinbase, Bitpanda, Bitstamp — were confirmed against the **ESMA central CASP register** (master CSV on esma.europa.eu, ~336 authorised CASPs), matched by legal entity, LEI, home regulator, authorization date, and service scope, and corroborated by the [AMF France CASP white list](https://www.amf-france.org/en/warnings/white-lists/daspcasp/) plus the Austrian FMA notice for Bitpanda. Full evidence (entities, LEIs, dates, per-exchange caveats) lives in `comparison-table-draft.md` §2. Two entity-identity points that matter for the record: Coinbase's CASP is held by **Coinbase Luxembourg S.A.** (CSSF), *not* "Coinbase Europe Limited" (a pre-MiCA DASP registration); Kraken's is **Payward Europe Solutions Limited** (Central Bank of Ireland), distinct from a separate *Payward Global Solutions Ltd*. ESMA refreshes the CSV weekly — **re-verify before any formal/legal sign-off.**
 
 ---
 
