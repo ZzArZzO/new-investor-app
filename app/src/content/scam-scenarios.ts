@@ -329,7 +329,7 @@ export const SCAM_SCENARIOS: ScamScenario[] = [
   {
     id: "s37",
     channel: "email",
-    from: "AFM Enforcement Division",
+    from: "Markets Regulator — Enforcement",
     isScam: true,
     body: "Our systems flagged your investment account on a fraud watchlist. Verify your identity and current holdings via the secure portal within 48 hours to avoid suspension.",
     why: "Regulators publish warnings; they don't email individuals demanding holdings via a portal link. This impersonates authority to harvest credentials.",
@@ -383,7 +383,7 @@ export const SCAM_SCENARIOS: ScamScenario[] = [
   {
     id: "s43",
     channel: "email",
-    from: "Belastingdienst (?)",
+    from: "National Tax Authority (?)",
     isScam: true,
     body: "Our records show undeclared crypto gains on your file. Settle €693 within 5 days via the crypto payment link below to avoid prosecution and asset freezing.",
     why: "The tax office communicates via official post and your government portal — and never, ever demands payment in crypto. Threat plus odd payment rail = scam.",
@@ -455,7 +455,7 @@ export const SCAM_SCENARIOS: ScamScenario[] = [
   {
     id: "s51",
     channel: "email",
-    from: "AFM Consumer Newsletter",
+    from: "Your Regulator's Consumer Newsletter",
     isScam: false,
     body: "This quarter: how to check a firm's licence in our public register, and new warnings about clone firms. Read online at your convenience — no reply needed.",
     why: "Educational content from a regulator that asks nothing of you and points to public resources. Legitimate — and the register tip is genuinely useful.",

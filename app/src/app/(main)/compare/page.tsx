@@ -16,6 +16,10 @@ export default function ComparePage() {
       </div>
 
       <div className="mt-2 text-[12px] font-semibold text-muted-foreground">Data last verified: {COMPARE_LAST_CHECKED}</div>
+      <p className="mt-2 text-[12px] text-muted-foreground">
+        Availability, fees and investor protection differ per EU country — always check the provider&rsquo;s terms for
+        where you live.
+      </p>
 
       <div className="mt-4.5 mb-2 text-xs font-bold uppercase tracking-wide text-primary">Investing · brokers &amp; robo-advisors</div>
       <div className="rounded-2xl bg-card p-3 shadow-sm">

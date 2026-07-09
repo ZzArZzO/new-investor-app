@@ -108,8 +108,8 @@ export default function PrivacyPage() {
         <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-accent-foreground underline">
           {CONTACT_EMAIL}
         </a>
-        . You also have the right to complain to your national data-protection authority — in the Netherlands, the
-        Autoriteit Persoonsgegevens.
+        . You also have the right to complain to your national data-protection authority (for example, the Autoriteit
+        Persoonsgegevens in the Netherlands or the CNPD in Portugal).
       </Section>
 
       <Section title="Changes to this policy">

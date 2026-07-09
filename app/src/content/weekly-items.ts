@@ -121,7 +121,7 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w20",
     kind: "myth",
     title: "Myth: property only goes up",
-    body: "Dutch house prices fell roughly 20% after 2008 and took nearly a decade to recover. Real estate cycles like everything else — bricks aren't sacred.",
+    body: "After 2008, house prices fell 20–30%+ across several European countries and took years to recover. Real estate cycles like everything else — bricks aren't sacred.",
   },
   {
     id: "w21",

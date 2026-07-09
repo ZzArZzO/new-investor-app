@@ -1,6 +1,12 @@
 # New Investor App — Market Value & Competition Research
 *Generated: 2026-07-06 | Sources: 20+ | Confidence: Medium (public market-sizing data for this exact niche is thin; regulatory analysis is well-sourced)*
 
+> **Scope decision (2026-07-09, founder):** the app targets **Europe-wide**, not
+> Netherlands-first. NL data below stays useful as the best-documented EU beginner market,
+> but app content is written EU-generic (done — country-specific references generalized),
+> and country-specific deep-dives (e.g. NL pensions/box-3 tracks) become per-market premium
+> content rather than the default framing.
+
 ## Executive Summary
 
 The underlying trend — more Europeans investing for the first time, low financial literacy, and strong appetite for gamified/bite-sized education — is real and growing. But the specific business model in the draft (free editorial content + archetype quiz + broker/robo-advisor affiliate referrals, à la NerdWallet) sits in a **more crowded and more regulatorily exposed spot than it looks**: several well-funded competitors already do "Duolingo for finance," most of the strongest ones monetize via **subscription, not affiliate**, and EU regulators are actively tightening the exact mechanism (referral fees + algorithmic persona-matching) this concept depends on. The idea has value, but the affiliate-only revenue model and the "editorial, not advice" framing are the two weakest links and need to be pressure-tested before building.

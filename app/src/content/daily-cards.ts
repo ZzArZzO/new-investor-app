@@ -125,7 +125,7 @@ export const DAILY_CARDS: DailyCard[] = [
   {
     q: "House prices only go up.",
     a: false,
-    why: "Dutch prices fell ~20% after 2008; parts of Japan never regained 1990 peaks. Everything cycles.",
+    why: "Several European markets fell 20%+ after 2008; parts of Japan never regained 1990 peaks. Everything cycles.",
   },
   {
     q: "REITs are immune to stock-market crashes because they hold real buildings.",
