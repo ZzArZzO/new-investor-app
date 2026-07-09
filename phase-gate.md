@@ -45,6 +45,7 @@ Measured over the window above. Event names are the custom events wired in
 | 4 | **Intent → money path** ✅◐ | `action_step_completed` (provider step) ÷ visitors, plus `/compare` page views. Shows the funnel reaching the affiliate moment. | ≥ 8% | 3–8% | < 3% |
 | 5 | **Activation** (context, not a gate) ✅ | `quiz_completed` ÷ visitors; `lesson_completed` count. Confirms people engage at all. | quiz ≥ 30% | 15–30% | < 15% |
 | 6 | **Willingness-to-pay** (context for Phase-2 paywall scope, not a gate) ✅ | `plus_waitlist_joined` ÷ `upgrade_sheet_viewed` (interest→intent), cross-checked with `upgrade_sheet_viewed` ÷ visitors (reach). Fake-door shows real €5.99/€39.99 pricing (`subscription-plan.md`). | join ≥ 10% | 3–10% | < 3% |
+| 7 | **Country signal** (localization trigger, not a gate) ✅ | Vercel Analytics → Visitors → country breakdown: top-3 countries + share of total. App is EU-wide English; this decides *where* to localize first (language + country-specific premium tracks, e.g. pensions/tax — see `persona-research.md` scope note in `market-and-competition-research.md`). | one country ≥ 40% of visitors → start that market's localization + track pack | 25–40% — keep watching | spread thin: stay EU-generic |
 
 ## Decision rule
 
@@ -84,7 +85,9 @@ single snapshot.
 
 1. Vercel → **`app`** project → **Analytics**. Set the date range to **last 4 weeks** (or
    since launch).
-2. From **Visitors**: record unique **Visitors (V)** and the **Returning %**.
+2. From **Visitors**: record unique **Visitors (V)**, the **Returning %**, and the **top-3
+   countries with their share** (this is the localization trigger — metric #7). Until the
+   app is deployed publicly, read country data from the landing-page project instead.
 3. From **Events**, record counts: `daily_scam_played` (DS), `daily_question_answered`
    (DQ), `holding_added` (HA), `contribution_logged` (CL), `action_step_completed` (AS),
    `quiz_completed` (QC), `lesson_completed` (LC), `tool_opened`, `upgrade_sheet_viewed`
@@ -97,6 +100,7 @@ single snapshot.
    - **#4 Intent** = AS(provider) ÷ V (cross-check with `/compare` views)
    - **#5 Activation** = QC ÷ V
    - **#6 Willingness-to-pay** = WJ ÷ UV (context; also note UV ÷ V)
+   - **#7 Country signal** = top country's share of V (≥ 40% sustained → localize that market)
 6. If **V < 150 or < 4 weeks of traffic → write "insufficient, keep collecting"** and stop.
    Otherwise colour each metric 🟢/🟡/🔴 against the scorecard and apply the decision rule.
 
