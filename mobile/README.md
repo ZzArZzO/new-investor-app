@@ -26,8 +26,19 @@ Content edits in `app/src/content` show up here with no extra steps. Never edit 
 - `app/tracker.tsx` — portfolio tracker (holdings, DCA contribution log, allocation donut)
 - `app/types/` — persona profile pages; `app/settings.tsx` — backup export (account sync = phase 2)
 
+- `lib/auth.tsx` + `lib/api.ts` — account sign-in (email/password + Google + Apple) against the web app's
+  `/api/mobile/*` JWT endpoints; token in SecureStore; progress syncs to `/api/state` (same protocol as web:
+  migrate-on-first-login, server wins, debounced PUT)
+
 Deliberately not on mobile (see repo plan): Plus surface, Formspree captures, in-app privacy page, analytics.
-Next phase: auth (email + Google + Apple) + progress sync against the web API, then store launch prep.
+
+## Config for device testing / release
+
+- `EXPO_PUBLIC_API_URL` — web app URL (LAN IP for local testing; deployed URL for builds)
+- `EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID` / `EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID` — Google sign-in (button hidden if unset)
+- Server side needs `GOOGLE_IOS_CLIENT_ID`/`GOOGLE_ANDROID_CLIENT_ID` (token audiences) and `APPLE_BUNDLE_ID`
+
+Next phase: store launch prep (icons, EAS builds, store forms).
 
 ## Run
 

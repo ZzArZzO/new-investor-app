@@ -40,6 +40,10 @@ function putReq(body: unknown) {
   return new Request("http://localhost/api/state", { method: "PUT", body: JSON.stringify(body) });
 }
 
+function getReq() {
+  return new Request("http://localhost/api/state");
+}
+
 afterEach(() => {
   vi.clearAllMocks();
 });
@@ -47,21 +51,21 @@ afterEach(() => {
 describe("GET /api/state", () => {
   it("returns 401 when unauthenticated", async () => {
     authMock.mockResolvedValue(null);
-    const res = await GET();
+    const res = await GET(getReq());
     expect(res.status).toBe(401);
   });
 
   it("returns null state when no row exists", async () => {
     authMock.mockResolvedValue(SESSION);
     selectWhere.mockResolvedValue([]);
-    const res = await GET();
+    const res = await GET(getReq());
     expect(await res.json()).toEqual({ state: null, plan: "free" });
   });
 
   it("returns the stored state", async () => {
     authMock.mockResolvedValue(SESSION);
     selectWhere.mockResolvedValue([{ state: VALID_STATE }]);
-    const res = await GET();
+    const res = await GET(getReq());
     expect(await res.json()).toEqual({ state: VALID_STATE, plan: "free" });
   });
 });

@@ -10,6 +10,8 @@ import {
 } from "react";
 import type { AppState, Holding, HoldingType, PersonaKey } from "@/content/types";
 import { badgeById } from "@/content/badges";
+import { api } from "@/lib/api";
+import { useAuth } from "@/lib/auth";
 import { daysAgoStr, daysFromNowStr, todayStr, yesterdayStr } from "@/lib/date";
 import {
   initialAppState,
@@ -18,6 +20,7 @@ import {
   withBadgesChecked,
   withContributionLogged,
   withDailyAnswered,
+  withEmailPrefToggled,
   withHoldingAdded,
   withHoldingRemoved,
   withLessonCompleted,
@@ -32,6 +35,12 @@ import {
 // Same key as the web app so a future account-sync feature can merge states.
 const STORAGE_KEY = "ni_state_v1";
 const TOAST_MS = 2600;
+const SYNC_DEBOUNCE_MS = 800;
+
+/** Heuristic: does this local state hold anything worth not silently losing? (mirrors web) */
+function hasMeaningfulProgress(s: AppState): boolean {
+  return s.done.length > 0 || s.persona !== null || s.xp > 0 || s.holdings.length > 0 || s.actions.length > 0;
+}
 
 async function loadState(): Promise<AppState> {
   try {
@@ -76,6 +85,10 @@ export interface AppStateValue {
   queueReviewItems: (ids: string[]) => void;
   answerReviewCard: (id: string, correct: boolean) => void;
   toastMessage: string | null;
+  toggleEmailPref: (kind: "streak" | "weekly") => void;
+  /** True for one session when signing in found existing server progress that this device's local progress wasn't merged into. */
+  migrationNotice: boolean;
+  dismissMigrationNotice: () => void;
 }
 
 const AppStateContext = createContext<AppStateValue | null>(null);
@@ -85,30 +98,65 @@ function newId(): string {
 }
 
 export function AppStateProvider({ children }: { children: ReactNode }) {
+  const { token, ready } = useAuth();
   const [state, setState] = useState<AppState>(initialAppState);
   const [hydrated, setHydrated] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [migrationNotice, setMigrationNotice] = useState(false);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prevBadges = useRef<string[]>([]);
 
   useEffect(() => {
+    if (!ready) return;
     let cancelled = false;
     (async () => {
-      const loaded = await loadState();
+      const local = await loadState();
       if (cancelled) return;
-      prevBadges.current = loaded.badges;
-      setState(loaded);
+
+      if (!token) {
+        prevBadges.current = local.badges;
+        setState(local);
+        setHydrated(true);
+        return;
+      }
+
+      // Signed in: server is the source of truth. Same protocol as web —
+      // no row yet means first login on this device, so upload local once.
+      try {
+        const server = await api.getState(token);
+        const resolved = server.state ?? (await api.migrateState(token, local)).state;
+        if (cancelled) return;
+        if (server.state && hasMeaningfulProgress(local)) setMigrationNotice(true);
+        const merged = { ...initialAppState(), ...resolved };
+        prevBadges.current = merged.badges;
+        setState(merged);
+      } catch {
+        // Offline or server down — run on local state; the next PUT retries sync.
+        if (cancelled) return;
+        prevBadges.current = local.badges;
+        setState(local);
+      }
       setHydrated(true);
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [ready, token]);
 
   useEffect(() => {
     if (!hydrated) return;
+    // AsyncStorage is always the offline cache; the server PUT is best-effort.
     void saveState(state);
-  }, [state, hydrated]);
+    if (!token) return;
+    const handle = setTimeout(() => {
+      api.putState(token, state).catch(() => {
+        // Dropped PUT just means the next state change retries it.
+      });
+    }, SYNC_DEBOUNCE_MS);
+    return () => clearTimeout(handle);
+  }, [state, hydrated, token]);
+
+  const dismissMigrationNotice = useCallback(() => setMigrationNotice(false), []);
 
   const showToast = useCallback((message: string) => {
     setToastMessage(message);
@@ -225,6 +273,10 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const toggleEmailPref = useCallback((kind: "streak" | "weekly") => {
+    setState((prev) => withEmailPrefToggled(prev, kind));
+  }, []);
+
   return (
     <AppStateContext.Provider
       value={{
@@ -243,6 +295,9 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         queueReviewItems,
         answerReviewCard,
         toastMessage,
+        toggleEmailPref,
+        migrationNotice,
+        dismissMigrationNotice,
       }}
     >
       {children}

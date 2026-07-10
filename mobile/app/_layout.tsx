@@ -9,6 +9,7 @@ import { Text, View } from "react-native";
 import "react-native-reanimated";
 
 import { AppStateProvider, useAppState } from "@/lib/app-state";
+import { AuthProvider } from "@/lib/auth";
 import { DARK, FONTS, LIGHT, RADIUS, useTheme } from "@/lib/theme";
 
 export {
@@ -47,9 +48,11 @@ export default function RootLayout() {
   }
 
   return (
-    <AppStateProvider>
-      <RootLayoutNav />
-    </AppStateProvider>
+    <AuthProvider>
+      <AppStateProvider>
+        <RootLayoutNav />
+      </AppStateProvider>
+    </AuthProvider>
   );
 }
 

@@ -20,7 +20,7 @@ afterEach(() => {
 describe("DELETE /api/account", () => {
   it("returns 401 when unauthenticated", async () => {
     authMock.mockResolvedValue(null);
-    const res = await DELETE();
+    const res = await DELETE(new Request("http://localhost/api/account", { method: "DELETE" }));
     expect(res.status).toBe(401);
     expect(deleteWhere).not.toHaveBeenCalled();
   });
@@ -28,7 +28,7 @@ describe("DELETE /api/account", () => {
   it("deletes the signed-in user's row", async () => {
     authMock.mockResolvedValue({ user: { id: "user-1" } });
     deleteWhere.mockResolvedValue(undefined);
-    const res = await DELETE();
+    const res = await DELETE(new Request("http://localhost/api/account", { method: "DELETE" }));
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ ok: true });
     expect(deleteWhere).toHaveBeenCalledTimes(1);
