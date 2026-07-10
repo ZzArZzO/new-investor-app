@@ -257,4 +257,24 @@ export const DAILY_CARDS: DailyCard[] = [
     a: true,
     why: "Terra went from 'stable' to almost nothing in a week in 2022, erasing ~$40 billion.",
   },
+  {
+    q: "The best time to decide what you'll do in a crash is during the crash, when you have the most information.",
+    a: false,
+    why: "In a drawdown your brain is compromised. The plan gets written in calm weather.",
+  },
+  {
+    q: "Copy-trading leaders usually earn from how many people copy them, not from whether those people profit.",
+    a: true,
+    why: "Volume-based fees reward flashy trading over the boring kind that works.",
+  },
+  {
+    q: "Anyone can legally give personal investment advice online if they're confident enough.",
+    a: false,
+    why: "Personal advice requires authorisation — every national regulator has a public register you can search.",
+  },
+  {
+    q: "A world ETF bought in euros can fall even while US markets rise.",
+    a: true,
+    why: "It's ~60–70% dollar assets — a falling dollar can eat the market's gains in euro terms.",
+  },
 ];

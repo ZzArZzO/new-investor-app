@@ -84,4 +84,9 @@ export const GLOSSARY: Glossary = {
   "proof of stake": "Consensus by locked collateral: validators stake their own coins and get slashed for cheating. Ethereum's model since 2022 (~99.9% less energy).",
   halving: "Bitcoin's scheduled cut of new-coin supply, roughly every four years. Designed scarcity — which makes it limited, not automatically valuable.",
   CBDC: "Central bank digital currency — digital money issued by a central bank itself (like the ECB's planned digital euro), with no private issuer that can go bust.",
+  drawdown: "The fall from a peak to a low. Long-term investing means sitting through many; only selling turns one into a permanent loss.",
+  "currency risk": "The exchange-rate layer of a foreign investment's return — a world ETF is ~60–70% dollar assets, so EUR/USD sometimes writes your yearly result.",
+  "hedged share class": "A fund version that cancels currency swings using contracts — for an ongoing cost. 'EUR Hedged' appears in the name.",
+  "copy trading": "Your account automatically mirrors another trader's moves. Leaders usually earn from follower volume, not follower profits.",
+  finfluencer: "Someone giving financial content on social media. A referral code is a payment; personal recommendations require a licence you can check in your national register.",
 };

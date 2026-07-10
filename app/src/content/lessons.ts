@@ -925,6 +925,106 @@ export const LESSONS: Lesson[] = [
       },
     ],
   },
+  {
+    id: "l31",
+    pillar: "🧠 Your brain & money",
+    crypto: false,
+    title: "Surviving your first crash: the drill",
+    core: "Your first real crash is a when, not an if — and what long-term investors do in one is decided before it starts, not during.",
+    reading:
+      "<p>Here's the schedule nobody puts in the brochure: broad markets drop <b>10%+ most years</b> along the way, and <b>20%+ (a bear market)</b> every handful of years. In April 2025, trillions in market value vanished in two days. If you invest for decades, you will sit through several of these. The only question is whether you'll have a drill or a panic.</p><p>The drill, written in calm weather: <b>(1)</b> automatic contributions keep running — historically, buying through a crash meant buying cheap (Lesson 12's Ben). <b>(2)</b> No selling decisions during a drawdown; if you ever change the plan, you do it on a scheduled, calm review day, not a red one. <b>(3)</b> Check <i>less</i>, not more — every extra look is another loss-aversion sting (Lesson 14). <b>(4)</b> Re-read the note you wrote to your future self about why you invested. If you haven't written it yet, today — in a calm market — is exactly the day.</p><p>What makes crashes survivable isn't courage, it's <b>structure</b>: an emergency fund so you're never forced to sell (Lesson 10), diversification so nothing goes to zero on you (Lesson 4), automation so buying continues without a decision (Lesson 11). People who \"stayed calm\" through history's crashes mostly weren't calm — they had simply arranged things so their feelings had no lever to pull.</p>",
+    example:
+      "Two colleagues, same crash, −25% in six weeks. Priya has the drill: her €200/month keeps buying, she's deleted the app from her home screen, and her written note says \"you invest for 2050, not for next spring.\" Marco has no drill: he checks hourly, sells \"temporarily\" near the bottom to \"wait for clarity,\" and buys back in a year later — above his selling price. The market treated them identically. Their structures didn't.",
+    check: [
+      {
+        q: "When do long-term investors decide what they'll do in a crash?",
+        o: [
+          "Before it happens — in calm weather, written down",
+          "During the crash, when they have the most information",
+          "Never — crashes can't be prepared for",
+        ],
+        a: 0,
+        why: "In a drawdown your brain is compromised (loss aversion). The plan has to predate it.",
+      },
+      {
+        q: "What actually makes a crash survivable?",
+        o: [
+          "Structure: emergency fund, diversification, automation — so feelings have no lever",
+          "Courage and strong nerves",
+          "Checking the portfolio hourly to react fast",
+        ],
+        a: 0,
+        why: "The 'calm' investors of history mostly just removed their own ability to panic-sell.",
+      },
+    ],
+  },
+  {
+    id: "l32",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "Finfluencers & copy trading: the machinery",
+    core: "Behind the confident feed sits real machinery — undisclosed payments, EU rules many posters break, and copy-trading incentives that don't point your way.",
+    reading:
+      "<p>Lesson 13 covered the psychology of the hype feed. Now the machinery. In the EU, posting <b>investment recommendations</b> on social media isn't a free-for-all — ESMA has warned it can fall under the <b>Market Abuse Regulation</b>: recommendations must be objective, and paid promotion must be disclosed. The rules exist; enforcement is catching up. Meanwhile most \"here's my portfolio, use my code\" content is exactly what it looks like: <b>paid distribution</b> wearing a friendship costume.</p><p>Two checks before trusting anyone online about money: <b>(1) Are they licensed?</b> Anyone giving personal investment advice needs authorisation — every national regulator runs a public register you can search in one minute. Unlicensed + specific buy recommendations = walk away. <b>(2) Who pays them?</b> A referral code IS a payment. A #ad is honesty; a missing #ad on obvious promotion is your answer about their character.</p><p><b>Copy trading</b> automates the problem: your account mirrors a \"top trader's\" moves, often on CFD platforms (Lesson 25's 74–89% base rate applies). The incentive flaw: leaders typically earn from follower volume, not follower profits — they get paid whether you win or lose, which rewards flashy, high-frequency trading over the boring kind that works. Nobody with a genuinely money-printing strategy sells copies of it for follower fees. The whole arrangement answers its own question.</p>",
+    example:
+      "An account with 400k followers posts daily wins, a broker referral code, and a \"copy my trades\" link. Sara runs the checks: the national register shows no licence; there's no #ad anywhere despite the code paying per signup; the copy-platform's own disclosure says most retail accounts lose money; and the leader's fee is per copier, not per profit. Four checks, four red flags, three minutes. She keeps her boring index plan and mutes the account.",
+    check: [
+      {
+        q: "What's the incentive flaw in most copy trading?",
+        o: [
+          "Leaders earn from follower volume, not follower profits — they're paid whether you lose or win",
+          "Copying is illegal in the EU",
+          "The trades copy too slowly to matter",
+        ],
+        a: 0,
+        why: "Rewarding flashy volume over boring returns points the incentives away from you.",
+      },
+      {
+        q: "How do you check if someone may legally give investment advice?",
+        o: [
+          "Search your national regulator's public register — it takes a minute",
+          "Check their follower count",
+          "Ask them directly and trust the answer",
+        ],
+        a: 0,
+        why: "Licensed or not is a public fact, not a vibe.",
+      },
+    ],
+  },
+  {
+    id: "l33",
+    pillar: "📈 Investing",
+    crypto: false,
+    tier: "plus",
+    title: "Currency risk: your world ETF is mostly dollars",
+    core: "A 'global' fund bought in euros still lives mostly in dollars — sometimes your return is the market, and sometimes it's the exchange rate.",
+    reading:
+      "<p>Open the factsheet of a typical world index ETF (Lesson 23) and you'll find <b>60–70% of it is US assets</b> — priced in dollars. Buying it in euros doesn't change that. Your return has two layers: what the assets do, and what the <b>EUR/USD exchange rate</b> does. Some years the layers add; some years they fight. In 2025 many EU investors watched US markets rise while their euro-denominated ETFs barely moved — the dollar's slide against the euro ate the gains. Nothing was broken. That's currency risk.</p><p>The menu: an <b>unhedged</b> fund (the default) accepts the currency swings. A <b>hedged share class</b> uses contracts to cancel them — for a cost that quietly compounds like any fee, and rises when interest rates differ between the currencies. The classic reasoning: over <b>decades, equity investors</b> often accept unhedged swings (currencies tend to wash out over long horizons, and hedging costs are certain while the benefit isn't). For <b>bonds</b>, where returns are small and stability is the point, currency swings can dwarf the returns — which is why euro-hedged bond funds are common.</p><p>What matters is neither panic nor pretending it away: <b>know which you own</b> (the factsheet says \"EUR Hedged\" in the name if it is), expect years where the exchange rate — not the market — writes your result, and treat the choice like everything else here: a trade-off with costs on both sides, not a right answer someone on the internet has found for you.</p>",
+    example:
+      "In one 2025 stretch, a US-heavy world index rose ~8% in dollars while the dollar fell ~10% against the euro. Lena's unhedged ETF showed roughly −2% — while American investors celebrated. Her reaction, thanks to this lesson: check the factsheet (unhedged, as she chose), remember the same effect boosted her returns in dollar-strong years, and change nothing. The exchange rate had the pen that year; over her 25-year horizon, the market usually does.",
+    check: [
+      {
+        q: "Why can your world ETF fall while US markets rise?",
+        o: [
+          "It's ~60–70% dollar assets — a falling dollar can eat the market gains in euro terms",
+          "European brokers apply a penalty fee",
+          "It can't — global funds remove all currency effects",
+        ],
+        a: 0,
+        why: "Your return = the assets' move plus the exchange rate's move. Some years they fight.",
+      },
+      {
+        q: "Why do euro investors often hedge bonds but not stocks?",
+        o: [
+          "Bond returns are small enough for currency swings to dwarf them; long-horizon equity swings tend to wash out",
+          "Hedging stocks is illegal",
+          "Bonds are traded only in dollars",
+        ],
+        a: 0,
+        why: "Hedging costs are certain; its benefit depends on the asset's size of returns and your horizon.",
+      },
+    ],
+  },
 ];
 
 /** Lessons available on the free tier (Plus-marked lessons excluded). */

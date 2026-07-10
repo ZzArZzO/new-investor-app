@@ -6,6 +6,12 @@
 > protections, l25 CFD/leverage — all free) and 🏛️ Taxes & pensions (l26 EU tax four
 > questions, l27 three pillars + PEPP — both Plus). Plus 13 new glossary terms and 6 daily
 > cards. Items 6–15 remain the second-wave backlog.
+>
+> **Wave 2 partial (2026-07-10):** items 6 (currency risk, Plus, 📈 Investing), 7
+> (bear-market drill, free, 🧠 Brain & money) and 8 (finfluencer/copy-trading machinery,
+> free, 🛡️ Protections & traps) implemented — plus crypto deep-dive completion (hot/cold
+> transfers, PoW/PoS, stablecoins/MiCA/digital euro). Curriculum declared **v1 done at 33
+> lessons / 11 tracks**; items 9–15 stay backlog until post-launch gate data justifies more.
 
 Gap analysis of the 22-lesson curriculum vs competitor curricula (Finelo, Investmate, Zogo,
 Bloom, Khan Academy, Morningstar, iShares/Vanguard), the EU/OECD-INFE Financial Competence
