@@ -133,7 +133,7 @@ export const LESSONS: Lesson[] = [
     title: "What blockchain & crypto actually are",
     core: "A blockchain is a shared record no single party controls; a crypto-asset is built on one, and what it is matters more than any price.",
     reading:
-      "<p>Strip the hype and a <b>blockchain</b> is a shared digital ledger copied across many computers, with no single owner, where past entries are very hard to change. A <b>cryptocurrency</b> is an asset that lives on one. Bitcoin was the first, designed to be scarce; Ethereum added programs called smart contracts.</p><p>The honest part: unlike a share, a crypto-asset usually represents no business, no profits and no cash flows. Its value comes from supply, demand and belief. That's why it behaves so differently from stocks and can swing enormously. <b>Stablecoins</b> try to hold a steady value; <b>tokens</b> are everything else, some serious, many worthless.</p>",
+      "<p>Strip the hype and a <b>blockchain</b> is a shared digital ledger copied across many computers, with no single owner, where past entries are very hard to change. A <b>cryptocurrency</b> is an asset that lives on one. Bitcoin was the first, designed to be scarce; Ethereum added programs called smart contracts.</p><p>The honest part: unlike a share, a crypto-asset usually represents no business, no profits and no cash flows. Its value comes from supply, demand and belief. That's why it behaves so differently from stocks and can swing enormously. <b>Stablecoins</b> try to hold a steady value; <b>tokens</b> are everything else, some serious, many worthless. One worth naming: an <b>NFT</b> (non-fungible token) is a unique ledger entry, often linked to an image or item — buying one gets you that entry, not automatically the copyright, the image's continued hosting, or any legal right to the underlying work.</p>",
     example:
       "Think of a blockchain like a shared spreadsheet thousands of people hold identical copies of, where rows can be added by agreement but old ones can't be edited, and nobody owns the document. Bitcoin is one such sheet tracking who holds how much.",
     check: [
@@ -1253,6 +1253,40 @@ export const LESSONS: Lesson[] = [
         ],
         a: 0,
         why: "EU diversification rules block single-asset ETFs, so the EU-accessible route is the ETP wrapper specifically, via a normal broker.",
+      },
+    ],
+  },
+  {
+    id: "l41",
+    pillar: "🏛️ Taxes & pensions",
+    crypto: true,
+    tier: "plus",
+    title: "Crypto & tax: the extra layer",
+    core: "Crypto adds tax events traditional investing doesn't have — swapping one coin for another can itself be taxable, and staking rewards are usually taxed as income the moment you receive them.",
+    reading:
+      "<p>Lesson 26's four questions apply to crypto too, but crypto adds a trap traditional investing doesn't have: in most EU countries, <b>swapping one coin for another</b> — trading BTC for ETH, say — is treated as if you sold the first one, even though no euros ever touched your bank account. That's a taxable event most beginners never see coming, because nothing about the transaction <i>feels</i> like a sale.</p><p><b>Staking rewards</b> add a second layer (Lesson 21 covered the risk side; this is the tax side). New coins arriving as a reward are typically taxed as <b>income</b> at the moment you receive them, valued at that day's price — and then, separately, as a capital gain or loss whenever you eventually sell them. Two tax events from one staking position, at two different times, is the normal shape, not an edge case.</p><p>Country variance is sharper here than for traditional funds: some countries (Germany, for one) exempt crypto held over a year from tax entirely; others apply a flat rate regardless of holding period. And since <b>2026</b>, a new EU rule (<b>DAC8</b>) requires licensed exchanges to report your account activity to your country's tax authority automatically — record-keeping is no longer optional or private. As always: this explains the shape of the problem, not what applies to you. <b>This is education, not tax advice.</b></p>",
+    example:
+      "Karim buys €500 of ETH, stakes it, and six months later swaps his staking rewards for a different coin — three moves that feel like \"just managing my crypto.\" His country's tax authority sees three separate events: the staking rewards counted as income when received, and the swap counted as a disposal of whatever he swapped away. He finds out from a factsheet, not a fine — because he read Lesson 26's four questions and asked how crypto changes them before he needed to.",
+    check: [
+      {
+        q: "In most EU countries, swapping one crypto coin for another is…",
+        o: [
+          "Typically a taxable event, even though no euros were involved",
+          "Never taxable — only cashing out to euros counts",
+          "Only taxable if you use a MiCA-licensed exchange",
+        ],
+        a: 0,
+        why: "Tax authorities generally treat it as disposing of the first coin, regardless of what you received instead.",
+      },
+      {
+        q: "How are staking rewards usually taxed?",
+        o: [
+          "As income when received, then separately as a capital gain/loss when eventually sold",
+          "Only once, when you eventually sell",
+          "They're never taxable if you keep staking",
+        ],
+        a: 0,
+        why: "Two separate tax events from one staking position — at two different times.",
       },
     ],
   },

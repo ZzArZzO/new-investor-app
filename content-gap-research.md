@@ -41,6 +41,19 @@
 > (and why US spot Bitcoin ETFs aren't EU-accessible), and the digital-gold narrative
 > told honestly. Curriculum now **40 lessons / 11 tracks**. Lint, typecheck, and full
 > test suite (124 tests) pass.
+>
+> **Wave 5 — crypto-focused audit, shipped (2026-07-10).** Full read-through of all
+> 40 lessons (internal audit, not external research) confirmed the crypto track (12
+> lessons) maps cleanly onto every real decision a beginner faces — what it is, custody
+> choice, sizing, which coin, safe self-custody/transfer, staking/DeFi risk, consensus
+> mechanics, stablecoins/MiCA, exchange-failure recovery, drainer scams — with one real
+> gap: crypto-specific tax (swaps as taxable events, staking-reward income timing,
+> DAC8 reporting) was entirely absent from the general tax lesson. Closed with **l41
+> "Crypto & tax: the extra layer"** (🏛️ Taxes & pensions, Plus, pairs with l26). Also
+> added a one-line NFT-ownership clarification to l6 (what you actually own — a ledger
+> entry, not the IP), closing the Wave 1 fold-in item that was never actioned.
+> Curriculum now **41 lessons / 11 tracks**. Lint, typecheck, and full test suite
+> (124 tests) pass.
 
 Gap analysis of the 22-lesson curriculum vs competitor curricula (Finelo, Investmate, Zogo,
 Bloom, Khan Academy, Morningstar, iShares/Vanguard), the EU/OECD-INFE Financial Competence
