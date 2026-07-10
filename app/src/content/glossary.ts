@@ -76,4 +76,12 @@ export const GLOSSARY: Glossary = {
   "margin call": "A forced close-out when a leveraged position's losses approach your stake — often locking in the loss right before a recovery.",
   "pension gap": "The difference between the state pension you're projected to get and what your life actually costs — the number long-term investing exists to close.",
   PEPP: "The pan-European personal pension — an EU pillar-3 wrapper designed to stay portable when you move between countries.",
+  "hot wallet": "Crypto keys on an internet-connected device — convenient, always an attack surface. For spending amounts.",
+  "cold wallet": "Crypto keys kept offline (hardware wallet, paper) — the safer home for anything meaningful.",
+  "gas fee": "The network fee paid for a crypto transaction. Swings with congestion — sometimes cents, sometimes painful.",
+  "test send": "Sending a small amount first and confirming it arrives before moving the rest. Crypto transfers are irreversible; this is the cheapest insurance there is.",
+  "proof of work": "Consensus by burning energy: miners race to solve costly puzzles, and that cost is the security. Bitcoin's model.",
+  "proof of stake": "Consensus by locked collateral: validators stake their own coins and get slashed for cheating. Ethereum's model since 2022 (~99.9% less energy).",
+  halving: "Bitcoin's scheduled cut of new-coin supply, roughly every four years. Designed scarcity — which makes it limited, not automatically valuable.",
+  CBDC: "Central bank digital currency — digital money issued by a central bank itself (like the ECB's planned digital euro), with no private issuer that can go bust.",
 };

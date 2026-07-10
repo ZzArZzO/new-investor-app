@@ -232,4 +232,29 @@ export const DAILY_CARDS: DailyCard[] = [
     a: true,
     why: "Employer matching is unclaimed salary — usually the best deal available to you.",
   },
+  {
+    q: "Before moving crypto, you should send a small test amount and confirm it arrives.",
+    a: true,
+    why: "Transfers are irreversible — the small test defeats wrong-network and wrong-address losses.",
+  },
+  {
+    q: "Sending a token on the wrong network is easily reversed by support.",
+    a: false,
+    why: "Wrong-network transfers can be gone for good; recovery is 'best effort' at most. Match networks on both sides.",
+  },
+  {
+    q: "Keeping meaningful crypto amounts in a hot wallet is the recommended default.",
+    a: false,
+    why: "Hot = keys online = attack surface. Spending amounts hot, anything meaningful cold.",
+  },
+  {
+    q: "Bitcoin's 21-million cap guarantees its price can only rise.",
+    a: false,
+    why: "Scarcity makes something limited, not valuable — demand and belief still do the work.",
+  },
+  {
+    q: "A 'stablecoin' held up only by an algorithm has collapsed to nearly zero before.",
+    a: true,
+    why: "Terra went from 'stable' to almost nothing in a week in 2022, erasing ~$40 billion.",
+  },
 ];

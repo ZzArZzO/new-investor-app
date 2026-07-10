@@ -657,6 +657,108 @@ export const LESSONS: Lesson[] = [
     ],
   },
   {
+    id: "l28",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    tier: "plus",
+    title: "Hot, cold & moving crypto without losing it",
+    core: "Most beginner crypto losses aren't market crashes — they're transfers done wrong. Hot vs cold storage and a careful sending ritual prevent nearly all of them.",
+    reading:
+      "<p>A <b>hot wallet</b> keeps your keys on something connected to the internet — an exchange account, a phone app, a browser extension. Convenient, always an attack surface. A <b>cold wallet</b> keeps keys offline — a hardware wallet (Lesson 20) or even paper. The standard shape: small \"spending\" amounts hot, anything meaningful cold. It's the same logic as cash in your pocket vs savings at the bank.</p><p>Moving crypto is where beginners actually lose money, because transfers are <b>irreversible</b> and unforgiving. The traps: the same token can live on <b>several networks</b> (chains) — send on the wrong network and the funds can be gone or stranded; sender and receiver must match networks exactly. <b>Clipboard malware</b> silently swaps a copied address for the thief's. And every transfer costs a <b>network fee</b> (\"gas\"), which swings with congestion — sometimes cents, sometimes painful.</p><p>The ritual, every time: copy the address, then verify the <b>first and last characters</b> on both ends; double-check the network matches; send a <b>small test amount</b> first and confirm it arrives; only then send the rest. Thirty extra seconds, and it defeats wrong-network loss, clipboard swaps and fat-fingered addresses in one move. Nobody who does this ritual feels silly. Plenty who skipped it do.</p>",
+    example:
+      "Jonas moves €600 of crypto from his exchange to his hardware wallet. He copies the address, checks the first and last four characters on both screens, confirms both sides say the same network, and sends €20 first. It lands. He sends the rest. His colleague skipped the test send, picked the wrong network from a dropdown, and spent three weeks pleading with support to recover funds — a service the exchange calls \"best effort\" and sometimes simply can't do.",
+    check: [
+      {
+        q: "Hot wallet vs cold wallet?",
+        o: [
+          "Keys online (convenient, exposed) vs keys offline (safer for meaningful amounts)",
+          "A wallet for popular coins vs unpopular ones",
+          "Mobile vs desktop apps",
+        ],
+        a: 0,
+        why: "Spending money hot, savings cold — same logic as pocket cash vs the bank.",
+      },
+      {
+        q: "The sending ritual is: verify address characters, match the network, and…",
+        o: [
+          "Send a small test amount first, confirm it arrives, then send the rest",
+          "Send everything at once to save on fees",
+          "Ask in a Telegram group if the address looks right",
+        ],
+        a: 0,
+        why: "Transfers are irreversible — the €20 test is the cheapest insurance in crypto.",
+      },
+    ],
+  },
+  {
+    id: "l29",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    tier: "plus",
+    title: "How the machine runs: proof of work vs proof of stake",
+    core: "Two ways a blockchain agrees on the truth — burning energy or locking money — explain mining, staking, the energy debate and Bitcoin's famous scarcity.",
+    reading:
+      "<p>A blockchain has no boss, so it needs a way for strangers to agree which transactions are real. <b>Proof of work</b> (Bitcoin's way): \"miners\" race to solve pointless-but-expensive puzzles; winning costs real electricity and hardware, and that cost is the security — rewriting history would mean out-spending the whole honest network. It works, and it's why Bitcoin's energy use draws criticism.</p><p><b>Proof of stake</b> (Ethereum's way since 2022, when its switch cut energy use by ~99.9%): instead of burning energy, <b>validators</b> lock up their own coins as collateral. Cheat, and the network destroys part of your stake (<b>slashing</b> — the risk behind Lesson 21's staking yields). Security comes from money at risk rather than electricity burned.</p><p>One more piece of machinery: <b>supply rules</b>. Bitcoin's code caps it at <b>21 million coins</b>, with the flow of new ones halving roughly every four years (a <b>halving</b>). That designed scarcity is central to the \"digital gold\" story — and here honesty matters: scarcity makes something <i>limited</i>, not <i>valuable</i>. Value still needs demand, which rests on belief (Lesson 6). Plenty of scarce things are worthless. Understanding the machine protects you from both the hype and the dismissal.</p>",
+    example:
+      "At a family dinner, Rosa gets both classics: \"crypto boils the oceans\" and \"Bitcoin can't lose because only 21 million exist.\" She can now answer both honestly: proof-of-work chains do burn serious energy (that's their security model), while proof-of-stake chains cut it by ~99.9% — and the 21-million cap makes Bitcoin scarce, not guaranteed valuable, since scarcity without demand is just a limited edition nobody wants.",
+    check: [
+      {
+        q: "Where does proof-of-stake security come from?",
+        o: [
+          "Validators' own locked coins, which get slashed if they cheat",
+          "Electricity burned by miners",
+          "A central company checking transactions",
+        ],
+        a: 0,
+        why: "Money at risk replaces energy burned — that's the whole swap.",
+      },
+      {
+        q: "Bitcoin's 21-million cap means…",
+        o: [
+          "It's designed to be scarce — but scarcity alone doesn't create value; demand does",
+          "Its price can only go up",
+          "Nobody can ever sell more than 21 million times",
+        ],
+        a: 0,
+        why: "Scarce and valuable are different properties. Belief and demand still do the work.",
+      },
+    ],
+  },
+  {
+    id: "l30",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    tier: "plus",
+    title: "Stablecoins, MiCA & the digital euro",
+    core: "\"Stable\" comes in three very different flavours, EU law now regulates the serious ones, and the ECB is building a public alternative.",
+    reading:
+      "<p>Lesson 6 introduced stablecoins as crypto that tries to hold steady value. The flavours matter. <b>Fiat-backed</b>: the issuer holds real reserves (cash, short-term bonds) and promises 1-coin-equals-€1 redemption — the mainstream kind. <b>Crypto-collateralised</b>: backed by a buffer of other, volatile crypto — sturdier than it sounds, weirder than it looks. <b>Algorithmic</b>: \"stabilised\" by code and confidence alone — the design behind Terra, which went from \"stable\" to nearly zero in a week and vaporised ~$40 billion (Lesson 22). Flavour one is a claim on reserves; flavour three was a belief system.</p><p>This is where <b>MiCA</b> gets concrete. Serious euro-referencing stablecoins in the EU must be issued by authorised firms holding real, verifiable reserves with redemption rights — and a <b>CASP licence</b> (the thing we always check) means the <i>platform</i> meets standards on custody, complaint handling and honest marketing. Know what it doesn't mean: nobody guarantees prices, yield products remain risky (Lesson 21), and there's still no deposit-guarantee scheme. Licensing regulates conduct, not outcomes.</p><p>And the state's answer: the <b>digital euro</b>, a potential <b>CBDC</b> (central bank digital currency) the ECB has been preparing for years. The difference is who stands behind it — a stablecoin is a claim on a private company's reserves; a digital euro would be central-bank money, like cash, with no issuer that can go bust. It isn't live yet and may take years, but it reframes the question nicely: much of what stablecoins promise, a CBDC would simply <i>be</i>.</p>",
+    example:
+      "Mara sees a \"stable\" coin offering 9% yield in a slick app. Checklist from this lesson: What backs it — audited reserves or an algorithm? Is the issuer MiCA-authorised? Where does 9% come from when safe euro rates are far lower (Lesson 21: yield is payment for risk)? The answers — \"algorithmic\", \"not authorised\", \"lending your coins out\" — turn a tempting banner into an obvious pass. Terra holders in 2022 had no such checklist.",
+    check: [
+      {
+        q: "The crucial difference between a fiat-backed and an algorithmic stablecoin?",
+        o: [
+          "A claim on real reserves vs stability held up by code and confidence alone",
+          "The logo and the marketing budget",
+          "Fiat-backed coins are always bigger",
+        ],
+        a: 0,
+        why: "Terra was the confidence kind — 'stable' right up until belief ran out.",
+      },
+      {
+        q: "What does a MiCA/CASP licence actually guarantee?",
+        o: [
+          "Conduct standards — custody, complaints, honest marketing — never prices or yields",
+          "That prices can't fall",
+          "That the EU refunds crypto losses",
+        ],
+        a: 0,
+        why: "Licensing regulates how firms behave, not how markets move.",
+      },
+    ],
+  },
+  {
     id: "l23",
     pillar: "🛡️ Protections & traps",
     crypto: false,
