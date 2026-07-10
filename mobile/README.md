@@ -23,7 +23,11 @@ Content edits in `app/src/content` show up here with no extra steps. Never edit 
 - `lib/theme.ts` — Calm Clarity palette (light/dark), Fraunces + Inter
 - `lib/app-state.tsx` — AsyncStorage-backed port of the web `useAppState` (same `ni_state_v1` shape, same reducers)
 
-Still missing vs web: portfolio tracker, settings/account sync, Plus surface, action checklist / weekly / scam-daily home cards.
+- `app/tracker.tsx` — portfolio tracker (holdings, DCA contribution log, allocation donut)
+- `app/types/` — persona profile pages; `app/settings.tsx` — backup export (account sync = phase 2)
+
+Deliberately not on mobile (see repo plan): Plus surface, Formspree captures, in-app privacy page, analytics.
+Next phase: auth (email + Google + Apple) + progress sync against the web API, then store launch prep.
 
 ## Run
 

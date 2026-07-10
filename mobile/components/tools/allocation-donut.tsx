@@ -1,45 +1,12 @@
 import { useMemo, useState } from "react";
 import { View } from "react-native";
-import Svg, { Circle } from "react-native-svg";
 
 import { useAppState } from "@/lib/app-state";
 import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
+import { Donut } from "@/components/donut";
 import { Stepper } from "@/components/stepper";
 import { ToolShell } from "@/components/tools/tool-shell";
-
-const SIZE = 120;
-const STROKE = 20;
-const R = (SIZE - STROKE) / 2;
-const CIRC = 2 * Math.PI * R;
-
-/** Donut via stroke-dash segments on circles — no chart library needed. */
-function Donut({ slices }: { slices: { value: number; color: string }[] }) {
-  let offset = 0;
-  return (
-    <Svg width={SIZE} height={SIZE} viewBox={`0 0 ${SIZE} ${SIZE}`}>
-      {slices.map((s, idx) => {
-        const len = (s.value / 100) * CIRC;
-        const circle = (
-          <Circle
-            key={idx}
-            cx={SIZE / 2}
-            cy={SIZE / 2}
-            r={R}
-            stroke={s.color}
-            strokeWidth={STROKE}
-            fill="none"
-            strokeDasharray={`${len} ${CIRC - len}`}
-            strokeDashoffset={-offset}
-            transform={`rotate(-90 ${SIZE / 2} ${SIZE / 2})`}
-          />
-        );
-        offset += len;
-        return circle;
-      })}
-    </Svg>
-  );
-}
 
 export function AllocationDonut() {
   const { colors } = useTheme();

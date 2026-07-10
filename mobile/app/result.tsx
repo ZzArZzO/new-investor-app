@@ -77,6 +77,11 @@ export default function ResultScreen() {
           </View>
         </Card>
 
+        <Btn
+          label={`Read the full ${persona.name} profile`}
+          variant="outline"
+          onPress={() => router.push({ pathname: "/types/[slug]", params: { slug: persona.slug } })}
+        />
         <Btn label="Start the lessons →" onPress={() => router.dismissTo("/(tabs)/lessons")} />
         <Btn label="See tools & platforms" variant="outline" onPress={() => router.dismissTo("/(tabs)/compare")} />
 

@@ -11,6 +11,10 @@ import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { useTheme } from "@/lib/theme";
 import { AppText, Btn, Card, FeedbackBox, ProgressBar } from "@/components/ui";
+import { ActionChecklistCard } from "@/components/home/action-checklist-card";
+import { ThisWeekCard } from "@/components/home/this-week-card";
+import { TodayScamCard } from "@/components/home/today-scam-card";
+import { TrackerSnapshotCard } from "@/components/home/tracker-snapshot-card";
 
 const NEVER_DO = [
   'No price predictions or "this coin is going to X"',
@@ -193,6 +197,22 @@ function NeverDoCard() {
   );
 }
 
+function SettingsButton() {
+  const router = useRouter();
+  const { colors } = useTheme();
+  return (
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel="Settings"
+      onPress={() => router.push("/settings")}
+      hitSlop={8}
+      style={({ pressed }) => ({ alignSelf: "flex-end", opacity: pressed ? 0.6 : 1 })}
+    >
+      <AppText style={{ fontSize: 20, lineHeight: 24, color: colors.mutedForeground }}>⚙️</AppText>
+    </Pressable>
+  );
+}
+
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   return (
@@ -204,11 +224,16 @@ export default function HomeScreen() {
         gap: 14,
       }}
     >
+      <SettingsButton />
       <HeroCard />
       <DailyQuestionCard />
       <ReviewCard />
-      <ProgressCard />
+      <TodayScamCard />
+      <TrackerSnapshotCard />
+      <ActionChecklistCard />
+      <ThisWeekCard />
       <NeverDoCard />
+      <ProgressCard />
       <AppText
         variant="muted"
         style={{ marginTop: 8, paddingHorizontal: 6, textAlign: "center", fontSize: 11.5, lineHeight: 17 }}
