@@ -3,11 +3,13 @@ import { useState } from "react";
 import { ScrollView, View } from "react-native";
 
 import { LESSONS } from "@/content/lessons";
+import { LESSON_TOOLS } from "@/content/tools";
 import { useAppState } from "@/lib/app-state";
 import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn } from "@/components/ui";
 import { LessonReading } from "@/components/lesson-reading";
 import { LessonQuickCheck } from "@/components/lesson-quick-check";
+import { TOOL_COMPONENTS } from "@/components/tools/tool-registry";
 
 export default function LessonScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -17,6 +19,8 @@ export default function LessonScreen() {
   const [readyToComplete, setReadyToComplete] = useState(false);
 
   const lesson = LESSONS.find((l) => l.id === id);
+  const toolId = lesson ? LESSON_TOOLS[lesson.id] : undefined;
+  const ToolComponent = toolId ? TOOL_COMPONENTS[toolId] : null;
 
   if (!lesson) {
     return (
@@ -93,6 +97,12 @@ export default function LessonScreen() {
             {lesson.example}
           </AppText>
         </View>
+
+        {ToolComponent && (
+          <View style={{ marginVertical: 6 }}>
+            <ToolComponent />
+          </View>
+        )}
 
         <LessonQuickCheck
           key={lesson.id}

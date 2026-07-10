@@ -15,10 +15,15 @@ Content edits in `app/src/content` show up here with no extra steps. Never edit 
 
 ## Structure
 
-- `app/(tabs)/` — Home, Lessons, Tools, Compare
-- `app/lesson/[id].tsx` — lesson reading + quick check (native HTML-lite renderer, glossary tap-to-define)
+- `app/(tabs)/` — Home, Lessons, Tools (menu), Compare
+- `app/lesson/[id].tsx` — lesson reading + quick check (native HTML-lite renderer, glossary tap-to-define, embedded tool)
+- `app/quiz.tsx` + `app/result.tsx` — investor-type onboarding flow
+- `app/review.tsx` — spaced-repetition session (due cards + glossary top-ups, daily cap)
+- `app/tool/[id].tsx` — all 5 tools via `components/tools/tool-registry`
 - `lib/theme.ts` — Calm Clarity palette (light/dark), Fraunces + Inter
 - `lib/app-state.tsx` — AsyncStorage-backed port of the web `useAppState` (same `ni_state_v1` shape, same reducers)
+
+Still missing vs web: portfolio tracker, settings/account sync, Plus surface, action checklist / weekly / scam-daily home cards.
 
 ## Run
 

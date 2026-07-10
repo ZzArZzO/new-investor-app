@@ -1,11 +1,12 @@
 import { useRouter } from "expo-router";
 import { useMemo, useState } from "react";
-import { ScrollView, View } from "react-native";
+import { Pressable, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { BADGES } from "@/content/badges";
 import { DAILY_CARDS } from "@/content/daily-cards";
 import { FREE_LESSONS } from "@/content/lessons";
+import { dueReviewItems, remainingReviewQuota } from "@/lib/app-state-logic";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { useTheme } from "@/lib/theme";
@@ -49,8 +50,8 @@ function HeroCard() {
         Short lessons that take you from confusion to your first move, in stocks or crypto. No hype, no hot tips.
       </AppText>
       <Btn
-        label={hydrated && state.persona ? "Browse lessons" : "Start with the basics"}
-        onPress={() => router.push("/lessons")}
+        label={hydrated && state.persona ? "Retake the type quiz" : "Find your investor type"}
+        onPress={() => router.push("/quiz")}
         style={{ marginTop: 20 }}
       />
     </Card>
@@ -112,6 +113,47 @@ function DailyQuestionCard() {
   );
 }
 
+/** Home entry point for the spaced-repetition deck — appears once there's anything to review. */
+function ReviewCard() {
+  const router = useRouter();
+  const { state, hydrated } = useAppState();
+  if (!hydrated) return null;
+
+  const today = todayStr();
+  // Nothing to review until some learning has happened.
+  if (state.done.length === 0) return null;
+
+  const due = dueReviewItems(state, today).length;
+  const quota = remainingReviewQuota(state, today);
+
+  if (quota === 0) {
+    return (
+      <Card>
+        <AppText variant="kicker">Review · make it stick</AppText>
+        <AppText variant="bold" style={{ marginTop: 8 }}>
+          ✓ Reviewed today — spaced repetition works best in small daily doses.
+        </AppText>
+      </Card>
+    );
+  }
+
+  return (
+    <Pressable accessibilityRole="button" onPress={() => router.push("/review")}>
+      {({ pressed }) => (
+        <Card style={{ opacity: pressed ? 0.8 : 1 }}>
+          <AppText variant="kicker">Review · make it stick</AppText>
+          <AppText variant="bold" style={{ marginTop: 8 }}>
+            {due > 0 ? `${due} card${due === 1 ? "" : "s"} due — a two-minute refresh.` : "A quick refresher round is ready."}
+          </AppText>
+          <AppText variant="muted" style={{ marginTop: 4 }}>
+            Missed questions and key terms, spaced so they stick. +3 XP per card.
+          </AppText>
+        </Card>
+      )}
+    </Pressable>
+  );
+}
+
 function ProgressCard() {
   const { state, hydrated } = useAppState();
   if (!hydrated) return null;
@@ -164,6 +206,7 @@ export default function HomeScreen() {
     >
       <HeroCard />
       <DailyQuestionCard />
+      <ReviewCard />
       <ProgressCard />
       <NeverDoCard />
       <AppText
