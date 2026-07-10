@@ -262,7 +262,7 @@ export const LESSONS: Lesson[] = [
     title: "Finding your first €100",
     core: "You don't find money to invest by earning more willpower — you find it by paying yourself first and automating it.",
     reading:
-      "<p>The classic approach — spend the month, invest \"what's left\" — fails because there's rarely anything left. The fix is to flip the order: <b>pay yourself first</b>. The day your salary lands, a standing order moves a fixed amount to savings or investments before you can spend it. What remains is simply what you live on.</p><p>The amount matters less than you think. €25–€50 a month is a real start: it builds the habit, and habits scale with income while good intentions don't. A quick look at one month of transactions usually surfaces an unused subscription or two — that's your first €100 hiding in plain sight.</p><p><b>Automation</b> is the whole trick. A manual transfer requires a good day, every month, forever. A standing order requires one good decision, once. Every lesson in this app about behaviour points the same way: remove yourself from the loop wherever you can.</p>",
+      "<p>The classic approach — spend the month, invest \"what's left\" — fails because there's rarely anything left. The fix is to flip the order: <b>pay yourself first</b>. The day your salary lands, a standing order moves a fixed amount to savings or investments before you can spend it. What remains is simply what you live on.</p><p>The amount matters less than you think. €25–€50 a month is a real start: it builds the habit, and habits scale with income while good intentions don't. A quick look at one month of transactions usually surfaces an unused subscription or two — that's your first €100 hiding in plain sight.</p><p><b>Automation</b> is the whole trick. A manual transfer requires a good day, every month, forever. A standing order requires one good decision, once. Every lesson in this app about behaviour points the same way: remove yourself from the loop wherever you can.</p><p>Once the habit exists, the next question is naturally \"how much of my income, generally?\" A common starting reference: roughly <b>15% of income</b> toward savings and investing combined, once the essentials and any high-interest debt are handled — a rough <b>50/30/20 split</b> (needs / wants / savings & investing) is a well-known way to picture that. Nothing here is a rule to hit immediately — start at whatever's automatable today and raise it when a raise or a cheaper year makes room. (This is separate from the aggressive savings rates used later for FIRE-style timelines — that's a specific, optional goal, not the everyday baseline.)</p>",
     example:
       "Tom earns €2,100/month and swears he can't invest. One month of statements shows €11.99 for a streaming service he forgot, €9.99 for an app trial that renewed, and ~€40 of food delivery fees. He sets a €50 standing order for the 26th — the day after payday. Six months later he hasn't missed it once, because he never had to decide.",
     check: [
@@ -932,7 +932,7 @@ export const LESSONS: Lesson[] = [
     title: "Surviving your first crash: the drill",
     core: "Your first real crash is a when, not an if — and what long-term investors do in one is decided before it starts, not during.",
     reading:
-      "<p>Here's the schedule nobody puts in the brochure: broad markets drop <b>10%+ most years</b> along the way, and <b>20%+ (a bear market)</b> every handful of years. In April 2025, trillions in market value vanished in two days. If you invest for decades, you will sit through several of these. The only question is whether you'll have a drill or a panic.</p><p>The drill, written in calm weather: <b>(1)</b> automatic contributions keep running — historically, buying through a crash meant buying cheap (Lesson 12's Ben). <b>(2)</b> No selling decisions during a drawdown; if you ever change the plan, you do it on a scheduled, calm review day, not a red one. <b>(3)</b> Check <i>less</i>, not more — every extra look is another loss-aversion sting (Lesson 14). <b>(4)</b> Re-read the note you wrote to your future self about why you invested. If you haven't written it yet, today — in a calm market — is exactly the day.</p><p>What makes crashes survivable isn't courage, it's <b>structure</b>: an emergency fund so you're never forced to sell (Lesson 10), diversification so nothing goes to zero on you (Lesson 4), automation so buying continues without a decision (Lesson 11). People who \"stayed calm\" through history's crashes mostly weren't calm — they had simply arranged things so their feelings had no lever to pull.</p>",
+      "<p>Here's the schedule nobody puts in the brochure: broad markets drop <b>10%+ most years</b> along the way, and <b>20%+ (a bear market)</b> every handful of years. In April 2025, trillions in market value vanished in two days. If you invest for decades, you will sit through several of these. The only question is whether you'll have a drill or a panic.</p><p>Set the expectation before you need it: a first year anywhere from <b>−15% to +25%</b> is completely normal and says nothing about whether you're \"doing it right.\" The long-run average you'll hear quoted (roughly 7–8%/year for a broad market) is a many-decade average, not a promise for any single year — judging year one against it is like judging a marathon runner's fitness from their first ten metres.</p><p>The drill, written in calm weather: <b>(1)</b> automatic contributions keep running — historically, buying through a crash meant buying cheap (Lesson 12's Ben). <b>(2)</b> No selling decisions during a drawdown; if you ever change the plan, you do it on a scheduled, calm review day, not a red one. <b>(3)</b> Check <i>less</i>, not more — every extra look is another loss-aversion sting (Lesson 14). <b>(4)</b> Re-read the note you wrote to your future self about why you invested. If you haven't written it yet, today — in a calm market — is exactly the day.</p><p>What makes crashes survivable isn't courage, it's <b>structure</b>: an emergency fund so you're never forced to sell (Lesson 10), diversification so nothing goes to zero on you (Lesson 4), automation so buying continues without a decision (Lesson 11). People who \"stayed calm\" through history's crashes mostly weren't calm — they had simply arranged things so their feelings had no lever to pull.</p>",
     example:
       "Two colleagues, same crash, −25% in six weeks. Priya has the drill: her €200/month keeps buying, she's deleted the app from her home screen, and her written note says \"you invest for 2050, not for next spring.\" Marco has no drill: he checks hourly, sells \"temporarily\" near the bottom to \"wait for clarity,\" and buys back in a year later — above his selling price. The market treated them identically. Their structures didn't.",
     check: [
@@ -1022,6 +1022,237 @@ export const LESSONS: Lesson[] = [
         ],
         a: 0,
         why: "Hedging costs are certain; its benefit depends on the asset's size of returns and your horizon.",
+      },
+    ],
+  },
+  {
+    id: "l34",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    title: "What happens if your exchange fails?",
+    core: "Buying crypto on an exchange isn't the same as owning it — and MiCA licensing exists specifically to make failure survivable instead of catastrophic.",
+    reading:
+      "<p>Here's a distinction almost every beginner misses: buying crypto on an exchange and <b>owning</b> crypto are not the same thing until you withdraw it. While it sits on the exchange, you hold an IOU — a database entry saying the exchange owes you that amount. If the exchange fails, you're a creditor, not an owner. When FTX collapsed in 2022, roughly <b>$8 billion</b> in customer funds went missing overnight — money people believed was simply \"in their account.\" Unlike a bank, crypto holdings on an exchange carry <b>no deposit insurance</b>. Nothing tops it up if it's gone.</p><p>This is exactly the gap <b>MiCA</b> licensing is built to close. A licensed <b>CASP</b> (crypto-asset service provider) must legally <b>segregate</b> client crypto from its own company funds and maintain a client-asset register — the same principle EU brokers already follow for shares (Lesson 24). It doesn't make an exchange invincible, but it means your holdings aren't just mixed into the company's balance sheet and gambled with. This is the concrete answer to \"why does it matter if my exchange is licensed\" — it's not a badge, it's a legal boundary around your assets.</p><p>And if a licensed exchange still fails? Recovery runs through <b>bankruptcy proceedings</b>, not a same-day refund. FTX customers waited over <b>two years</b> for staged repayments — and eventually recovering most of their money was an unusually good outcome, not a guarantee. <b>Self-custody</b> (Lesson 20) sidesteps this entire chain of risk by design: crypto in your own wallet isn't anyone's balance sheet to fail.</p>",
+    example:
+      "Wiktoria buys crypto on two platforms: a MiCA-licensed exchange for most of it, and — chasing a slightly better price — an unlicensed offshore site for a small top-up. A year later the offshore site quietly stops processing withdrawals and disappears; there's no register, no license, no regulator to complain to, and her funds are simply gone. Her licensed-exchange holdings are untouched. The price difference that looked like a bargain was actually the cost of the protection she skipped.",
+    check: [
+      {
+        q: "While your crypto sits on an exchange (not withdrawn), what do you actually hold?",
+        o: [
+          "A claim on the exchange — you're a creditor, not the owner, until you withdraw it",
+          "Direct ownership, identical to holding it in your own wallet",
+          "A government-insured deposit, like cash in a bank",
+        ],
+        a: 0,
+        why: "It's a database entry the exchange owes you — real ownership starts once it's in your own wallet.",
+      },
+      {
+        q: "What does MiCA licensing concretely require of an exchange?",
+        o: [
+          "Segregating client crypto from company funds and keeping a client-asset register",
+          "Guaranteeing prices will never fall",
+          "Insuring all customer deposits like a bank",
+        ],
+        a: 0,
+        why: "Segregation is a legal boundary around your assets — it doesn't prevent failure, but it changes what happens if it does.",
+      },
+    ],
+  },
+  {
+    id: "l35",
+    pillar: "📈 Investing",
+    crypto: false,
+    title: "Placing your first order — and what happens next",
+    core: "Two order types cover almost everything a beginner needs, and the biggest first-time surprise isn't the click — it's what happens in the day or two after.",
+    reading:
+      "<p>When you place a trade, you'll usually choose between a <b>market order</b> (buy or sell right now, at whatever the current price is) and a <b>limit order</b> (only execute at a price you set, or better). For a broad, liquid fund bought mid-trading-day, the difference is often tiny. It stops being tiny right at <b>market open</b>, when prices can jump around before settling — a market order there can fill at a worse price than you expected. A simple habit: near the open, use a limit order a fraction above the last price; otherwise a market order is usually fine.</p><p>What surprises almost everyone the first time: clicking \"buy\" isn't the end of it. Trades go through <b>settlement</b> — in most markets this now takes one business day (<b>T+1</b>) after the trade date. Your position typically shows up right away for tracking, but the underlying legal transfer — and your ability to immediately withdraw cash from a sale — follows a day later. That's not a glitch; it's just how the plumbing works, and every broker operates on the same clock.</p><p>None of this needs to be memorized in detail. The practical takeaway is smaller: don't panic if withdrawn cash isn't instantly spendable, don't be surprised by a slightly different fill price right at the open, and know that both are completely normal, not a sign anything went wrong.</p>",
+    example:
+      "It's Sam's first trade — a world ETF, placed two minutes after the market opens. A market order fills a little higher than the price shown seconds earlier; Sam nearly messages support, thinking something broke. It didn't — that's the normal early-session jump a limit order would have avoided. The next day, wanting to withdraw a small amount, Sam finds the cash isn't there yet either — also normal, just settlement catching up a day behind.",
+    check: [
+      {
+        q: "When does a limit order matter most for a beginner?",
+        o: [
+          "Right around market open, when prices can jump before settling",
+          "Never — market and limit orders always fill at the same price",
+          "Only when trading amounts over €10,000",
+        ],
+        a: 0,
+        why: "Prices are most unstable in the first minutes of trading; a limit order caps what you'll pay.",
+      },
+      {
+        q: "Why might cash from a sale not be withdrawable the same day?",
+        o: [
+          "Settlement (commonly T+1) follows a day after the trade — normal for every broker, not a fault",
+          "The broker is holding it to earn interest illegally",
+          "Something went wrong with the order",
+        ],
+        a: 0,
+        why: "Settlement timing is standard market plumbing, unrelated to whether the trade itself was fine.",
+      },
+    ],
+  },
+  {
+    id: "l36",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "Switching broker without losing your shirt",
+    core: "Moving your investments to a new broker has three real paths — and picking the wrong one can quietly trigger a tax bill or lose your cost-basis records.",
+    reading:
+      "<p>Eventually many investors want to switch broker — better fees, better app, or a provider that no longer fits. There are three real ways to move: update your address and stay put (simplest, changes nothing about your holdings); an <b>in-kind transfer</b>, where your existing shares or funds move custodian-to-custodian without being sold; or <b>sell and rebuy</b> at the new broker, which is really opening a new position from scratch.</p><p>In-kind transfer is usually what people actually want — it avoids selling (no forced tax event, no time out of the market) — but it's also the option most likely to go wrong in practice. National regulators across the EU have flagged broker-transfer delays and lost <b>cost-basis</b> records (what you originally paid, needed for tax purposes) as among the most common complaints they receive from retail investors. A transfer that's supposed to take days can stretch into weeks, and if the paperwork trail breaks, reconstructing your original purchase prices later can be a real headache.</p><p>The practical version: before opening a new account specifically to switch, confirm the new broker actually supports in-kind transfers for what you hold — not every broker accepts every asset type. Keep your own records (old statements, purchase confirmations) rather than relying entirely on the transfer to carry that history. And build in patience — a transfer taking noticeably longer than advertised is common enough to expect, not a sign something's broken.</p>",
+    example:
+      "Aiden switches broker for lower fees and requests an in-kind transfer of his ETF holdings. It takes five weeks instead of the advertised five days, and the new broker initially shows the wrong purchase price — resolved only because Aiden had kept his own statements from the old broker. A friend doing the same move chose sell-and-rebuy instead, assuming it would be simpler; it was faster, but it also triggered a taxable gain neither of them had planned for that year.",
+    check: [
+      {
+        q: "What's the main advantage of an in-kind transfer over sell-and-rebuy?",
+        o: [
+          "It avoids selling — no forced tax event and no time spent out of the market",
+          "It's always faster than any other option",
+          "It automatically updates your tax return",
+        ],
+        a: 0,
+        why: "You keep the same holdings, just under a new custodian — nothing is sold, so nothing is taxed by the move itself.",
+      },
+      {
+        q: "Why is it worth keeping your own purchase records before switching broker?",
+        o: [
+          "Cost-basis data can get lost or delayed in a transfer, and you may need it later for tax purposes",
+          "Brokers are legally required to delete old records after a transfer",
+          "It's needed to unlock a better interest rate",
+        ],
+        a: 0,
+        why: "Lost cost-basis records are a common, documented transfer problem — your own copy is the backup.",
+      },
+    ],
+  },
+  {
+    id: "l37",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    title: "Wallet drainers, fake airdrops & the seed phrase rule",
+    core: "The newest big category of crypto theft doesn't steal your password — it gets you to sign a permission that lets it empty your wallet later, sometimes days later.",
+    reading:
+      "<p>Beyond phishing for passwords, a specific and fast-growing scam targets self-custody wallets directly: the <b>wallet drainer</b>. You connect your wallet to a site — often a fake \"claim your airdrop\" page — and sign what looks like a routine <b>approval</b> transaction. That signature can grant a contract standing permission to move your tokens later, sometimes not immediately, which is exactly why victims often don't connect the theft to the site that caused it. This isn't rare: tracked losses reached roughly <b>$300 million</b> across hundreds of thousands of victims in a single recent year, and scam techniques increasingly reuse the same playbook via fake ads and compromised social accounts.</p><p><b>Fake airdrops</b> are the most common bait. The tells are consistent: anything asking you to <b>send</b> crypto first to \"unlock\" a claim (real airdrops never require payment), urgent language (\"claim now or lose it\"), and a freshly registered look-alike website. A cheap habit that closes most of this off: periodically check and <b>revoke</b> old token approvals via a block explorer, so a permission you granted once and forgot about can't be used against you later.</p><p>None of this touches your <b>seed phrase</b> directly — connecting a wallet to a scam site doesn't reveal it — but the seed phrase remains the single point of total failure. The real-world mistakes are mundane: a screenshot, a note in a cloud drive, a photo in a messaging app. There's no \"forgot password\" for a seed phrase — lose it or expose it, and there's no support line that can help. If you've never actually tested restoring your wallet from your backup, you don't yet know it works.</p>",
+    example:
+      "Jonas sees an ad for a token airdrop tied to a project he's genuinely used before, connects his wallet, and signs what the site calls a \"claim\" transaction. Nothing happens immediately, so he forgets about it — until three weeks later his wallet is emptied in one transaction. The approval he signed had quietly given the scam contract standing permission all along. He'd never have connected the theft to that click if he hadn't, out of habit, checked his approval history afterward and found the exact permission still listed.",
+    check: [
+      {
+        q: "How does a wallet-drainer scam typically work?",
+        o: [
+          "You sign an approval transaction that grants a contract permission to move your tokens later — sometimes days later",
+          "The scammer directly guesses your password",
+          "It only works if you type your seed phrase into a website",
+        ],
+        a: 0,
+        why: "The theft can happen well after the original interaction, which is exactly why it's hard to trace back.",
+      },
+      {
+        q: "What's the biggest red flag on an airdrop claim page?",
+        o: [
+          "Being asked to send crypto first to \"unlock\" the claim",
+          "The site being a well-known, established exchange",
+          "Taking more than a minute to load",
+        ],
+        a: 0,
+        why: "Real airdrops never require an upfront payment — that request alone is close to a guarantee of a scam.",
+      },
+    ],
+  },
+  {
+    id: "l38",
+    pillar: "📈 Investing",
+    crypto: false,
+    title: "Too many choices: picking one",
+    core: "Hundreds of thousands of investment products exist and most beginners wildly overestimate the money needed to start — both make simply beginning feel harder than it is.",
+    reading:
+      "<p>Open a broker and you're handed a genuine problem: hundreds of thousands of funds and shares to choose from — a landscape that didn't exist a generation ago, when the choice was a fraction of today's size. Faced with that much choice, a well-documented reaction kicks in: <b>decision paralysis</b>. In one recent survey, deciding how to invest ranked among the hardest life decisions for a large share of first-time investors — harder, for many, than choosing a career.</p><p>The way past it isn't more research — it's deliberately narrowing the decision. A single broad, low-cost, globally diversified fund (the kind covered in earlier lessons) is enough to start with. It won't be the single best-performing fund of the next ten years — nobody can pick that in advance anyway — but \"good enough and actually started\" reliably beats \"perfect but still researching\" a year from now. Complexity, if you want it, can always be added later, once the basics are running.</p><p>A second, separate misconception compounds the paralysis: people consistently overestimate how much money is needed to start at all — some surveys find beginners guessing they'd need tens of thousands of euros, when in practice many brokers allow starting with a small monthly amount, or even fractional shares. Overestimating the entry price is often the real reason someone who \"plans to start eventually\" never actually does.</p>",
+    example:
+      "Priya spends three weekends comparing dozens of funds, gets more confused with each new comparison, and starts nothing. A friend, less thorough but more decisive, picks one broad world-index fund from the shortlist Priya had already narrowed down and sets up a small monthly transfer that afternoon. A year later the friend has a year of contributions and compounding behind them; Priya, still \"deciding,\" has none — despite having done more research.",
+    check: [
+      {
+        q: "What's the recommended way to cut through hundreds of thousands of fund choices as a beginner?",
+        o: [
+          "Deliberately pick one broad, low-cost, diversified fund to start — add complexity later if you want it",
+          "Research every option thoroughly before making any decision",
+          "Pick the fund with the highest recent returns",
+        ],
+        a: 0,
+        why: "A simple, adequate choice made now beats an optimal choice that never gets made.",
+      },
+      {
+        q: "What do beginners commonly get wrong about how much money is needed to start investing?",
+        o: [
+          "They significantly overestimate it — many brokers allow starting with small, regular amounts",
+          "They underestimate it, and end up investing far more than they can afford",
+          "There's a fixed EU-wide legal minimum everyone must meet",
+        ],
+        a: 0,
+        why: "Overestimating the entry price is a common, correctable reason people delay starting at all.",
+      },
+    ],
+  },
+  {
+    id: "l39",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "Your rights as an EU investor",
+    core: "You have real, enforceable rights as a retail investor in the EU — including a specific cross-border complaints network most people have never heard of.",
+    reading:
+      "<p>When a broker asks you questions before letting you trade certain products — experience, knowledge, sometimes a short quiz — that's not gatekeeping for its own sake. EU rules require firms to check whether a product looks <b>appropriate</b> for you before you can buy it, and to warn you plainly if it doesn't. It can feel like friction. It exists because regulators found, repeatedly, that without it people ended up in products they didn't understand.</p><p>If something goes wrong — a fee you weren't told about, an order that wasn't handled properly, account access problems that never get resolved — you have a real complaints path, not just a support inbox. Step one is always the firm's own internal complaints process (every regulated broker must have one). If that doesn't resolve it, the next step is your country's <b>financial regulator or ombudsman</b>, who can investigate independently of the firm.</p><p>Here's the part almost nobody knows: if your broker is licensed in a <i>different</i> EU country than the one you live in — increasingly common as brokers operate across borders — your complaint doesn't have to go nowhere. <b>FIN-NET</b> is an EU-wide network of over 60 dispute-resolution bodies across all EU/EEA countries, built specifically to route a complaint like that to the right place, regardless of which country's rules technically apply. Knowing this one name is often the difference between giving up and actually being heard.</p>",
+    example:
+      "Elena lives in one EU country but her broker is licensed in another — common for cross-border apps. A fee dispute goes nowhere through the broker's support chat, and Elena assumes there's no one to appeal to since the broker isn't \"local.\" A quick search turns up FIN-NET, which routes her complaint to the correct dispute-resolution body for the broker's home country — resolved within weeks, at no cost to her.",
+    check: [
+      {
+        q: "Why do brokers ask appropriateness questions before letting you trade certain products?",
+        o: [
+          "EU rules require checking whether a product suits your experience and warning you if it doesn't",
+          "To decide how much to charge you in fees",
+          "It's optional marketing research the broker chose to add",
+        ],
+        a: 0,
+        why: "It's investor protection, not gatekeeping — required so people don't end up in products they don't understand.",
+      },
+      {
+        q: "What is FIN-NET for?",
+        o: [
+          "Routing cross-border complaints to the right dispute-resolution body when your broker is licensed in a different EU country than you live in",
+          "A crypto exchange licensing register",
+          "An EU-wide investment fund",
+        ],
+        a: 0,
+        why: "It exists specifically so a cross-border complaint doesn't fall through the cracks between two countries' systems.",
+      },
+    ],
+  },
+  {
+    id: "l40",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    title: "Bitcoin, specifically",
+    core: "Bitcoin isn't just \"the first crypto\" — it's a distinct decision (how much of your crypto slice, if any, is Bitcoin vs everything else) and it has a path into a normal brokerage account that most beginners never hear about.",
+    reading:
+      "<p>In 2008, someone using the name <b>Satoshi Nakamoto</b> published a short paper describing a currency with no bank or government behind it, and launched it in 2009. Nobody knows who Satoshi is. That origin — anonymous, leaderless, code instead of an institution — is the whole pitch: a fixed, predictable supply (Lesson 29's 21-million cap) that no central bank can print more of on a whim. Because of that, Bitcoin is often marketed as \"<b>digital gold</b>\" — a store of value outside the normal financial system. Be honest about the counter-evidence too: in real selloffs, Bitcoin has often moved <i>with</i> risky assets like stocks, not as a calm safe haven the way gold historically has. The scarcity is real; the \"safe haven\" story is, so far, only sometimes true.</p><p>A question this app hasn't answered yet: if you hold a crypto slice at all, does it have to include coins other than Bitcoin? There's no single right answer, but the common pattern among people who think about this carefully is to weight the large majority of any crypto slice toward <b>Bitcoin and Ethereum</b> — the two with the longest track record and deepest liquidity — and treat smaller, newer tokens as a separate, higher-risk bet layered on top, not a bigger version of the same thing. Most tokens launched in any given year end up worth a fraction of their launch price or worthless. \"Bitcoin only\" and \"Bitcoin plus a small satellite of other coins\" are both defensible; \"an even spread across whatever's trending\" usually isn't.</p><p>One more thing worth knowing, because it's genuinely useful: you can get price exposure to Bitcoin through an ordinary <b>regulated broker</b>, not just a crypto exchange — via an <b>ETP</b> (exchange-traded product) that holds real Bitcoin and trades on a normal stock exchange. This sits on the MiFID II side of the fence, not MiCA — it's a security, bought and held exactly like any other fund in your portfolio. One thing worth clearing up if you've seen US headlines: the well-known <b>US \"spot Bitcoin ETF\"</b> products are not available to EU retail investors — EU fund rules require a fund to be diversified, which rules out a fund holding a single asset. The EU-accessible route is the ETP structure specifically, a different (though economically similar) wrapper.</p>",
+    example:
+      "Felix wants Bitcoin exposure but doesn't want another exchange login and password to manage. He finds a Bitcoin ETP listed on his regular stock exchange, buys it through the same broker as his index fund, and it shows up in the same portfolio view — no wallet, no seed phrase, no separate KYC. He gives up direct self-custody in exchange for simplicity; a friend who wants to hold the actual Bitcoin, not just track its price, uses a MiCA-licensed exchange and self-custody instead. Neither choice is wrong — they're solving for different things.",
+    check: [
+      {
+        q: "Within a crypto slice, what's a defensible way to think about Bitcoin vs. other coins?",
+        o: [
+          "Weight the majority toward Bitcoin (and often Ethereum) and treat smaller tokens as a separate, higher-risk layer",
+          "Spread evenly across whatever coins are currently trending",
+          "It doesn't matter which coins, only the total euro amount matters",
+        ],
+        a: 0,
+        why: "Longer track record and liquidity are why Bitcoin/Ethereum are commonly treated differently from newer, less-proven tokens.",
+      },
+      {
+        q: "What's true about Bitcoin ETPs available to EU retail investors?",
+        o: [
+          "They're a MiFID II security bought through a normal broker — but the US \"spot Bitcoin ETF\" products themselves aren't available in the EU",
+          "They're identical products to the US spot Bitcoin ETFs, just listed in Europe",
+          "They require a MiCA-licensed exchange account to buy",
+        ],
+        a: 0,
+        why: "EU diversification rules block single-asset ETFs, so the EU-accessible route is the ETP wrapper specifically, via a normal broker.",
       },
     ],
   },

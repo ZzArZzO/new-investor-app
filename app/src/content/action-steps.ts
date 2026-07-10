@@ -13,7 +13,8 @@ export const ACTION_STEPS: ActionStep[] = [
   {
     id: "open",
     label: "Open an account",
-    detail: "Start the sign-up with a provider you picked. Only ever use regulated, licensed platforms.",
+    detail:
+      "Start the sign-up with a provider you picked. Only ever use regulated, licensed platforms — and turn on 2FA the same day, this account is worth locking down.",
   },
   {
     id: "kyc",
