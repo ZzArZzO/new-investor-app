@@ -85,7 +85,14 @@
 - **Vercel** (hosting + Web Analytics — cookieless/aggregate, but confirm)
 - **Formspree** (waitlist capture — receives emails; separate from accounts)
 
-**Hard rule:** a public **privacy policy** listing what we collect, why, the lawful basis, the subprocessors above, and how to delete an account must be live **before** the app is promoted from Preview to a public production URL. It does not exist yet.
+**Hard rule:** a public **privacy policy** listing what we collect, why, the lawful basis, the subprocessors above, and how to delete an account must be live **before** the app is promoted from Preview to a public production URL.
+
+**Status (2026-07-10): finalized.** `/privacy` names the controller (Afonso Jose Carvalho
+Marques da Costa, individual), all five subprocessors, lawful bases, retention, and rights.
+Retention emails now have a real opt-out (Settings → Email preferences, honored by both
+crons; every email points to it) — closing the consent soft spot flagged below. Remaining
+before public launch: **create the `privacy@newinvestor.app` ImprovMX alias** (address is
+published but the mailbox doesn't exist yet), and the queued lawyer review.
 
 ---
 

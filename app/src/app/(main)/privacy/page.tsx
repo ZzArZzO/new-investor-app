@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   description: "What personal data New Investor collects, why, and how to control it.",
 };
 
-// Interim draft — bracketed placeholders MUST be filled before this app is made public
-// (see compliance-one-pager.md, "Regime 3 — GDPR"). Not legal advice; pending lawyer review.
-const CONTROLLER = "[FULL LEGAL NAME]";
+// Controller finalized 2026-07-10. Still pending: lawyer review (queued per
+// compliance-one-pager.md) and creating the privacy@ ImprovMX alias before public launch.
+const CONTROLLER = "Afonso Jose Carvalho Marques da Costa";
 const CONTACT_EMAIL = "privacy@newinvestor.app";
-const LAST_UPDATED = "9 July 2026";
+const LAST_UPDATED = "10 July 2026";
 
 export default function PrivacyPage() {
   return (
@@ -60,8 +60,8 @@ export default function PrivacyPage() {
             (performance of a contract).
           </li>
           <li>
-            <strong>To send you a streak reminder or a weekly summary</strong> — only if you have an account, and you
-            can turn these off at any time (an unsubscribe link is in every email).
+            <strong>To send you a streak reminder or a weekly summary</strong> — only if you have an account. You can
+            turn each off at any time in Settings &rarr; Email preferences, and every email reminds you how.
           </li>
           <li>
             <strong>To keep the waitlist and tell you when we launch</strong> — based on your request to be notified.

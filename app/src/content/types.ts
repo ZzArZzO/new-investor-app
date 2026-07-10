@@ -152,6 +152,12 @@ export interface ActionStep {
   route?: string;
 }
 
+/** Per-kind email opt-ins. Absent field = opted in (accounts predate this setting). */
+export interface EmailPrefs {
+  streak: boolean;
+  weekly: boolean;
+}
+
 /**
  * One spaced-repetition card. `id` encodes the source:
  * "check:<lessonId>:<questionIndex>" for a missed quick-check question,
@@ -186,6 +192,8 @@ export interface AppState {
   actions: string[];
   /** Optional: states saved before the review deck existed lack it. */
   review?: ReviewState;
+  /** Optional: states saved before email preferences existed lack it. */
+  emails?: EmailPrefs;
 }
 
 export interface Badge {

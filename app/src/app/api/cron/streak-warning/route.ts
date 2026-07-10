@@ -5,7 +5,7 @@ import { db } from "@/db/client";
 import { userAppState, users } from "@/db/schema";
 import { todayStr, yesterdayStr } from "@/lib/date";
 import { streakWarningEmail } from "@/lib/email-templates";
-import { shouldSendStreakWarning } from "@/lib/retention-rules";
+import { emailOptedIn, shouldSendStreakWarning } from "@/lib/retention-rules";
 import type { AppState } from "@/content/types";
 
 export const dynamic = "force-dynamic";
@@ -34,7 +34,9 @@ export async function GET(req: Request) {
 
   let sent = 0;
   for (const row of rows) {
-    const streak = (row.state as Partial<AppState>).streak;
+    const state = row.state as Partial<AppState>;
+    if (!emailOptedIn(state, "streak")) continue;
+    const streak = state.streak;
     if (!shouldSendStreakWarning(streak, row.sentOn, today, yesterday)) continue;
 
     const { subject, html } = streakWarningEmail(streak!.count);

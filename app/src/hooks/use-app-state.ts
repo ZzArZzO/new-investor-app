@@ -16,6 +16,7 @@ import {
   withHoldingAdded,
   withHoldingRemoved,
   withLessonCompleted,
+  withEmailPrefToggled,
   withPersona,
   withReviewAnswered,
   withReviewItemsAdded,
@@ -127,6 +128,8 @@ export interface UseAppStateResult {
   queueReviewItems: (ids: string[]) => void;
   /** Records one answered review card: schedules its next due date, awards XP, bumps the streak. */
   answerReviewCard: (id: string, correct: boolean) => void;
+  /** Flips one email opt-in (streak warning / weekly digest). */
+  toggleEmailPref: (kind: "streak" | "weekly") => void;
   toastMessage: string | null;
   replaceState: (next: AppState) => void;
   /** True for one session when signing in found existing server progress that this device's local progress wasn't merged into. */
@@ -303,6 +306,10 @@ export function useAppState(): UseAppStateResult {
     });
   }, []);
 
+  const toggleEmailPref = useCallback((kind: "streak" | "weekly") => {
+    setState((prev) => withEmailPrefToggled(prev, kind));
+  }, []);
+
   const replaceState = useCallback((next: AppState) => {
     // A deliberate full overwrite (import), not an incremental action —
     // bypasses the reducer helpers above on purpose.
@@ -328,6 +335,7 @@ export function useAppState(): UseAppStateResult {
     playDailyScam,
     queueReviewItems,
     answerReviewCard,
+    toggleEmailPref,
     toastMessage,
     replaceState,
     migrationNotice,

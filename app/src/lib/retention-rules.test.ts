@@ -1,5 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { shouldSendStreakWarning, shouldSendWeeklyDigest } from "./retention-rules";
+import { emailOptedIn, shouldSendStreakWarning, shouldSendWeeklyDigest } from "./retention-rules";
+
+describe("emailOptedIn", () => {
+  it("treats absent prefs (older saved states) as opted in", () => {
+    expect(emailOptedIn({}, "streak")).toBe(true);
+    expect(emailOptedIn({}, "weekly")).toBe(true);
+  });
+
+  it("respects an explicit opt-out per kind", () => {
+    expect(emailOptedIn({ emails: { streak: false, weekly: true } }, "streak")).toBe(false);
+    expect(emailOptedIn({ emails: { streak: false, weekly: true } }, "weekly")).toBe(true);
+  });
+});
 
 describe("shouldSendStreakWarning", () => {
   const today = "2026-07-08";

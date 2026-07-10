@@ -14,7 +14,7 @@ const GENERIC_AUTH_ERROR = "That didn't work — check your details and try agai
 
 export default function SettingsPage() {
   const { data: session, status: sessionStatus } = useSession();
-  const { state, hydrated, migrationNotice, dismissMigrationNotice } = useAppStateContext();
+  const { state, hydrated, migrationNotice, dismissMigrationNotice, toggleEmailPref } = useAppStateContext();
   const [mode, setMode] = useState<AuthMode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -187,6 +187,35 @@ export default function SettingsPage() {
           </div>
         )}
       </div>
+
+      {session?.user && (
+        <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="text-xs font-bold uppercase tracking-wide text-primary">Email preferences</div>
+          <p className="mt-1.5 text-[13px] text-muted-foreground">
+            Which emails we may send to {session.user.email}. Changes apply from the next send.
+          </p>
+          <div className="mt-2 flex flex-col gap-2">
+            <label className="flex items-center gap-2.5 text-[14px]">
+              <input
+                type="checkbox"
+                checked={state.emails?.streak !== false}
+                onChange={() => toggleEmailPref("streak")}
+                className="size-4 accent-[var(--primary)]"
+              />
+              Streak reminder (when a streak is about to break)
+            </label>
+            <label className="flex items-center gap-2.5 text-[14px]">
+              <input
+                type="checkbox"
+                checked={state.emails?.weekly !== false}
+                onChange={() => toggleEmailPref("weekly")}
+                className="size-4 accent-[var(--primary)]"
+              />
+              Weekly digest (one short read, Mondays)
+            </label>
+          </div>
+        </div>
+      )}
 
       <div className="rounded-2xl bg-card p-4 shadow-sm">
         <div className="text-xs font-bold uppercase tracking-wide text-primary">Back up my progress</div>

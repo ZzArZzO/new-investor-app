@@ -6,7 +6,8 @@ import { userAppState, users } from "@/db/schema";
 import { todayStr, mondayOf, pickForWeek } from "@/lib/date";
 import { WEEKLY_ITEMS } from "@/content/weekly-items";
 import { weeklyDigestEmail } from "@/lib/email-templates";
-import { shouldSendWeeklyDigest } from "@/lib/retention-rules";
+import { emailOptedIn, shouldSendWeeklyDigest } from "@/lib/retention-rules";
+import type { AppState } from "@/content/types";
 
 export const dynamic = "force-dynamic";
 
@@ -24,12 +25,18 @@ export async function GET(req: Request) {
   const { subject, html } = weeklyDigestEmail(item);
 
   const rows = await db
-    .select({ userId: userAppState.userId, email: users.email, sentOn: userAppState.weeklyDigestSentOn })
+    .select({
+      userId: userAppState.userId,
+      email: users.email,
+      state: userAppState.state,
+      sentOn: userAppState.weeklyDigestSentOn,
+    })
     .from(userAppState)
     .innerJoin(users, eq(users.id, userAppState.userId));
 
   let sent = 0;
   for (const row of rows) {
+    if (!emailOptedIn(row.state as Partial<AppState>, "weekly")) continue;
     if (!shouldSendWeeklyDigest(row.sentOn, monday)) continue;
 
     const { error } = await resend.emails.send({

@@ -20,7 +20,14 @@ export function initialAppState(): AppState {
     scamDaily: { last: null, streak: 0, best: 0 },
     actions: [],
     review: { items: [], day: null, doneToday: 0 },
+    emails: { streak: true, weekly: true },
   };
+}
+
+/** Flips one email opt-in. Absent prefs (older saved states) count as opted in. */
+export function withEmailPrefToggled(state: AppState, kind: "streak" | "weekly"): AppState {
+  const emails = state.emails ?? { streak: true, weekly: true };
+  return { ...state, emails: { ...emails, [kind]: !emails[kind] } };
 }
 
 /** Review state for older saved states that predate the field. */

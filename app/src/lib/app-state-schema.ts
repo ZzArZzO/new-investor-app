@@ -36,6 +36,7 @@ export const appStateSchema = z
         doneToday: z.number(),
       })
       .optional(),
+    emails: z.object({ streak: z.boolean(), weekly: z.boolean() }).optional(),
   })
   .partial();
 

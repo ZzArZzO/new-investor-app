@@ -8,6 +8,7 @@ import {
   withActionToggled,
   withBadgesChecked,
   withContributionLogged,
+  withEmailPrefToggled,
   withHoldingAdded,
   withHoldingRemoved,
   withLessonCompleted,
@@ -246,6 +247,19 @@ describe("withScamDailyPlayed", () => {
   it("is a no-op if already played today", () => {
     const start = { ...initialAppState(), scamDaily: { last: "2026-07-07", streak: 2, best: 2 } };
     expect(withScamDailyPlayed(start, "2026-07-07", "2026-07-06")).toBe(start);
+  });
+});
+
+describe("withEmailPrefToggled", () => {
+  it("flips one preference and leaves the other", () => {
+    const state = withEmailPrefToggled(initialAppState(), "streak");
+    expect(state.emails).toEqual({ streak: false, weekly: true });
+  });
+
+  it("treats states saved before email prefs existed as opted in", () => {
+    const legacy = { ...initialAppState(), emails: undefined };
+    const state = withEmailPrefToggled(legacy, "weekly");
+    expect(state.emails).toEqual({ streak: true, weekly: false });
   });
 });
 

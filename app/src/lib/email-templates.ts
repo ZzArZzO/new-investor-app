@@ -7,6 +7,9 @@ interface EmailContent {
 
 const FOOTER = `<p style="margin-top:24px;font-size:12px;color:#6b7280;">
   Educational information, not personal financial advice. Investing involves risk, including loss of the money you invest.
+</p>
+<p style="font-size:12px;color:#6b7280;">
+  You can turn these emails off any time in the app: Settings &rarr; Email preferences.
 </p>`;
 
 export function streakWarningEmail(streakCount: number): EmailContent {
