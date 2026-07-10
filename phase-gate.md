@@ -70,6 +70,11 @@ Measured over the window above. Event names are the custom events wired in
   Aggregate analytics is enough to *reject* or *strongly confirm*; it is weak in the middle.
 - **These thresholds are starting points**, calibrated to beat category norms. Tune them
   once you see your real baseline.
+- **One-time Duolingo sanity-check.** These thresholds are calibrated to generic category
+  norms, not to the closest proven habit-app comparator. Once the ≥ 4-week / ≥ 150-visitor
+  bar is cleared, do a single pass comparing #1 (repeat-day) and #3 (returning share)
+  against Duolingo's disclosed public numbers (DAU/MAU, day-1/day-30 retention) as an
+  external reference point — a one-off calibration check, not an ongoing task.
 
 ## Prerequisites (so the gate is measurable)
 

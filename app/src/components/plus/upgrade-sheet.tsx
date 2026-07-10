@@ -111,7 +111,8 @@ export function UpgradeSheet({ open, onOpenChange, feature }: UpgradeSheetProps)
 
         <p className="text-[12.5px] text-muted-foreground">
           Everything you use today stays free: all core lessons, the daily habit, tools, tracker and the comparison
-          tables. Plus adds depth — it never changes what anyone is shown or recommended.
+          tables. Plus adds depth — it never changes what anyone is shown or recommended. When Plus launches
+          you&rsquo;ll be able to cancel in two clicks — no phone call, no retention flow.
         </p>
 
         {onList ? (

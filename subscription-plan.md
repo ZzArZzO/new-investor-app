@@ -18,6 +18,14 @@ gated on the retention scorecard in `phase-gate.md`.
    XP, badges, tools, tracker, comparison tables, account sync.
 4. **Scam/safety education is never paywalled.**
 5. **No real billing ships before the retention gate passes** (`phase-gate.md`).
+6. **Streak and loss-framing mechanics never touch money-tracking features.** The daily
+   habit loop (daily question, daily scam, streaks, freezes) may use streaks and
+   loss-aversion because it drives *learning*; money-tracking (contribution logging, future
+   portfolio insights) must not. A missed contribution log is always shown descriptively
+   ("here's your allocation drift"), never as a broken streak or loss-framed shame.
+   Behavioral-psych research flags streak-shame applied to *financial* behavior as actively
+   harmful — it can shame people out of financially necessary spending — even though the
+   identical mechanic is fine for the learning habit.
 
 ## Tiers
 

@@ -91,4 +91,5 @@ Not resolved here. What to decide, and roughly when:
 
 **Related:** `market-and-competition-research.md` (the weak-link analysis this responds to),
 `phase-gate.md` (why the paywall specifically is gated on retention),
-`compliance-one-pager.md` (the RIS affiliate-rule risk driving the need for a fallback).
+`compliance-one-pager.md` (the RIS affiliate-rule risk driving the need for a fallback),
+`referral-program-spec.md` (referral reward gating — engagement-gated by design).

@@ -119,7 +119,7 @@ export default function PrivacyPage() {
 
       <p className="mt-8 px-1 text-center text-[11.5px] leading-relaxed text-muted-foreground">
         Educational information, not personal financial advice. Investing involves risk, including loss of the money you
-        invest.
+        invest. Crypto is high-risk and can go to zero.
       </p>
     </article>
   );
