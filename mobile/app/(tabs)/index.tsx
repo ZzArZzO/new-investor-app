@@ -1,0 +1,178 @@
+import { useRouter } from "expo-router";
+import { useMemo, useState } from "react";
+import { ScrollView, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+import { BADGES } from "@/content/badges";
+import { DAILY_CARDS } from "@/content/daily-cards";
+import { FREE_LESSONS } from "@/content/lessons";
+import { daySeed, todayStr } from "@/lib/date";
+import { useAppState } from "@/lib/app-state";
+import { useTheme } from "@/lib/theme";
+import { AppText, Btn, Card, FeedbackBox, ProgressBar } from "@/components/ui";
+
+const NEVER_DO = [
+  'No price predictions or "this coin is going to X"',
+  'No coin picks or "buy this" recommendations, ever',
+  "No leveraged trading tutorials or margin/futures content",
+  "No paid coin promotions or influencer partnerships",
+  '"No guaranteed returns" language, anywhere',
+];
+
+function HeroCard() {
+  const router = useRouter();
+  const { colors } = useTheme();
+  const { state, hydrated } = useAppState();
+  return (
+    <Card>
+      <View
+        style={{
+          alignSelf: "flex-start",
+          flexDirection: "row",
+          alignItems: "center",
+          gap: 6,
+          borderRadius: 999,
+          borderWidth: 1,
+          borderColor: `${colors.primary}33`,
+          backgroundColor: `${colors.primary}0d`,
+          paddingHorizontal: 12,
+          paddingVertical: 4,
+        }}
+      >
+        <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: colors.primary }} />
+        <AppText style={{ color: colors.primary, fontSize: 12 }}>Investing · Crypto · Blockchain</AppText>
+      </View>
+      <AppText variant="heading" style={{ marginTop: 10, fontSize: 26, lineHeight: 32 }}>
+        Learn to invest, calmly.
+      </AppText>
+      <AppText variant="muted" style={{ marginTop: 10, fontSize: 15, lineHeight: 22 }}>
+        Short lessons that take you from confusion to your first move, in stocks or crypto. No hype, no hot tips.
+      </AppText>
+      <Btn
+        label={hydrated && state.persona ? "Browse lessons" : "Start with the basics"}
+        onPress={() => router.push("/lessons")}
+        style={{ marginTop: 20 }}
+      />
+    </Card>
+  );
+}
+
+function DailyQuestionCard() {
+  const { state, hydrated, answerDailyQuestion } = useAppState();
+  const today = todayStr();
+  const card = useMemo(() => DAILY_CARDS[daySeed(today) % DAILY_CARDS.length], [today]);
+  const [picked, setPicked] = useState<boolean | null>(null);
+
+  if (!hydrated) return null;
+
+  const answeredToday = state.daily.last === today;
+  const freezes = state.streak.freezes ?? 0;
+
+  if (answeredToday && picked === null) {
+    return (
+      <Card>
+        <AppText variant="kicker">Today’s question · keep your streak</AppText>
+        <AppText variant="bold" style={{ marginTop: 8 }}>
+          ✓ Done for today — come back tomorrow to keep the streak going.
+        </AppText>
+        <AppText variant="muted" style={{ marginTop: 4 }}>
+          Current streak: 🔥 {state.streak.count || 0}
+          {freezes > 0 ? ` · 🧊 ${freezes} freeze${freezes === 1 ? "" : "s"}` : ""}
+        </AppText>
+      </Card>
+    );
+  }
+
+  function pick(value: boolean) {
+    if (answeredToday) return;
+    setPicked(value);
+    answerDailyQuestion();
+  }
+
+  const showFeedback = picked !== null;
+  const correct = showFeedback && picked === card.a;
+
+  return (
+    <Card>
+      <AppText variant="kicker">Today’s question · keep your streak</AppText>
+      <AppText variant="bold" style={{ marginTop: 8 }}>
+        {card.q}
+      </AppText>
+      <View style={{ marginTop: 12, flexDirection: "row", gap: 10 }}>
+        <Btn label="True" variant="outline" disabled={showFeedback} onPress={() => pick(true)} style={{ flex: 1 }} />
+        <Btn label="False" variant="outline" disabled={showFeedback} onPress={() => pick(false)} style={{ flex: 1 }} />
+      </View>
+      {showFeedback && (
+        <FeedbackBox correct={correct}>
+          {correct ? "✓ Right. " : "Not quite. "}
+          {card.why}
+        </FeedbackBox>
+      )}
+    </Card>
+  );
+}
+
+function ProgressCard() {
+  const { state, hydrated } = useAppState();
+  if (!hydrated) return null;
+  const done = state.done.filter((id) => FREE_LESSONS.some((l) => l.id === id)).length;
+  const pct = Math.round((done / FREE_LESSONS.length) * 100);
+  const earned = BADGES.filter((b) => state.badges.includes(b.id));
+  return (
+    <Card>
+      <AppText variant="kicker">Your progress</AppText>
+      <ProgressBar value={pct} style={{ marginTop: 12 }} />
+      <AppText variant="muted" style={{ marginTop: 8 }}>
+        {done} of {FREE_LESSONS.length} lessons · {state.xp} XP · 🔥 {state.streak.count || 0} day streak
+      </AppText>
+      {earned.length > 0 && (
+        <AppText style={{ marginTop: 8 }}>{earned.map((b) => `${b.ico} ${b.name}`).join("  ·  ")}</AppText>
+      )}
+    </Card>
+  );
+}
+
+function NeverDoCard() {
+  const { colors } = useTheme();
+  return (
+    <Card>
+      <AppText variant="kicker">What we’ll never do</AppText>
+      <View style={{ marginTop: 10, gap: 6 }}>
+        {NEVER_DO.map((item) => (
+          <View key={item} style={{ flexDirection: "row", gap: 8 }}>
+            <AppText variant="bold" style={{ color: colors.destructive, fontSize: 12, lineHeight: 21 }}>
+              ✕
+            </AppText>
+            <AppText style={{ flex: 1, fontSize: 14, lineHeight: 21 }}>{item}</AppText>
+          </View>
+        ))}
+      </View>
+    </Card>
+  );
+}
+
+export default function HomeScreen() {
+  const insets = useSafeAreaInsets();
+  return (
+    <ScrollView
+      contentContainerStyle={{
+        paddingTop: insets.top + 12,
+        paddingHorizontal: 16,
+        paddingBottom: 32,
+        gap: 14,
+      }}
+    >
+      <HeroCard />
+      <DailyQuestionCard />
+      <ProgressCard />
+      <NeverDoCard />
+      <AppText
+        variant="muted"
+        style={{ marginTop: 8, paddingHorizontal: 6, textAlign: "center", fontSize: 11.5, lineHeight: 17 }}
+      >
+        Educational information, not personal financial advice. Investing involves risk, including loss of the money you
+        invest. Crypto is high-risk and can go to zero.
+      </AppText>
+    </ScrollView>
+  );
+}
