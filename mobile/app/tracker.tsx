@@ -101,7 +101,7 @@ export default function TrackerScreen() {
           <AppText variant="kicker">Monthly habit · dollar-cost averaging</AppText>
           <AppText variant="bold" style={{ marginTop: 8 }}>
             {loggedToday
-              ? "✓ Logged today — the boring habit is what does the work."
+              ? "✓ Logged today, the boring habit is what does the work."
               : "Invested this month? Log it to build the habit."}
           </AppText>
           <AppText variant="muted" style={{ marginTop: 4 }}>
@@ -121,7 +121,7 @@ export default function TrackerScreen() {
             }}
           >
             <AppText variant="muted" style={{ textAlign: "center" }}>
-              No holdings yet. Add what you already hold — or plan to — below. By asset type, no prices needed.
+              No holdings yet. Add what you already hold, or plan to, below. By asset type, no prices needed.
             </AppText>
           </View>
         ) : (

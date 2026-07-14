@@ -10,7 +10,7 @@ export interface DonutSlice {
   color: string;
 }
 
-/** Donut via stroke-dash segments on circles — no chart library needed. Values are percentages summing ~100. */
+/** Donut via stroke-dash segments on circles, no chart library needed. Values are percentages summing ~100. */
 export function Donut({ slices, size = SIZE }: { slices: DonutSlice[]; size?: number }) {
   let offset = 0;
   return (

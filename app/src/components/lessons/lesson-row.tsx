@@ -37,7 +37,7 @@ export function LessonRow({ lessonId, index, title, done, unlocked, lockedLabel,
         </span>
         <span className="text-[13px] text-muted-foreground">
           {plus
-            ? "Coming with Plus — tap to learn more"
+            ? "Coming with Plus, tap to learn more"
             : unlocked
               ? done
                 ? "Completed"

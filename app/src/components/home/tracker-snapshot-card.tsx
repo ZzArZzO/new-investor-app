@@ -24,7 +24,7 @@ export function TrackerSnapshotCard() {
           {fmtEur(contributed)} contributed across {count} holding{count > 1 ? "s" : ""} →
         </p>
       )}
-      <p className="mt-1 text-sm text-muted-foreground">Private and manual — you enter the numbers, nothing is connected.</p>
+      <p className="mt-1 text-sm text-muted-foreground">Private and manual, you enter the numbers, nothing is connected.</p>
     </Link>
   );
 }

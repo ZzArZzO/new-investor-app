@@ -5,9 +5,14 @@ import { users } from "@/db/schema";
 import { hashPassword } from "@/lib/password";
 import { registerSchema } from "@/lib/auth-credentials-schema";
 import { signMobileToken } from "@/lib/mobile-token";
+import { checkRateLimit, clientIp, RATE_LIMIT_MESSAGE } from "@/lib/rate-limit";
 
 /** Mobile sign-up: same validation as /api/register, but returns a bearer token immediately. */
 export async function POST(req: Request) {
+  const ip = clientIp(req);
+  if (!(await checkRateLimit("register", ip, 5, 15 * 60 * 1000))) {
+    return NextResponse.json({ message: RATE_LIMIT_MESSAGE }, { status: 429 });
+  }
   const body: unknown = await req.json();
   const parsed = registerSchema.safeParse(body);
   if (!parsed.success) {

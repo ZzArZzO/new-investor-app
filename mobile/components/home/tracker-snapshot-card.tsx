@@ -5,7 +5,7 @@ import { fmtEur } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { AppText, Card } from "@/components/ui";
 
-/** Home link card to the tracker — derived read-only from holdings. */
+/** Home link card to the tracker, derived read-only from holdings. */
 export function TrackerSnapshotCard() {
   const router = useRouter();
   const { state, hydrated } = useAppState();
@@ -21,7 +21,7 @@ export function TrackerSnapshotCard() {
           <AppText variant="kicker">Tracker · your plan on paper</AppText>
           <AppText variant="bold" style={{ marginTop: 8 }}>
             {empty
-              ? "Start tracking what you hold — by asset type, no prices, nothing connected."
+              ? "Start tracking what you hold, by asset type, no prices, nothing connected."
               : `${fmtEur(contributed)} contributed across ${state.holdings.length} holding${state.holdings.length === 1 ? "" : "s"}.`}
           </AppText>
           <AppText variant="muted" style={{ marginTop: 4 }}>

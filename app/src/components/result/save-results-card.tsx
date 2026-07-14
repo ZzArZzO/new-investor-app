@@ -17,7 +17,7 @@ export function SaveResultsCard() {
       <div className="rounded-2xl bg-card p-5 text-center shadow-sm">
         <p className="text-[15px] font-semibold">You&rsquo;re on the list. 🎉</p>
         <p className="mt-1 text-[12.5px] text-muted-foreground">
-          We&rsquo;ll email you updates — no spam. Want your progress to follow you across devices instead? Create a
+          We&rsquo;ll email you updates, no spam. Want your progress to follow you across devices instead? Create a
           free account in Settings.
         </p>
       </div>
@@ -46,7 +46,7 @@ export function SaveResultsCard() {
     <div className="rounded-2xl bg-card p-5 shadow-sm">
       <div className="text-xs font-bold uppercase tracking-wide text-primary">Stay in the loop</div>
       <p className="mt-1.5 text-[13.5px] text-muted-foreground">
-        Optional — leave your email for updates on new lessons and tools. This doesn&rsquo;t save your progress; for
+        Optional, leave your email for updates on new lessons and tools. This doesn&rsquo;t save your progress; for
         that, create a free account in Settings.
       </p>
       <form onSubmit={handleSubmit} className="mt-3 flex flex-col gap-2">
@@ -68,7 +68,7 @@ export function SaveResultsCard() {
           </Button>
         </div>
         {status === "error" && (
-          <p className="text-[12.5px] text-destructive">Something went wrong — try again in a moment.</p>
+          <p className="text-[12.5px] text-destructive">Something went wrong, try again in a moment.</p>
         )}
       </form>
       <p className="mt-2.5 text-[11.5px] text-muted-foreground">No spam, just occasional updates.</p>

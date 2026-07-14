@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: TypePageProps) {
   const persona = personaBySlug(slug);
   if (!persona) return {};
   return {
-    title: `${persona.name} — investor type`,
+    title: `${persona.name}, investor type`,
     description: persona.desc,
   };
 }

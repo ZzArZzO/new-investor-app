@@ -40,7 +40,7 @@ export default function LessonScreen() {
     <>
       <Stack.Screen options={{ title: lesson.pillar }} />
       <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 8, paddingBottom: 40 }}>
-        <AppText variant="kicker">{lesson.pillar}</AppText>
+        <AppText variant="kicker">Lesson {lesson.id.slice(1)} · {lesson.pillar}</AppText>
         <AppText variant="heading" style={{ marginTop: 4 }}>
           {lesson.title}
         </AppText>

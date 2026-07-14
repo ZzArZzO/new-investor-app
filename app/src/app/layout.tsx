@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "New Investor — learn investing & crypto",
+  title: "New Investor, learn investing & crypto",
   description:
     "Short lessons that take you from confusion to your first move, in stocks or crypto. No hype, no hot tips.",
 };

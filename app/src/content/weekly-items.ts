@@ -1,13 +1,13 @@
 import type { WeeklyItem } from "./types";
 
 // Rotated deterministically by ISO week (see this-week-card). No market calls,
-// no predictions — just a fresh, evergreen nudge each week to keep the habit alive.
+// no predictions, just a fresh, evergreen nudge each week to keep the habit alive.
 export const WEEKLY_ITEMS: WeeklyItem[] = [
   {
     id: "w1",
     kind: "concept",
     title: "Time in the market",
-    body: "The biggest lever isn't picking the perfect investment — it's starting early and giving compounding years to work. Boring and consistent beats clever and sporadic.",
+    body: "The biggest lever isn't picking the perfect investment, it's starting early and giving compounding years to work. Boring and consistent beats clever and sporadic.",
   },
   {
     id: "w2",
@@ -19,25 +19,25 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w3",
     kind: "tip",
     title: "Check less, not more",
-    body: "Frequent checking tends to trigger emotional, ill-timed decisions. Set a boring schedule and let it run — most days there's nothing you need to do.",
+    body: "Frequent checking tends to trigger emotional, ill-timed decisions. Set a boring schedule and let it run, most days there's nothing you need to do.",
   },
   {
     id: "w4",
     kind: "concept",
     title: "Volatility vs. permanent loss",
-    body: "A broad market falling and recovering is volatility — noise for a long-term investor. Permanent loss is a single thing going to zero, or panic-selling at the bottom.",
+    body: "A broad market falling and recovering is volatility, noise for a long-term investor. Permanent loss is a single thing going to zero, or panic-selling at the bottom.",
   },
   {
     id: "w5",
     kind: "myth",
     title: "Myth: fees are too small to matter",
-    body: "0.2% vs 1.5% a year feels tiny, but over decades it can quietly cost you a third of your final pot. Small percentages compound — against you, too.",
+    body: "0.2% vs 1.5% a year feels tiny, but over decades it can quietly cost you a third of your final pot. Small percentages compound, against you, too.",
   },
   {
     id: "w6",
     kind: "tip",
     title: "Decide the crypto slice once",
-    body: "If you hold any, size it in the cold light of day as an amount you could lose entirely — then don't top it up in a hype frenzy.",
+    body: "If you hold any, size it in the cold light of day as an amount you could lose entirely, then don't top it up in a hype frenzy.",
   },
   {
     id: "w7",
@@ -55,7 +55,7 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w9",
     kind: "myth",
     title: "Myth: the pros reliably beat the market",
-    body: "Most active stock-pickers don't beat a broad, low-cost index over the long run — which is why 'just buy the index' is such common advice.",
+    body: "Most active stock-pickers don't beat a broad, low-cost index over the long run, which is why 'just buy the index' is such common advice.",
   },
   {
     id: "w10",
@@ -67,7 +67,7 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w11",
     kind: "tip",
     title: "Clear expensive debt first",
-    body: "Paying off a credit card charging 16% is the one guaranteed 'return' that exists. No sensible investment reliably beats it — clear it, then invest.",
+    body: "Paying off a credit card charging 16% is the one guaranteed 'return' that exists. No sensible investment reliably beats it, clear it, then invest.",
   },
   {
     id: "w12",
@@ -79,7 +79,7 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w13",
     kind: "tip",
     title: "Pay yourself first",
-    body: "Move a fixed amount to savings or investing the day salary lands — before you can spend it. 'Whatever is left at month's end' is usually nothing.",
+    body: "Move a fixed amount to savings or investing the day salary lands, before you can spend it. 'Whatever is left at month's end' is usually nothing.",
   },
   {
     id: "w14",
@@ -97,19 +97,19 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w16",
     kind: "tip",
     title: "Urgency is the tell",
-    body: "Countdowns, 'last chance', deadline pressure — long-term investing has no deadline. Only sellers need you to hurry.",
+    body: "Countdowns, 'last chance', deadline pressure, long-term investing has no deadline. Only sellers need you to hurry.",
   },
   {
     id: "w17",
     kind: "myth",
     title: "Myth: it was €80, so €50 is a bargain",
-    body: "An old price isn't evidence of value — that's anchoring. Things that fall often fall further; the only question is whether it's worth owning today.",
+    body: "An old price isn't evidence of value, that's anchoring. Things that fall often fall further; the only question is whether it's worth owning today.",
   },
   {
     id: "w18",
     kind: "concept",
     title: "Savings rate beats returns",
-    body: "Saving more grows your pot faster AND proves you need a smaller one. It's the strongest lever on the road to financial independence — and the only one you fully control.",
+    body: "Saving more grows your pot faster AND proves you need a smaller one. It's the strongest lever on the road to financial independence, and the only one you fully control.",
   },
   {
     id: "w19",
@@ -121,13 +121,13 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w20",
     kind: "myth",
     title: "Myth: property only goes up",
-    body: "After 2008, house prices fell 20–30%+ across several European countries and took years to recover. Real estate cycles like everything else — bricks aren't sacred.",
+    body: "After 2008, house prices fell 20–30%+ across several European countries and took years to recover. Real estate cycles like everything else, bricks aren't sacred.",
   },
   {
     id: "w21",
     kind: "concept",
     title: "Real estate without the tenants",
-    body: "A REIT ETF spreads you across hundreds of buildings for the price of one share — liquid and diversified, though it still swings with the stock market.",
+    body: "A REIT ETF spreads you across hundreds of buildings for the price of one share, liquid and diversified, though it still swings with the stock market.",
   },
   {
     id: "w22",
@@ -145,7 +145,7 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w24",
     kind: "myth",
     title: "Myth: a licensed platform means risk-free products",
-    body: "MiCA licensing covers how a platform operates — not the risk inside its yield products. And crypto has no deposit-guarantee scheme.",
+    body: "MiCA licensing covers how a platform operates, not the risk inside its yield products. And crypto has no deposit-guarantee scheme.",
   },
   {
     id: "w25",
@@ -157,6 +157,6 @@ export const WEEKLY_ITEMS: WeeklyItem[] = [
     id: "w26",
     kind: "concept",
     title: "Bear markets are a feature",
-    body: "A 20%+ drop arrives every few years on average. For a long-term diversified investor with an emergency fund, it's weather — not the end of the plan.",
+    body: "A 20%+ drop arrives every few years on average. For a long-term diversified investor with an emergency fund, it's weather, not the end of the plan.",
   },
 ];

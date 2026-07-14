@@ -51,7 +51,7 @@ export function AddHoldingForm() {
         Add a holding
       </AppText>
       <AppText variant="muted" style={{ fontSize: 12.5, lineHeight: 17, marginTop: 2, marginBottom: 12 }}>
-        Asset type only — never a specific product or coin. You enter your own figures; nothing is connected.
+        Asset type only, never a specific product or coin. You enter your own figures; nothing is connected.
       </AppText>
 
       <AppText variant="bold" style={{ fontSize: 13, marginBottom: 4 }}>

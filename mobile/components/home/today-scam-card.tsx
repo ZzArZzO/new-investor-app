@@ -25,7 +25,7 @@ export function TodayScamCard() {
       <Card>
         <AppText variant="kicker">Today’s scam · safety reflex</AppText>
         <AppText variant="bold" style={{ marginTop: 8 }}>
-          ✓ Done for today — you trained your eye. Back tomorrow.
+          ✓ Done for today, you trained your eye. Back tomorrow.
         </AppText>
         <AppText variant="muted" style={{ marginTop: 4 }}>
           Spotting streak: 🛡️ {state.scamDaily.streak} (best {state.scamDaily.best})
@@ -101,7 +101,7 @@ export function TodayScamCard() {
         >
           <AppText style={{ color: correct ? colors.accentForeground : colors.destructive, fontSize: 14, lineHeight: 20 }}>
             <AppText variant="bold" style={{ color: correct ? colors.accentForeground : colors.destructive, fontSize: 14 }}>
-              {correct ? "✓ Correct — " : "✕ Not quite — "}
+              {correct ? "✓ Correct, " : "✕ Not quite, "}
               {scam.isScam ? "this is a scam." : "this one is safe."}
             </AppText>{" "}
             {scam.why}

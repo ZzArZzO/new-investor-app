@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
+import { rebalanceWeights } from "@/lib/tool-math";
 import { useAppStateContext } from "@/hooks/app-state-context";
 import { ToolShell } from "@/components/tools/tool-shell";
 import { ToolSlider } from "@/components/tools/tool-slider";
@@ -11,14 +12,8 @@ const COLORS = { core: "var(--primary)", satellite: "var(--amber)", crypto: "var
 
 export function AllocationDonut() {
   const { recordToolUse } = useAppStateContext();
-  const [core, setCore] = useState(70);
-  const [satellite, setSatellite] = useState(20);
-  const [crypto, setCrypto] = useState(10);
-
-  const { corePct, satellitePct, cryptoPct } = useMemo(() => {
-    const total = core + satellite + crypto || 1;
-    return { corePct: (core / total) * 100, satellitePct: (satellite / total) * 100, cryptoPct: (crypto / total) * 100 };
-  }, [core, satellite, crypto]);
+  const [weights, setWeights] = useState<[number, number, number]>([70, 20, 10]);
+  const [corePct, satellitePct, cryptoPct] = weights;
 
   const data = [
     { key: "core", label: "Diversified core", value: corePct, color: COLORS.core },
@@ -28,14 +23,15 @@ export function AllocationDonut() {
 
   const message =
     cryptoPct <= 5
-      ? "A small, bounded crypto slice — the shape most long-term plans use. If it went to zero, the plan barely notices."
+      ? "A small, bounded crypto slice, the shape most long-term plans use. If it went to zero, the plan barely notices."
       : cryptoPct <= 20
         ? "A noticeable but still-bounded crypto slice. Worth asking Lesson 8's question honestly before you size it."
         : "That's a large high-risk slice. Lesson 8's test: if it went to zero tomorrow, would it change your life? If yes, it's too big.";
 
-  function handleChange<T>(setter: (v: T) => void) {
-    return (v: T) => {
-      setter(v);
+  // Moving one slider rebalances the other two so the split always sums to 100%.
+  function handleWeight(changed: number) {
+    return (v: number) => {
+      setWeights((w) => rebalanceWeights(w, changed, v));
       recordToolUse();
     };
   }
@@ -45,11 +41,11 @@ export function AllocationDonut() {
       icon="🍩"
       title="Core + satellite"
       subtitle="Shape a core-and-satellite split and read the honest gut-check on your crypto slice."
-      note="Illustrative shapes in percentages only — it never uses your real money, income or savings, and is not a recommendation to hold any particular mix."
+      note="Illustrative shapes in percentages only, it never uses your real money, income or savings, and is not a recommendation to hold any particular mix."
     >
-      <ToolSlider label="Diversified core %" min={0} max={100} step={5} value={core} format={(v) => `${v}%`} onChange={handleChange(setCore)} />
-      <ToolSlider label="Satellite (stocks/sector) %" min={0} max={100} step={5} value={satellite} format={(v) => `${v}%`} onChange={handleChange(setSatellite)} />
-      <ToolSlider label="Crypto slice %" min={0} max={100} step={5} value={crypto} format={(v) => `${v}%`} onChange={handleChange(setCrypto)} />
+      <ToolSlider label="Diversified core %" min={0} max={100} step={5} value={corePct} format={(v) => `${v}%`} onChange={handleWeight(0)} />
+      <ToolSlider label="Satellite (stocks/sector) %" min={0} max={100} step={5} value={satellitePct} format={(v) => `${v}%`} onChange={handleWeight(1)} />
+      <ToolSlider label="Crypto slice %" min={0} max={100} step={5} value={cryptoPct} format={(v) => `${v}%`} onChange={handleWeight(2)} />
 
       <div className="mt-3 flex items-center gap-4">
         <div className="size-30 flex-none">

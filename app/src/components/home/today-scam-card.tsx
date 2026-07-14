@@ -24,7 +24,7 @@ export function TodayScamCard() {
     return (
       <section className="rounded-2xl bg-card p-5 shadow-sm">
         <div className="text-xs font-bold uppercase tracking-wide text-primary">Today&rsquo;s scam · safety reflex</div>
-        <p className="mt-2 font-semibold">✓ Done for today — you trained your eye. Back tomorrow.</p>
+        <p className="mt-2 font-semibold">✓ Done for today, you trained your eye. Back tomorrow.</p>
         <p className="mt-1 text-sm text-muted-foreground">
           Spotting streak: 🛡️ {state.scamDaily.streak} (best {state.scamDaily.best})
         </p>
@@ -74,7 +74,7 @@ export function TodayScamCard() {
           )}
         >
           <b>
-            {correct ? "✓ Correct — " : "✕ Not quite — "}
+            {correct ? "✓ Correct, " : "✕ Not quite, "}
             {scam.isScam ? "this is a scam." : "this one is safe."}
           </b>
           <br />

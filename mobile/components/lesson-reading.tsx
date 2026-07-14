@@ -1,6 +1,8 @@
+import { useRouter } from "expo-router";
 import { useMemo, useState } from "react";
 import { Text, View } from "react-native";
 import { GLOSSARY } from "@/content/glossary";
+import { LESSONS } from "@/content/lessons";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
 
@@ -10,6 +12,8 @@ interface Segment {
   italic: boolean;
   /** Glossary key when this segment is a tap-to-define term. */
   term?: string;
+  /** Lesson id when this segment is a "Lesson N" cross-reference that opens that lesson. */
+  lesson?: string;
 }
 
 type Paragraph = Segment[];
@@ -93,14 +97,43 @@ function linkifyGlossary(paragraphs: Paragraph[]): Paragraph[] {
   );
 }
 
+const LESSON_IDS = new Set(LESSONS.map((l) => l.id));
+
+/** Every "Lesson N" cross-reference becomes a tap that opens that lesson (mirrors the web GlossaryReading). */
+function linkifyLessonRefs(paragraphs: Paragraph[]): Paragraph[] {
+  const re = /\bLesson (\d+)\b/;
+  return paragraphs.map((segments) =>
+    segments.flatMap((segment) => {
+      if (segment.term || segment.lesson) return [segment];
+      const out: Segment[] = [];
+      let rest = segment;
+      for (;;) {
+        const match = re.exec(rest.text);
+        if (!match || !LESSON_IDS.has(`l${match[1]}`)) {
+          out.push(rest);
+          break;
+        }
+        const start = match.index;
+        const end = start + match[0].length;
+        if (start > 0) out.push({ ...rest, text: rest.text.slice(0, start) });
+        out.push({ ...rest, text: match[0], lesson: `l${match[1]}` });
+        if (end >= rest.text.length) break;
+        rest = { ...rest, text: rest.text.slice(end) };
+      }
+      return out;
+    })
+  );
+}
+
 interface LessonReadingProps {
   html: string;
 }
 
 /** Renders lesson reading HTML as native text, glossary terms tappable for inline definitions. */
 export function LessonReading({ html }: LessonReadingProps) {
+  const router = useRouter();
   const { colors } = useTheme();
-  const paragraphs = useMemo(() => linkifyGlossary(parseReading(html)), [html]);
+  const paragraphs = useMemo(() => linkifyLessonRefs(linkifyGlossary(parseReading(html))), [html]);
   const [openTerm, setOpenTerm] = useState<string | null>(null);
 
   return (
@@ -110,11 +143,17 @@ export function LessonReading({ html }: LessonReadingProps) {
           {segments.map((seg, si) => (
             <Text
               key={si}
-              onPress={seg.term ? () => setOpenTerm((prev) => (prev === seg.term ? null : seg.term ?? null)) : undefined}
+              onPress={
+                seg.lesson
+                  ? () => router.push(`/lesson/${seg.lesson}`)
+                  : seg.term
+                    ? () => setOpenTerm((prev) => (prev === seg.term ? null : seg.term ?? null))
+                    : undefined
+              }
               style={{
                 fontFamily: seg.bold ? FONTS.bodySemiBold : FONTS.body,
                 fontStyle: seg.italic ? "italic" : "normal",
-                ...(seg.term
+                ...(seg.term || seg.lesson
                   ? {
                       color: colors.primary,
                       fontFamily: FONTS.bodySemiBold,

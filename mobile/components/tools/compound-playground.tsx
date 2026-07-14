@@ -31,7 +31,7 @@ export function CompoundPlayground() {
     <ToolShell
       icon="📈"
       title="Compound interest playground"
-      subtitle="What steady monthly investing could grow into. Not a prediction — a way to feel how time and rate matter."
+      subtitle="What steady monthly investing could grow into. Not a prediction, a way to feel how time and rate matter."
       note="Illustrative maths only, before tax and inflation. Real returns vary year to year and can be negative."
     >
       <Stepper label="Monthly amount" value={monthly} display={fmtEur(monthly)} onChange={setMonthly} step={25} min={25} max={1000} />

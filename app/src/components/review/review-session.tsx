@@ -51,7 +51,7 @@ export function ReviewSession() {
         <div className="mt-3.5 rounded-2xl bg-card p-5 text-center shadow-sm">
           <p className="text-[15px] font-semibold">✓ You&rsquo;re done for today.</p>
           <p className="mt-1.5 text-sm text-muted-foreground">
-            {FREE_REVIEW_CARDS_PER_DAY} cards a day is the sweet spot — spacing works best in small daily doses.
+            {FREE_REVIEW_CARDS_PER_DAY} cards a day is the sweet spot, spacing works best in small daily doses.
             Come back tomorrow.
           </p>
           {PLUS_FAKEDOOR_ENABLED && (
@@ -72,7 +72,7 @@ export function ReviewSession() {
         <h2 className="font-heading text-xl font-medium">Review</h2>
         <div className="mt-3.5 rounded-2xl bg-card p-5 text-center shadow-sm">
           <p className="text-[15px] font-semibold">
-            Session done — {correctCount} of {session.length} right. ✓
+            Session done, {correctCount} of {session.length} right. ✓
           </p>
           <p className="mt-1.5 text-sm text-muted-foreground">
             Anything you missed comes back sooner; what you knew comes back later. That spacing is what makes it

@@ -10,21 +10,28 @@ import { ToolShell } from "@/components/tools/tool-shell";
 
 const CHANNEL_LABEL: Record<string, string> = { DM: "Direct message", email: "Email", popup: "Pop-up" };
 
+/** Messages per round. Short rounds keep the game snappy; "Play again" serves the next batch. */
+const ROUND_SIZE = 8;
+
 export function ScamSpotter() {
   const { colors } = useTheme();
   const { recordToolUse, recordPerfectScamRound } = useAppState();
   const n = SCAM_SCENARIOS.length;
+  const rounds = Math.ceil(n / ROUND_SIZE);
+  const [round, setRound] = useState(0);
   const order = useMemo(() => {
     const start = daySeed(todayStr()) % n;
     return Array.from({ length: n }, (_, k) => (start + k) % n);
   }, [n]);
+  const roundOrder = order.slice(round * ROUND_SIZE, round * ROUND_SIZE + ROUND_SIZE);
+  const len = roundOrder.length;
 
   const [i, setI] = useState(0);
   const [score, setScore] = useState(0);
   const [answer, setAnswer] = useState<"safe" | "scam" | null>(null);
   const [finished, setFinished] = useState(false);
 
-  const sc = SCAM_SCENARIOS[order[i]];
+  const sc = SCAM_SCENARIOS[roundOrder[i]];
 
   function choose(choice: "safe" | "scam") {
     if (answer) return;
@@ -35,16 +42,17 @@ export function ScamSpotter() {
   }
 
   function next() {
-    if (i + 1 < n) {
+    if (i + 1 < len) {
       setI(i + 1);
       setAnswer(null);
     } else {
-      if (score === n) recordPerfectScamRound();
+      if (score === len) recordPerfectScamRound();
       setFinished(true);
     }
   }
 
   function playAgain() {
+    setRound((round + 1) % rounds);
     setI(0);
     setScore(0);
     setAnswer(null);
@@ -84,7 +92,7 @@ export function ScamSpotter() {
     <ToolShell
       icon="🕵️"
       title="Spot the scam"
-      subtitle="Safe or scam? Decide, then see the red flags. This is about the traps — it names no coins and predicts no prices."
+      subtitle="Safe or scam? Decide, then see the red flags. This is about the traps, it names no coins and predicts no prices."
       note="Educational scenarios modelled on common real-world crypto scams. Rule of thumb: anything asking for your recovery phrase, or promising guaranteed returns, is a scam."
     >
       {finished ? (
@@ -97,22 +105,22 @@ export function ScamSpotter() {
               alignItems: "center",
             }}
           >
-            <AppText style={{ fontSize: 32, lineHeight: 40 }}>{score === n ? "🏆" : "🕵️"}</AppText>
+            <AppText style={{ fontSize: 32, lineHeight: 40 }}>{score === len ? "🏆" : "🕵️"}</AppText>
             <AppText variant="bold" style={{ marginTop: 4, color: colors.accentForeground }}>
-              {score} / {n} correct
+              {score} / {len} correct
             </AppText>
             <AppText variant="muted" style={{ marginTop: 4, textAlign: "center", fontSize: 14 }}>
-              {score === n
-                ? "Perfect round — you spotted every trap."
+              {score === len
+                ? "Perfect round, you spotted every trap."
                 : "Good practice. The red flags repeat: recovery-phrase requests, guaranteed returns, urgency, and send-to-receive-more."}
             </AppText>
           </View>
-          <Btn label="Play again" onPress={playAgain} style={{ marginTop: 14 }} />
+          <Btn label="Play again · fresh messages" onPress={playAgain} style={{ marginTop: 14 }} />
         </View>
       ) : (
         <View style={{ marginTop: 14 }}>
           <AppText variant="muted" style={{ fontFamily: FONTS.bodySemiBold, fontSize: 13, marginBottom: 10 }}>
-            Message {i + 1} of {n} · score {score}
+            Message {i + 1} of {len} · score {score}
           </AppText>
 
           <View style={{ borderRadius: RADIUS.xl, borderWidth: 1, borderColor: colors.border, overflow: "hidden" }}>
@@ -174,7 +182,7 @@ export function ScamSpotter() {
                   variant="bold"
                   style={{ color: wasCorrect ? colors.accentForeground : colors.destructive, fontSize: 14.5 }}
                 >
-                  {wasCorrect ? "✓ Correct — " : "✕ Not quite — "}
+                  {wasCorrect ? "✓ Correct, " : "✕ Not quite, "}
                 </AppText>
                 {sc.isScam ? "this is a scam." : "this one is safe."} {sc.why}
               </AppText>
@@ -197,7 +205,7 @@ export function ScamSpotter() {
                   ))}
                 </View>
               )}
-              <Btn label={i + 1 < n ? "Next message →" : "See results"} onPress={next} style={{ marginTop: 12 }} />
+              <Btn label={i + 1 < len ? "Next message →" : "See results"} onPress={next} style={{ marginTop: 12 }} />
             </View>
           )}
         </View>

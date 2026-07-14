@@ -86,8 +86,12 @@ export interface AppStateValue {
   answerReviewCard: (id: string, correct: boolean) => void;
   toastMessage: string | null;
   toggleEmailPref: (kind: "streak" | "weekly") => void;
+  /** Deliberate full overwrite (backup-code restore), not an incremental action. */
+  replaceState: (next: AppState) => void;
   /** True for one session when signing in found existing server progress that this device's local progress wasn't merged into. */
   migrationNotice: boolean;
+  /** Snapshot of this device's pre-sign-in progress, taken before the server state overwrote it. Copyable from the migration notice. */
+  migrationBackup: string | null;
   dismissMigrationNotice: () => void;
 }
 
@@ -103,6 +107,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [hydrated, setHydrated] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [migrationNotice, setMigrationNotice] = useState(false);
+  const [migrationBackup, setMigrationBackup] = useState<string | null>(null);
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const prevBadges = useRef<string[]>([]);
 
@@ -126,7 +131,12 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         const server = await api.getState(token);
         const resolved = server.state ?? (await api.migrateState(token, local)).state;
         if (cancelled) return;
-        if (server.state && hasMeaningfulProgress(local)) setMigrationNotice(true);
+        if (server.state && hasMeaningfulProgress(local)) {
+          setMigrationNotice(true);
+          // AsyncStorage gets overwritten by the very next persistence tick,
+          // so this snapshot is the only surviving copy of the old progress.
+          setMigrationBackup(JSON.stringify(local));
+        }
         const merged = { ...initialAppState(), ...resolved };
         prevBadges.current = merged.badges;
         setState(merged);
@@ -158,6 +168,11 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
 
   const dismissMigrationNotice = useCallback(() => setMigrationNotice(false), []);
 
+  const replaceState = useCallback((next: AppState) => {
+    // Deliberate full overwrite (backup-code restore); the persistence effect saves and syncs it.
+    setState(next);
+  }, []);
+
   const showToast = useCallback((message: string) => {
     setToastMessage(message);
     if (toastTimer.current) clearTimeout(toastTimer.current);
@@ -185,7 +200,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     if (freezes === before) return;
     showToast(
       freezes < before
-        ? "🧊 Streak freeze used — your streak survived a missed day."
+        ? "🧊 Streak freeze used, your streak survived a missed day."
         : "🧊 Streak freeze earned! It auto-covers one missed day."
     );
   }, [state.streak.freezes, hydrated, showToast]);
@@ -296,7 +311,9 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         answerReviewCard,
         toastMessage,
         toggleEmailPref,
+        replaceState,
         migrationNotice,
+        migrationBackup,
         dismissMigrationNotice,
       }}
     >

@@ -57,7 +57,7 @@ export default function ResultPage() {
           onClick={() => router.push(`/types/${persona.slug}`)}
           className="mt-3 text-[13.5px] font-semibold text-primary underline underline-offset-2"
         >
-          Read the full {persona.name} profile — or see all four types
+          Read the full {persona.name} profile, or see all four types
         </button>
       </div>
 

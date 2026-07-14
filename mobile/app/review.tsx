@@ -41,7 +41,7 @@ export default function ReviewScreen() {
           <Card style={{ alignItems: "center" }}>
             <AppText variant="bold">✓ You’re done for today.</AppText>
             <AppText variant="muted" style={{ marginTop: 6, textAlign: "center" }}>
-              {FREE_REVIEW_CARDS_PER_DAY} cards a day is the sweet spot — spacing works best in small daily doses. Come
+              {FREE_REVIEW_CARDS_PER_DAY} cards a day is the sweet spot, spacing works best in small daily doses. Come
               back tomorrow.
             </AppText>
           </Card>
@@ -57,7 +57,7 @@ export default function ReviewScreen() {
         <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, gap: 14 }}>
           <Card style={{ alignItems: "center" }}>
             <AppText variant="bold">
-              Session done — {correctCount} of {session.length} right. ✓
+              Session done, {correctCount} of {session.length} right. ✓
             </AppText>
             <AppText variant="muted" style={{ marginTop: 6, textAlign: "center" }}>
               Anything you missed comes back sooner; what you knew comes back later. That spacing is what makes it

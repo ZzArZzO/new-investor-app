@@ -15,7 +15,7 @@ export default function ToolsPage() {
     <div className="pt-1">
       <h2 className="font-heading text-xl font-medium">Interactive tools</h2>
       <p className="mt-1.5 mb-4 text-[15px] text-muted-foreground">
-        Play with the ideas from the lessons. Every number here is illustrative — a way to build intuition, never a recommendation.
+        Play with the ideas from the lessons. Every number here is illustrative, a way to build intuition, never a recommendation.
       </p>
 
       <div className="grid grid-cols-2 gap-3">
@@ -46,7 +46,7 @@ export default function ToolsPage() {
         <div className="mt-4">
           {activeTool.crypto && (
             <div className="mb-3 rounded-lg bg-amber-soft px-3.5 py-3 text-[14px] font-semibold">
-              ⚠️ Crypto is high-risk and can go to zero. Illustrative only — no coin names, no predictions.
+              ⚠️ Crypto is high-risk and can go to zero. Illustrative only, no coin names, no predictions.
             </div>
           )}
           <ActiveComponent />

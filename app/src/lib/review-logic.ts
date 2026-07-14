@@ -2,6 +2,7 @@ import { LESSONS } from "@/content/lessons";
 import { GLOSSARY } from "@/content/glossary";
 import type { AppState, LessonCheck } from "@/content/types";
 import { dueReviewItems, reviewOf } from "./app-state-logic";
+import { checkOptionOrder } from "./check-order";
 import { daySeed } from "./date";
 
 /** One renderable card in a review session. */
@@ -23,7 +24,9 @@ function resolveCheckCard(id: string): ReviewCardData | null {
   const lesson = LESSONS.find((l) => l.id === lessonId);
   const check: LessonCheck | undefined = lesson?.check[Number(idxStr)];
   if (!lesson || !check) return null;
-  return { id, question: check.q, options: check.o, answer: check.a, why: check.why };
+  // Same rotated order as the lesson view, so the correct answer isn't always first.
+  const order = checkOptionOrder(check);
+  return { id, question: check.q, options: order.map((i) => check.o[i]), answer: order.indexOf(check.a), why: check.why };
 }
 
 /** Builds a "which term matches this definition?" card with two deterministic decoys. */
@@ -43,7 +46,7 @@ function buildTermCard(term: string, seed: number): ReviewCardData | null {
     question: `Which term matches: “${definition}”`,
     options: rotated,
     answer: rotated.indexOf(term),
-    why: `${term} — ${definition}`,
+    why: `${term}, ${definition}`,
   };
 }
 
@@ -56,7 +59,7 @@ function resolveCard(id: string, seed: number): ReviewCardData | null {
 /**
  * Composes today's review session: due cards first, topped up with glossary
  * terms not yet in the deck (rotated deterministically by date), capped at
- * `limit`. Pure — same state + date always yields the same session.
+ * `limit`. Pure, same state + date always yields the same session.
  */
 export function composeReviewSession(state: AppState, today: string, limit: number): ReviewCardData[] {
   if (limit <= 0) return [];

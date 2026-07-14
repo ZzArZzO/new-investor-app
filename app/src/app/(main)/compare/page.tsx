@@ -17,7 +17,7 @@ export default function ComparePage() {
 
       <div className="mt-2 text-[12px] font-semibold text-muted-foreground">Data last verified: {COMPARE_LAST_CHECKED}</div>
       <p className="mt-2 text-[12px] text-muted-foreground">
-        Availability, fees and investor protection differ per EU country — always check the provider&rsquo;s terms for
+        Availability, fees and investor protection differ per EU country, always check the provider&rsquo;s terms for
         where you live.
       </p>
 

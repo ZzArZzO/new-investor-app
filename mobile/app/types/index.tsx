@@ -15,7 +15,7 @@ export default function TypesScreen() {
       <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 32 }}>
         <AppText variant="heading">The four investor types</AppText>
         <AppText variant="muted" style={{ marginTop: 6, marginBottom: 16 }}>
-          Behavioral archetypes on the involvement × emotional-style grid. Everyone sees the same lessons — the type
+          Behavioral archetypes on the involvement × emotional-style grid. Everyone sees the same lessons, the type
           just names your starting habits.
         </AppText>
         <View style={{ gap: 10 }}>

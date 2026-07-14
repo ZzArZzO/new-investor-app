@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { LessonCheck } from "@/content/types";
+import { checkOptionOrder } from "@/lib/check-order";
 import { cn } from "@/lib/utils";
 
 interface LessonQuickCheckProps {
@@ -12,6 +13,7 @@ interface LessonQuickCheckProps {
 /** Render with `key={lesson.id}` from the parent so state resets on lesson change instead of via an effect. */
 export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProps) {
   const [answers, setAnswers] = useState<(number | null)[]>(() => checks.map(() => null));
+  const orders = useMemo(() => checks.map(checkOptionOrder), [checks]);
 
   function pick(qi: number, oi: number) {
     if (answers[qi] !== null) return;
@@ -36,7 +38,8 @@ export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProp
               <div className="mb-1 text-[13px] font-bold text-muted-foreground">Question {qi + 1}</div>
               <div className="mb-2.5 font-bold">{c.q}</div>
               <div className="flex flex-col gap-2">
-                {c.o.map((text, oi) => {
+                {orders[qi].map((oi) => {
+                  const text = c.o[oi];
                   const isCorrect = oi === c.a;
                   const isPicked = oi === picked;
                   return (

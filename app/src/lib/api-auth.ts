@@ -12,7 +12,7 @@ export interface ApiUser {
 /**
  * Resolves the requesting user from either a mobile bearer token
  * (Authorization: Bearer <jwt>) or the NextAuth web session. Web behavior is
- * unchanged — the bearer path only engages when the header is present.
+ * unchanged, the bearer path only engages when the header is present.
  */
 export async function resolveUser(req: Request): Promise<ApiUser | null> {
   const header = req.headers.get("authorization");

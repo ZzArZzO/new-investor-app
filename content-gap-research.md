@@ -186,3 +186,73 @@ Key sources: OECD/EC Financial Competence Framework for Adults · Eurobarometer 
 ESMA CFD intervention data + social-media recommendations warning · EC investor-compensation
 & DGS pages · EIOPA PEPP reform · CFA Institute Gen Z & Investing · competitor curricula
 (Finelo, Investmate, Zogo, Bloom, Khan, Morningstar). Full URLs in research transcript.
+
+## Wave 6 — fresh external research (2026-07-14)
+
+> **Status: top 4 shipped (2026-07-14).** l42 deepfake/AI scams (🛡️, free), l43
+> post-MiCA exchange playbook (₿ deep-dive, free), l44 prediction markets (🛡️, free),
+> l45 AI-chatbot money literacy (🧠, free). Plus 4 scam scenarios (s61–s64, incl. one
+> legitimate wind-down notice), 5 daily cards, 3 glossary terms (deepfake, prediction
+> market, wind-down). Curriculum now **45 lessons / 11 tracks**. Lint, typecheck, 145
+> tests pass. Watchlist items (RIS, SIA, tokenized MMFs) and candidates 6–7 (rates/bonds,
+> lump sum vs DCA) remain backlog.
+
+Web sweep across six angles: EU regulatory news, scam trends, beginner-behavior surveys,
+crypto post-MiCA, macro/fixed-income context, Gen Z demand signals. Findings ranked by
+urgency. Curriculum at time of research: 41 lessons / 11 tracks + new Advanced section.
+
+### Time-sensitive (news happened days/weeks ago)
+
+1. **MiCA transition ENDED 1 Jul 2026.** Of ~1,200 nationally registered crypto firms,
+   only ~210–244 obtained MiCA authorization (~80% now barred from serving EU clients).
+   Users of unlicensed platforms hit forced geofencing, withdrawal-only accounts, disabled
+   deposits, lost fiat off-ramps. `compliance-one-pager.md` and `brokers.ts` are already
+   correct — but **no lesson tells the user what to do if THEIR platform didn't make the
+   cut** (check the ESMA register, withdraw or transfer, expect wind-down notices).
+   → Fold into l34 or new free lesson, crypto deep-dive. (ESMA public statement Jun 2026;
+   forklog/incrypted/kucoin coverage.)
+2. **ESMA statement 3 Jul 2026: prediction markets = binary options.** Event contracts
+   with binary payouts can qualify as MiFID II financial instruments → retail prohibition
+   (2018 binary-options ban) applies. Nine EU regulators coordinating blocks (PT ISP-level
+   Mar 2026, ES sanctions vs Kalshi/Polymarket May 2026). Booming product aimed squarely
+   at young users; l25 already teaches the binary-options ban — one paragraph or a
+   standalone free trap lesson extends it to "betting on events" apps.
+3. **AI/deepfake investment scams.** Chainalysis: $14B crypto scam losses 2025; AI-enabled
+   scams ~4.5× more profitable; FBI Apr 2026: $632M investment-fraud complaints with AI
+   nexus; 67% of scam victims had <1 yr experience. Current scam-scenarios have **zero**
+   AI/deepfake patterns (deepfake celebrity endorsement videos, cloned voices, fake "AI
+   trading bot" platforms, AI-personalized pitches). → New free lesson + 2–3 new
+   `scam-scenarios.ts` entries + daily cards. Hard rule: safety stays free.
+
+### New lesson candidates (evidence-backed)
+
+| # | Topic | Evidence | Track / tier |
+|---|---|---|---|
+| 1 | AI & deepfake scams (see above) | FBI/Chainalysis 2026 | 🛡️ Protections, Free |
+| 2 | "Is your exchange still legal?" post-MiCA playbook | ESMA Jun/Jul 2026 | ₿ deep-dive, Free |
+| 3 | Prediction markets & event betting | ESMA 3 Jul 2026 | 🛡️ Protections, Free |
+| 4 | AI chatbots as money advisers — how to use them safely | 64% of Gen Z trust AI platforms for financial info; 29–41% use AI/social for crypto advice (CFA/CEX.IO/TIAA 2026); ASIC "sense-check" warning Feb 2026 | 🧠 Brain & money, Free — genuine differentiator, no competitor teaches it |
+| 5 | Tokenized stocks: what you actually own | ESMA warning: no shareholder rights, SPV-held, price-tracking only | ₿ deep-dive or 🛡️, Free/Plus |
+| 6 | Rates, ECB & bonds — with 2026 numbers (backlog #9, upgraded) | Eurozone govt 2.5–3.6%, IG 3.5–4.5%, €STR 1.93%, EU inflation ~3.2% → real-return teaching moment; MMF/cash-yield (#15) folds in | 📈 Investing, Plus |
+| 7 | Lump sum vs DCA (windfall question) | Vanguard: lump sum wins ~75% of 10-yr periods; DCA = behavioral insurance; classic first-year question, absent from curriculum | 📈 Investing, Plus |
+
+### Watchlist (real, not yet actionable)
+
+- **Retail Investment Strategy (RIS)** — provisional deal 18 Dec 2025: value-for-money
+  benchmarks, machine-readable KIDs, finfluencer written-agreement rules. Applies 30
+  months after publication (~2028) → update l23/l32 then; weekly item now at most.
+- **EU Savings & Investment Accounts (SIA)** — Commission blueprint Sep 2025, member
+  states adopting from 2026 through 2027. Watch for first national frameworks; fits the
+  country-pack localization play. Weekly item when a large member state ships one.
+- **Tokenized MMFs / fund tokenisation** — ESMA TRV 2026 notes growth; too early.
+
+Gen Z context reinforcing existing free/premium logic: 44% of Gen Z investors started
+with crypto (CFA); 56% trust social-media financial info, 52% trust finfluencers; FOMO
+cited by 44% as a crypto driver. The safety-first free tier is aimed at exactly this
+cohort's entry path.
+
+Key sources: ESMA MiCA transition statement (Jun 2026) + event-contracts statement
+(3 Jul 2026) · Consilium RIS press release (18 Dec 2025) · EC SIA Recommendation
+(30 Sep 2025) · Chainalysis 2026 Crypto Crime Report · FBI IC3 (Apr 2026) · CFA
+Institute "Gen Z and Investing" · CEX.IO Gen Z survey 2026 · ASIC 26-049MR ·
+Vanguard lump-sum research · euroyields/bankeronwheels 2026 yield data.

@@ -57,7 +57,7 @@ export function ActionChecklistCard() {
         })}
       </ul>
       <p className="mt-3 text-[11.5px] leading-relaxed text-muted-foreground italic">
-        The generic steps everyone takes — not a recommendation to buy anything. Only ever use regulated, licensed platforms.
+        The generic steps everyone takes, not a recommendation to buy anything. Only ever use regulated, licensed platforms.
       </p>
     </section>
   );

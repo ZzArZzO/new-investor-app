@@ -8,6 +8,20 @@
       "when": 1783606176792,
       "tag": "0000_old_kree",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1783944740308,
+      "tag": "0001_wonderful_pandemic",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784042767174,
+      "tag": "0002_rate-limit",
+      "breakpoints": true
     }
   ]
 }

@@ -17,7 +17,7 @@ export default function ToolsScreen() {
     >
       <AppText variant="heading">Tools</AppText>
       <AppText variant="muted" style={{ marginTop: 6, marginBottom: 16 }}>
-        Small interactive sandboxes — feel the mechanics before any real money is involved.
+        Small interactive sandboxes, feel the mechanics before any real money is involved.
       </AppText>
 
       <View style={{ gap: 10 }}>

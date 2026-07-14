@@ -5,7 +5,7 @@ import { Stack } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Alert, Platform, Pressable, ScrollView, TextInput, View } from "react-native";
 
-import { exportState } from "@/lib/app-state-transfer";
+import { exportState, importState } from "@/lib/app-state-transfer";
 import { useAppState } from "@/lib/app-state";
 import { useAuth } from "@/lib/auth";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
@@ -112,7 +112,7 @@ function SignedOutAccount() {
         await signInWithApple(credential.identityToken);
       }
     } catch (e: unknown) {
-      // Cancelled sheets throw — only surface real failures.
+      // Cancelled sheets throw, only surface real failures.
       if (e instanceof Error && !e.message.includes("canceled")) setError("Apple sign-in failed.");
     } finally {
       setBusy(false);
@@ -245,8 +245,8 @@ function SignedInAccount() {
         Email preferences
       </AppText>
       <View style={{ marginTop: 4 }}>
-        <PrefToggle label="Streak reminder — a nudge before your streak breaks" on={emails.streak} onToggle={() => toggleEmailPref("streak")} />
-        <PrefToggle label="Weekly digest — one concept, myth or tip each Monday" on={emails.weekly} onToggle={() => toggleEmailPref("weekly")} />
+        <PrefToggle label="Streak reminder, a nudge before your streak breaks" on={emails.streak} onToggle={() => toggleEmailPref("streak")} />
+        <PrefToggle label="Weekly digest, one concept, myth or tip each Monday" on={emails.weekly} onToggle={() => toggleEmailPref("weekly")} />
       </View>
 
       <Btn label="Sign out" variant="outline" disabled={busy} onPress={() => void signOut()} style={{ marginTop: 14 }} />
@@ -262,8 +262,12 @@ function SignedInAccount() {
 export default function SettingsScreen() {
   const { colors } = useTheme();
   const { token } = useAuth();
-  const { state, hydrated, migrationNotice, dismissMigrationNotice } = useAppState();
+  const { state, hydrated, migrationNotice, migrationBackup, dismissMigrationNotice, replaceState } = useAppState();
   const [copied, setCopied] = useState(false);
+  const [oldCopied, setOldCopied] = useState(false);
+  const [restoreOpen, setRestoreOpen] = useState(false);
+  const [restoreText, setRestoreText] = useState("");
+  const [restoreStatus, setRestoreStatus] = useState<"idle" | "done" | "error">("idle");
 
   const backup = useMemo(() => (hydrated ? exportState(state) : ""), [hydrated, state]);
 
@@ -271,6 +275,24 @@ export default function SettingsScreen() {
     await Clipboard.setStringAsync(backup);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  }
+
+  async function copyOldProgress() {
+    if (!migrationBackup) return;
+    await Clipboard.setStringAsync(migrationBackup);
+    setOldCopied(true);
+    setTimeout(() => setOldCopied(false), 2000);
+  }
+
+  function handleRestore() {
+    const next = importState(restoreText);
+    if (!next) {
+      setRestoreStatus("error");
+      return;
+    }
+    replaceState(next);
+    setRestoreStatus("done");
+    setRestoreText("");
   }
 
   return (
@@ -288,41 +310,92 @@ export default function SettingsScreen() {
           >
             <AppText style={{ color: colors.amber, fontSize: 13.5, lineHeight: 19 }}>
               Your account already had progress saved, so this phone now shows that. The progress made on this device
-              before signing in wasn’t merged.
+              before signing in wasn’t merged. Copy it here if you want to keep it.
             </AppText>
-            <Pressable accessibilityRole="button" onPress={dismissMigrationNotice} style={{ marginTop: 6 }}>
-              <AppText variant="bold" style={{ color: colors.amber, fontSize: 13 }}>
-                Got it
-              </AppText>
-            </Pressable>
+            <View style={{ marginTop: 6, flexDirection: "row", gap: 16 }}>
+              {migrationBackup && (
+                <Pressable accessibilityRole="button" onPress={copyOldProgress}>
+                  <AppText variant="bold" style={{ color: colors.amber, fontSize: 13 }}>
+                    {oldCopied ? "Copied ✓" : "Copy old progress code"}
+                  </AppText>
+                </Pressable>
+              )}
+              <Pressable accessibilityRole="button" onPress={dismissMigrationNotice}>
+                <AppText variant="bold" style={{ color: colors.amber, fontSize: 13 }}>
+                  Got it
+                </AppText>
+              </Pressable>
+            </View>
           </View>
         )}
 
         {token ? <SignedInAccount /> : <SignedOutAccount />}
 
+        {!token && (
         <Card>
-          <AppText variant="kicker">Back up my progress</AppText>
+          <AppText variant="kicker">Back up &amp; restore</AppText>
           <AppText variant="muted" style={{ marginTop: 8 }}>
-            Your full progress as a code. Copy it somewhere safe — it’s the same format the web app uses.
+            Without an account, progress lives only on this phone. Copy a backup code to keep somewhere safe, or paste
+            one to bring progress onto this device. Same format as the web app.
           </AppText>
-          <View
-            style={{
-              marginTop: 10,
-              borderRadius: RADIUS.md,
-              borderWidth: 1,
-              borderColor: colors.border,
-              backgroundColor: colors.background,
-              padding: 12,
-              maxHeight: 140,
-              overflow: "hidden",
+          <Btn label={copied ? "Copied ✓" : "Copy backup code"} onPress={copyBackup} style={{ marginTop: 12 }} />
+          <Pressable
+            accessibilityRole="button"
+            onPress={() => {
+              setRestoreOpen((v) => !v);
+              setRestoreStatus("idle");
             }}
+            style={{ marginTop: 10, paddingVertical: 4 }}
           >
-            <AppText style={{ fontFamily: FONTS.body, fontSize: 11, lineHeight: 15, color: colors.mutedForeground }}>
-              {backup.length > 600 ? `${backup.slice(0, 600)}…` : backup}
+            <AppText variant="bold" style={{ color: colors.primary, fontSize: 13.5 }}>
+              Restore from a code
             </AppText>
-          </View>
-          <Btn label={copied ? "Copied ✓" : "Copy code"} onPress={copyBackup} style={{ marginTop: 12 }} />
+          </Pressable>
+          {restoreOpen && (
+            <View style={{ marginTop: 6 }}>
+              <TextInput
+                value={restoreText}
+                onChangeText={(t) => {
+                  setRestoreText(t);
+                  setRestoreStatus("idle");
+                }}
+                placeholder="Paste your backup code here"
+                placeholderTextColor={colors.mutedForeground}
+                multiline
+                numberOfLines={3}
+                autoCapitalize="none"
+                autoCorrect={false}
+                style={{
+                  borderRadius: RADIUS.md,
+                  borderWidth: 1,
+                  borderColor: colors.border,
+                  backgroundColor: colors.background,
+                  padding: 12,
+                  minHeight: 76,
+                  fontFamily: FONTS.body,
+                  fontSize: 11,
+                  color: colors.foreground,
+                  textAlignVertical: "top",
+                }}
+              />
+              <AppText variant="muted" style={{ marginTop: 6, fontSize: 12, lineHeight: 17 }}>
+                Restoring replaces the progress currently on this device.
+              </AppText>
+              <Btn label="Restore" onPress={handleRestore} disabled={restoreText.trim() === ""} style={{ marginTop: 8 }} />
+              {restoreStatus === "error" && (
+                <AppText style={{ marginTop: 6, color: colors.destructive, fontSize: 12.5, lineHeight: 18 }}>
+                  That doesn&rsquo;t look like a backup code. Paste the full code, exactly as it was copied.
+                </AppText>
+              )}
+              {restoreStatus === "done" && (
+                <AppText variant="bold" style={{ marginTop: 6, fontSize: 12.5 }}>
+                  ✓ Progress restored.
+                </AppText>
+              )}
+            </View>
+          )}
         </Card>
+        )}
 
         <AppText variant="muted" style={{ textAlign: "center", fontSize: 11.5, lineHeight: 17, paddingHorizontal: 6 }}>
           Educational information, not personal financial advice. Investing involves risk, including loss of the money

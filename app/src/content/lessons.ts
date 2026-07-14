@@ -133,7 +133,7 @@ export const LESSONS: Lesson[] = [
     title: "What blockchain & crypto actually are",
     core: "A blockchain is a shared record no single party controls; a crypto-asset is built on one, and what it is matters more than any price.",
     reading:
-      "<p>Strip the hype and a <b>blockchain</b> is a shared digital ledger copied across many computers, with no single owner, where past entries are very hard to change. A <b>cryptocurrency</b> is an asset that lives on one. Bitcoin was the first, designed to be scarce; Ethereum added programs called smart contracts.</p><p>The honest part: unlike a share, a crypto-asset usually represents no business, no profits and no cash flows. Its value comes from supply, demand and belief. That's why it behaves so differently from stocks and can swing enormously. <b>Stablecoins</b> try to hold a steady value; <b>tokens</b> are everything else, some serious, many worthless. One worth naming: an <b>NFT</b> (non-fungible token) is a unique ledger entry, often linked to an image or item — buying one gets you that entry, not automatically the copyright, the image's continued hosting, or any legal right to the underlying work.</p>",
+      "<p>Strip the hype and a <b>blockchain</b> is a shared digital ledger copied across many computers, with no single owner, where past entries are very hard to change. A <b>cryptocurrency</b> is an asset that lives on one. Bitcoin was the first, designed to be scarce; Ethereum added programs called smart contracts.</p><p>The honest part: unlike a share, a crypto-asset usually represents no business, no profits and no cash flows. Its value comes from supply, demand and belief. That's why it behaves so differently from stocks and can swing enormously. <b>Stablecoins</b> try to hold a steady value; <b>tokens</b> are everything else, some serious, many worthless. One worth naming: an <b>NFT</b> (non-fungible token) is a unique ledger entry, often linked to an image or item, buying one gets you that entry, not automatically the copyright, the image's continued hosting, or any legal right to the underlying work.</p>",
     example:
       "Think of a blockchain like a shared spreadsheet thousands of people hold identical copies of, where rows can be added by agreement but old ones can't be edited, and nobody owns the document. Bitcoin is one such sheet tracking who holds how much.",
     check: [
@@ -231,11 +231,11 @@ export const LESSONS: Lesson[] = [
     pillar: "💶 Money before investing",
     crypto: false,
     title: "Before you invest: your safety net",
-    core: "An emergency fund and clearing expensive debt come before any investing — they're the foundation everything else stands on.",
+    core: "An emergency fund and clearing expensive debt come before any investing, they're the foundation everything else stands on.",
     reading:
-      "<p>Investing works when you can leave the money alone. Life doesn't always let you: a broken laptop, a rent jump, a gap between jobs. An <b>emergency fund</b> — commonly around 3–6 months of essential expenses, in a plain savings account — is what lets your investments ride out a bad market instead of being sold at the worst moment.</p><p><b>Expensive debt</b> changes the order too. A credit card or overdraft charging 12–20% a year is a guaranteed loss running against you. No sensible investment reliably beats that, so paying it off first is the one \"guaranteed return\" that actually exists. Low-rate debt, like many mortgages or subsidised student loans, is a different, gentler category people usually don't rush.</p><p>None of this is wasted time. Building the fund is the same habit as investing — a fixed amount, every month, automatically. You're training the muscle before the stakes go up.</p>",
+      "<p>Investing works when you can leave the money alone. Life doesn't always let you: a broken laptop, a rent jump, a gap between jobs. An <b>emergency fund</b>, commonly around 3–6 months of essential expenses, in a plain savings account, is what lets your investments ride out a bad market instead of being sold at the worst moment.</p><p><b>Expensive debt</b> changes the order too. A credit card or overdraft charging 12–20% a year is a guaranteed loss running against you. No sensible investment reliably beats that, so paying it off first is the one \"guaranteed return\" that actually exists. Low-rate debt, like many mortgages or subsidised student loans, is a different, gentler category people usually don't rush.</p><p>None of this is wasted time. Building the fund is the same habit as investing, a fixed amount, every month, automatically. You're training the muscle before the stakes go up.</p>",
     example:
-      "Lisa has €1,200 on a credit card at 16% and €50/month to spare. Putting that €50 into an ETF earning maybe 7% while the card charges 16% loses her money every month. She clears the card first (a guaranteed 16% \"return\"), then builds a €3,000 buffer, then starts investing — in that order.",
+      "Lisa has €1,200 on a credit card at 16% and €50/month to spare. Putting that €50 into an ETF earning maybe 7% while the card charges 16% loses her money every month. She clears the card first (a guaranteed 16% \"return\"), then builds a €3,000 buffer, then starts investing, in that order.",
     check: [
       {
         q: "Why does an emergency fund come before investing?",
@@ -251,7 +251,7 @@ export const LESSONS: Lesson[] = [
         q: "You have credit-card debt at 16%. What's the closest thing to a guaranteed return?",
         o: ["Paying that debt off", "A world index ETF", "A high-yield crypto product"],
         a: 0,
-        why: "Clearing 16% debt is a certain 16% saved — no investment reliably matches that.",
+        why: "Clearing 16% debt is a certain 16% saved, no investment reliably matches that.",
       },
     ],
   },
@@ -260,11 +260,11 @@ export const LESSONS: Lesson[] = [
     pillar: "💶 Money before investing",
     crypto: false,
     title: "Finding your first €100",
-    core: "You don't find money to invest by earning more willpower — you find it by paying yourself first and automating it.",
+    core: "You don't find money to invest by earning more willpower, you find it by paying yourself first and automating it.",
     reading:
-      "<p>The classic approach — spend the month, invest \"what's left\" — fails because there's rarely anything left. The fix is to flip the order: <b>pay yourself first</b>. The day your salary lands, a standing order moves a fixed amount to savings or investments before you can spend it. What remains is simply what you live on.</p><p>The amount matters less than you think. €25–€50 a month is a real start: it builds the habit, and habits scale with income while good intentions don't. A quick look at one month of transactions usually surfaces an unused subscription or two — that's your first €100 hiding in plain sight.</p><p><b>Automation</b> is the whole trick. A manual transfer requires a good day, every month, forever. A standing order requires one good decision, once. Every lesson in this app about behaviour points the same way: remove yourself from the loop wherever you can.</p><p>Once the habit exists, the next question is naturally \"how much of my income, generally?\" A common starting reference: roughly <b>15% of income</b> toward savings and investing combined, once the essentials and any high-interest debt are handled — a rough <b>50/30/20 split</b> (needs / wants / savings & investing) is a well-known way to picture that. Nothing here is a rule to hit immediately — start at whatever's automatable today and raise it when a raise or a cheaper year makes room. (This is separate from the aggressive savings rates used later for FIRE-style timelines — that's a specific, optional goal, not the everyday baseline.)</p>",
+      "<p>The classic approach (spend the month, invest \"what's left\") fails because there's rarely anything left. The fix is to flip the order: <b>pay yourself first</b>. The day your salary lands, a standing order moves a fixed amount to savings or investments before you can spend it. What remains is simply what you live on.</p><p>The amount matters less than you think. €25–€50 a month is a real start: it builds the habit, and habits scale with income while good intentions don't. A quick look at one month of transactions usually surfaces an unused subscription or two, that's your first €100 hiding in plain sight.</p><p><b>Automation</b> is the whole trick. A manual transfer requires a good day, every month, forever. A standing order requires one good decision, once. Every lesson in this app about behaviour points the same way: remove yourself from the loop wherever you can.</p><p>Once the habit exists, the next question is naturally \"how much of my income, generally?\" A common starting reference: roughly <b>15% of income</b> toward savings and investing combined, once the essentials and any high-interest debt are handled, a rough <b>50/30/20 split</b> (needs / wants / savings & investing) is a well-known way to picture that. Nothing here is a rule to hit immediately, start at whatever's automatable today and raise it when a raise or a cheaper year makes room. (This is separate from the aggressive savings rates used later for FIRE-style timelines, that's a specific, optional goal, not the everyday baseline.)</p>",
     example:
-      "Tom earns €2,100/month and swears he can't invest. One month of statements shows €11.99 for a streaming service he forgot, €9.99 for an app trial that renewed, and ~€40 of food delivery fees. He sets a €50 standing order for the 26th — the day after payday. Six months later he hasn't missed it once, because he never had to decide.",
+      "Tom earns €2,100/month and swears he can't invest. One month of statements shows €11.99 for a streaming service he forgot, €9.99 for an app trial that renewed, and ~€40 of food delivery fees. He sets a €50 standing order for the 26th, the day after payday. Six months later he hasn't missed it once, because he never had to decide.",
     check: [
       {
         q: "What does \"pay yourself first\" mean?",
@@ -293,11 +293,11 @@ export const LESSONS: Lesson[] = [
     pillar: "🧠 Your brain & money",
     crypto: false,
     title: "Loss aversion & panic-selling",
-    core: "Losses feel roughly twice as strong as equal gains, which is exactly why people sell at the bottom — knowing this is half the defence.",
+    core: "Losses feel roughly twice as strong as equal gains, which is exactly why people sell at the bottom, knowing this is half the defence.",
     reading:
-      "<p><b>Loss aversion</b> is one of the most replicated findings in behavioural science: losing €100 feels about twice as intense as winning €100 feels good. Your brain treats a falling portfolio as a threat, and threats scream <i>do something</i>. In investing, \"something\" usually means selling — locking in the loss precisely when history says patience pays.</p><p>This is why market drops trigger waves of panic-selling, and why the average investor in a fund famously earns less than the fund itself: money floods in after good years and flees after bad ones. The market's returns were fine; the <i>behaviour</i> ate the difference.</p><p>The defences are structural, not heroic. Decide your plan in calm weather. Automate contributions so buying continues through dips. Check rarely. And when a drop comes, re-read your own reasons before touching anything — a note to your future self, written today, beats your instincts in a crash.</p>",
+      "<p><b>Loss aversion</b> is one of the most replicated findings in behavioural science: losing €100 feels about twice as intense as winning €100 feels good. Your brain treats a falling portfolio as a threat, and threats scream <i>do something</i>. In investing, \"something\" usually means selling, locking in the loss precisely when history says patience pays.</p><p>This is why market drops trigger waves of panic-selling, and why the average investor in a fund famously earns less than the fund itself: money floods in after good years and flees after bad ones. The market's returns were fine; the <i>behaviour</i> ate the difference.</p><p>The defences are structural, not heroic. Decide your plan in calm weather. Automate contributions so buying continues through dips. Check rarely. And when a drop comes, re-read your own reasons before touching anything, a note to your future self, written today, beats your instincts in a crash.</p>",
     example:
-      "In a rough year the market falls 25%. Ana feels sick watching her €5,000 become €3,750 and sells to \"stop the bleeding.\" Ben, equally uncomfortable, has a rule: he never sells in a drawdown, and his €150/month keeps buying automatically. Three years later the market has recovered — Ana locked in her loss, Ben bought cheap without needing courage in the moment.",
+      "In a rough year the market falls 25%. Ana feels sick watching her €5,000 become €3,750 and sells to \"stop the bleeding.\" Ben, equally uncomfortable, has a rule: he never sells in a drawdown, and his €150/month keeps buying automatically. Three years later the market has recovered, Ana locked in her loss, Ben bought cheap without needing courage in the moment.",
     check: [
       {
         q: "What does loss aversion do to investors in a crash?",
@@ -307,7 +307,7 @@ export const LESSONS: Lesson[] = [
           "Only affects inexperienced investors",
         ],
         a: 0,
-        why: "The urge to 'do something' in a drop is wired in — pros feel it too.",
+        why: "The urge to 'do something' in a drop is wired in, pros feel it too.",
       },
       {
         q: "What's the best defence against panic-selling?",
@@ -317,7 +317,7 @@ export const LESSONS: Lesson[] = [
           "Only investing in assets that never fall",
         ],
         a: 0,
-        why: "Structure beats willpower — nothing 'never falls'.",
+        why: "Structure beats willpower, nothing 'never falls'.",
       },
     ],
   },
@@ -326,16 +326,16 @@ export const LESSONS: Lesson[] = [
     pillar: "🧠 Your brain & money",
     crypto: false,
     title: "FOMO, hype & social media",
-    core: "Social feeds show you winners, hide losers, and profit from your urgency — the fear of missing out is a sales tool, not a signal.",
+    core: "Social feeds show you winners, hide losers, and profit from your urgency, the fear of missing out is a sales tool, not a signal.",
     reading:
-      "<p><b>FOMO</b> — fear of missing out — is the feeling that everyone is getting rich without you. Social media manufactures it at scale: the friend who bought early posts screenshots, the thousands who bought late stay quiet. That's <b>survivorship bias</b> — you only see the survivors, so the odds look wildly better than they are.</p><p>Watch for the machinery: \"finfluencers\" paid to promote products, group chats hyping a coin the organisers already own (a <b>pump and dump</b>), countdowns and \"last chance\" framing. Urgency is the tell. Real long-term investing has no deadline — a world index fund bought next month is almost the same as one bought today. Only sellers need you to hurry.</p><p>A practical filter: if you heard about it because it already went up, you're late by definition. Chasing what just surged means buying at peak attention — usually peak price. The boring plan you already have doesn't stop being right because a stranger posted a screenshot.</p>",
+      "<p><b>FOMO</b>, fear of missing out, is the feeling that everyone is getting rich without you. Social media manufactures it at scale: the friend who bought early posts screenshots, the thousands who bought late stay quiet. That's <b>survivorship bias</b>, you only see the survivors, so the odds look wildly better than they are.</p><p>Watch for the machinery: \"finfluencers\" paid to promote products, group chats hyping a coin the organisers already own (a <b>pump and dump</b>), countdowns and \"last chance\" framing. Urgency is the tell. Real long-term investing has no deadline, a world index fund bought next month is almost the same as one bought today. Only sellers need you to hurry.</p><p>A practical filter: if you heard about it because it already went up, you're late by definition. Chasing what just surged means buying at peak attention, usually peak price. The boring plan you already have doesn't stop being right because a stranger posted a screenshot.</p>",
     example:
-      "A TikTok clip shows someone who turned €500 into €40,000 on a token. What it doesn't show: the 60,000 people who bought after the clip went viral and funded the early buyers' exit. Sam feels the pull, then notices the tells — screenshots, urgency, a Telegram group \"about to explode\" — and closes the app. His €150/month plan doesn't care what's trending.",
+      "A TikTok clip shows someone who turned €500 into €40,000 on a token. What it doesn't show: the 60,000 people who bought after the clip went viral and funded the early buyers' exit. Sam feels the pull, then notices the tells (screenshots, urgency, a Telegram group \"about to explode\") and closes the app. His €150/month plan doesn't care what's trending.",
     check: [
       {
         q: "Why do social feeds make risky bets look safer than they are?",
         o: [
-          "Winners post, losers stay quiet — you only see the survivors",
+          "Winners post, losers stay quiet, you only see the survivors",
           "Platforms verify all financial claims",
           "Most viral picks really do keep going up",
         ],
@@ -345,7 +345,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "What's the strongest tell that a 'tip' serves the seller, not you?",
         o: [
-          "Manufactured urgency — deadlines, 'last chance', countdowns",
+          "Manufactured urgency: deadlines, 'last chance', countdowns",
           "It mentions a diversified index fund",
           "It's longer than one paragraph",
         ],
@@ -361,9 +361,9 @@ export const LESSONS: Lesson[] = [
     title: "Overconfidence, anchoring & checking too much",
     core: "Feeling skilled after a lucky win, clinging to old prices, and checking daily are three quiet habits that drain returns.",
     reading:
-      "<p><b>Overconfidence</b> grows fastest after a win. A lucky first pick feels like skill, so the next bet gets bigger — right as the luck runs out. The honest question is: could I explain <i>why</i> this went up, and would I have known it in advance? Markets humble the confident on a schedule.</p><p><b>Anchoring</b> is the pull of a meaningless number. \"It was at €80, now it's €50 — it's cheap!\" But the €80 price isn't evidence of anything; things that fall often fall further, and \"back to what I paid\" is not a strategy. The only question that matters is whether it's worth owning at today's price.</p><p>And <b>checking too much</b>: markets are roughly a coin-flip day to day, so a daily checker sees losses constantly — and each one stings double (Lesson 12). Zoom out to yearly and the picture flips overwhelmingly positive for diversified investors. Same investment, different checking habit, completely different emotional ride.</p>",
+      "<p><b>Overconfidence</b> grows fastest after a win. A lucky first pick feels like skill, so the next bet gets bigger, right as the luck runs out. The honest question is: could I explain <i>why</i> this went up, and would I have known it in advance? Markets humble the confident on a schedule.</p><p><b>Anchoring</b> is the pull of a meaningless number. \"It was at €80, now it's €50, it's cheap!\" But the €80 price isn't evidence of anything; things that fall often fall further, and \"back to what I paid\" is not a strategy. The only question that matters is whether it's worth owning at today's price.</p><p>And <b>checking too much</b>: markets are roughly a coin-flip day to day, so a daily checker sees losses constantly, and each one stings double (Lesson 12). Zoom out to yearly and the picture flips overwhelmingly positive for diversified investors. Same investment, different checking habit, completely different emotional ride.</p>",
     example:
-      "Kim's first stock doubled, so she tripled her next bet on a \"sure thing\" — and lost 40%. Meanwhile she keeps holding a fund she overpaid for \"until it gets back to my price,\" and checks the app every morning, feeling awful on red days. Three habits, one fix: she moves to a monthly automatic plan and deletes the app from her home screen.",
+      "Kim's first stock doubled, so she tripled her next bet on a \"sure thing\", and lost 40%. Meanwhile she keeps holding a fund she overpaid for \"until it gets back to my price,\" and checks the app every morning, feeling awful on red days. Three habits, one fix: she moves to a monthly automatic plan and deletes the app from her home screen.",
     check: [
       {
         q: "Why is a big early win dangerous for a beginner?",
@@ -378,7 +378,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "\"It was €80, now €50, so it's a bargain\" is an example of…",
         o: [
-          "Anchoring — treating an old price as if it means something",
+          "Anchoring, treating an old price as if it means something",
           "Sensible value investing",
           "Diversification",
         ],
@@ -392,16 +392,16 @@ export const LESSONS: Lesson[] = [
     pillar: "🔥 Financial independence",
     crypto: false,
     title: "Savings rate is the engine",
-    core: "How much of your income you keep matters far more than investment returns — it's the one lever fully in your hands.",
+    core: "How much of your income you keep matters far more than investment returns, it's the one lever fully in your hands.",
     reading:
-      "<p><b>Financial independence</b> (FI) is the point where your investments could cover your living costs, making work a choice. The surprising math: how fast you get there barely depends on your salary, and only partly on returns. It depends overwhelmingly on your <b>savings rate</b> — the share of income you keep.</p><p>The reason is a double effect: saving more grows the pot faster <i>and</i> proves you live on less, which shrinks the pot you need. Someone saving 10% of income needs roughly a working lifetime; at 25% the horizon drops to around three decades; at 50%, illustratively, under two. These are rough, assumption-heavy numbers — but the shape of the curve is what matters.</p><p>This reframes the whole game. You can't control markets, and chasing higher returns means higher risk. But nudging a savings rate from 10% to 15% is concrete, boring, and completely yours. FI thinking is useful even if you never retire early: every percentage point is options, breathing room, and a smaller dependence on any one employer.</p>",
+      "<p><b>Financial independence</b> (FI) is the point where your investments could cover your living costs, making work a choice. The surprising math: how fast you get there barely depends on your salary, and only partly on returns. It depends overwhelmingly on your <b>savings rate</b>, the share of income you keep.</p><p>The reason is a double effect: saving more grows the pot faster <i>and</i> proves you live on less, which shrinks the pot you need. Someone saving 10% of income needs roughly a working lifetime; at 25% the horizon drops to around three decades; at 50%, illustratively, under two. These are rough, assumption-heavy numbers, but the shape of the curve is what matters.</p><p>This reframes the whole game. You can't control markets, and chasing higher returns means higher risk. But nudging a savings rate from 10% to 15% is concrete, boring, and completely yours. FI thinking is useful even if you never retire early: every percentage point is options, breathing room, and a smaller dependence on any one employer.</p>",
     example:
-      "Two friends earn the same €2,800/month. Eva saves 10% (€280), Nora saves 30% (€840) by keeping her old flat and cooking. At an assumed 7% return, Eva's pot could cover her spending in roughly 45 years, Nora's in roughly 25 — not because Nora picked better funds, but because she both saves more and needs less. Illustrative math, real principle.",
+      "Two friends earn the same €2,800/month. Eva saves 10% (€280), Nora saves 30% (€840) by keeping her old flat and cooking. At an assumed 7% return, Eva's pot could cover her spending in roughly 45 years, Nora's in roughly 25, not because Nora picked better funds, but because she both saves more and needs less. Illustrative math, real principle.",
     check: [
       {
         q: "Why does savings rate beat investment returns as the main FI lever?",
         o: [
-          "It grows the pot faster AND shrinks the pot you need — and you control it",
+          "It grows the pot faster AND shrinks the pot you need, and you control it",
           "Higher savings rates earn higher interest by law",
           "Returns don't matter at all",
         ],
@@ -426,11 +426,11 @@ export const LESSONS: Lesson[] = [
     crypto: false,
     tier: "plus",
     title: "The 4% rule, honestly",
-    core: "The 4% rule is a rough planning compass built on old US data — useful for a ballpark, dangerous as a promise.",
+    core: "The 4% rule is a rough planning compass built on old US data, useful for a ballpark, dangerous as a promise.",
     reading:
-      "<p>The <b>4% rule</b> comes from a 1990s study of US market history: a retiree withdrawing 4% of their starting pot yearly, adjusted for inflation, would have survived most historical 30-year periods. Flip it around and you get the famous shortcut: your \"FI number\" is roughly <b>25× your yearly spending</b>. Spend €24,000 a year, and the ballpark pot is €600,000.</p><p>Now the honest part. It's based on the past of one unusually lucky market (the US), assumes exactly 30 years, ignores most fees and taxes, and never adapts — a real person would simply spend less in a terrible year. Researchers argue for anything between 3% and 5% depending on assumptions, which swings that €600,000 target by hundreds of thousands. It is a compass, not a contract.</p><p>How to use it well: as a first sketch of scale (\"my spending × 25 — interesting\"), as motivation to see how spending drives the target, and as a reminder that <b>sequence of returns</b> (Lesson 2) matters — a crash early in withdrawal years hurts far more than one later. How to use it badly: quitting your job the day a spreadsheet says 25× is reached.</p>",
+      "<p>The <b>4% rule</b> comes from a 1990s study of US market history: a retiree withdrawing 4% of their starting pot yearly, adjusted for inflation, would have survived most historical 30-year periods. Flip it around and you get the famous shortcut: your \"FI number\" is roughly <b>25× your yearly spending</b>. Spend €24,000 a year, and the ballpark pot is €600,000.</p><p>Now the honest part. It's based on the past of one unusually lucky market (the US), assumes exactly 30 years, ignores most fees and taxes, and never adapts, a real person would simply spend less in a terrible year. Researchers argue for anything between 3% and 5% depending on assumptions, which swings that €600,000 target by hundreds of thousands. It is a compass, not a contract.</p><p>How to use it well: as a first sketch of scale (\"my spending × 25, interesting\"), as motivation to see how spending drives the target, and as a reminder that <b>sequence of returns</b> (Lesson 2) matters, a crash early in withdrawal years hurts far more than one later. How to use it badly: quitting your job the day a spreadsheet says 25× is reached.</p>",
     example:
-      "Jasper spends about €2,000/month, so €24,000/year × 25 ≈ €600,000 — his first ballpark FI number. Then he stress-tests it: at a more cautious 3.5% withdrawal it's ~€686,000, and cutting his spending €200/month drops the 4% target by €60,000. The exact number is fuzzy; what he learned is that his spending, not his salary, sets the goalposts.",
+      "Jasper spends about €2,000/month, so €24,000/year × 25 ≈ €600,000, his first ballpark FI number. Then he stress-tests it: at a more cautious 3.5% withdrawal it's ~€686,000, and cutting his spending €200/month drops the 4% target by €60,000. The exact number is fuzzy; what he learned is that his spending, not his salary, sets the goalposts.",
     check: [
       {
         q: "Your rough \"FI number\" under the 4% rule is…",
@@ -440,7 +440,7 @@ export const LESSONS: Lesson[] = [
           "Whatever your broker suggests",
         ],
         a: 0,
-        why: "4% withdrawals ≈ 1/25 of the pot — spending, not salary, drives it.",
+        why: "4% withdrawals ≈ 1/25 of the pot, spending, not salary, drives it.",
       },
       {
         q: "Why is the 4% rule a compass, not a promise?",
@@ -450,7 +450,7 @@ export const LESSONS: Lesson[] = [
           "It only works for amounts over €1 million",
         ],
         a: 0,
-        why: "Useful for scale, not a guarantee — real plans adapt.",
+        why: "Useful for scale, not a guarantee, real plans adapt.",
       },
     ],
   },
@@ -460,16 +460,16 @@ export const LESSONS: Lesson[] = [
     crypto: false,
     tier: "plus",
     title: "Coast, Barista & realistic timelines",
-    core: "FI isn't all-or-nothing — intermediate versions like Coast FI make the idea useful decades before any finish line.",
+    core: "FI isn't all-or-nothing, intermediate versions like Coast FI make the idea useful decades before any finish line.",
     reading:
-      "<p>The all-or-nothing version of FIRE — grind, save half your income, retire at 40 — fits very few lives. The useful versions are intermediate. <b>Coast FI</b>: you've invested enough, early enough, that compounding alone should grow it to a retirement-sized pot by a normal retirement age — you still work to pay the bills, but you could stop <i>saving</i>. <b>Barista FI</b>: your investments cover part of your costs, so a lighter or more meaningful job covers the rest.</p><p>Coast FI numbers are startlingly small at a young age, because time does the heavy lifting: illustratively, at 7% average returns money doubles roughly every decade, so €50,000 invested at 25 could be ~€400,000 at 55 with nothing added. The earlier you start, the lower the bar — this is Lesson 1's compounding wearing a different coat.</p><p>The realistic framing: treat these as <b>milestones, not identities</b>. Emergency fund → first €10k → Coast FI → Barista FI → full FI. Each step buys concrete freedom (a career change, a sabbatical, part-time parenting years) even if you never reach — or want — the last one. Assumptions stay assumptions: real returns vary, and none of this is a schedule you can promise yourself.</p>",
+      "<p>The all-or-nothing version of FIRE (grind, save half your income, retire at 40) fits very few lives. The useful versions are intermediate. <b>Coast FI</b>: you've invested enough, early enough, that compounding alone should grow it to a retirement-sized pot by a normal retirement age, you still work to pay the bills, but you could stop <i>saving</i>. <b>Barista FI</b>: your investments cover part of your costs, so a lighter or more meaningful job covers the rest.</p><p>Coast FI numbers are startlingly small at a young age, because time does the heavy lifting: illustratively, at 7% average returns money doubles roughly every decade, so €50,000 invested at 25 could be ~€400,000 at 55 with nothing added. The earlier you start, the lower the bar, this is Lesson 1's compounding wearing a different coat.</p><p>The realistic framing: treat these as <b>milestones, not identities</b>. Emergency fund → first €10k → Coast FI → Barista FI → full FI. Each step buys concrete freedom (a career change, a sabbatical, part-time parenting years) even if you never reach (or want) the last one. Assumptions stay assumptions: real returns vary, and none of this is a schedule you can promise yourself.</p>",
     example:
-      "Mila, 27, has €40,000 invested. At an assumed 7%, doubling roughly each decade, that's ~€320,000 at 57 without another euro added. She hasn't retired — she's reached Coast FI for a modest retirement: everything she saves from here brings the date closer or the lifestyle up, and a lower-paying job she loves just became affordable. Illustrative numbers, real freedom.",
+      "Mila, 27, has €40,000 invested. At an assumed 7%, doubling roughly each decade, that's ~€320,000 at 57 without another euro added. She hasn't retired, she's reached Coast FI for a modest retirement: everything she saves from here brings the date closer or the lifestyle up, and a lower-paying job she loves just became affordable. Illustrative numbers, real freedom.",
     check: [
       {
         q: "Coast FI means…",
         o: [
-          "Compounding alone should reach a retirement pot by normal retirement age — saving became optional",
+          "Compounding alone should reach a retirement pot by normal retirement age, saving became optional",
           "You live near the coast on dividends",
           "You've fully retired early",
         ],
@@ -481,10 +481,10 @@ export const LESSONS: Lesson[] = [
         o: [
           "More decades of compounding do the heavy lifting",
           "Young people get better interest rates",
-          "They aren't — the target is the same at every age",
+          "They aren't, the target is the same at every age",
         ],
         a: 0,
-        why: "At ~7%, money doubles roughly every decade — each extra decade halves the bar.",
+        why: "At ~7%, money doubles roughly every decade, each extra decade halves the bar.",
       },
     ],
   },
@@ -493,11 +493,11 @@ export const LESSONS: Lesson[] = [
     pillar: "🏠 Real estate",
     crypto: false,
     title: "REITs vs buying property",
-    core: "You can own real estate by buying a building — or by buying shares in hundreds of them; the trade-offs are opposite.",
+    core: "You can own real estate by buying a building, or by buying shares in hundreds of them; the trade-offs are opposite.",
     reading:
-      "<p>Owning property directly means one asset, one location, a large mortgage, and real work: tenants, maintenance, taxes, vacancy risk. It can build serious wealth — leverage amplifies gains — but it's concentrated (the opposite of Lesson 4's diversification), illiquid (selling takes months), and the entry ticket in most European cities is steep.</p><p>A <b>REIT</b> (real estate investment trust) is a company that owns income-producing property — offices, warehouses, homes, data centres — whose shares trade like any stock. Many pay out most of their rental income as dividends. A single REIT <b>ETF</b> spreads you across hundreds of buildings in dozens of cities for the price of one share, sellable in seconds.</p><p>The honest trade-offs: REITs are liquid, diversified, and effortless, but they swing with the stock market (sometimes harder — they fell more than the broad market in 2008) and offer no leverage benefit or home to live in. Direct property is tangible and leveraged but concentrated, illiquid and labour-intensive. Many index investors already own some real estate without noticing — world index funds typically include REITs.</p>",
+      "<p>Owning property directly means one asset, one location, a large mortgage, and real work: tenants, maintenance, taxes, vacancy risk. It can build serious wealth (leverage amplifies gains), but it's concentrated (the opposite of Lesson 4's diversification), illiquid (selling takes months), and the entry ticket in most European cities is steep.</p><p>A <b>REIT</b> (real estate investment trust) is a company that owns income-producing property (offices, warehouses, homes, data centres) whose shares trade like any stock. Many pay out most of their rental income as dividends. A single REIT <b>ETF</b> spreads you across hundreds of buildings in dozens of cities for the price of one share, sellable in seconds.</p><p>The honest trade-offs: REITs are liquid, diversified, and effortless, but they swing with the stock market (sometimes harder; they fell more than the broad market in 2008) and offer no leverage benefit or home to live in. Direct property is tangible and leveraged but concentrated, illiquid and labour-intensive. Many index investors already own some real estate without noticing, world index funds typically include REITs.</p>",
     example:
-      "Sofie has €15,000. As a deposit it isn't close to buying a flat in most European capitals. In a global REIT ETF it buys her a slice of ~300 properties across Europe, the US and Asia, with rental income arriving as dividends — no tenants calling about a boiler at midnight, but also no leveraged windfall if one street gentrifies.",
+      "Sofie has €15,000. As a deposit it isn't close to buying a flat in most European capitals. In a global REIT ETF it buys her a slice of ~300 properties across Europe, the US and Asia, with rental income arriving as dividends, no tenants calling about a boiler at midnight, but also no leveraged windfall if one street gentrifies.",
     check: [
       {
         q: "The core difference between a REIT ETF and buying a flat?",
@@ -507,14 +507,14 @@ export const LESSONS: Lesson[] = [
           "Buying a flat is always more profitable",
         ],
         a: 0,
-        why: "Diversification and liquidity vs concentration and leverage — opposite trade-offs.",
+        why: "Diversification and liquidity vs concentration and leverage, opposite trade-offs.",
       },
       {
         q: "Do REITs escape stock-market swings?",
         o: [
-          "No — they trade like stocks and can fall hard in a crash",
-          "Yes — property values never drop",
-          "Yes — regulators freeze their prices in crashes",
+          "No, they trade like stocks and can fall hard in a crash",
+          "Yes, property values never drop",
+          "Yes, regulators freeze their prices in crashes",
         ],
         a: 0,
         why: "In 2008 REITs fell harder than the broad market. Liquid, but volatile.",
@@ -527,18 +527,18 @@ export const LESSONS: Lesson[] = [
     crypto: false,
     tier: "plus",
     title: "Property in a portfolio, honestly",
-    core: "Real estate is a sector, not a magic asset class — a modest, deliberate slice beats both property worship and total avoidance.",
+    core: "Real estate is a sector, not a magic asset class, a modest, deliberate slice beats both property worship and total avoidance.",
     reading:
-      "<p>Housing culture — across much of Europe, where prices climbed for a generation — breeds a belief that property only goes up. History disagrees: after 2008, prices fell roughly 20% in the Netherlands and over 30% in Spain and Ireland, taking the better part of a decade to recover; Japan's are famously below their 1990 peak in many areas. Real estate cycles, like everything else. \"You can't lose with bricks\" is anchoring (Lesson 14) wearing a hard hat.</p><p>What's a sensible <i>investment</i> slice? A world index fund already holds real estate companies at market weight — typically a few percent. Wanting more is a deliberate <b>tilt</b>: some investors add a REIT ETF as 5–10% of a portfolio for the income and inflation-linked rents, sized like any satellite (Lesson 9) — small enough that a property crash doesn't sink the plan.</p><p>And the home you live in? It's shelter first, investment second: it pays no rent to you, costs maintenance and taxes, and you can't sell the kitchen when markets dip. Buying a home can be a fine <i>life</i> decision without being treated as the portfolio. The honest rule is the same everywhere: no asset class is sacred, and anything can be overpaid for.</p>",
+      "<p>Housing culture (across much of Europe, where prices climbed for a generation) breeds a belief that property only goes up. History disagrees: after 2008, prices fell roughly 20% in the Netherlands and over 30% in Spain and Ireland, taking the better part of a decade to recover; Japan's are famously below their 1990 peak in many areas. Real estate cycles, like everything else. \"You can't lose with bricks\" is anchoring (Lesson 14) wearing a hard hat.</p><p>What's a sensible <i>investment</i> slice? A world index fund already holds real estate companies at market weight, typically a few percent. Wanting more is a deliberate <b>tilt</b>: some investors add a REIT ETF as 5–10% of a portfolio for the income and inflation-linked rents, sized like any satellite (Lesson 9), small enough that a property crash doesn't sink the plan.</p><p>And the home you live in? It's shelter first, investment second: it pays no rent to you, costs maintenance and taxes, and you can't sell the kitchen when markets dip. Buying a home can be a fine <i>life</i> decision without being treated as the portfolio. The honest rule is the same everywhere: no asset class is sacred, and anything can be overpaid for.</p>",
     example:
-      "Daan, renting in an expensive European city, feels \"behind\" friends who bought in 2015. Instead of stretching into a maximum mortgage at any price, he keeps his diversified core and adds a 7% REIT ETF slice — property exposure without the concentration. If he later buys a home, it'll be because he wants to live in it for a decade, not because bricks are \"guaranteed.\"",
+      "Daan, renting in an expensive European city, feels \"behind\" friends who bought in 2015. Instead of stretching into a maximum mortgage at any price, he keeps his diversified core and adds a 7% REIT ETF slice, property exposure without the concentration. If he later buys a home, it'll be because he wants to live in it for a decade, not because bricks are \"guaranteed.\"",
     check: [
       {
         q: "What does history say about \"property only goes up\"?",
         o: [
-          "It cycles like everything — several European markets fell 20%+ after 2008; parts of Japan never regained 1990 peaks",
+          "It cycles like everything, several European markets fell 20%+ after 2008; parts of Japan never regained 1990 peaks",
           "It's true for houses, just not apartments",
-          "Correct — property has never fallen",
+          "Correct, property has never fallen",
         ],
         a: 0,
         why: "Long booms breed the belief; the record contradicts it.",
@@ -546,7 +546,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "How do investors who want extra real estate usually size it?",
         o: [
-          "As a deliberate satellite tilt — e.g. 5–10% in a REIT ETF — on top of the core",
+          "As a deliberate satellite tilt, e.g. 5–10% in a REIT ETF, on top of the core",
           "Replace the whole index core with property",
           "Exactly 50% in all cases",
         ],
@@ -560,26 +560,26 @@ export const LESSONS: Lesson[] = [
     pillar: "₿ Crypto deep-dive",
     crypto: true,
     title: "Self-custody done right",
-    core: "If you choose self-custody, the setup ritual is everything — the recovery phrase on paper, verified, and never digital.",
+    core: "If you choose self-custody, the setup ritual is everything: the recovery phrase on paper, verified, and never digital.",
     reading:
-      "<p>Lesson 7 covered the choice: an exchange holds your crypto (custodial) or you do (<b>self-custody</b>). If you choose self-custody, the security model is brutally simple — whoever has the <b>recovery phrase</b> owns the funds. There is no reset button, no support line, no fraud department. That's the deal you're accepting.</p><p>The ritual, done right: generate the wallet offline or on a <b>hardware wallet</b>; write the 12–24 words on paper (twice, stored in two places — never a photo, never a cloud note, never a password manager you also use for email); verify you can actually restore from those words <i>before</i> sending anything meaningful; then send a tiny test amount first. Boring, and boring is the point.</p><p>The threats to design against: phishing sites that ask you to \"validate\" your phrase (always theft), malware reading your clipboard and screenshots, and blind-signing <b>approvals</b> on sketchy sites that quietly grant spending rights over your tokens. A hardware wallet helps because the keys never touch your internet-connected computer — but it protects nothing if you type the phrase into a website anyway. The human is the attack surface.</p>",
+      "<p>Lesson 7 covered the choice: an exchange holds your crypto (custodial) or you do (<b>self-custody</b>). If you choose self-custody, the security model is brutally simple, whoever has the <b>recovery phrase</b> owns the funds. There is no reset button, no support line, no fraud department. That's the deal you're accepting.</p><p>The ritual, done right: generate the wallet offline or on a <b>hardware wallet</b>; write the 12–24 words on paper (twice, stored in two places; never a photo, never a cloud note, never a password manager you also use for email); verify you can actually restore from those words <i>before</i> sending anything meaningful; then send a tiny test amount first. Boring, and boring is the point.</p><p>The threats to design against: phishing sites that ask you to \"validate\" your phrase (always theft), malware reading your clipboard and screenshots, and blind-signing <b>approvals</b> on sketchy sites that quietly grant spending rights over your tokens. A hardware wallet helps because the keys never touch your internet-connected computer, but it protects nothing if you type the phrase into a website anyway. The human is the attack surface.</p>",
     example:
-      "Rick buys a hardware wallet, writes the 24 words on two paper cards — one at home, one at his parents' — then does a restore drill on the empty wallet to prove the backup works. Only then does he move €200 as a test, checks it arrived, and sends the rest. Two weeks later a \"wallet update\" email asks him to re-enter his phrase; he deletes it without a second thought. The drill made the scam obvious.",
+      "Rick buys a hardware wallet, writes the 24 words on two paper cards (one at home, one at his parents') then does a restore drill on the empty wallet to prove the backup works. Only then does he move €200 as a test, checks it arrived, and sends the rest. Two weeks later a \"wallet update\" email asks him to re-enter his phrase; he deletes it without a second thought. The drill made the scam obvious.",
     check: [
       {
         q: "Where should a recovery phrase live?",
         o: [
-          "On paper, in two safe places — never typed into websites, photos or cloud notes",
+          "On paper, in two safe places, never typed into websites, photos or cloud notes",
           "In a screenshot, for quick access",
           "In an email draft to yourself",
         ],
         a: 0,
-        why: "Anything digital can be read by malware or phished — paper can't be hacked remotely.",
+        why: "Anything digital can be read by malware or phished, paper can't be hacked remotely.",
       },
       {
         q: "Why test a restore before sending real money?",
         o: [
-          "A backup you've never tested might not work — and there's no support line to call",
+          "A backup you've never tested might not work, and there's no support line to call",
           "It earns a security bonus from the network",
           "Restoring resets the fees",
         ],
@@ -594,16 +594,16 @@ export const LESSONS: Lesson[] = [
     crypto: true,
     tier: "plus",
     title: "Staking & \"earn\" products, honestly",
-    core: "\"Earn % on your crypto\" spans everything from protocol staking to uncollateralised lending — the % is what you're paid for a risk, so always ask which one.",
+    core: "\"Earn % on your crypto\" spans everything from protocol staking to uncollateralised lending, the % is what you're paid for a risk, so always ask which one.",
     reading:
-      "<p><b>Staking</b>, at its cleanest, means locking coins to help run a proof-of-stake network in exchange for protocol rewards — a few percent a year on networks like Ethereum. The risks there: your coins may be locked for a period (while their price swings freely), and technical penalties (<b>slashing</b>) can trim a validator's stake. The reward is paid <i>in the same volatile asset</i> — 4% yield means little if the coin halves.</p><p>Then there's everything else sold as \"earn\": exchange staking programs (you're trusting the platform on top of the protocol), and lending products where the platform takes your crypto and lends it out. That last one is how several famous firms died in 2022 — Celsius offered up to ~17% \"yield\" until it collapsed, taking customers' funds into bankruptcy. The unbeatable rule: <b>yield is payment for risk</b>. If you can't name the risk, you are the risk.</p><p>A MiCA-licensed exchange (the only kind we ever reference) is regulated for how it operates — that does <i>not</i> make any yield product inside it risk-free, and crypto still has no deposit-guarantee scheme. The honest checklist before any \"earn\" button: Where does the yield come from? Can I unstake instantly or am I locked? Who holds the keys? What happens if the platform fails? If any answer is fuzzy, the answer is no.</p>",
+      "<p><b>Staking</b>, at its cleanest, means locking coins to help run a proof-of-stake network in exchange for protocol rewards, a few percent a year on networks like Ethereum. The risks there: your coins may be locked for a period (while their price swings freely), and technical penalties (<b>slashing</b>) can trim a validator's stake. The reward is paid <i>in the same volatile asset</i>, 4% yield means little if the coin halves.</p><p>Then there's everything else sold as \"earn\": exchange staking programs (you're trusting the platform on top of the protocol), and lending products where the platform takes your crypto and lends it out. That last one is how several famous firms died in 2022, Celsius offered up to ~17% \"yield\" until it collapsed, taking customers' funds into bankruptcy. The unbeatable rule: <b>yield is payment for risk</b>. If you can't name the risk, you are the risk.</p><p>A MiCA-licensed exchange (the only kind we ever reference) is regulated for how it operates, that does <i>not</i> make any yield product inside it risk-free, and crypto still has no deposit-guarantee scheme. The honest checklist before any \"earn\" button: Where does the yield come from? Can I unstake instantly or am I locked? Who holds the keys? What happens if the platform fails? If any answer is fuzzy, the answer is no.</p>",
     example:
-      "Two offers on Noor's screen: ~3% for staking ETH via her regulated exchange, and a slick app promising \"12% flexible yield.\" She can explain the 3% (protocol rewards, minus the exchange's cut, with lock-up risk). Nobody can explain the 12% — the app lends her coins to unnamed parties. She remembers Celsius paid 17% right up until it paid nothing, and skips it.",
+      "Two offers on Noor's screen: ~3% for staking ETH via her regulated exchange, and a slick app promising \"12% flexible yield.\" She can explain the 3% (protocol rewards, minus the exchange's cut, with lock-up risk). Nobody can explain the 12%, the app lends her coins to unnamed parties. She remembers Celsius paid 17% right up until it paid nothing, and skips it.",
     check: [
       {
         q: "What is a crypto yield fundamentally?",
         o: [
-          "Payment for a risk — if you can't name the risk, don't take the yield",
+          "Payment for a risk, if you can't name the risk, don't take the yield",
           "Free interest, like a savings account",
           "A government-guaranteed reward",
         ],
@@ -613,9 +613,9 @@ export const LESSONS: Lesson[] = [
       {
         q: "Does a licensed exchange make its \"earn\" products safe?",
         o: [
-          "No — regulation covers operations, not the risk inside yield products, and there's no deposit guarantee",
-          "Yes — licensing guarantees all yields",
-          "Yes — the EU refunds any crypto losses",
+          "No, regulation covers operations, not the risk inside yield products, and there's no deposit guarantee",
+          "Yes, licensing guarantees all yields",
+          "Yes, the EU refunds any crypto losses",
         ],
         a: 0,
         why: "MiCA licensing matters for how a platform operates; the product risk is still yours.",
@@ -628,16 +628,16 @@ export const LESSONS: Lesson[] = [
     crypto: true,
     tier: "plus",
     title: "DeFi & smart-contract risk",
-    core: "DeFi replaces institutions with code — which removes the banker and adds the bug, and there's no undo button either way.",
+    core: "DeFi replaces institutions with code, which removes the banker and adds the bug, and there's no undo button either way.",
     reading:
-      "<p><b>DeFi</b> (decentralised finance) is financial plumbing — trading, lending, borrowing — run by <b>smart contracts</b>: programs on a blockchain that execute automatically. No bank, no opening hours, no permission needed. That's genuinely novel. It also means no fraud department, no reversals, and no compensation scheme when something breaks. The code is the counterparty.</p><p>The risk list is concrete. <b>Bugs and hacks</b>: billions have been drained from DeFi protocols through exploited code — audits reduce but never remove this. <b>Rug pulls</b>: the team itself drains the pool. <b>Stablecoin failure</b>: Terra/Luna wiped out roughly $40 billion in 2022 when its \"stable\" coin collapsed to nearly zero in a week. <b>Approval drains</b>: signing a malicious permission that lets a contract spend your tokens later. Yield in DeFi is usually highest exactly where these risks are thickest — that's not a coincidence, it's Lesson 21's rule again.</p><p>Where does that leave a beginner? Understanding DeFi is genuinely worthwhile — it's the most interesting part of the technology. <i>Using</i> it with meaningful money is expert territory: if you ever experiment, it's with self-custody mastered (Lesson 20), on-chain permissions understood, and an amount whose total loss you'd shrug at. \"I don't fully understand this yet\" is a complete and honourable reason to stay out.</p>",
+      "<p><b>DeFi</b> (decentralised finance) is financial plumbing (trading, lending, borrowing) run by <b>smart contracts</b>: programs on a blockchain that execute automatically. No bank, no opening hours, no permission needed. That's genuinely novel. It also means no fraud department, no reversals, and no compensation scheme when something breaks. The code is the counterparty.</p><p>The risk list is concrete. <b>Bugs and hacks</b>: billions have been drained from DeFi protocols through exploited code, audits reduce but never remove this. <b>Rug pulls</b>: the team itself drains the pool. <b>Stablecoin failure</b>: Terra/Luna wiped out roughly $40 billion in 2022 when its \"stable\" coin collapsed to nearly zero in a week. <b>Approval drains</b>: signing a malicious permission that lets a contract spend your tokens later. Yield in DeFi is usually highest exactly where these risks are thickest, that's not a coincidence, it's Lesson 21's rule again.</p><p>Where does that leave a beginner? Understanding DeFi is genuinely worthwhile, it's the most interesting part of the technology. <i>Using</i> it with meaningful money is expert territory: if you ever experiment, it's with self-custody mastered (Lesson 20), on-chain permissions understood, and an amount whose total loss you'd shrug at. \"I don't fully understand this yet\" is a complete and honourable reason to stay out.</p>",
     example:
-      "A protocol offers 30% yield on a stablecoin pair. Jonas, curious, digs in: the yield is paid in the protocol's own token, the \"audit\" is a PDF from an unknown firm, and the anonymous team controls the contract's admin keys. Any one of those is a red flag; together they're a siren. He files it under \"interesting to watch, not to fund\" — and when the token collapses two months later, watching cost him nothing.",
+      "A protocol offers 30% yield on a stablecoin pair. Jonas, curious, digs in: the yield is paid in the protocol's own token, the \"audit\" is a PDF from an unknown firm, and the anonymous team controls the contract's admin keys. Any one of those is a red flag; together they're a siren. He files it under \"interesting to watch, not to fund\", and when the token collapses two months later, watching cost him nothing.",
     check: [
       {
-        q: "What replaces the bank in DeFi — and what does that remove?",
+        q: "What replaces the bank in DeFi, and what does that remove?",
         o: [
-          "Smart-contract code — removing support, reversals and any compensation scheme",
+          "Smart-contract code, removing support, reversals and any compensation scheme",
           "A decentralised customer-service team",
           "The EU deposit-guarantee fund",
         ],
@@ -647,7 +647,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "Why does the highest DeFi yield sit next to the highest risk?",
         o: [
-          "Yield is payment for risk — thick yield means thick risk, hidden or not",
+          "Yield is payment for risk, thick yield means thick risk, hidden or not",
           "Regulators set DeFi yields",
           "It's random which protocols pay more",
         ],
@@ -662,11 +662,11 @@ export const LESSONS: Lesson[] = [
     crypto: true,
     tier: "plus",
     title: "Hot, cold & moving crypto without losing it",
-    core: "Most beginner crypto losses aren't market crashes — they're transfers done wrong. Hot vs cold storage and a careful sending ritual prevent nearly all of them.",
+    core: "Most beginner crypto losses aren't market crashes, they're transfers done wrong. Hot vs cold storage and a careful sending ritual prevent nearly all of them.",
     reading:
-      "<p>A <b>hot wallet</b> keeps your keys on something connected to the internet — an exchange account, a phone app, a browser extension. Convenient, always an attack surface. A <b>cold wallet</b> keeps keys offline — a hardware wallet (Lesson 20) or even paper. The standard shape: small \"spending\" amounts hot, anything meaningful cold. It's the same logic as cash in your pocket vs savings at the bank.</p><p>Moving crypto is where beginners actually lose money, because transfers are <b>irreversible</b> and unforgiving. The traps: the same token can live on <b>several networks</b> (chains) — send on the wrong network and the funds can be gone or stranded; sender and receiver must match networks exactly. <b>Clipboard malware</b> silently swaps a copied address for the thief's. And every transfer costs a <b>network fee</b> (\"gas\"), which swings with congestion — sometimes cents, sometimes painful.</p><p>The ritual, every time: copy the address, then verify the <b>first and last characters</b> on both ends; double-check the network matches; send a <b>small test amount</b> first and confirm it arrives; only then send the rest. Thirty extra seconds, and it defeats wrong-network loss, clipboard swaps and fat-fingered addresses in one move. Nobody who does this ritual feels silly. Plenty who skipped it do.</p>",
+      "<p>A <b>hot wallet</b> keeps your keys on something connected to the internet: an exchange account, a phone app, a browser extension. Convenient, always an attack surface. A <b>cold wallet</b> keeps keys offline, a hardware wallet (Lesson 20) or even paper. The standard shape: small \"spending\" amounts hot, anything meaningful cold. It's the same logic as cash in your pocket vs savings at the bank.</p><p>Moving crypto is where beginners actually lose money, because transfers are <b>irreversible</b> and unforgiving. The traps: the same token can live on <b>several networks</b> (chains), send on the wrong network and the funds can be gone or stranded; sender and receiver must match networks exactly. <b>Clipboard malware</b> silently swaps a copied address for the thief's. And every transfer costs a <b>network fee</b> (\"gas\"), which swings with congestion, sometimes cents, sometimes painful.</p><p>The ritual, every time: copy the address, then verify the <b>first and last characters</b> on both ends; double-check the network matches; send a <b>small test amount</b> first and confirm it arrives; only then send the rest. Thirty extra seconds, and it defeats wrong-network loss, clipboard swaps and fat-fingered addresses in one move. Nobody who does this ritual feels silly. Plenty who skipped it do.</p>",
     example:
-      "Jonas moves €600 of crypto from his exchange to his hardware wallet. He copies the address, checks the first and last four characters on both screens, confirms both sides say the same network, and sends €20 first. It lands. He sends the rest. His colleague skipped the test send, picked the wrong network from a dropdown, and spent three weeks pleading with support to recover funds — a service the exchange calls \"best effort\" and sometimes simply can't do.",
+      "Jonas moves €600 of crypto from his exchange to his hardware wallet. He copies the address, checks the first and last four characters on both screens, confirms both sides say the same network, and sends €20 first. It lands. He sends the rest. His colleague skipped the test send, picked the wrong network from a dropdown, and spent three weeks pleading with support to recover funds, a service the exchange calls \"best effort\" and sometimes simply can't do.",
     check: [
       {
         q: "Hot wallet vs cold wallet?",
@@ -676,7 +676,7 @@ export const LESSONS: Lesson[] = [
           "Mobile vs desktop apps",
         ],
         a: 0,
-        why: "Spending money hot, savings cold — same logic as pocket cash vs the bank.",
+        why: "Spending money hot, savings cold, same logic as pocket cash vs the bank.",
       },
       {
         q: "The sending ritual is: verify address characters, match the network, and…",
@@ -686,7 +686,7 @@ export const LESSONS: Lesson[] = [
           "Ask in a Telegram group if the address looks right",
         ],
         a: 0,
-        why: "Transfers are irreversible — the €20 test is the cheapest insurance in crypto.",
+        why: "Transfers are irreversible, the €20 test is the cheapest insurance in crypto.",
       },
     ],
   },
@@ -696,11 +696,11 @@ export const LESSONS: Lesson[] = [
     crypto: true,
     tier: "plus",
     title: "How the machine runs: proof of work vs proof of stake",
-    core: "Two ways a blockchain agrees on the truth — burning energy or locking money — explain mining, staking, the energy debate and Bitcoin's famous scarcity.",
+    core: "Two ways a blockchain agrees on the truth (burning energy or locking money) explain mining, staking, the energy debate and Bitcoin's famous scarcity.",
     reading:
-      "<p>A blockchain has no boss, so it needs a way for strangers to agree which transactions are real. <b>Proof of work</b> (Bitcoin's way): \"miners\" race to solve pointless-but-expensive puzzles; winning costs real electricity and hardware, and that cost is the security — rewriting history would mean out-spending the whole honest network. It works, and it's why Bitcoin's energy use draws criticism.</p><p><b>Proof of stake</b> (Ethereum's way since 2022, when its switch cut energy use by ~99.9%): instead of burning energy, <b>validators</b> lock up their own coins as collateral. Cheat, and the network destroys part of your stake (<b>slashing</b> — the risk behind Lesson 21's staking yields). Security comes from money at risk rather than electricity burned.</p><p>One more piece of machinery: <b>supply rules</b>. Bitcoin's code caps it at <b>21 million coins</b>, with the flow of new ones halving roughly every four years (a <b>halving</b>). That designed scarcity is central to the \"digital gold\" story — and here honesty matters: scarcity makes something <i>limited</i>, not <i>valuable</i>. Value still needs demand, which rests on belief (Lesson 6). Plenty of scarce things are worthless. Understanding the machine protects you from both the hype and the dismissal.</p>",
+      "<p>A blockchain has no boss, so it needs a way for strangers to agree which transactions are real. <b>Proof of work</b> (Bitcoin's way): \"miners\" race to solve pointless-but-expensive puzzles; winning costs real electricity and hardware, and that cost is the security, rewriting history would mean out-spending the whole honest network. It works, and it's why Bitcoin's energy use draws criticism.</p><p><b>Proof of stake</b> (Ethereum's way since 2022, when its switch cut energy use by ~99.9%): instead of burning energy, <b>validators</b> lock up their own coins as collateral. Cheat, and the network destroys part of your stake (<b>slashing</b>, the risk behind Lesson 21's staking yields). Security comes from money at risk rather than electricity burned.</p><p>One more piece of machinery: <b>supply rules</b>. Bitcoin's code caps it at <b>21 million coins</b>, with the flow of new ones halving roughly every four years (a <b>halving</b>). That designed scarcity is central to the \"digital gold\" story, and here honesty matters: scarcity makes something <i>limited</i>, not <i>valuable</i>. Value still needs demand, which rests on belief (Lesson 6). Plenty of scarce things are worthless. Understanding the machine protects you from both the hype and the dismissal.</p>",
     example:
-      "At a family dinner, Rosa gets both classics: \"crypto boils the oceans\" and \"Bitcoin can't lose because only 21 million exist.\" She can now answer both honestly: proof-of-work chains do burn serious energy (that's their security model), while proof-of-stake chains cut it by ~99.9% — and the 21-million cap makes Bitcoin scarce, not guaranteed valuable, since scarcity without demand is just a limited edition nobody wants.",
+      "At a family dinner, Rosa gets both classics: \"crypto boils the oceans\" and \"Bitcoin can't lose because only 21 million exist.\" She can now answer both honestly: proof-of-work chains do burn serious energy (that's their security model), while proof-of-stake chains cut it by ~99.9%, and the 21-million cap makes Bitcoin scarce, not guaranteed valuable, since scarcity without demand is just a limited edition nobody wants.",
     check: [
       {
         q: "Where does proof-of-stake security come from?",
@@ -710,12 +710,12 @@ export const LESSONS: Lesson[] = [
           "A central company checking transactions",
         ],
         a: 0,
-        why: "Money at risk replaces energy burned — that's the whole swap.",
+        why: "Money at risk replaces energy burned, that's the whole swap.",
       },
       {
         q: "Bitcoin's 21-million cap means…",
         o: [
-          "It's designed to be scarce — but scarcity alone doesn't create value; demand does",
+          "It's designed to be scarce, but scarcity alone doesn't create value; demand does",
           "Its price can only go up",
           "Nobody can ever sell more than 21 million times",
         ],
@@ -732,9 +732,9 @@ export const LESSONS: Lesson[] = [
     title: "Stablecoins, MiCA & the digital euro",
     core: "\"Stable\" comes in three very different flavours, EU law now regulates the serious ones, and the ECB is building a public alternative.",
     reading:
-      "<p>Lesson 6 introduced stablecoins as crypto that tries to hold steady value. The flavours matter. <b>Fiat-backed</b>: the issuer holds real reserves (cash, short-term bonds) and promises 1-coin-equals-€1 redemption — the mainstream kind. <b>Crypto-collateralised</b>: backed by a buffer of other, volatile crypto — sturdier than it sounds, weirder than it looks. <b>Algorithmic</b>: \"stabilised\" by code and confidence alone — the design behind Terra, which went from \"stable\" to nearly zero in a week and vaporised ~$40 billion (Lesson 22). Flavour one is a claim on reserves; flavour three was a belief system.</p><p>This is where <b>MiCA</b> gets concrete. Serious euro-referencing stablecoins in the EU must be issued by authorised firms holding real, verifiable reserves with redemption rights — and a <b>CASP licence</b> (the thing we always check) means the <i>platform</i> meets standards on custody, complaint handling and honest marketing. Know what it doesn't mean: nobody guarantees prices, yield products remain risky (Lesson 21), and there's still no deposit-guarantee scheme. Licensing regulates conduct, not outcomes.</p><p>And the state's answer: the <b>digital euro</b>, a potential <b>CBDC</b> (central bank digital currency) the ECB has been preparing for years. The difference is who stands behind it — a stablecoin is a claim on a private company's reserves; a digital euro would be central-bank money, like cash, with no issuer that can go bust. It isn't live yet and may take years, but it reframes the question nicely: much of what stablecoins promise, a CBDC would simply <i>be</i>.</p>",
+      "<p>Lesson 6 introduced stablecoins as crypto that tries to hold steady value. The flavours matter. <b>Fiat-backed</b>: the issuer holds real reserves (cash, short-term bonds) and promises 1-coin-equals-€1 redemption, the mainstream kind. <b>Crypto-collateralised</b>: backed by a buffer of other, volatile crypto, sturdier than it sounds, weirder than it looks. <b>Algorithmic</b>: \"stabilised\" by code and confidence alone, the design behind Terra, which went from \"stable\" to nearly zero in a week and vaporised ~$40 billion (Lesson 22). Flavour one is a claim on reserves; flavour three was a belief system.</p><p>This is where <b>MiCA</b> gets concrete. Serious euro-referencing stablecoins in the EU must be issued by authorised firms holding real, verifiable reserves with redemption rights, and a <b>CASP licence</b> (the thing we always check) means the <i>platform</i> meets standards on custody, complaint handling and honest marketing. Know what it doesn't mean: nobody guarantees prices, yield products remain risky (Lesson 21), and there's still no deposit-guarantee scheme. Licensing regulates conduct, not outcomes.</p><p>And the state's answer: the <b>digital euro</b>, a potential <b>CBDC</b> (central bank digital currency) the ECB has been preparing for years. The difference is who stands behind it, a stablecoin is a claim on a private company's reserves; a digital euro would be central-bank money, like cash, with no issuer that can go bust. It isn't live yet and may take years, but it reframes the question nicely: much of what stablecoins promise, a CBDC would simply <i>be</i>.</p>",
     example:
-      "Mara sees a \"stable\" coin offering 9% yield in a slick app. Checklist from this lesson: What backs it — audited reserves or an algorithm? Is the issuer MiCA-authorised? Where does 9% come from when safe euro rates are far lower (Lesson 21: yield is payment for risk)? The answers — \"algorithmic\", \"not authorised\", \"lending your coins out\" — turn a tempting banner into an obvious pass. Terra holders in 2022 had no such checklist.",
+      "Mara sees a \"stable\" coin offering 9% yield in a slick app. Checklist from this lesson: What backs it, audited reserves or an algorithm? Is the issuer MiCA-authorised? Where does 9% come from when safe euro rates are far lower (Lesson 21: yield is payment for risk)? The answers (\"algorithmic\", \"not authorised\", \"lending your coins out\") turn a tempting banner into an obvious pass. Terra holders in 2022 had no such checklist.",
     check: [
       {
         q: "The crucial difference between a fiat-backed and an algorithmic stablecoin?",
@@ -744,12 +744,12 @@ export const LESSONS: Lesson[] = [
           "Fiat-backed coins are always bigger",
         ],
         a: 0,
-        why: "Terra was the confidence kind — 'stable' right up until belief ran out.",
+        why: "Terra was the confidence kind, 'stable' right up until belief ran out.",
       },
       {
         q: "What does a MiCA/CASP licence actually guarantee?",
         o: [
-          "Conduct standards — custody, complaints, honest marketing — never prices or yields",
+          "Conduct standards (custody, complaints, honest marketing), never prices or yields",
           "That prices can't fall",
           "That the EU refunds crypto losses",
         ],
@@ -763,21 +763,21 @@ export const LESSONS: Lesson[] = [
     pillar: "🛡️ Protections & traps",
     crypto: false,
     title: "Reading the label: the KID & the factsheet",
-    core: "Every EU fund legally hands you a Key Information Document — three pages that answer most questions people never ask.",
+    core: "Every EU fund legally hands you a Key Information Document, three pages that answer most questions people never ask.",
     reading:
-      "<p>Before you buy a fund or ETF in the EU, the platform must show you a <b>KID</b> (Key Information Document) — a standardised three-pager the fund is legally required to produce. Most people click past it. Don't: it's the one place the important stuff is written in plain(ish) language.</p><p>What to read: the <b>risk indicator</b>, a 1–7 scale (a world equity ETF typically sits around 4; anything at 6–7 is telling you it swings hard). The <b>performance scenarios</b> — what you might get back in a bad, moderate and good outcome; the point isn't the numbers, it's noticing a bad scenario exists. And <b>costs over time</b>, which turns percentages into euros taken from your pot.</p><p>The <b>factsheet</b> adds the practical fields: <b>TER</b> (the yearly fee — Lesson 4 showed why 0.2% vs 1.5% matters enormously), whether it's <b>accumulating</b> (dividends reinvested automatically) or <b>distributing</b> (paid out to you), the fund's size and age, and <b>UCITS</b> in the name — the EU regulatory standard for retail funds, with rules on diversification and custody built in. Two minutes of label-reading beats hours of opinions.</p>",
+      "<p>Before you buy a fund or ETF in the EU, the platform must show you a <b>KID</b> (Key Information Document), a standardised three-pager the fund is legally required to produce. Most people click past it. Don't: it's the one place the important stuff is written in plain(ish) language.</p><p>What to read: the <b>risk indicator</b>, a 1–7 scale (a world equity ETF typically sits around 4; anything at 6–7 is telling you it swings hard). The <b>performance scenarios</b>, what you might get back in a bad, moderate and good outcome; the point isn't the numbers, it's noticing a bad scenario exists. And <b>costs over time</b>, which turns percentages into euros taken from your pot.</p><p>The <b>factsheet</b> adds the practical fields: <b>TER</b> (the yearly fee; Lesson 4 showed why 0.2% vs 1.5% matters enormously), whether it's <b>accumulating</b> (dividends reinvested automatically) or <b>distributing</b> (paid out to you), the fund's size and age, and <b>UCITS</b> in the name, the EU regulatory standard for retail funds, with rules on diversification and custody built in. Two minutes of label-reading beats hours of opinions.</p>",
     example:
-      "Nora compares two world ETFs her broker offers. Both track similar indexes. The KIDs show the same risk score (4), but one factsheet says TER 0.12%, accumulating, fund size €8bn; the other says TER 0.45%, distributing, €40m. Same market exposure — but over 30 years the fee gap alone is thousands of euros, and she wanted dividends reinvested anyway. The labels made the choice boring and obvious.",
+      "Nora compares two world ETFs her broker offers. Both track similar indexes. The KIDs show the same risk score (4), but one factsheet says TER 0.12%, accumulating, fund size €8bn; the other says TER 0.45%, distributing, €40m. Same market exposure, but over 30 years the fee gap alone is thousands of euros, and she wanted dividends reinvested anyway. The labels made the choice boring and obvious.",
     check: [
       {
         q: "What does the KID's 1–7 number tell you?",
         o: [
-          "How much the investment tends to swing — a risk scale",
-          "A quality score — 7 is the best fund",
+          "How much the investment tends to swing, a risk scale",
+          "A quality score, 7 is the best fund",
           "How many stars analysts gave it",
         ],
         a: 0,
-        why: "It's a risk indicator, not a rating. A 6 isn't 'better' than a 4 — it's wilder.",
+        why: "It's a risk indicator, not a rating. A 6 isn't 'better' than a 4, it's wilder.",
       },
       {
         q: "Accumulating vs distributing means…",
@@ -787,7 +787,7 @@ export const LESSONS: Lesson[] = [
           "Monthly vs yearly fees",
         ],
         a: 0,
-        why: "Same investments — just what happens to the dividends.",
+        why: "Same investments, just what happens to the dividends.",
       },
     ],
   },
@@ -796,16 +796,16 @@ export const LESSONS: Lesson[] = [
     pillar: "🛡️ Protections & traps",
     crypto: false,
     title: "What if my broker goes bust?",
-    core: "Your investments aren't the broker's property — segregation, a €20k compensation floor, and a €100k deposit guarantee form the EU safety net, and knowing it beats fearing it.",
+    core: "Your investments aren't the broker's property, segregation, a €20k compensation floor, and a €100k deposit guarantee form the EU safety net, and knowing it beats fearing it.",
     reading:
-      "<p>The fear that stops many beginners: \"if the app disappears, does my money disappear?\" Mostly, no — and it's worth understanding exactly why. EU brokers must keep client investments <b>segregated</b>: your ETF shares are held apart from the broker's own assets, usually at a separate custodian. If the broker fails, those shares are still yours — typically transferred to another broker, not sucked into the bankruptcy.</p><p>Behind that sits the <b>investor compensation scheme</b>: an EU-mandated floor of at least <b>€20,000</b> per person per firm, covering the rare ugly case where assets went missing (fraud, administration failure). Read that carefully: it covers <i>missing assets</i> — it does <b>not</b> cover your investment simply losing value. Markets falling is investing, not a failure event.</p><p>Uninvested <b>cash</b> follows different rules: money held as a bank deposit is covered by a <b>deposit guarantee scheme</b> up to <b>€100,000</b> per person per bank. Some brokers park cash in money-market funds instead — protected as segregated assets, not by the deposit guarantee. Where to check all this: the provider's own \"how are my assets protected\" page, and the register of its national regulator. Crypto, one more time: generally <i>no</i> compensation scheme at all — which is exactly why it belongs in the small, bounded slice.</p>",
+      "<p>The fear that stops many beginners: \"if the app disappears, does my money disappear?\" Mostly, no, and it's worth understanding exactly why. EU brokers must keep client investments <b>segregated</b>: your ETF shares are held apart from the broker's own assets, usually at a separate custodian. If the broker fails, those shares are still yours, typically transferred to another broker, not sucked into the bankruptcy.</p><p>Behind that sits the <b>investor compensation scheme</b>: an EU-mandated floor of at least <b>€20,000</b> per person per firm, covering the rare ugly case where assets went missing (fraud, administration failure). Read that carefully: it covers <i>missing assets</i>, it does <b>not</b> cover your investment simply losing value. Markets falling is investing, not a failure event.</p><p>Uninvested <b>cash</b> follows different rules: money held as a bank deposit is covered by a <b>deposit guarantee scheme</b> up to <b>€100,000</b> per person per bank. Some brokers park cash in money-market funds instead, protected as segregated assets, not by the deposit guarantee. Where to check all this: the provider's own \"how are my assets protected\" page, and the register of its national regulator. Crypto, one more time: generally <i>no</i> compensation scheme at all, which is exactly why it belongs in the small, bounded slice.</p>",
     example:
-      "Emma has €6,000 in a world ETF and €800 cash at a regulated EU broker that suddenly enters administration. Her ETF shares were segregated at a custodian — after some tense weeks, they're transferred to another broker, untouched. Her €800 was a bank deposit, covered many times over by the €100k guarantee. What the schemes would never have covered: the €400 her ETF happened to be down that month. That part is just markets.",
+      "Emma has €6,000 in a world ETF and €800 cash at a regulated EU broker that suddenly enters administration. Her ETF shares were segregated at a custodian, after some tense weeks, they're transferred to another broker, untouched. Her €800 was a bank deposit, covered many times over by the €100k guarantee. What the schemes would never have covered: the €400 her ETF happened to be down that month. That part is just markets.",
     check: [
       {
         q: "What does the €20k investor compensation scheme cover?",
         o: [
-          "Assets that went missing when a firm fails — never ordinary market losses",
+          "Assets that went missing when a firm fails, never ordinary market losses",
           "Any investment that loses value",
           "Losses up to €20k per year, guaranteed",
         ],
@@ -820,7 +820,7 @@ export const LESSONS: Lesson[] = [
           "It hides your holdings from tax authorities",
         ],
         a: 0,
-        why: "Segregated assets typically transfer to another broker — they don't join the bankruptcy.",
+        why: "Segregated assets typically transfer to another broker, they don't join the bankruptcy.",
       },
     ],
   },
@@ -829,18 +829,18 @@ export const LESSONS: Lesson[] = [
     pillar: "🛡️ Protections & traps",
     crypto: false,
     title: "Leverage kills: CFDs, margin & the 74–89%",
-    core: "EU regulators force CFD platforms to print their own losing statistics — 74–89% of retail accounts lose money — and understanding why is the cheapest lesson in finance.",
+    core: "EU regulators force CFD platforms to print their own losing statistics, 74–89% of retail accounts lose money, and understanding why is the cheapest lesson in finance.",
     reading:
-      "<p>Sooner or later an ad offers you trading with <b>leverage</b>: control €10,000 of market with €1,000 down, usually via a <b>CFD</b> (contract for difference — a bet on a price move, where you never own the asset). The pitch is amplified gains. The math is symmetric: with 10× leverage, a 10% move against you doesn't dent your position — it <b>wipes out your entire stake</b>. Normal market wobble becomes fatal.</p><p>This isn't opinion; it's the regulator's own data. EU rules force every CFD provider to display what share of its retail clients lose money — when ESMA measured across providers, it found <b>74–89% of retail CFD accounts lose</b>, with average losses in the thousands. The EU responded by capping retail leverage, banning <b>binary options</b> outright, and mandating negative-balance protection so you can't end up owing more than you deposited. When a regulator makes a product carry a health warning, believe the label.</p><p>The trap works on psychology, not information: fast feedback, near-misses, and the feeling of being <i>almost</i> right — the same loop as a slot machine (Lesson 12's loss aversion plus Lesson 14's overconfidence, on fast-forward). Long-term investing needs none of it: no leverage, no expiry dates, no margin calls. If you ever feel the pull, re-read the number the platform is legally forced to show you. It's telling you your odds.</p>",
+      "<p>Sooner or later an ad offers you trading with <b>leverage</b>: control €10,000 of market with €1,000 down, usually via a <b>CFD</b> (contract for difference, a bet on a price move, where you never own the asset). The pitch is amplified gains. The math is symmetric: with 10× leverage, a 10% move against you doesn't dent your position, it <b>wipes out your entire stake</b>. Normal market wobble becomes fatal.</p><p>This isn't opinion; it's the regulator's own data. EU rules force every CFD provider to display what share of its retail clients lose money; when ESMA measured across providers, it found <b>74–89% of retail CFD accounts lose</b>, with average losses in the thousands. The EU responded by capping retail leverage, banning <b>binary options</b> outright, and mandating negative-balance protection so you can't end up owing more than you deposited. When a regulator makes a product carry a health warning, believe the label.</p><p>The trap works on psychology, not information: fast feedback, near-misses, and the feeling of being <i>almost</i> right, the same loop as a slot machine (Lesson 12's loss aversion plus Lesson 14's overconfidence, on fast-forward). Long-term investing needs none of it: no leverage, no expiry dates, no margin calls. If you ever feel the pull, re-read the number the platform is legally forced to show you. It's telling you your odds.</p>",
     example:
-      "Milan opens a CFD position: €500 stake, 20× leverage, €10,000 exposure. The market dips 4% during a normal choppy week — nothing dramatic, long-term investors barely notice. But 4% of €10,000 is €400 of his €500 gone; a margin call closes the position before it can recover. The same €500 in an unleveraged world ETF would have been down €20, on its way to recovering like every other wobble. Same market. Different survival odds.",
+      "Milan opens a CFD position: €500 stake, 20× leverage, €10,000 exposure. The market dips 4% during a normal choppy week, nothing dramatic, long-term investors barely notice. But 4% of €10,000 is €400 of his €500 gone; a margin call closes the position before it can recover. The same €500 in an unleveraged world ETF would have been down €20, on its way to recovering like every other wobble. Same market. Different survival odds.",
     check: [
       {
         q: "With 10× leverage, what does a 10% move against you do?",
         o: [
           "Wipes out your entire stake",
           "Loses you 10%, same as without leverage",
-          "Nothing — leverage only amplifies gains",
+          "Nothing, leverage only amplifies gains",
         ],
         a: 0,
         why: "Leverage multiplies both directions; ordinary volatility becomes fatal.",
@@ -848,9 +848,9 @@ export const LESSONS: Lesson[] = [
       {
         q: "What do EU CFD platforms have to tell you by law?",
         o: [
-          "The share of their retail clients who lose money — typically 74–89%",
+          "The share of their retail clients who lose money, typically 74–89%",
           "Which trades to make",
-          "Nothing — CFDs are unregulated",
+          "Nothing, CFDs are unregulated",
         ],
         a: 0,
         why: "ESMA forces the warning because its own data showed most retail accounts lose.",
@@ -863,11 +863,11 @@ export const LESSONS: Lesson[] = [
     crypto: false,
     tier: "plus",
     title: "Investment taxes in the EU: the four questions",
-    core: "Tax rules differ per country, but the four questions are the same everywhere — and answering them once can be worth more than years of picking funds.",
+    core: "Tax rules differ per country, but the four questions are the same everywhere, and answering them once can be worth more than years of picking funds.",
     reading:
-      "<p>There is no single EU investment tax — each country sets its own. But wherever you live, the same <b>four questions</b> decide what you keep: (1) How are <b>capital gains</b> taxed when you sell — and does holding longer change it? (2) How are <b>dividends</b> taxed as they arrive? (3) Does my country tax funds <b>yearly even without selling</b> (some tax assumed or unrealized gains — the Netherlands and Germany both do versions of this)? (4) Are there <b>tax-favoured accounts or wrappers</b> I'm ignoring (many countries offer pension or investment accounts with real advantages)?</p><p>One piece of plumbing is worth knowing everywhere: <b>withholding tax</b>. When a US company pays a dividend, the US takes a slice before it ever reaches your fund. Funds domiciled in <b>Ireland</b> pay 15% under the US–Ireland treaty instead of the default 30% — one big reason most flagship UCITS ETFs are Irish (look for \"IE\" at the start of the ISIN on the factsheet — Lesson 23). It's also why <b>accumulating vs distributing</b> isn't just a convenience choice: several countries tax the two differently.</p><p>What to actually do: find your country's official tax-authority page on investment income (every EU country has one), answer the four questions once, and prefer the boring structural wins — the right domicile, the right account type, the right share class — over tax cleverness. And the banner rule: this lesson explains <i>concepts that exist</i>; what applies to you depends on your country and situation. <b>This is education, not tax advice.</b></p>",
+      "<p>There is no single EU investment tax, each country sets its own. But wherever you live, the same <b>four questions</b> decide what you keep: (1) How are <b>capital gains</b> taxed when you sell, and does holding longer change it? (2) How are <b>dividends</b> taxed as they arrive? (3) Does my country tax funds <b>yearly even without selling</b> (some tax assumed or unrealized gains; the Netherlands and Germany both do versions of this)? (4) Are there <b>tax-favoured accounts or wrappers</b> I'm ignoring (many countries offer pension or investment accounts with real advantages)?</p><p>One piece of plumbing is worth knowing everywhere: <b>withholding tax</b>. When a US company pays a dividend, the US takes a slice before it ever reaches your fund. Funds domiciled in <b>Ireland</b> pay 15% under the US–Ireland treaty instead of the default 30%, one big reason most flagship UCITS ETFs are Irish (look for \"IE\" at the start of the ISIN on the factsheet, Lesson 23). It's also why <b>accumulating vs distributing</b> isn't just a convenience choice: several countries tax the two differently.</p><p>What to actually do: find your country's official tax-authority page on investment income (every EU country has one), answer the four questions once, and prefer the boring structural wins (the right domicile, the right account type, the right share class) over tax cleverness. And the banner rule: this lesson explains <i>concepts that exist</i>; what applies to you depends on your country and situation. <b>This is education, not tax advice.</b></p>",
     example:
-      "Tomas, investing €200/month, spends one Saturday on the four questions for his country. He discovers a tax-favoured investment account he wasn't using, and that his chosen world ETF is Irish-domiciled (15% US withholding instead of 30% — already handled inside the fund). Total effort: an afternoon. Over 30 years, the account wrapper alone plausibly beats a decade of trying to pick better funds — and unlike fund-picking, it was a decision he only had to get right once.",
+      "Tomas, investing €200/month, spends one Saturday on the four questions for his country. He discovers a tax-favoured investment account he wasn't using, and that his chosen world ETF is Irish-domiciled (15% US withholding instead of 30%, already handled inside the fund). Total effort: an afternoon. Over 30 years, the account wrapper alone plausibly beats a decade of trying to pick better funds, and unlike fund-picking, it was a decision he only had to get right once.",
     check: [
       {
         q: "Why are most flagship UCITS ETFs domiciled in Ireland?",
@@ -877,7 +877,7 @@ export const LESSONS: Lesson[] = [
           "EU law requires all ETFs to be Irish",
         ],
         a: 0,
-        why: "A structural tax win handled inside the fund — visible in the ISIN starting with IE.",
+        why: "A structural tax win handled inside the fund, visible in the ISIN starting with IE.",
       },
       {
         q: "What's the smartest general approach to investment taxes?",
@@ -897,21 +897,21 @@ export const LESSONS: Lesson[] = [
     crypto: false,
     tier: "plus",
     title: "Pensions in the EU: the three pillars",
-    core: "Almost every EU country builds retirement on the same three pillars — and your DIY investing is pillar three, sitting on top of two you should check first.",
+    core: "Almost every EU country builds retirement on the same three pillars, and your DIY investing is pillar three, sitting on top of two you should check first.",
     reading:
-      "<p>Across the EU, retirement income follows the same skeleton. <b>Pillar 1</b> is the state pension: funded by today's workers for today's retirees, tied to your contribution years. It's the floor — and with Europe ageing, most governments openly say the floor alone won't maintain your lifestyle. <b>Pillar 2</b> is occupational: schemes your employer pays into, common in some countries and sectors, rare in others. <b>Pillar 3</b> is personal: private pension products and, ultimately, everything this app teaches you to do yourself.</p><p>The order of operations matters more than any fund choice. First, <b>find your pillar-1 statement</b> — most countries have an online portal showing your projected state pension; most people have never looked. Second, <b>check pillar 2</b>: an employer scheme, especially one with matching contributions, is usually the best deal available to you — it's part of your salary you may be leaving unclaimed. Only then does pillar-3 DIY investing take the stage, often with tax advantages your country attaches to it (Lesson 26's fourth question).</p><p>Two more things worth knowing: the EU created <b>PEPP</b>, a pan-European personal pension wrapper designed to be portable across borders — young and rare so far, but worth watching if you move countries. And the honest framing: only around a quarter of EU citizens hold any pillar-3 product at all. The <b>pension gap</b> — the difference between what pillar 1 will pay and what your life costs — is precisely the number your monthly investing habit exists to close. That's not doom; it's a target.</p>",
+      "<p>Across the EU, retirement income follows the same skeleton. <b>Pillar 1</b> is the state pension: funded by today's workers for today's retirees, tied to your contribution years. It's the floor, and with Europe ageing, most governments openly say the floor alone won't maintain your lifestyle. <b>Pillar 2</b> is occupational: schemes your employer pays into, common in some countries and sectors, rare in others. <b>Pillar 3</b> is personal: private pension products and, ultimately, everything this app teaches you to do yourself.</p><p>The order of operations matters more than any fund choice. First, <b>find your pillar-1 statement</b>, most countries have an online portal showing your projected state pension; most people have never looked. Second, <b>check pillar 2</b>: an employer scheme, especially one with matching contributions, is usually the best deal available to you, it's part of your salary you may be leaving unclaimed. Only then does pillar-3 DIY investing take the stage, often with tax advantages your country attaches to it (Lesson 26's fourth question).</p><p>Two more things worth knowing: the EU created <b>PEPP</b>, a pan-European personal pension wrapper designed to be portable across borders, young and rare so far, but worth watching if you move countries. And the honest framing: only around a quarter of EU citizens hold any pillar-3 product at all. The <b>pension gap</b>, the difference between what pillar 1 will pay and what your life costs, is precisely the number your monthly investing habit exists to close. That's not doom; it's a target.</p>",
     example:
-      "Ines, 29, logs into her country's pension portal for the first time: projected state pension, €1,150/month in today's money — against current spending of €1,900. Gap: €750/month. Her employer offers a pension scheme matching 3% of salary that she never opted into — free money, fixed first. The rest becomes her pillar-3 target: her €250/month index habit now has a purpose with a number on it, instead of being an abstract 'saving for later'.",
+      "Ines, 29, logs into her country's pension portal for the first time: projected state pension, €1,150/month in today's money, against current spending of €1,900. Gap: €750/month. Her employer offers a pension scheme matching 3% of salary that she never opted into: free money, fixed first. The rest becomes her pillar-3 target: her €250/month index habit now has a purpose with a number on it, instead of being an abstract 'saving for later'.",
     check: [
       {
         q: "What should you check before doing any pillar-3 DIY pension investing?",
         o: [
-          "Your projected state pension and any employer scheme — especially matching contributions",
-          "Nothing — private investing replaces the other pillars",
+          "Your projected state pension and any employer scheme, especially matching contributions",
+          "Nothing, private investing replaces the other pillars",
           "Only which funds performed best last year",
         ],
         a: 0,
-        why: "Employer matching is usually the best deal available — unclaimed salary.",
+        why: "Employer matching is usually the best deal available, unclaimed salary.",
       },
       {
         q: "The 'pension gap' is…",
@@ -930,18 +930,18 @@ export const LESSONS: Lesson[] = [
     pillar: "🧠 Your brain & money",
     crypto: false,
     title: "Surviving your first crash: the drill",
-    core: "Your first real crash is a when, not an if — and what long-term investors do in one is decided before it starts, not during.",
+    core: "Your first real crash is a when, not an if, and what long-term investors do in one is decided before it starts, not during.",
     reading:
-      "<p>Here's the schedule nobody puts in the brochure: broad markets drop <b>10%+ most years</b> along the way, and <b>20%+ (a bear market)</b> every handful of years. In April 2025, trillions in market value vanished in two days. If you invest for decades, you will sit through several of these. The only question is whether you'll have a drill or a panic.</p><p>Set the expectation before you need it: a first year anywhere from <b>−15% to +25%</b> is completely normal and says nothing about whether you're \"doing it right.\" The long-run average you'll hear quoted (roughly 7–8%/year for a broad market) is a many-decade average, not a promise for any single year — judging year one against it is like judging a marathon runner's fitness from their first ten metres.</p><p>The drill, written in calm weather: <b>(1)</b> automatic contributions keep running — historically, buying through a crash meant buying cheap (Lesson 12's Ben). <b>(2)</b> No selling decisions during a drawdown; if you ever change the plan, you do it on a scheduled, calm review day, not a red one. <b>(3)</b> Check <i>less</i>, not more — every extra look is another loss-aversion sting (Lesson 14). <b>(4)</b> Re-read the note you wrote to your future self about why you invested. If you haven't written it yet, today — in a calm market — is exactly the day.</p><p>What makes crashes survivable isn't courage, it's <b>structure</b>: an emergency fund so you're never forced to sell (Lesson 10), diversification so nothing goes to zero on you (Lesson 4), automation so buying continues without a decision (Lesson 11). People who \"stayed calm\" through history's crashes mostly weren't calm — they had simply arranged things so their feelings had no lever to pull.</p>",
+      "<p>Here's the schedule nobody puts in the brochure: broad markets drop <b>10%+ most years</b> along the way, and <b>20%+ (a bear market)</b> every handful of years. In April 2025, trillions in market value vanished in two days. If you invest for decades, you will sit through several of these. The only question is whether you'll have a drill or a panic.</p><p>Set the expectation before you need it: a first year anywhere from <b>−15% to +25%</b> is completely normal and says nothing about whether you're \"doing it right.\" The long-run average you'll hear quoted (roughly 7–8%/year for a broad market) is a many-decade average, not a promise for any single year, judging year one against it is like judging a marathon runner's fitness from their first ten metres.</p><p>The drill, written in calm weather: <b>(1)</b> automatic contributions keep running; historically, buying through a crash meant buying cheap (Lesson 12's Ben). <b>(2)</b> No selling decisions during a drawdown; if you ever change the plan, you do it on a scheduled, calm review day, not a red one. <b>(3)</b> Check <i>less</i>, not more, every extra look is another loss-aversion sting (Lesson 14). <b>(4)</b> Re-read the note you wrote to your future self about why you invested. If you haven't written it yet, today, in a calm market, is exactly the day.</p><p>What makes crashes survivable isn't courage, it's <b>structure</b>: an emergency fund so you're never forced to sell (Lesson 10), diversification so nothing goes to zero on you (Lesson 4), automation so buying continues without a decision (Lesson 11). People who \"stayed calm\" through history's crashes mostly weren't calm, they had simply arranged things so their feelings had no lever to pull.</p>",
     example:
-      "Two colleagues, same crash, −25% in six weeks. Priya has the drill: her €200/month keeps buying, she's deleted the app from her home screen, and her written note says \"you invest for 2050, not for next spring.\" Marco has no drill: he checks hourly, sells \"temporarily\" near the bottom to \"wait for clarity,\" and buys back in a year later — above his selling price. The market treated them identically. Their structures didn't.",
+      "Two colleagues, same crash, −25% in six weeks. Priya has the drill: her €200/month keeps buying, she's deleted the app from her home screen, and her written note says \"you invest for 2050, not for next spring.\" Marco has no drill: he checks hourly, sells \"temporarily\" near the bottom to \"wait for clarity,\" and buys back in a year later, above his selling price. The market treated them identically. Their structures didn't.",
     check: [
       {
         q: "When do long-term investors decide what they'll do in a crash?",
         o: [
-          "Before it happens — in calm weather, written down",
+          "Before it happens, in calm weather, written down",
           "During the crash, when they have the most information",
-          "Never — crashes can't be prepared for",
+          "Never, crashes can't be prepared for",
         ],
         a: 0,
         why: "In a drawdown your brain is compromised (loss aversion). The plan has to predate it.",
@@ -949,7 +949,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "What actually makes a crash survivable?",
         o: [
-          "Structure: emergency fund, diversification, automation — so feelings have no lever",
+          "Structure: emergency fund, diversification, automation, so feelings have no lever",
           "Courage and strong nerves",
           "Checking the portfolio hourly to react fast",
         ],
@@ -963,16 +963,16 @@ export const LESSONS: Lesson[] = [
     pillar: "🛡️ Protections & traps",
     crypto: false,
     title: "Finfluencers & copy trading: the machinery",
-    core: "Behind the confident feed sits real machinery — undisclosed payments, EU rules many posters break, and copy-trading incentives that don't point your way.",
+    core: "Behind the confident feed sits real machinery: undisclosed payments, EU rules many posters break, and copy-trading incentives that don't point your way.",
     reading:
-      "<p>Lesson 13 covered the psychology of the hype feed. Now the machinery. In the EU, posting <b>investment recommendations</b> on social media isn't a free-for-all — ESMA has warned it can fall under the <b>Market Abuse Regulation</b>: recommendations must be objective, and paid promotion must be disclosed. The rules exist; enforcement is catching up. Meanwhile most \"here's my portfolio, use my code\" content is exactly what it looks like: <b>paid distribution</b> wearing a friendship costume.</p><p>Two checks before trusting anyone online about money: <b>(1) Are they licensed?</b> Anyone giving personal investment advice needs authorisation — every national regulator runs a public register you can search in one minute. Unlicensed + specific buy recommendations = walk away. <b>(2) Who pays them?</b> A referral code IS a payment. A #ad is honesty; a missing #ad on obvious promotion is your answer about their character.</p><p><b>Copy trading</b> automates the problem: your account mirrors a \"top trader's\" moves, often on CFD platforms (Lesson 25's 74–89% base rate applies). The incentive flaw: leaders typically earn from follower volume, not follower profits — they get paid whether you win or lose, which rewards flashy, high-frequency trading over the boring kind that works. Nobody with a genuinely money-printing strategy sells copies of it for follower fees. The whole arrangement answers its own question.</p>",
+      "<p>Lesson 13 covered the psychology of the hype feed. Now the machinery. In the EU, posting <b>investment recommendations</b> on social media isn't a free-for-all, ESMA has warned it can fall under the <b>Market Abuse Regulation</b>: recommendations must be objective, and paid promotion must be disclosed. The rules exist; enforcement is catching up. Meanwhile most \"here's my portfolio, use my code\" content is exactly what it looks like: <b>paid distribution</b> wearing a friendship costume.</p><p>Two checks before trusting anyone online about money: <b>(1) Are they licensed?</b> Anyone giving personal investment advice needs authorisation, every national regulator runs a public register you can search in one minute. Unlicensed + specific buy recommendations = walk away. <b>(2) Who pays them?</b> A referral code IS a payment. A #ad is honesty; a missing #ad on obvious promotion is your answer about their character.</p><p><b>Copy trading</b> automates the problem: your account mirrors a \"top trader's\" moves, often on CFD platforms (Lesson 25's 74–89% base rate applies). The incentive flaw: leaders typically earn from follower volume, not follower profits, they get paid whether you win or lose, which rewards flashy, high-frequency trading over the boring kind that works. Nobody with a genuinely money-printing strategy sells copies of it for follower fees. The whole arrangement answers its own question.</p>",
     example:
       "An account with 400k followers posts daily wins, a broker referral code, and a \"copy my trades\" link. Sara runs the checks: the national register shows no licence; there's no #ad anywhere despite the code paying per signup; the copy-platform's own disclosure says most retail accounts lose money; and the leader's fee is per copier, not per profit. Four checks, four red flags, three minutes. She keeps her boring index plan and mutes the account.",
     check: [
       {
         q: "What's the incentive flaw in most copy trading?",
         o: [
-          "Leaders earn from follower volume, not follower profits — they're paid whether you lose or win",
+          "Leaders earn from follower volume, not follower profits, they're paid whether you lose or win",
           "Copying is illegal in the EU",
           "The trades copy too slowly to matter",
         ],
@@ -982,7 +982,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "How do you check if someone may legally give investment advice?",
         o: [
-          "Search your national regulator's public register — it takes a minute",
+          "Search your national regulator's public register, it takes a minute",
           "Check their follower count",
           "Ask them directly and trust the answer",
         ],
@@ -997,18 +997,18 @@ export const LESSONS: Lesson[] = [
     crypto: false,
     tier: "plus",
     title: "Currency risk: your world ETF is mostly dollars",
-    core: "A 'global' fund bought in euros still lives mostly in dollars — sometimes your return is the market, and sometimes it's the exchange rate.",
+    core: "A 'global' fund bought in euros still lives mostly in dollars, sometimes your return is the market, and sometimes it's the exchange rate.",
     reading:
-      "<p>Open the factsheet of a typical world index ETF (Lesson 23) and you'll find <b>60–70% of it is US assets</b> — priced in dollars. Buying it in euros doesn't change that. Your return has two layers: what the assets do, and what the <b>EUR/USD exchange rate</b> does. Some years the layers add; some years they fight. In 2025 many EU investors watched US markets rise while their euro-denominated ETFs barely moved — the dollar's slide against the euro ate the gains. Nothing was broken. That's currency risk.</p><p>The menu: an <b>unhedged</b> fund (the default) accepts the currency swings. A <b>hedged share class</b> uses contracts to cancel them — for a cost that quietly compounds like any fee, and rises when interest rates differ between the currencies. The classic reasoning: over <b>decades, equity investors</b> often accept unhedged swings (currencies tend to wash out over long horizons, and hedging costs are certain while the benefit isn't). For <b>bonds</b>, where returns are small and stability is the point, currency swings can dwarf the returns — which is why euro-hedged bond funds are common.</p><p>What matters is neither panic nor pretending it away: <b>know which you own</b> (the factsheet says \"EUR Hedged\" in the name if it is), expect years where the exchange rate — not the market — writes your result, and treat the choice like everything else here: a trade-off with costs on both sides, not a right answer someone on the internet has found for you.</p>",
+      "<p>Open the factsheet of a typical world index ETF (Lesson 23) and you'll find <b>60–70% of it is US assets</b>, priced in dollars. Buying it in euros doesn't change that. Your return has two layers: what the assets do, and what the <b>EUR/USD exchange rate</b> does. Some years the layers add; some years they fight. In 2025 many EU investors watched US markets rise while their euro-denominated ETFs barely moved, the dollar's slide against the euro ate the gains. Nothing was broken. That's currency risk.</p><p>The menu: an <b>unhedged</b> fund (the default) accepts the currency swings. A <b>hedged share class</b> uses contracts to cancel them, for a cost that quietly compounds like any fee, and rises when interest rates differ between the currencies. The classic reasoning: over <b>decades, equity investors</b> often accept unhedged swings (currencies tend to wash out over long horizons, and hedging costs are certain while the benefit isn't). For <b>bonds</b>, where returns are small and stability is the point, currency swings can dwarf the returns, which is why euro-hedged bond funds are common.</p><p>What matters is neither panic nor pretending it away: <b>know which you own</b> (the factsheet says \"EUR Hedged\" in the name if it is), expect years where the exchange rate, not the market, writes your result, and treat the choice like everything else here: a trade-off with costs on both sides, not a right answer someone on the internet has found for you.</p>",
     example:
-      "In one 2025 stretch, a US-heavy world index rose ~8% in dollars while the dollar fell ~10% against the euro. Lena's unhedged ETF showed roughly −2% — while American investors celebrated. Her reaction, thanks to this lesson: check the factsheet (unhedged, as she chose), remember the same effect boosted her returns in dollar-strong years, and change nothing. The exchange rate had the pen that year; over her 25-year horizon, the market usually does.",
+      "In one 2025 stretch, a US-heavy world index rose ~8% in dollars while the dollar fell ~10% against the euro. Lena's unhedged ETF showed roughly −2%, while American investors celebrated. Her reaction, thanks to this lesson: check the factsheet (unhedged, as she chose), remember the same effect boosted her returns in dollar-strong years, and change nothing. The exchange rate had the pen that year; over her 25-year horizon, the market usually does.",
     check: [
       {
         q: "Why can your world ETF fall while US markets rise?",
         o: [
-          "It's ~60–70% dollar assets — a falling dollar can eat the market gains in euro terms",
+          "It's ~60–70% dollar assets, a falling dollar can eat the market gains in euro terms",
           "European brokers apply a penalty fee",
-          "It can't — global funds remove all currency effects",
+          "It can't, global funds remove all currency effects",
         ],
         a: 0,
         why: "Your return = the assets' move plus the exchange rate's move. Some years they fight.",
@@ -1030,21 +1030,21 @@ export const LESSONS: Lesson[] = [
     pillar: "₿ Crypto deep-dive",
     crypto: true,
     title: "What happens if your exchange fails?",
-    core: "Buying crypto on an exchange isn't the same as owning it — and MiCA licensing exists specifically to make failure survivable instead of catastrophic.",
+    core: "Buying crypto on an exchange isn't the same as owning it, and MiCA licensing exists specifically to make failure survivable instead of catastrophic.",
     reading:
-      "<p>Here's a distinction almost every beginner misses: buying crypto on an exchange and <b>owning</b> crypto are not the same thing until you withdraw it. While it sits on the exchange, you hold an IOU — a database entry saying the exchange owes you that amount. If the exchange fails, you're a creditor, not an owner. When FTX collapsed in 2022, roughly <b>$8 billion</b> in customer funds went missing overnight — money people believed was simply \"in their account.\" Unlike a bank, crypto holdings on an exchange carry <b>no deposit insurance</b>. Nothing tops it up if it's gone.</p><p>This is exactly the gap <b>MiCA</b> licensing is built to close. A licensed <b>CASP</b> (crypto-asset service provider) must legally <b>segregate</b> client crypto from its own company funds and maintain a client-asset register — the same principle EU brokers already follow for shares (Lesson 24). It doesn't make an exchange invincible, but it means your holdings aren't just mixed into the company's balance sheet and gambled with. This is the concrete answer to \"why does it matter if my exchange is licensed\" — it's not a badge, it's a legal boundary around your assets.</p><p>And if a licensed exchange still fails? Recovery runs through <b>bankruptcy proceedings</b>, not a same-day refund. FTX customers waited over <b>two years</b> for staged repayments — and eventually recovering most of their money was an unusually good outcome, not a guarantee. <b>Self-custody</b> (Lesson 20) sidesteps this entire chain of risk by design: crypto in your own wallet isn't anyone's balance sheet to fail.</p>",
+      "<p>Here's a distinction almost every beginner misses: buying crypto on an exchange and <b>owning</b> crypto are not the same thing until you withdraw it. While it sits on the exchange, you hold an IOU, a database entry saying the exchange owes you that amount. If the exchange fails, you're a creditor, not an owner. When FTX collapsed in 2022, roughly <b>$8 billion</b> in customer funds went missing overnight, money people believed was simply \"in their account.\" Unlike a bank, crypto holdings on an exchange carry <b>no deposit insurance</b>. Nothing tops it up if it's gone.</p><p>This is exactly the gap <b>MiCA</b> licensing is built to close. A licensed <b>CASP</b> (crypto-asset service provider) must legally <b>segregate</b> client crypto from its own company funds and maintain a client-asset register, the same principle EU brokers already follow for shares (Lesson 24). It doesn't make an exchange invincible, but it means your holdings aren't just mixed into the company's balance sheet and gambled with. This is the concrete answer to \"why does it matter if my exchange is licensed\", it's not a badge, it's a legal boundary around your assets.</p><p>And if a licensed exchange still fails? Recovery runs through <b>bankruptcy proceedings</b>, not a same-day refund. FTX customers waited over <b>two years</b> for staged repayments, and eventually recovering most of their money was an unusually good outcome, not a guarantee. <b>Self-custody</b> (Lesson 20) sidesteps this entire chain of risk by design: crypto in your own wallet isn't anyone's balance sheet to fail.</p>",
     example:
-      "Wiktoria buys crypto on two platforms: a MiCA-licensed exchange for most of it, and — chasing a slightly better price — an unlicensed offshore site for a small top-up. A year later the offshore site quietly stops processing withdrawals and disappears; there's no register, no license, no regulator to complain to, and her funds are simply gone. Her licensed-exchange holdings are untouched. The price difference that looked like a bargain was actually the cost of the protection she skipped.",
+      "Wiktoria buys crypto on two platforms: a MiCA-licensed exchange for most of it, and, chasing a slightly better price, an unlicensed offshore site for a small top-up. A year later the offshore site quietly stops processing withdrawals and disappears; there's no register, no license, no regulator to complain to, and her funds are simply gone. Her licensed-exchange holdings are untouched. The price difference that looked like a bargain was actually the cost of the protection she skipped.",
     check: [
       {
         q: "While your crypto sits on an exchange (not withdrawn), what do you actually hold?",
         o: [
-          "A claim on the exchange — you're a creditor, not the owner, until you withdraw it",
+          "A claim on the exchange, you're a creditor, not the owner, until you withdraw it",
           "Direct ownership, identical to holding it in your own wallet",
           "A government-insured deposit, like cash in a bank",
         ],
         a: 0,
-        why: "It's a database entry the exchange owes you — real ownership starts once it's in your own wallet.",
+        why: "It's a database entry the exchange owes you, real ownership starts once it's in your own wallet.",
       },
       {
         q: "What does MiCA licensing concretely require of an exchange?",
@@ -1054,7 +1054,7 @@ export const LESSONS: Lesson[] = [
           "Insuring all customer deposits like a bank",
         ],
         a: 0,
-        why: "Segregation is a legal boundary around your assets — it doesn't prevent failure, but it changes what happens if it does.",
+        why: "Segregation is a legal boundary around your assets, it doesn't prevent failure, but it changes what happens if it does.",
       },
     ],
   },
@@ -1062,18 +1062,18 @@ export const LESSONS: Lesson[] = [
     id: "l35",
     pillar: "📈 Investing",
     crypto: false,
-    title: "Placing your first order — and what happens next",
-    core: "Two order types cover almost everything a beginner needs, and the biggest first-time surprise isn't the click — it's what happens in the day or two after.",
+    title: "Placing your first order, and what happens next",
+    core: "Two order types cover almost everything a beginner needs, and the biggest first-time surprise isn't the click, it's what happens in the day or two after.",
     reading:
-      "<p>When you place a trade, you'll usually choose between a <b>market order</b> (buy or sell right now, at whatever the current price is) and a <b>limit order</b> (only execute at a price you set, or better). For a broad, liquid fund bought mid-trading-day, the difference is often tiny. It stops being tiny right at <b>market open</b>, when prices can jump around before settling — a market order there can fill at a worse price than you expected. A simple habit: near the open, use a limit order a fraction above the last price; otherwise a market order is usually fine.</p><p>What surprises almost everyone the first time: clicking \"buy\" isn't the end of it. Trades go through <b>settlement</b> — in most markets this now takes one business day (<b>T+1</b>) after the trade date. Your position typically shows up right away for tracking, but the underlying legal transfer — and your ability to immediately withdraw cash from a sale — follows a day later. That's not a glitch; it's just how the plumbing works, and every broker operates on the same clock.</p><p>None of this needs to be memorized in detail. The practical takeaway is smaller: don't panic if withdrawn cash isn't instantly spendable, don't be surprised by a slightly different fill price right at the open, and know that both are completely normal, not a sign anything went wrong.</p>",
+      "<p>When you place a trade, you'll usually choose between a <b>market order</b> (buy or sell right now, at whatever the current price is) and a <b>limit order</b> (only execute at a price you set, or better). For a broad, liquid fund bought mid-trading-day, the difference is often tiny. It stops being tiny right at <b>market open</b>, when prices can jump around before settling, a market order there can fill at a worse price than you expected. A simple habit: near the open, use a limit order a fraction above the last price; otherwise a market order is usually fine.</p><p>What surprises almost everyone the first time: clicking \"buy\" isn't the end of it. Trades go through <b>settlement</b>, in most markets this now takes one business day (<b>T+1</b>) after the trade date. Your position typically shows up right away for tracking, but the underlying legal transfer (and your ability to immediately withdraw cash from a sale) follows a day later. That's not a glitch; it's just how the plumbing works, and every broker operates on the same clock.</p><p>None of this needs to be memorized in detail. The practical takeaway is smaller: don't panic if withdrawn cash isn't instantly spendable, don't be surprised by a slightly different fill price right at the open, and know that both are completely normal, not a sign anything went wrong.</p>",
     example:
-      "It's Sam's first trade — a world ETF, placed two minutes after the market opens. A market order fills a little higher than the price shown seconds earlier; Sam nearly messages support, thinking something broke. It didn't — that's the normal early-session jump a limit order would have avoided. The next day, wanting to withdraw a small amount, Sam finds the cash isn't there yet either — also normal, just settlement catching up a day behind.",
+      "It's Sam's first trade, a world ETF, placed two minutes after the market opens. A market order fills a little higher than the price shown seconds earlier; Sam nearly messages support, thinking something broke. It didn't, that's the normal early-session jump a limit order would have avoided. The next day, wanting to withdraw a small amount, Sam finds the cash isn't there yet either, also normal, just settlement catching up a day behind.",
     check: [
       {
         q: "When does a limit order matter most for a beginner?",
         o: [
           "Right around market open, when prices can jump before settling",
-          "Never — market and limit orders always fill at the same price",
+          "Never, market and limit orders always fill at the same price",
           "Only when trading amounts over €10,000",
         ],
         a: 0,
@@ -1082,7 +1082,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "Why might cash from a sale not be withdrawable the same day?",
         o: [
-          "Settlement (commonly T+1) follows a day after the trade — normal for every broker, not a fault",
+          "Settlement (commonly T+1) follows a day after the trade, normal for every broker, not a fault",
           "The broker is holding it to earn interest illegally",
           "Something went wrong with the order",
         ],
@@ -1096,21 +1096,21 @@ export const LESSONS: Lesson[] = [
     pillar: "🛡️ Protections & traps",
     crypto: false,
     title: "Switching broker without losing your shirt",
-    core: "Moving your investments to a new broker has three real paths — and picking the wrong one can quietly trigger a tax bill or lose your cost-basis records.",
+    core: "Moving your investments to a new broker has three real paths, and picking the wrong one can quietly trigger a tax bill or lose your cost-basis records.",
     reading:
-      "<p>Eventually many investors want to switch broker — better fees, better app, or a provider that no longer fits. There are three real ways to move: update your address and stay put (simplest, changes nothing about your holdings); an <b>in-kind transfer</b>, where your existing shares or funds move custodian-to-custodian without being sold; or <b>sell and rebuy</b> at the new broker, which is really opening a new position from scratch.</p><p>In-kind transfer is usually what people actually want — it avoids selling (no forced tax event, no time out of the market) — but it's also the option most likely to go wrong in practice. National regulators across the EU have flagged broker-transfer delays and lost <b>cost-basis</b> records (what you originally paid, needed for tax purposes) as among the most common complaints they receive from retail investors. A transfer that's supposed to take days can stretch into weeks, and if the paperwork trail breaks, reconstructing your original purchase prices later can be a real headache.</p><p>The practical version: before opening a new account specifically to switch, confirm the new broker actually supports in-kind transfers for what you hold — not every broker accepts every asset type. Keep your own records (old statements, purchase confirmations) rather than relying entirely on the transfer to carry that history. And build in patience — a transfer taking noticeably longer than advertised is common enough to expect, not a sign something's broken.</p>",
+      "<p>Eventually many investors want to switch broker, better fees, better app, or a provider that no longer fits. There are three real ways to move: update your address and stay put (simplest, changes nothing about your holdings); an <b>in-kind transfer</b>, where your existing shares or funds move custodian-to-custodian without being sold; or <b>sell and rebuy</b> at the new broker, which is really opening a new position from scratch.</p><p>In-kind transfer is usually what people actually want, since it avoids selling (no forced tax event, no time out of the market), but it's also the option most likely to go wrong in practice. National regulators across the EU have flagged broker-transfer delays and lost <b>cost-basis</b> records (what you originally paid, needed for tax purposes) as among the most common complaints they receive from retail investors. A transfer that's supposed to take days can stretch into weeks, and if the paperwork trail breaks, reconstructing your original purchase prices later can be a real headache.</p><p>The practical version: before opening a new account specifically to switch, confirm the new broker actually supports in-kind transfers for what you hold, not every broker accepts every asset type. Keep your own records (old statements, purchase confirmations) rather than relying entirely on the transfer to carry that history. And build in patience, a transfer taking noticeably longer than advertised is common enough to expect, not a sign something's broken.</p>",
     example:
-      "Aiden switches broker for lower fees and requests an in-kind transfer of his ETF holdings. It takes five weeks instead of the advertised five days, and the new broker initially shows the wrong purchase price — resolved only because Aiden had kept his own statements from the old broker. A friend doing the same move chose sell-and-rebuy instead, assuming it would be simpler; it was faster, but it also triggered a taxable gain neither of them had planned for that year.",
+      "Aiden switches broker for lower fees and requests an in-kind transfer of his ETF holdings. It takes five weeks instead of the advertised five days, and the new broker initially shows the wrong purchase price, resolved only because Aiden had kept his own statements from the old broker. A friend doing the same move chose sell-and-rebuy instead, assuming it would be simpler; it was faster, but it also triggered a taxable gain neither of them had planned for that year.",
     check: [
       {
         q: "What's the main advantage of an in-kind transfer over sell-and-rebuy?",
         o: [
-          "It avoids selling — no forced tax event and no time spent out of the market",
+          "It avoids selling, no forced tax event and no time spent out of the market",
           "It's always faster than any other option",
           "It automatically updates your tax return",
         ],
         a: 0,
-        why: "You keep the same holdings, just under a new custodian — nothing is sold, so nothing is taxed by the move itself.",
+        why: "You keep the same holdings, just under a new custodian, nothing is sold, so nothing is taxed by the move itself.",
       },
       {
         q: "Why is it worth keeping your own purchase records before switching broker?",
@@ -1120,7 +1120,7 @@ export const LESSONS: Lesson[] = [
           "It's needed to unlock a better interest rate",
         ],
         a: 0,
-        why: "Lost cost-basis records are a common, documented transfer problem — your own copy is the backup.",
+        why: "Lost cost-basis records are a common, documented transfer problem, your own copy is the backup.",
       },
     ],
   },
@@ -1129,16 +1129,16 @@ export const LESSONS: Lesson[] = [
     pillar: "₿ Crypto deep-dive",
     crypto: true,
     title: "Wallet drainers, fake airdrops & the seed phrase rule",
-    core: "The newest big category of crypto theft doesn't steal your password — it gets you to sign a permission that lets it empty your wallet later, sometimes days later.",
+    core: "The newest big category of crypto theft doesn't steal your password, it gets you to sign a permission that lets it empty your wallet later, sometimes days later.",
     reading:
-      "<p>Beyond phishing for passwords, a specific and fast-growing scam targets self-custody wallets directly: the <b>wallet drainer</b>. You connect your wallet to a site — often a fake \"claim your airdrop\" page — and sign what looks like a routine <b>approval</b> transaction. That signature can grant a contract standing permission to move your tokens later, sometimes not immediately, which is exactly why victims often don't connect the theft to the site that caused it. This isn't rare: tracked losses reached roughly <b>$300 million</b> across hundreds of thousands of victims in a single recent year, and scam techniques increasingly reuse the same playbook via fake ads and compromised social accounts.</p><p><b>Fake airdrops</b> are the most common bait. The tells are consistent: anything asking you to <b>send</b> crypto first to \"unlock\" a claim (real airdrops never require payment), urgent language (\"claim now or lose it\"), and a freshly registered look-alike website. A cheap habit that closes most of this off: periodically check and <b>revoke</b> old token approvals via a block explorer, so a permission you granted once and forgot about can't be used against you later.</p><p>None of this touches your <b>seed phrase</b> directly — connecting a wallet to a scam site doesn't reveal it — but the seed phrase remains the single point of total failure. The real-world mistakes are mundane: a screenshot, a note in a cloud drive, a photo in a messaging app. There's no \"forgot password\" for a seed phrase — lose it or expose it, and there's no support line that can help. If you've never actually tested restoring your wallet from your backup, you don't yet know it works.</p>",
+      "<p>Beyond phishing for passwords, a specific and fast-growing scam targets self-custody wallets directly: the <b>wallet drainer</b>. You connect your wallet to a site (often a fake \"claim your airdrop\" page) and sign what looks like a routine <b>approval</b> transaction. That signature can grant a contract standing permission to move your tokens later, sometimes not immediately, which is exactly why victims often don't connect the theft to the site that caused it. This isn't rare: tracked losses reached roughly <b>$300 million</b> across hundreds of thousands of victims in a single recent year, and scam techniques increasingly reuse the same playbook via fake ads and compromised social accounts.</p><p><b>Fake airdrops</b> are the most common bait. The tells are consistent: anything asking you to <b>send</b> crypto first to \"unlock\" a claim (real airdrops never require payment), urgent language (\"claim now or lose it\"), and a freshly registered look-alike website. A cheap habit that closes most of this off: periodically check and <b>revoke</b> old token approvals via a block explorer, so a permission you granted once and forgot about can't be used against you later.</p><p>None of this touches your <b>seed phrase</b> directly (connecting a wallet to a scam site doesn't reveal it), but the seed phrase remains the single point of total failure. The real-world mistakes are mundane: a screenshot, a note in a cloud drive, a photo in a messaging app. There's no \"forgot password\" for a seed phrase, lose it or expose it, and there's no support line that can help. If you've never actually tested restoring your wallet from your backup, you don't yet know it works.</p>",
     example:
-      "Jonas sees an ad for a token airdrop tied to a project he's genuinely used before, connects his wallet, and signs what the site calls a \"claim\" transaction. Nothing happens immediately, so he forgets about it — until three weeks later his wallet is emptied in one transaction. The approval he signed had quietly given the scam contract standing permission all along. He'd never have connected the theft to that click if he hadn't, out of habit, checked his approval history afterward and found the exact permission still listed.",
+      "Jonas sees an ad for a token airdrop tied to a project he's genuinely used before, connects his wallet, and signs what the site calls a \"claim\" transaction. Nothing happens immediately, so he forgets about it, until three weeks later his wallet is emptied in one transaction. The approval he signed had quietly given the scam contract standing permission all along. He'd never have connected the theft to that click if he hadn't, out of habit, checked his approval history afterward and found the exact permission still listed.",
     check: [
       {
         q: "How does a wallet-drainer scam typically work?",
         o: [
-          "You sign an approval transaction that grants a contract permission to move your tokens later — sometimes days later",
+          "You sign an approval transaction that grants a contract permission to move your tokens later, sometimes days later",
           "The scammer directly guesses your password",
           "It only works if you type your seed phrase into a website",
         ],
@@ -1153,7 +1153,7 @@ export const LESSONS: Lesson[] = [
           "Taking more than a minute to load",
         ],
         a: 0,
-        why: "Real airdrops never require an upfront payment — that request alone is close to a guarantee of a scam.",
+        why: "Real airdrops never require an upfront payment, that request alone is close to a guarantee of a scam.",
       },
     ],
   },
@@ -1162,16 +1162,16 @@ export const LESSONS: Lesson[] = [
     pillar: "📈 Investing",
     crypto: false,
     title: "Too many choices: picking one",
-    core: "Hundreds of thousands of investment products exist and most beginners wildly overestimate the money needed to start — both make simply beginning feel harder than it is.",
+    core: "Hundreds of thousands of investment products exist and most beginners wildly overestimate the money needed to start, both make simply beginning feel harder than it is.",
     reading:
-      "<p>Open a broker and you're handed a genuine problem: hundreds of thousands of funds and shares to choose from — a landscape that didn't exist a generation ago, when the choice was a fraction of today's size. Faced with that much choice, a well-documented reaction kicks in: <b>decision paralysis</b>. In one recent survey, deciding how to invest ranked among the hardest life decisions for a large share of first-time investors — harder, for many, than choosing a career.</p><p>The way past it isn't more research — it's deliberately narrowing the decision. A single broad, low-cost, globally diversified fund (the kind covered in earlier lessons) is enough to start with. It won't be the single best-performing fund of the next ten years — nobody can pick that in advance anyway — but \"good enough and actually started\" reliably beats \"perfect but still researching\" a year from now. Complexity, if you want it, can always be added later, once the basics are running.</p><p>A second, separate misconception compounds the paralysis: people consistently overestimate how much money is needed to start at all — some surveys find beginners guessing they'd need tens of thousands of euros, when in practice many brokers allow starting with a small monthly amount, or even fractional shares. Overestimating the entry price is often the real reason someone who \"plans to start eventually\" never actually does.</p>",
+      "<p>Open a broker and you're handed a genuine problem: hundreds of thousands of funds and shares to choose from, a landscape that didn't exist a generation ago, when the choice was a fraction of today's size. Faced with that much choice, a well-documented reaction kicks in: <b>decision paralysis</b>. In one recent survey, deciding how to invest ranked among the hardest life decisions for a large share of first-time investors, harder, for many, than choosing a career.</p><p>The way past it isn't more research, it's deliberately narrowing the decision. A single broad, low-cost, globally diversified fund (the kind covered in earlier lessons) is enough to start with. It won't be the single best-performing fund of the next ten years (nobody can pick that in advance anyway), but \"good enough and actually started\" reliably beats \"perfect but still researching\" a year from now. Complexity, if you want it, can always be added later, once the basics are running.</p><p>A second, separate misconception compounds the paralysis: people consistently overestimate how much money is needed to start at all, some surveys find beginners guessing they'd need tens of thousands of euros, when in practice many brokers allow starting with a small monthly amount, or even fractional shares. Overestimating the entry price is often the real reason someone who \"plans to start eventually\" never actually does.</p>",
     example:
-      "Priya spends three weekends comparing dozens of funds, gets more confused with each new comparison, and starts nothing. A friend, less thorough but more decisive, picks one broad world-index fund from the shortlist Priya had already narrowed down and sets up a small monthly transfer that afternoon. A year later the friend has a year of contributions and compounding behind them; Priya, still \"deciding,\" has none — despite having done more research.",
+      "Priya spends three weekends comparing dozens of funds, gets more confused with each new comparison, and starts nothing. A friend, less thorough but more decisive, picks one broad world-index fund from the shortlist Priya had already narrowed down and sets up a small monthly transfer that afternoon. A year later the friend has a year of contributions and compounding behind them; Priya, still \"deciding,\" has none, despite having done more research.",
     check: [
       {
         q: "What's the recommended way to cut through hundreds of thousands of fund choices as a beginner?",
         o: [
-          "Deliberately pick one broad, low-cost, diversified fund to start — add complexity later if you want it",
+          "Deliberately pick one broad, low-cost, diversified fund to start, add complexity later if you want it",
           "Research every option thoroughly before making any decision",
           "Pick the fund with the highest recent returns",
         ],
@@ -1181,7 +1181,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "What do beginners commonly get wrong about how much money is needed to start investing?",
         o: [
-          "They significantly overestimate it — many brokers allow starting with small, regular amounts",
+          "They significantly overestimate it, many brokers allow starting with small, regular amounts",
           "They underestimate it, and end up investing far more than they can afford",
           "There's a fixed EU-wide legal minimum everyone must meet",
         ],
@@ -1195,11 +1195,11 @@ export const LESSONS: Lesson[] = [
     pillar: "🛡️ Protections & traps",
     crypto: false,
     title: "Your rights as an EU investor",
-    core: "You have real, enforceable rights as a retail investor in the EU — including a specific cross-border complaints network most people have never heard of.",
+    core: "You have real, enforceable rights as a retail investor in the EU, including a specific cross-border complaints network most people have never heard of.",
     reading:
-      "<p>When a broker asks you questions before letting you trade certain products — experience, knowledge, sometimes a short quiz — that's not gatekeeping for its own sake. EU rules require firms to check whether a product looks <b>appropriate</b> for you before you can buy it, and to warn you plainly if it doesn't. It can feel like friction. It exists because regulators found, repeatedly, that without it people ended up in products they didn't understand.</p><p>If something goes wrong — a fee you weren't told about, an order that wasn't handled properly, account access problems that never get resolved — you have a real complaints path, not just a support inbox. Step one is always the firm's own internal complaints process (every regulated broker must have one). If that doesn't resolve it, the next step is your country's <b>financial regulator or ombudsman</b>, who can investigate independently of the firm.</p><p>Here's the part almost nobody knows: if your broker is licensed in a <i>different</i> EU country than the one you live in — increasingly common as brokers operate across borders — your complaint doesn't have to go nowhere. <b>FIN-NET</b> is an EU-wide network of over 60 dispute-resolution bodies across all EU/EEA countries, built specifically to route a complaint like that to the right place, regardless of which country's rules technically apply. Knowing this one name is often the difference between giving up and actually being heard.</p>",
+      "<p>When a broker asks you questions before letting you trade certain products (experience, knowledge, sometimes a short quiz), that's not gatekeeping for its own sake. EU rules require firms to check whether a product looks <b>appropriate</b> for you before you can buy it, and to warn you plainly if it doesn't. It can feel like friction. It exists because regulators found, repeatedly, that without it people ended up in products they didn't understand.</p><p>If something goes wrong (a fee you weren't told about, an order that wasn't handled properly, account access problems that never get resolved), you have a real complaints path, not just a support inbox. Step one is always the firm's own internal complaints process (every regulated broker must have one). If that doesn't resolve it, the next step is your country's <b>financial regulator or ombudsman</b>, who can investigate independently of the firm.</p><p>Here's the part almost nobody knows: if your broker is licensed in a <i>different</i> EU country than the one you live in (increasingly common as brokers operate across borders), your complaint doesn't have to go nowhere. <b>FIN-NET</b> is an EU-wide network of over 60 dispute-resolution bodies across all EU/EEA countries, built specifically to route a complaint like that to the right place, regardless of which country's rules technically apply. Knowing this one name is often the difference between giving up and actually being heard.</p>",
     example:
-      "Elena lives in one EU country but her broker is licensed in another — common for cross-border apps. A fee dispute goes nowhere through the broker's support chat, and Elena assumes there's no one to appeal to since the broker isn't \"local.\" A quick search turns up FIN-NET, which routes her complaint to the correct dispute-resolution body for the broker's home country — resolved within weeks, at no cost to her.",
+      "Elena lives in one EU country but her broker is licensed in another, common for cross-border apps. A fee dispute goes nowhere through the broker's support chat, and Elena assumes there's no one to appeal to since the broker isn't \"local.\" A quick search turns up FIN-NET, which routes her complaint to the correct dispute-resolution body for the broker's home country, resolved within weeks, at no cost to her.",
     check: [
       {
         q: "Why do brokers ask appropriateness questions before letting you trade certain products?",
@@ -1209,7 +1209,7 @@ export const LESSONS: Lesson[] = [
           "It's optional marketing research the broker chose to add",
         ],
         a: 0,
-        why: "It's investor protection, not gatekeeping — required so people don't end up in products they don't understand.",
+        why: "It's investor protection, not gatekeeping, required so people don't end up in products they don't understand.",
       },
       {
         q: "What is FIN-NET for?",
@@ -1228,11 +1228,11 @@ export const LESSONS: Lesson[] = [
     pillar: "₿ Crypto deep-dive",
     crypto: true,
     title: "Bitcoin, specifically",
-    core: "Bitcoin isn't just \"the first crypto\" — it's a distinct decision (how much of your crypto slice, if any, is Bitcoin vs everything else) and it has a path into a normal brokerage account that most beginners never hear about.",
+    core: "Bitcoin isn't just \"the first crypto\", it's a distinct decision (how much of your crypto slice, if any, is Bitcoin vs everything else) and it has a path into a normal brokerage account that most beginners never hear about.",
     reading:
-      "<p>In 2008, someone using the name <b>Satoshi Nakamoto</b> published a short paper describing a currency with no bank or government behind it, and launched it in 2009. Nobody knows who Satoshi is. That origin — anonymous, leaderless, code instead of an institution — is the whole pitch: a fixed, predictable supply (Lesson 29's 21-million cap) that no central bank can print more of on a whim. Because of that, Bitcoin is often marketed as \"<b>digital gold</b>\" — a store of value outside the normal financial system. Be honest about the counter-evidence too: in real selloffs, Bitcoin has often moved <i>with</i> risky assets like stocks, not as a calm safe haven the way gold historically has. The scarcity is real; the \"safe haven\" story is, so far, only sometimes true.</p><p>A question this app hasn't answered yet: if you hold a crypto slice at all, does it have to include coins other than Bitcoin? There's no single right answer, but the common pattern among people who think about this carefully is to weight the large majority of any crypto slice toward <b>Bitcoin and Ethereum</b> — the two with the longest track record and deepest liquidity — and treat smaller, newer tokens as a separate, higher-risk bet layered on top, not a bigger version of the same thing. Most tokens launched in any given year end up worth a fraction of their launch price or worthless. \"Bitcoin only\" and \"Bitcoin plus a small satellite of other coins\" are both defensible; \"an even spread across whatever's trending\" usually isn't.</p><p>One more thing worth knowing, because it's genuinely useful: you can get price exposure to Bitcoin through an ordinary <b>regulated broker</b>, not just a crypto exchange — via an <b>ETP</b> (exchange-traded product) that holds real Bitcoin and trades on a normal stock exchange. This sits on the MiFID II side of the fence, not MiCA — it's a security, bought and held exactly like any other fund in your portfolio. One thing worth clearing up if you've seen US headlines: the well-known <b>US \"spot Bitcoin ETF\"</b> products are not available to EU retail investors — EU fund rules require a fund to be diversified, which rules out a fund holding a single asset. The EU-accessible route is the ETP structure specifically, a different (though economically similar) wrapper.</p>",
+      "<p>In 2008, someone using the name <b>Satoshi Nakamoto</b> published a short paper describing a currency with no bank or government behind it, and launched it in 2009. Nobody knows who Satoshi is. That origin (anonymous, leaderless, code instead of an institution) is the whole pitch: a fixed, predictable supply (Lesson 29's 21-million cap) that no central bank can print more of on a whim. Because of that, Bitcoin is often marketed as \"<b>digital gold</b>\", a store of value outside the normal financial system. Be honest about the counter-evidence too: in real selloffs, Bitcoin has often moved <i>with</i> risky assets like stocks, not as a calm safe haven the way gold historically has. The scarcity is real; the \"safe haven\" story is, so far, only sometimes true.</p><p>A question this app hasn't answered yet: if you hold a crypto slice at all, does it have to include coins other than Bitcoin? There's no single right answer, but the common pattern among people who think about this carefully is to weight the large majority of any crypto slice toward <b>Bitcoin and Ethereum</b> (the two with the longest track record and deepest liquidity) and treat smaller, newer tokens as a separate, higher-risk bet layered on top, not a bigger version of the same thing. Most tokens launched in any given year end up worth a fraction of their launch price or worthless. \"Bitcoin only\" and \"Bitcoin plus a small satellite of other coins\" are both defensible; \"an even spread across whatever's trending\" usually isn't.</p><p>One more thing worth knowing, because it's genuinely useful: you can get price exposure to Bitcoin through an ordinary <b>regulated broker</b>, not just a crypto exchange, via an <b>ETP</b> (exchange-traded product) that holds real Bitcoin and trades on a normal stock exchange. This sits on the MiFID II side of the fence, not MiCA, it's a security, bought and held exactly like any other fund in your portfolio. One thing worth clearing up if you've seen US headlines: the well-known <b>US \"spot Bitcoin ETF\"</b> products are not available to EU retail investors, EU fund rules require a fund to be diversified, which rules out a fund holding a single asset. The EU-accessible route is the ETP structure specifically, a different (though economically similar) wrapper.</p>",
     example:
-      "Felix wants Bitcoin exposure but doesn't want another exchange login and password to manage. He finds a Bitcoin ETP listed on his regular stock exchange, buys it through the same broker as his index fund, and it shows up in the same portfolio view — no wallet, no seed phrase, no separate KYC. He gives up direct self-custody in exchange for simplicity; a friend who wants to hold the actual Bitcoin, not just track its price, uses a MiCA-licensed exchange and self-custody instead. Neither choice is wrong — they're solving for different things.",
+      "Felix wants Bitcoin exposure but doesn't want another exchange login and password to manage. He finds a Bitcoin ETP listed on his regular stock exchange, buys it through the same broker as his index fund, and it shows up in the same portfolio view, no wallet, no seed phrase, no separate KYC. He gives up direct self-custody in exchange for simplicity; a friend who wants to hold the actual Bitcoin, not just track its price, uses a MiCA-licensed exchange and self-custody instead. Neither choice is wrong, they're solving for different things.",
     check: [
       {
         q: "Within a crypto slice, what's a defensible way to think about Bitcoin vs. other coins?",
@@ -1247,7 +1247,7 @@ export const LESSONS: Lesson[] = [
       {
         q: "What's true about Bitcoin ETPs available to EU retail investors?",
         o: [
-          "They're a MiFID II security bought through a normal broker — but the US \"spot Bitcoin ETF\" products themselves aren't available in the EU",
+          "They're a MiFID II security bought through a normal broker, but the US \"spot Bitcoin ETF\" products themselves aren't available in the EU",
           "They're identical products to the US spot Bitcoin ETFs, just listed in Europe",
           "They require a MiCA-licensed exchange account to buy",
         ],
@@ -1262,17 +1262,17 @@ export const LESSONS: Lesson[] = [
     crypto: true,
     tier: "plus",
     title: "Crypto & tax: the extra layer",
-    core: "Crypto adds tax events traditional investing doesn't have — swapping one coin for another can itself be taxable, and staking rewards are usually taxed as income the moment you receive them.",
+    core: "Crypto adds tax events traditional investing doesn't have, swapping one coin for another can itself be taxable, and staking rewards are usually taxed as income the moment you receive them.",
     reading:
-      "<p>Lesson 26's four questions apply to crypto too, but crypto adds a trap traditional investing doesn't have: in most EU countries, <b>swapping one coin for another</b> — trading BTC for ETH, say — is treated as if you sold the first one, even though no euros ever touched your bank account. That's a taxable event most beginners never see coming, because nothing about the transaction <i>feels</i> like a sale.</p><p><b>Staking rewards</b> add a second layer (Lesson 21 covered the risk side; this is the tax side). New coins arriving as a reward are typically taxed as <b>income</b> at the moment you receive them, valued at that day's price — and then, separately, as a capital gain or loss whenever you eventually sell them. Two tax events from one staking position, at two different times, is the normal shape, not an edge case.</p><p>Country variance is sharper here than for traditional funds: some countries (Germany, for one) exempt crypto held over a year from tax entirely; others apply a flat rate regardless of holding period. And since <b>2026</b>, a new EU rule (<b>DAC8</b>) requires licensed exchanges to report your account activity to your country's tax authority automatically — record-keeping is no longer optional or private. As always: this explains the shape of the problem, not what applies to you. <b>This is education, not tax advice.</b></p>",
+      "<p>Lesson 26's four questions apply to crypto too, but crypto adds a trap traditional investing doesn't have: in most EU countries, <b>swapping one coin for another</b> (trading BTC for ETH, say) is treated as if you sold the first one, even though no euros ever touched your bank account. That's a taxable event most beginners never see coming, because nothing about the transaction <i>feels</i> like a sale.</p><p><b>Staking rewards</b> add a second layer (Lesson 21 covered the risk side; this is the tax side). New coins arriving as a reward are typically taxed as <b>income</b> at the moment you receive them, valued at that day's price, and then, separately, as a capital gain or loss whenever you eventually sell them. Two tax events from one staking position, at two different times, is the normal shape, not an edge case.</p><p>Country variance is sharper here than for traditional funds: some countries (Germany, for one) exempt crypto held over a year from tax entirely; others apply a flat rate regardless of holding period. And since <b>2026</b>, a new EU rule (<b>DAC8</b>) requires licensed exchanges to report your account activity to your country's tax authority automatically, record-keeping is no longer optional or private. As always: this explains the shape of the problem, not what applies to you. <b>This is education, not tax advice.</b></p>",
     example:
-      "Karim buys €500 of ETH, stakes it, and six months later swaps his staking rewards for a different coin — three moves that feel like \"just managing my crypto.\" His country's tax authority sees three separate events: the staking rewards counted as income when received, and the swap counted as a disposal of whatever he swapped away. He finds out from a factsheet, not a fine — because he read Lesson 26's four questions and asked how crypto changes them before he needed to.",
+      "Karim buys €500 of ETH, stakes it, and six months later swaps his staking rewards for a different coin, three moves that feel like \"just managing my crypto.\" His country's tax authority sees three separate events: the staking rewards counted as income when received, and the swap counted as a disposal of whatever he swapped away. He finds out from a factsheet, not a fine, because he read Lesson 26's four questions and asked how crypto changes them before he needed to.",
     check: [
       {
         q: "In most EU countries, swapping one crypto coin for another is…",
         o: [
           "Typically a taxable event, even though no euros were involved",
-          "Never taxable — only cashing out to euros counts",
+          "Never taxable, only cashing out to euros counts",
           "Only taxable if you use a MiCA-licensed exchange",
         ],
         a: 0,
@@ -1286,7 +1286,139 @@ export const LESSONS: Lesson[] = [
           "They're never taxable if you keep staking",
         ],
         a: 0,
-        why: "Two separate tax events from one staking position — at two different times.",
+        why: "Two separate tax events from one staking position, at two different times.",
+      },
+    ],
+  },
+  {
+    id: "l42",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "Deepfakes & AI scams: the new machinery",
+    core: "AI made scams cheaper to produce and far more convincing, a familiar face, a fluent voice, a professional site. The tricks underneath are the old ones, and so are the defences.",
+    reading:
+      "<p>Scams used to be limited by effort: someone had to write the emails, build the fake site, run the chat. AI removed that limit. The result is industrial-scale fraud: <b>deepfake</b> videos of well-known investors and TV personalities \"launching\" trading platforms, cloned voices on phone calls, fake news pages, and chatbots that patiently build trust for weeks. The scale is real: crypto scam losses alone ran to many billions in 2025, AI-assisted scams proved several times more profitable than the manual kind, and around two-thirds of victims had less than a year of investing experience. New investors are the target market.</p><p>The current patterns to know: the <b>deepfake endorsement</b> (a famous person appears to recommend a platform, the video looks and sounds real); the <b>\"AI trading bot\"</b> (software that supposedly trades for you with guaranteed monthly returns, Lesson 13's rule applies: guaranteed + urgent = scam); and the <b>long con</b>, where a friendly stranger chats for weeks before ever mentioning an \"opportunity\", then steers you to a polished fake platform that shows fake profits until you try to withdraw.</p><p>Here's the encouraging part: AI changed the production quality, not the business model. The tells survive intact: guaranteed returns, manufactured urgency, unsolicited contact, payment in crypto only, and a platform you can't find on any regulator's register (Lesson 32). And the defence shifts from <i>detection</i> to <i>verification</i>: don't try to spot the pixels, your eyes can't referee AI video anymore. Verify the claim at the source instead. A real endorsement appears on the person's official channels; a real platform appears in the national register; a real emergency phone call can be called back on the number you already have. Never move money because of a video, a voice, or a screenshot alone.</p>",
+    example:
+      "Rui sees a slick video of a famous TV finance personality announcing her new \"AI wealth app\", already shared thousands of times. It looks completely real. Instead of judging the video, he verifies around it: her official accounts say nothing about any app, the company behind it appears in no regulator's register, and the sign-up page accepts deposits only in crypto. Three checks, three fails, five minutes. The video was a deepfake, and the thousands who judged it with their eyes funded the operation.",
+    check: [
+      {
+        q: "What did AI actually change about investment scams?",
+        o: [
+          "The production quality and scale, the underlying tricks (guarantees, urgency, unsolicited offers) are the same",
+          "It made scams undetectable, so there is no defence anymore",
+          "Very little, AI scams remain rare",
+        ],
+        a: 0,
+        why: "The business model didn't change, so the classic tells still give scams away.",
+      },
+      {
+        q: "A realistic video shows a famous investor recommending a platform. The right response?",
+        o: [
+          "Verify around the video: their official channels, the regulator's register, never act on the video alone",
+          "Trust it if the video quality looks genuine",
+          "Invest a small test amount to see if it's real",
+        ],
+        a: 0,
+        why: "Verification beats detection, your eyes can't referee AI video, but registers can't be deepfaked.",
+      },
+    ],
+  },
+  {
+    id: "l43",
+    pillar: "₿ Crypto deep-dive",
+    crypto: true,
+    title: "After MiCA: is your exchange still allowed?",
+    core: "MiCA's transition period ended on 1 July 2026. Only licensed firms may serve EU clients now, and knowing how to check, and what to do if your platform failed the cut, became practical knowledge overnight.",
+    reading:
+      "<p>Every earlier crypto lesson said \"MiCA-licensed platforms only\", and in mid-2026 that stopped being advice and became the law's hard edge: the <b>transition period</b>, the grace window during which firms could keep operating under old national rules while applying for authorisation, ended on <b>1 July 2026</b>. Of the roughly 1,200 firms that had been operating under those national regimes, only a few hundred obtained a full <b>CASP</b> licence. The rest must stop serving EU clients: regulators required wind-down plans, and users of unlicensed platforms have been hitting exactly what those plans look like from the inside: deposits disabled, trading blocked, accounts switched to withdrawal-only, and banks refusing transfers to and from the platform.</p><p>What to actually do, in order: <b>(1)</b> Check your platform against ESMA's public register of authorised CASPs (or your national regulator's list), it takes two minutes and settles the question. <b>(2)</b> If it's licensed: nothing changes, and Lesson 34's protections (asset segregation, client-asset registers) apply. <b>(3)</b> If it isn't: move your assets promptly, to a licensed exchange or into self-custody (Lesson 20), using the careful transfer ritual from Lesson 28, network check, address check, small test amount first. Don't wait: wind-down windows close, support teams shrink, and fiat off-ramps degrade as banks cut ties.</p><p>The honest framing: this is regulation working as designed, and it still hurts the people caught on the wrong side of it. The slightly better prices on unlicensed venues were never free, they were the fee for skipping protection (Lesson 34's Wiktoria learned this the expensive way). After the deadline there's no grey zone left: a platform serving EU customers without authorisation isn't \"unregulated but fine\", it's operating in breach of EU law, with everything that implies about what happens to your funds if it fails. One more thing: real <b>wind-down</b> notices exist now, which scammers imitate. A real notice tells you to log in to your account directly and withdraw; it never asks for your password, 2FA code or recovery phrase by email.</p>",
+    example:
+      "Marta and Diogo both hold crypto. Marta's exchange appears on the ESMA register: her July was uneventful. Diogo's platform didn't get licensed: he receives a wind-down email giving him until autumn to withdraw. He checks the email is real by logging in directly (not clicking the link), then moves everything to a licensed exchange with a €20 test send first. His colleague ignored the same emails for months and is now chasing the support desk of a company that is legally forbidden from serving him, hoping the withdrawal function still works.",
+    check: [
+      {
+        q: "What changed on 1 July 2026?",
+        o: [
+          "The MiCA transition ended: only authorised CASPs may serve EU clients, the rest must wind down or block EU users",
+          "Crypto became illegal in the EU",
+          "Nothing changed for users of any platform",
+        ],
+        a: 0,
+        why: "Roughly 80% of previously registered firms didn't get authorised, their EU users must move.",
+      },
+      {
+        q: "Your exchange didn't get a MiCA licence. What do you do?",
+        o: [
+          "Move assets promptly to a licensed exchange or self-custody, using the careful transfer ritual",
+          "Keep using it, unlicensed platforms are cheaper",
+          "Wait, the EU will refund anything you lose",
+        ],
+        a: 0,
+        why: "There's no deposit guarantee in crypto, and wind-down windows close. Prompt, careful transfer is the whole plan.",
+      },
+    ],
+  },
+  {
+    id: "l44",
+    pillar: "🛡️ Protections & traps",
+    crypto: false,
+    title: "Betting apps in disguise: prediction markets",
+    core: "\"Will X happen?\" markets pay all-or-nothing, exactly like the binary options the EU banned for retail in 2018, and in 2026 regulators started saying so out loud.",
+    reading:
+      "<p>A <b>prediction market</b> lets you buy a \"yes\" or a \"no\" on a future event: an election, a sports result, a central-bank decision. Guess right and you're paid a fixed amount; guess wrong and you get nothing. The apps look like investing (price charts, portfolios, \"market\" language), but the payoff structure is pure betting: <b>all-or-nothing</b>, short horizons, and nothing underneath. A share is a slice of a company that can grow for decades; a \"yes\" contract expires as a 1 or a 0. Nothing compounds.</p><p>That structure has a regulatory history. The EU <b>banned binary options</b> for retail investors back in 2018, after the same data that produced Lesson 25's CFD warnings showed most retail accounts losing. In July 2026, ESMA stated that event contracts with binary payouts can qualify as financial instruments under MiFID II, which pulls them under that same retail prohibition. Several countries had already acted platform by platform: blocks at internet-provider level, sanction proceedings, gambling-licence enforcement. The direction is unmistakable: EU regulators see these as banned products or unlicensed gambling, not as investing.</p><p>Why it matters for you: the pull is the same slot-machine loop as leverage trading (Lesson 25), fast feedback, near-misses, and the \"I know things\" feeling (Lesson 14's overconfidence, on fast-forward). And the survivorship math is the same too: the one winning bet gets remembered and posted; the losing ones fund it quietly (Lesson 13). If you use these apps at all, that money is entertainment budget, like a football bet, never part of a plan. And a platform still serving EU retail customers after the 2026 statements is increasingly operating outside EU rules entirely, meaning if something goes wrong, the complaint routes from Lesson 39 don't exist for you.</p>",
+    example:
+      "Tiago follows politics closely and sees an election \"yes\" trading at 62 cents that he's sure is worth a euro. It feels like cheap value, like investing with an edge. Then he runs the checks from this lesson: the payoff is all-or-nothing (no compounding, ever), the platform holds no EU authorisation of any kind, and scrolling his own history he finds four forgotten losing bets behind the one win he tells people about. He keeps his election opinions for dinner conversation, where they're free.",
+    check: [
+      {
+        q: "How does a prediction-market bet differ from an investment?",
+        o: [
+          "It pays all-or-nothing and expires: there's no productive asset and nothing compounds",
+          "It's the same as an index fund, just with better odds",
+          "It's safer, because outcomes are known in advance",
+        ],
+        a: 0,
+        why: "A share can grow for decades; an event contract resolves to 1 or 0 and is gone.",
+      },
+      {
+        q: "How do EU regulators treat binary-payout event contracts as of 2026?",
+        o: [
+          "ESMA says they can be financial instruments, which pulls them under the 2018 retail ban on binary options; several countries block the platforms",
+          "They're fully licensed for EU retail investors everywhere",
+          "The EU created a special retail licence just for prediction markets",
+        ],
+        a: 0,
+        why: "Banned product or unlicensed gambling, either way, EU retail access is being shut, and complaint routes don't exist on non-compliant platforms.",
+      },
+    ],
+  },
+  {
+    id: "l45",
+    pillar: "🧠 Your brain & money",
+    crypto: false,
+    title: "Asking AI about money: a user's guide",
+    core: "AI chatbots are genuinely useful for learning about money and genuinely dangerous as personal advisers. Knowing where that line sits is a new, real literacy skill.",
+    reading:
+      "<p>The shift already happened: most young investors now get financial information from social media or AI, and surveys find around two-thirds of Gen Z say they trust AI platforms for financial guidance, more than trust finfluencers. It's easy to see why: instant, patient, free, no judgment. But an AI chatbot has one property you must never forget: it answers <i>fluently whether it's right or wrong</i>. Confidence is part of the interface, not evidence of accuracy, and a fabricated fund name arrives in the same reassuring tone as a correct definition.</p><p>Where AI genuinely helps: explaining concepts and vocabulary (\"what does accumulating mean?\"), summarising a document you paste in (a KID, Lesson 23), rehearsing questions before you talk to a professional, and sanity-checking a pitch (\"does this message look like a scam?\", it's quite good at that). Where it fails: <b>personal advice</b> (it doesn't know your country's taxes, your debts, or your risk capacity, and often answers as if everyone lives in the US), <b>product picks</b> (its training data ages, funds close and rename, and it can invent plausible-sounding ones), and <b>predictions</b> (nobody knows, Lesson 13, and an AI saying it confidently doesn't change that).</p><p>The structural difference matters more than the accuracy difference: a licensed adviser operates inside the machinery of Lesson 39, appropriateness checks, a register you can verify, a complaints process, an ombudsman, FIN-NET. A chatbot has no licence, no liability, and no register entry. When it's wrong, nothing happens, to it. So the working rules: use AI to <b>understand</b>, never to <b>decide</b> alone; ask where a claim comes from and verify anything that names a specific product; never paste in account credentials or documents with your personal details; and treat a confident specific recommendation (\"buy this fund, this coin\") as a signal to go verify elsewhere, not to act. That rule applies to everything unlicensed, this app included: education explains concepts, it never picks products for you.</p>",
+    example:
+      "Lena asks a chatbot to explain accumulating vs distributing ETFs and gets a clear, correct answer in seconds, better than an hour of scattered googling. Encouraged, she asks \"which ETF should I buy?\" and receives a confident five-fund list, one of which was renamed out of existence two years ago, with no mention of her country's taxes at all. She takes the concept, discards the shopping list, and checks real fund facts on the provider's own factsheet (Lesson 23). Same tool, two questions, one useful answer: the difference was which question she asked it.",
+    check: [
+      {
+        q: "What is an AI chatbot good for with money, and what is it bad at?",
+        o: [
+          "Good for explaining concepts and documents; bad for personal advice and product picks, it answers confidently even when wrong",
+          "Good for everything, it knows more than any adviser",
+          "Bad for everything, never use it for financial topics",
+        ],
+        a: 0,
+        why: "Fluency isn't accuracy: use it to understand, verify anything specific, and never decide on its word alone.",
+      },
+      {
+        q: "The key structural difference between a chatbot and a licensed adviser?",
+        o: [
+          "An adviser carries legal duties, a register entry, and complaint routes (ombudsman, FIN-NET); a chatbot has no licence and no liability",
+          "Advisers are always right and chatbots are always wrong",
+          "There is no meaningful difference",
+        ],
+        a: 0,
+        why: "When a chatbot is wrong, nothing happens to it. Lesson 39's machinery only exists on the licensed side.",
       },
     ],
   },
@@ -1294,3 +1426,11 @@ export const LESSONS: Lesson[] = [
 
 /** Lessons available on the free tier (Plus-marked lessons excluded). */
 export const FREE_LESSONS: Lesson[] = LESSONS.filter((l) => l.tier !== "plus");
+
+/**
+ * Pillars shown in the separate "Advanced" section at the bottom of the
+ * lessons list. Optional deep dives, not part of the core beginner path.
+ * Tier (free vs Plus) is set per lesson and independent of this: safety
+ * content in an advanced pillar stays free (never paywall scam/safety).
+ */
+export const ADVANCED_PILLARS: string[] = ["₿ Crypto deep-dive"];

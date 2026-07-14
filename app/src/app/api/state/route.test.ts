@@ -57,16 +57,25 @@ describe("GET /api/state", () => {
 
   it("returns null state when no row exists", async () => {
     authMock.mockResolvedValue(SESSION);
-    selectWhere.mockResolvedValue([]);
+    selectWhere.mockResolvedValueOnce([]).mockResolvedValueOnce([]);
     const res = await GET(getReq());
     expect(await res.json()).toEqual({ state: null, plan: "free" });
   });
 
   it("returns the stored state", async () => {
     authMock.mockResolvedValue(SESSION);
-    selectWhere.mockResolvedValue([{ state: VALID_STATE }]);
+    selectWhere.mockResolvedValueOnce([{ state: VALID_STATE }]).mockResolvedValueOnce([]);
     const res = await GET(getReq());
     expect(await res.json()).toEqual({ state: VALID_STATE, plan: "free" });
+  });
+
+  it("returns plan 'plus' for an active subscription", async () => {
+    authMock.mockResolvedValue(SESSION);
+    selectWhere
+      .mockResolvedValueOnce([{ state: VALID_STATE }])
+      .mockResolvedValueOnce([{ status: "active", currentPeriodEnd: new Date(Date.now() + 100_000) }]);
+    const res = await GET(getReq());
+    expect(await res.json()).toEqual({ state: VALID_STATE, plan: "plus" });
   });
 });
 

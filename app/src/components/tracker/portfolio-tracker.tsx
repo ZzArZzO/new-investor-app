@@ -83,7 +83,7 @@ export function PortfolioTracker() {
       <div className="rounded-2xl bg-gradient-to-br from-accent-soft to-card p-5">
         <div className="text-xs font-bold uppercase tracking-wide text-primary">Monthly habit · dollar-cost averaging</div>
         <p className="mt-2 text-[15px] font-semibold">
-          {loggedToday ? "✓ Logged today — the boring habit is what does the work." : "Invested this month? Log it to build the habit."}
+          {loggedToday ? "✓ Logged today, the boring habit is what does the work." : "Invested this month? Log it to build the habit."}
         </p>
         <p className="mt-1 text-sm text-muted-foreground">
           Contributions logged: {state.contributions.count} · streak 🔥 {state.streak.count || 0}
@@ -95,7 +95,7 @@ export function PortfolioTracker() {
 
       {empty ? (
         <div className="rounded-2xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-          No holdings yet. Add what you already hold — or plan to — below. By asset type, no prices needed.
+          No holdings yet. Add what you already hold, or plan to, below. By asset type, no prices needed.
         </div>
       ) : (
         <div className="rounded-2xl bg-card p-4 shadow-sm">

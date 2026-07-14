@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import type { LessonCheck } from "@/content/types";
+import { checkOptionOrder } from "@/lib/check-order";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, FeedbackBox } from "@/components/ui";
 
@@ -13,6 +14,7 @@ interface LessonQuickCheckProps {
 export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProps) {
   const { colors } = useTheme();
   const [answers, setAnswers] = useState<(number | null)[]>(() => checks.map(() => null));
+  const orders = useMemo(() => checks.map(checkOptionOrder), [checks]);
 
   function pick(qi: number, oi: number) {
     if (answers[qi] !== null) return;
@@ -41,7 +43,8 @@ export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProp
                 {c.q}
               </AppText>
               <View style={{ gap: 8 }}>
-                {c.o.map((text, oi) => {
+                {orders[qi].map((oi) => {
+                  const text = c.o[oi];
                   const isCorrect = oi === c.a;
                   const isPicked = oi === picked;
                   const border = answered && isCorrect ? colors.primary : answered && isPicked ? colors.destructive : colors.border;

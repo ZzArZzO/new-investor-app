@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { feeErosion, fvSeries, sandboxPath } from "./tool-math";
+import { feeErosion, fvSeries, rebalanceWeights, sandboxPath } from "./tool-math";
 
 describe("fvSeries", () => {
   it("starts at zero with no contributions made yet", () => {
@@ -63,5 +63,37 @@ describe("sandboxPath", () => {
   it("avoids dividing by zero when all weights are zero", () => {
     const { path } = sandboxPath(0, 0, 0, flat);
     expect(Number.isFinite(path[0])).toBe(true);
+  });
+});
+
+describe("rebalanceWeights", () => {
+  it("keeps the changed value and scales the others to fill 100", () => {
+    const next = rebalanceWeights([60, 30, 10], 0, 40);
+    expect(next[0]).toBe(40);
+    expect(next[0] + next[1] + next[2]).toBe(100);
+    expect(next[1]).toBeGreaterThan(next[2]);
+  });
+
+  it("always sums to exactly 100 across the step grid", () => {
+    for (let v = 0; v <= 100; v += 5) {
+      const next = rebalanceWeights([40, 90, 10], 1, v);
+      expect(next[0] + next[1] + next[2]).toBe(100);
+      expect(next[1]).toBe(v);
+    }
+  });
+
+  it("splits the remainder evenly when the other two weights are zero", () => {
+    const next = rebalanceWeights([100, 0, 0], 0, 50);
+    expect(next).toEqual([50, 25, 25]);
+  });
+
+  it("clamps out-of-range values into 0-100", () => {
+    expect(rebalanceWeights([60, 30, 10], 2, 150)[2]).toBe(100);
+    expect(rebalanceWeights([60, 30, 10], 2, -20)[2]).toBe(0);
+  });
+
+  it("keeps results on the step grid", () => {
+    const next = rebalanceWeights([35, 55, 10], 0, 70);
+    for (const w of next) expect(w % 5).toBe(0);
   });
 });

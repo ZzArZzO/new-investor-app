@@ -5,16 +5,16 @@ import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { useAppStateContext } from "@/hooks/app-state-context";
-import { exportState } from "@/lib/app-state-transfer";
+import { exportState, importState } from "@/lib/app-state-transfer";
 
 type AuthMode = "signin" | "signup";
 type DeleteStatus = "idle" | "confirming" | "deleting" | "error";
 
-const GENERIC_AUTH_ERROR = "That didn't work — check your details and try again.";
+const GENERIC_AUTH_ERROR = "That didn't work, check your details and try again.";
 
 export default function SettingsPage() {
   const { data: session, status: sessionStatus } = useSession();
-  const { state, hydrated, migrationNotice, dismissMigrationNotice, toggleEmailPref } = useAppStateContext();
+  const { state, hydrated, plan, migrationNotice, dismissMigrationNotice, toggleEmailPref, replaceState } = useAppStateContext();
   const [mode, setMode] = useState<AuthMode>("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,6 +22,24 @@ export default function SettingsPage() {
   const [authError, setAuthError] = useState<string | null>(null);
   const [deleteStatus, setDeleteStatus] = useState<DeleteStatus>("idle");
   const [copied, setCopied] = useState(false);
+  const [oldCopied, setOldCopied] = useState(false);
+  const [showCode, setShowCode] = useState(false);
+  const [restoreOpen, setRestoreOpen] = useState(false);
+  const [restoreText, setRestoreText] = useState("");
+  const [restoreStatus, setRestoreStatus] = useState<"idle" | "done" | "error">("idle");
+  const [portalLoading, setPortalLoading] = useState(false);
+
+  async function handleManageBilling() {
+    setPortalLoading(true);
+    try {
+      const res = await fetch("/api/billing/portal", { method: "POST" });
+      if (!res.ok) throw new Error("Portal session failed");
+      const body: { url: string } = await res.json();
+      window.location.href = body.url;
+    } catch {
+      setPortalLoading(false);
+    }
+  }
 
   if (!hydrated || sessionStatus === "loading") return null;
 
@@ -66,8 +84,34 @@ export default function SettingsPage() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {
-      // Clipboard API may be unavailable — the textarea below still lets someone select-and-copy manually.
+      // Clipboard API unavailable: reveal the code so it can be selected and copied manually.
+      setShowCode(true);
     }
+  }
+
+  async function handleCopyOldLocal() {
+    // While signed in, localStorage still holds this device's pre-sign-in
+    // progress (the signed-in persistence path never writes to it).
+    const raw = window.localStorage.getItem("ni_state_v1");
+    if (!raw) return;
+    try {
+      await navigator.clipboard.writeText(raw);
+      setOldCopied(true);
+      setTimeout(() => setOldCopied(false), 2000);
+    } catch {
+      // Clipboard unavailable: nothing sensible to fall back to inside the notice.
+    }
+  }
+
+  function handleRestore() {
+    const next = importState(restoreText);
+    if (!next) {
+      setRestoreStatus("error");
+      return;
+    }
+    replaceState(next);
+    setRestoreStatus("done");
+    setRestoreText("");
   }
 
   return (
@@ -82,12 +126,17 @@ export default function SettingsPage() {
       {migrationNotice && (
         <div className="rounded-2xl bg-amber-soft p-4 text-[13.5px] shadow-sm">
           <p>
-            We found existing saved progress under this email. This device&rsquo;s local progress wasn&rsquo;t added
-            to it — back it up below before it&rsquo;s replaced, if you want to keep it.
+            We found existing saved progress under this email, so this device now shows that. The progress made here
+            before signing in wasn&rsquo;t added to it. Copy it here if you want to keep it.
           </p>
-          <Button type="button" variant="ghost" onClick={dismissMigrationNotice} className="mt-2 h-8">
-            Got it
-          </Button>
+          <div className="mt-2 flex gap-2">
+            <Button type="button" variant="outline" onClick={handleCopyOldLocal} className="h-8">
+              {oldCopied ? "Copied!" : "Copy old progress code"}
+            </Button>
+            <Button type="button" variant="ghost" onClick={dismissMigrationNotice} className="h-8">
+              Got it
+            </Button>
+          </div>
         </div>
       )}
 
@@ -127,7 +176,7 @@ export default function SettingsPage() {
               </div>
             )}
             {deleteStatus === "error" && (
-              <p className="text-[12.5px] text-destructive">Something went wrong — try again in a moment.</p>
+              <p className="text-[12.5px] text-destructive">Something went wrong, try again in a moment.</p>
             )}
           </div>
         ) : (
@@ -188,6 +237,18 @@ export default function SettingsPage() {
         )}
       </div>
 
+      {session?.user && plan === "plus" && (
+        <div className="rounded-2xl bg-card p-4 shadow-sm">
+          <div className="text-xs font-bold uppercase tracking-wide text-primary">Plus subscription</div>
+          <p className="mt-1.5 text-[13px] text-muted-foreground">
+            Manage your plan, payment method, or cancel, handled by Stripe.
+          </p>
+          <Button type="button" variant="outline" onClick={handleManageBilling} disabled={portalLoading} className="mt-2 h-9">
+            {portalLoading ? "Opening…" : "Manage subscription"}
+          </Button>
+        </div>
+      )}
+
       {session?.user && (
         <div className="rounded-2xl bg-card p-4 shadow-sm">
           <div className="text-xs font-bold uppercase tracking-wide text-primary">Email preferences</div>
@@ -217,25 +278,69 @@ export default function SettingsPage() {
         </div>
       )}
 
+      {!session?.user && (
       <div className="rounded-2xl bg-card p-4 shadow-sm">
-        <div className="text-xs font-bold uppercase tracking-wide text-primary">Back up my progress</div>
+        <div className="text-xs font-bold uppercase tracking-wide text-primary">Back up &amp; restore</div>
         <p className="mt-1.5 text-[13px] text-muted-foreground">
-          A copy of your progress as a code, in case you ever need it outside your account.
+          Without an account, progress lives only in this browser. Copy a backup code to keep somewhere safe, or paste
+          one to bring progress onto this device.
         </p>
-        <textarea
-          readOnly
-          value={exportState(state)}
-          rows={4}
-          className="mt-2 w-full resize-none rounded-lg border border-border bg-background p-2 font-mono text-[11px] text-muted-foreground"
-        />
-        <Button type="button" variant="outline" onClick={handleCopy} className="mt-2.5 h-9">
-          {copied ? "Copied!" : "Copy code"}
-        </Button>
+        <div className="mt-2 flex gap-2">
+          <Button type="button" variant="outline" onClick={handleCopy} className="h-9">
+            {copied ? "Copied!" : "Copy backup code"}
+          </Button>
+          <Button
+            type="button"
+            variant="ghost"
+            onClick={() => {
+              setRestoreOpen((v) => !v);
+              setRestoreStatus("idle");
+            }}
+            className="h-9"
+          >
+            Restore from a code
+          </Button>
+        </div>
+        {showCode && (
+          <textarea
+            readOnly
+            value={exportState(state)}
+            rows={4}
+            className="mt-2 w-full resize-none rounded-lg border border-border bg-background p-2 font-mono text-[11px] text-muted-foreground"
+          />
+        )}
+        {restoreOpen && (
+          <div className="mt-2">
+            <textarea
+              value={restoreText}
+              onChange={(e) => {
+                setRestoreText(e.target.value);
+                setRestoreStatus("idle");
+              }}
+              placeholder="Paste your backup code here"
+              rows={3}
+              className="w-full resize-none rounded-lg border border-border bg-background p-2 font-mono text-[11px]"
+            />
+            <p className="mt-1 text-[12px] text-muted-foreground">
+              Restoring replaces the progress currently on this device.
+            </p>
+            <Button type="button" onClick={handleRestore} disabled={restoreText.trim() === ""} className="mt-2 h-9">
+              Restore
+            </Button>
+            {restoreStatus === "error" && (
+              <p className="mt-1.5 text-[12.5px] text-destructive">
+                That doesn&rsquo;t look like a backup code. Paste the full code, exactly as it was copied.
+              </p>
+            )}
+            {restoreStatus === "done" && <p className="mt-1.5 text-[12.5px] font-semibold">✓ Progress restored.</p>}
+          </div>
+        )}
       </div>
+      )}
 
       <p className="mt-2 px-1 text-center text-[11.5px] leading-relaxed text-muted-foreground">
         Educational information, not personal financial advice. If you create an account, we store your email and app
-        progress to sync it across devices — nothing else.
+        progress to sync it across devices, nothing else.
       </p>
       <p className="px-1 pb-2 text-center text-[11.5px] text-muted-foreground">
         <Link href="/privacy" className="underline">

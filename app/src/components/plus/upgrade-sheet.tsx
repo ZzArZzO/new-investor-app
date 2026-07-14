@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { trackEvent } from "@/lib/analytics";
+import { PLUS_CHECKOUT_ENABLED } from "@/lib/plus-flag";
 import { cn } from "@/lib/utils";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xgojdqvj";
@@ -34,24 +35,26 @@ function rememberJoined(): void {
   try {
     window.localStorage.setItem(WAITLIST_KEY, "1");
   } catch {
-    // Best effort — the success state still shows for this session.
+    // Best effort, the success state still shows for this session.
   }
 }
 
 interface UpgradeSheetProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  /** Which surface opened the sheet — analytics only, low-cardinality. */
+  /** Which surface opened the sheet, analytics only, low-cardinality. */
   feature: string;
 }
 
 /**
- * The Plus tier is not purchasable yet — this sheet shows the planned tier
+ * The Plus tier is not purchasable yet, this sheet shows the planned tier
  * honestly ("coming soon") and captures a waitlist email to measure
  * willingness-to-pay before any billing is built.
  */
 export function UpgradeSheet({ open, onOpenChange, feature }: UpgradeSheetProps) {
   const [status, setStatus] = useState<Status>("idle");
+  const [checkoutInterval, setCheckoutInterval] = useState<"monthly" | "annual" | null>(null);
+  const [checkoutError, setCheckoutError] = useState(false);
   // Dialog content only mounts client-side after user interaction, so reading
   // localStorage during render is hydration-safe here.
   const joined = open && hasJoinedWaitlist();
@@ -60,6 +63,24 @@ export function UpgradeSheet({ open, onOpenChange, feature }: UpgradeSheetProps)
     if (!open) return;
     trackEvent("upgrade_sheet_viewed", { feature, price_shown: PRICE_SHOWN });
   }, [open, feature]);
+
+  async function handleCheckout(interval: "monthly" | "annual") {
+    setCheckoutInterval(interval);
+    setCheckoutError(false);
+    try {
+      const res = await fetch("/api/billing/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ interval }),
+      });
+      if (!res.ok) throw new Error("Checkout session failed");
+      const body: { url: string } = await res.json();
+      window.location.href = body.url;
+    } catch {
+      setCheckoutError(true);
+      setCheckoutInterval(null);
+    }
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -88,7 +109,7 @@ export function UpgradeSheet({ open, onOpenChange, feature }: UpgradeSheetProps)
         <DialogHeader>
           <DialogTitle>New Investor Plus</DialogTitle>
           <DialogDescription>
-            Coming soon — deeper tracks and tools on top of everything that stays free.
+            Coming soon, deeper tracks and tools on top of everything that stays free.
           </DialogDescription>
         </DialogHeader>
 
@@ -111,15 +132,41 @@ export function UpgradeSheet({ open, onOpenChange, feature }: UpgradeSheetProps)
 
         <p className="text-[12.5px] text-muted-foreground">
           Everything you use today stays free: all core lessons, the daily habit, tools, tracker and the comparison
-          tables. Plus adds depth — it never changes what anyone is shown or recommended. When Plus launches
-          you&rsquo;ll be able to cancel in two clicks — no phone call, no retention flow.
+          tables. Plus adds depth, it never changes what anyone is shown or recommended. When Plus launches
+          you&rsquo;ll be able to cancel in two clicks, no phone call, no retention flow.
         </p>
 
-        {onList ? (
+        {PLUS_CHECKOUT_ENABLED ? (
+          <div className="flex flex-col gap-2">
+            <Button
+              type="button"
+              onClick={() => handleCheckout("annual")}
+              disabled={checkoutInterval !== null}
+              className={cn("h-10 rounded-xl")}
+            >
+              {checkoutInterval === "annual" ? "Redirecting…" : `Subscribe, ${PLUS_PRICE_ANNUAL}`}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => handleCheckout("monthly")}
+              disabled={checkoutInterval !== null}
+              className="h-10 rounded-xl"
+            >
+              {checkoutInterval === "monthly" ? "Redirecting…" : `Subscribe, ${PLUS_PRICE_MONTHLY}`}
+            </Button>
+            {checkoutError && (
+              <p className="text-[12.5px] text-destructive">Something went wrong, try again in a moment.</p>
+            )}
+            <p className="text-[11.5px] text-muted-foreground">
+              Handled by Stripe Checkout. Cancel anytime from account settings, no phone call, no retention flow.
+            </p>
+          </div>
+        ) : onList ? (
           <div className="rounded-xl bg-accent-soft px-4 py-3.5 text-center">
             <p className="text-[14.5px] font-semibold">You&rsquo;re on the list. 🎉</p>
             <p className="mt-1 text-[12.5px] text-muted-foreground">
-              We&rsquo;ll email you when Plus launches — founding members get a discount.
+              We&rsquo;ll email you when Plus launches, founding members get a discount.
             </p>
           </div>
         ) : (
@@ -139,10 +186,10 @@ export function UpgradeSheet({ open, onOpenChange, feature }: UpgradeSheetProps)
               {status === "submitting" ? "Sending…" : "Join the waitlist"}
             </Button>
             {status === "error" && (
-              <p className="text-[12.5px] text-destructive">Something went wrong — try again in a moment.</p>
+              <p className="text-[12.5px] text-destructive">Something went wrong, try again in a moment.</p>
             )}
             <p className="text-[11.5px] text-muted-foreground">
-              No payment, no spam — one email when it launches, founding-member discount included.
+              No payment, no spam, one email when it launches, founding-member discount included.
             </p>
           </form>
         )}

@@ -55,7 +55,7 @@ export const SANDBOX_SCENARIOS: SandboxScenario[] = [
   {
     id: "sideways",
     name: "Boring and sideways",
-    desc: "No drama either way — the decade where the habit matters more than the market.",
+    desc: "No drama either way, the decade where the habit matters more than the market.",
     ret: {
       index: [0.04, 0.02, 0.05, 0.01, 0.03, 0.04, 0.02, 0.05, 0.03, 0.04],
       bonds: [0.03, 0.02, 0.03, 0.03, 0.02, 0.03, 0.03, 0.02, 0.03, 0.03],

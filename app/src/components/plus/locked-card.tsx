@@ -7,11 +7,11 @@ import { UpgradeSheet } from "./upgrade-sheet";
 interface LockedCardProps {
   title: string;
   description: string;
-  /** Which surface this is — passed through to upgrade-sheet analytics. */
+  /** Which surface this is, passed through to upgrade-sheet analytics. */
   feature: string;
 }
 
-/** A dashed "Plus — coming soon" teaser card that opens the upgrade sheet. */
+/** A dashed "Plus, coming soon" teaser card that opens the upgrade sheet. */
 export function LockedCard({ title, description, feature }: LockedCardProps) {
   const [open, setOpen] = useState(false);
 

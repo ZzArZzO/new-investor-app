@@ -27,7 +27,7 @@ export function LessonView({ lesson }: LessonViewProps) {
   const toolId = LESSON_TOOLS[lesson.id];
   const ToolComponent = toolId ? TOOL_COMPONENTS[toolId] : null;
 
-  // Plus-tier lessons aren't purchasable yet — direct links get the honest teaser, not the
+  // Plus-tier lessons aren't purchasable yet, direct links get the honest teaser, not the
   // content. Only while the fake-door test is switched on; otherwise everything is free.
   if (PLUS_FAKEDOOR_ENABLED && lesson.tier === "plus" && plan !== "plus") {
     return (
@@ -36,14 +36,16 @@ export function LessonView({ lesson }: LessonViewProps) {
           <ChevronLeft className="size-4" aria-hidden="true" />
           All lessons
         </Link>
-        <div className="text-xs font-bold uppercase tracking-wide text-primary">{lesson.pillar}</div>
+        <div className="text-xs font-bold uppercase tracking-wide text-primary">
+          Lesson {lesson.id.slice(1)} · {lesson.pillar}
+        </div>
         <h2 className="mt-1 font-heading text-xl font-medium">{lesson.title}</h2>
         <div className="my-3.5 rounded-lg bg-accent-soft px-3.5 py-3 text-[15px]">
           <b>The idea:</b> {lesson.core}
         </div>
         <LockedCard
           title="This lesson is part of Plus"
-          description="Plus is coming soon — join the waitlist and we'll email you when it launches."
+          description="Plus is coming soon, join the waitlist and we'll email you when it launches."
           feature="lesson_page"
         />
       </div>

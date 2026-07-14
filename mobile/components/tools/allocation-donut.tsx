@@ -1,6 +1,7 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { View } from "react-native";
 
+import { rebalanceWeights } from "@/lib/tool-math";
 import { useAppState } from "@/lib/app-state";
 import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
@@ -11,18 +12,8 @@ import { ToolShell } from "@/components/tools/tool-shell";
 export function AllocationDonut() {
   const { colors } = useTheme();
   const { recordToolUse } = useAppState();
-  const [core, setCore] = useState(70);
-  const [satellite, setSatellite] = useState(20);
-  const [crypto, setCrypto] = useState(10);
-
-  const { corePct, satellitePct, cryptoPct } = useMemo(() => {
-    const total = core + satellite + crypto || 1;
-    return {
-      corePct: (core / total) * 100,
-      satellitePct: (satellite / total) * 100,
-      cryptoPct: (crypto / total) * 100,
-    };
-  }, [core, satellite, crypto]);
+  const [weights, setWeights] = useState<[number, number, number]>([70, 20, 10]);
+  const [corePct, satellitePct, cryptoPct] = weights;
 
   const data = [
     { key: "core", label: "Diversified core", value: corePct, color: colors.primary },
@@ -32,16 +23,17 @@ export function AllocationDonut() {
 
   const message =
     cryptoPct <= 5
-      ? "A small, bounded crypto slice — the shape most long-term plans use. If it went to zero, the plan barely notices."
+      ? "A small, bounded crypto slice, the shape most long-term plans use. If it went to zero, the plan barely notices."
       : cryptoPct <= 20
         ? "A noticeable but still-bounded crypto slice. Worth asking Lesson 8's question honestly before you size it."
         : "That's a large high-risk slice. Lesson 8's test: if it went to zero tomorrow, would it change your life? If yes, it's too big.";
 
   const danger = cryptoPct > 20;
 
-  function handleChange(setter: (v: number) => void) {
+  // Moving one stepper rebalances the other two so the split always sums to 100%.
+  function handleWeight(changed: number) {
     return (v: number) => {
-      setter(v);
+      setWeights((w) => rebalanceWeights(w, changed, v));
       recordToolUse();
     };
   }
@@ -51,11 +43,11 @@ export function AllocationDonut() {
       icon="🍩"
       title="Core + satellite"
       subtitle="Shape a core-and-satellite split and read the honest gut-check on your crypto slice."
-      note="Illustrative shapes in percentages only — it never uses your real money, income or savings, and is not a recommendation to hold any particular mix."
+      note="Illustrative shapes in percentages only, it never uses your real money, income or savings, and is not a recommendation to hold any particular mix."
     >
-      <Stepper label="Diversified core %" min={0} max={100} step={5} value={core} display={`${core}%`} onChange={handleChange(setCore)} />
-      <Stepper label="Satellite (stocks/sector) %" min={0} max={100} step={5} value={satellite} display={`${satellite}%`} onChange={handleChange(setSatellite)} />
-      <Stepper label="Crypto slice %" min={0} max={100} step={5} value={crypto} display={`${crypto}%`} onChange={handleChange(setCrypto)} />
+      <Stepper label="Diversified core %" min={0} max={100} step={5} value={corePct} display={`${corePct}%`} onChange={handleWeight(0)} />
+      <Stepper label="Satellite (stocks/sector) %" min={0} max={100} step={5} value={satellitePct} display={`${satellitePct}%`} onChange={handleWeight(1)} />
+      <Stepper label="Crypto slice %" min={0} max={100} step={5} value={cryptoPct} display={`${cryptoPct}%`} onChange={handleWeight(2)} />
 
       <View style={{ marginTop: 16, flexDirection: "row", alignItems: "center", gap: 16 }}>
         <Donut slices={data} />

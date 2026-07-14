@@ -2,7 +2,7 @@ import { track } from "@vercel/analytics";
 
 /**
  * The curated set of product events we send to Vercel Web Analytics. Kept
- * small and low-cardinality on purpose — these are the retention signals that
+ * small and low-cardinality on purpose, these are the retention signals that
  * gate Phase 2 (do people come back and take repeated actions?), not a
  * firehose. No personal data is ever attached.
  */

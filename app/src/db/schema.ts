@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, jsonb, integer, primaryKey } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, jsonb, integer, boolean, primaryKey } from "drizzle-orm/pg-core";
 import type { AdapterAccountType } from "next-auth/adapters";
 
 export const users = pgTable("user", {
@@ -68,4 +68,33 @@ export const userAppState = pgTable("user_app_state", {
   // "YYYY-MM-DD" idempotency guards for the retention cron jobs.
   streakWarningSentOn: text("streakWarningSentOn"),
   weeklyDigestSentOn: text("weeklyDigestSentOn"),
+});
+
+/**
+ * Plus billing entitlement, one row per user. Written only by the Stripe
+ * webhook/checkout flow (src/app/api/stripe/webhook, src/app/api/billing) —
+ * never from client-writable state. See subscription-plan.md Phase B.
+ */
+export const subscriptions = pgTable("subscription", {
+  userId: text("userId")
+    .primaryKey()
+    .references(() => users.id, { onDelete: "cascade" }),
+  stripeCustomerId: text("stripeCustomerId").notNull(),
+  stripeSubscriptionId: text("stripeSubscriptionId"),
+  status: text("status").notNull(),
+  priceId: text("priceId"),
+  currentPeriodEnd: timestamp("currentPeriodEnd", { mode: "date" }),
+  cancelAtPeriodEnd: boolean("cancelAtPeriodEnd").notNull().default(false),
+  updatedAt: timestamp("updatedAt", { mode: "date" }).notNull().defaultNow(),
+});
+
+/**
+ * Fixed-window rate-limit counters (see src/lib/rate-limit.ts). DB-backed on
+ * purpose: serverless instances share no memory, and this needs no extra
+ * infrastructure. Key format: "<scope>:<identifier>", e.g. "register:1.2.3.4".
+ */
+export const rateLimits = pgTable("rate_limit", {
+  key: text("key").primaryKey(),
+  windowStart: timestamp("windowStart", { mode: "date" }).notNull(),
+  count: integer("count").notNull().default(1),
 });

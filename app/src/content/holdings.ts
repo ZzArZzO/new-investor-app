@@ -1,6 +1,6 @@
 import type { HoldingTypeMeta } from "./types";
 
-// Asset *types* only — never named products or coins. Colours mirror the
+// Asset *types* only, never named products or coins. Colours mirror the
 // allocation donut used elsewhere.
 export const HOLDING_TYPES: HoldingTypeMeta[] = [
   { id: "index", label: "World index / ETF", color: "var(--primary)" },

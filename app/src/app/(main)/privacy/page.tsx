@@ -43,7 +43,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             <strong>Your app progress:</strong> lessons completed, streaks, quiz result, and any holdings you choose to
-            track. Holdings are figures <em>you type in</em> — the app fetches no prices and connects to no bank or
+            track. Holdings are figures <em>you type in</em>, the app fetches no prices and connects to no bank or
             broker.
           </li>
           <li>
@@ -56,18 +56,18 @@ export default function PrivacyPage() {
       <Section title="Why we use it (lawful basis)">
         <ul className="mt-1 flex list-disc flex-col gap-1.5 pl-5">
           <li>
-            <strong>To run your account and sync your progress</strong> across devices — because you asked us to
+            <strong>To run your account and sync your progress</strong> across devices, because you asked us to
             (performance of a contract).
           </li>
           <li>
-            <strong>To send you a streak reminder or a weekly summary</strong> — only if you have an account. You can
+            <strong>To send you a streak reminder or a weekly summary</strong>, only if you have an account. You can
             turn each off at any time in Settings &rarr; Email preferences, and every email reminds you how.
           </li>
           <li>
-            <strong>To keep the waitlist and tell you when we launch</strong> — based on your request to be notified.
+            <strong>To keep the waitlist and tell you when we launch</strong>, based on your request to be notified.
           </li>
           <li>
-            <strong>To understand aggregate usage</strong> and improve the app — our legitimate interest, using data
+            <strong>To understand aggregate usage</strong> and improve the app, our legitimate interest, using data
             that does not identify you.
           </li>
         </ul>
@@ -78,19 +78,19 @@ export default function PrivacyPage() {
         agreement:
         <ul className="mt-2 flex list-disc flex-col gap-1.5 pl-5">
           <li>
-            <strong>Neon</strong> — hosts the database where accounts and progress are stored.
+            <strong>Neon</strong>, hosts the database where accounts and progress are stored.
           </li>
           <li>
-            <strong>Resend</strong> — sends account emails (reminders, weekly summary).
+            <strong>Resend</strong>, sends account emails (reminders, weekly summary).
           </li>
           <li>
-            <strong>Google</strong> — only if you choose &ldquo;Continue with Google&rdquo; to sign in.
+            <strong>Google</strong>, only if you choose &ldquo;Continue with Google&rdquo; to sign in.
           </li>
           <li>
-            <strong>Vercel</strong> — hosts the app and provides the cookieless analytics.
+            <strong>Vercel</strong>, hosts the app and provides the cookieless analytics.
           </li>
           <li>
-            <strong>Formspree</strong> — receives waitlist sign-ups (separate from accounts).
+            <strong>Formspree</strong>, receives waitlist sign-ups (separate from accounts).
           </li>
         </ul>
       </Section>

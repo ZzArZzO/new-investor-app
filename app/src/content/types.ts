@@ -115,7 +115,7 @@ export interface HoldingTypeMeta {
   color: string;
 }
 
-/** A user-entered holding. Figures are self-reported — the app fetches no prices. */
+/** A user-entered holding. Figures are self-reported, the app fetches no prices. */
 export interface Holding {
   id: string;
   label: string;
@@ -175,7 +175,7 @@ export interface ReviewState {
   items: ReviewItem[];
   /** Day the daily counter refers to. */
   day: string | null;
-  /** Cards answered on `day` — free tier caps this per day. */
+  /** Cards answered on `day`, free tier caps this per day. */
   doneToday: number;
 }
 

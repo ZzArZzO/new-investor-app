@@ -51,3 +51,28 @@ export function sandboxPath(indexPct: number, bondsPct: number, cryptoPct: numbe
   }
   return { path, maxDrawdown };
 }
+
+/**
+ * Rebalances three portfolio weights so they always sum to 100. The changed
+ * slider keeps its new value (clamped to the step grid); the other two scale
+ * proportionally into the remainder. When both others are zero, the remainder
+ * splits evenly. All results stay on the step grid and sum to exactly 100.
+ */
+export function rebalanceWeights(weights: [number, number, number], changed: number, value: number, step = 5): [number, number, number] {
+  const v = Math.min(100, Math.max(0, Math.round(value / step) * step));
+  const rest = 100 - v;
+  const otherIdx = [0, 1, 2].filter((i) => i !== changed);
+  const otherSum = weights[otherIdx[0]] + weights[otherIdx[1]];
+  const next: [number, number, number] = [...weights];
+  next[changed] = v;
+  if (otherSum === 0) {
+    const half = Math.round(rest / 2 / step) * step;
+    next[otherIdx[0]] = rest - half;
+    next[otherIdx[1]] = half;
+  } else {
+    const first = Math.min(rest, Math.round((rest * weights[otherIdx[0]]) / otherSum / step) * step);
+    next[otherIdx[0]] = first;
+    next[otherIdx[1]] = rest - first;
+  }
+  return next;
+}

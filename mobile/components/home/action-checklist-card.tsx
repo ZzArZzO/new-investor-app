@@ -84,7 +84,7 @@ export function ActionChecklistCard() {
         })}
       </View>
       <AppText variant="muted" style={{ marginTop: 12, fontSize: 11.5, lineHeight: 16, fontStyle: "italic" }}>
-        The generic steps everyone takes — not a recommendation to buy anything. Only ever use regulated, licensed
+        The generic steps everyone takes, not a recommendation to buy anything. Only ever use regulated, licensed
         platforms.
       </AppText>
     </Card>

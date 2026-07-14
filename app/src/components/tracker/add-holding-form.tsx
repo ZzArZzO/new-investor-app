@@ -42,7 +42,7 @@ export function AddHoldingForm() {
     <form onSubmit={submit} className="rounded-2xl bg-card p-4 shadow-sm">
       <div className="text-[15px] font-extrabold">Add a holding</div>
       <p className="mt-0.5 mb-3 text-[12.5px] text-muted-foreground">
-        Asset type only — never a specific product or coin. You enter your own figures; nothing is connected.
+        Asset type only, never a specific product or coin. You enter your own figures; nothing is connected.
       </p>
 
       <label className="grid gap-1 text-[13px] font-semibold">

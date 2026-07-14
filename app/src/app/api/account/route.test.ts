@@ -7,6 +7,12 @@ const { authMock, deleteWhere } = vi.hoisted(() => ({
 }));
 
 vi.mock("@/auth", () => ({ auth: authMock }));
+vi.mock("@/lib/rate-limit", () => ({
+  checkRateLimit: vi.fn(async () => true),
+  clientIp: () => "test-ip",
+  RATE_LIMIT_MESSAGE: "Too many attempts. Try again in a few minutes.",
+}));
+
 vi.mock("@/db/client", () => ({
   db: {
     delete: vi.fn(() => ({ where: deleteWhere })),

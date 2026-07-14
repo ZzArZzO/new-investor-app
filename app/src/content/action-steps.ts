@@ -7,24 +7,24 @@ export const ACTION_STEPS: ActionStep[] = [
   {
     id: "provider",
     label: "Choose a provider",
-    detail: "Compare regulated brokers and MiCA-licensed exchanges — facts only, shown to everyone.",
+    detail: "Compare regulated brokers and MiCA-licensed exchanges, facts only, shown to everyone.",
     route: "/compare",
   },
   {
     id: "open",
     label: "Open an account",
     detail:
-      "Start the sign-up with a provider you picked. Only ever use regulated, licensed platforms — and turn on 2FA the same day, this account is worth locking down.",
+      "Start the sign-up with a provider you picked. Only ever use regulated, licensed platforms, and turn on 2FA the same day, this account is worth locking down.",
   },
   {
     id: "kyc",
     label: "Verify your ID (KYC)",
-    detail: "Regulated platforms confirm your identity before you can invest — usually a quick photo-ID check.",
+    detail: "Regulated platforms confirm your identity before you can invest, usually a quick photo-ID check.",
   },
   {
     id: "deposit",
     label: "Make a first deposit",
-    detail: "Move an amount you're comfortable with. Nothing here is a target — you decide the size.",
+    detail: "Move an amount you're comfortable with. Nothing here is a target, you decide the size.",
   },
   {
     id: "buy",

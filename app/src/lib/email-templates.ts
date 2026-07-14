@@ -16,7 +16,7 @@ export function streakWarningEmail(streakCount: number): EmailContent {
   return {
     subject: `Your ${streakCount}-day streak is still open today`,
     html: `
-      <p>You've kept a ${streakCount}-day streak going — nice work.</p>
+      <p>You've kept a ${streakCount}-day streak going, nice work.</p>
       <p>It's still open today. A quick lesson, the daily scam question, or logging a contribution keeps it alive.</p>
       ${FOOTER}
     `,

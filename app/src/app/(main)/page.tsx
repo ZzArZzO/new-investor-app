@@ -17,7 +17,7 @@ const NEVER_DO = [
   "No leveraged trading tutorials or margin/futures content",
   "No paid coin promotions or influencer partnerships",
   '"No guaranteed returns" language, anywhere',
-  "No bank or broker account linking, ever — your holdings are numbers you type in",
+  "No bank or broker account linking, ever, your holdings are numbers you type in",
 ];
 
 export default function HomePage() {

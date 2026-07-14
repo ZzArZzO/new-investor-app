@@ -12,7 +12,7 @@ interface StepperProps {
   max: number;
 }
 
-/** +/- stepper — keeps the tools dependency-free (no native slider package). */
+/** +/- stepper, keeps the tools dependency-free (no native slider package). */
 export function Stepper({ label, value, display, onChange, step, min, max }: StepperProps) {
   const { colors } = useTheme();
 

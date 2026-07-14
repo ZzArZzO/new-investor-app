@@ -15,7 +15,7 @@ export interface AuthorizedUser {
 /**
  * Credentials provider authorize logic, extracted from auth.ts for direct testing.
  * Same generic null for "no such user", "Google-only account", "locked out", and
- * "wrong password" — never hint at which reason to an attacker.
+ * "wrong password", never hint at which reason to an attacker.
  */
 export async function authorizeCredentials(credentials: unknown): Promise<AuthorizedUser | null> {
   const parsed = signInSchema.safeParse(credentials);

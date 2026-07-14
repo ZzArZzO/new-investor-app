@@ -216,7 +216,7 @@ export function useAppState(): UseAppStateResult {
     if (freezes === before) return;
     const message =
       freezes < before
-        ? "🧊 Streak freeze used — your streak survived a missed day."
+        ? "🧊 Streak freeze used, your streak survived a missed day."
         : "🧊 Streak freeze earned! It auto-covers one missed day.";
     setToastMessage(message);
     if (toastTimer.current) clearTimeout(toastTimer.current);

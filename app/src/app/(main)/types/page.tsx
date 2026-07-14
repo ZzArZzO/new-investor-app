@@ -5,7 +5,7 @@ import { PERSONA_LIST } from "@/content/quiz";
 export const metadata = {
   title: "The four investor types",
   description:
-    "The four published investor types behind our quiz — strengths, blind spots, and how people like this often approach investing. Educational, never personal advice.",
+    "The four published investor types behind our quiz, strengths, blind spots, and how people like this often approach investing. Educational, never personal advice.",
 };
 
 export default function TypesPage() {
@@ -13,7 +13,7 @@ export default function TypesPage() {
     <div className="pt-1">
       <h2 className="font-heading text-xl font-medium">The four investor types</h2>
       <p className="mt-1.5 text-[15px] text-muted-foreground">
-        Our quiz sorts you into one of four published types based on how you think about money — never on your income
+        Our quiz sorts you into one of four published types based on how you think about money, never on your income
         or savings. All four are listed openly here: the quiz adapts how we teach, never what anyone should buy.
       </p>
 
@@ -42,7 +42,7 @@ export default function TypesPage() {
       </Link>
 
       <p className="mt-5 px-1 pb-2 text-center text-[11.5px] leading-relaxed text-muted-foreground">
-        Educational information, not personal financial advice. Types are general illustrations — most people are a
+        Educational information, not personal financial advice. Types are general illustrations, most people are a
         blend, and your type can change as life changes.
       </p>
     </div>

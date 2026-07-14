@@ -22,7 +22,7 @@ export function DailyQuestionCard() {
     return (
       <section className="rounded-2xl bg-gradient-to-br from-amber-soft to-card p-5">
         <div className="text-xs font-bold uppercase tracking-wide text-primary">Today&rsquo;s question · keep your streak</div>
-        <p className="mt-2 font-semibold">✓ Done for today — come back tomorrow to keep the streak going.</p>
+        <p className="mt-2 font-semibold">✓ Done for today, come back tomorrow to keep the streak going.</p>
         <p className="mt-1 text-sm text-muted-foreground">
           Current streak: 🔥 {state.streak.count || 0}
           {(state.streak.freezes ?? 0) > 0 && <> · 🧊 {state.streak.freezes} freeze{state.streak.freezes === 1 ? "" : "s"}</>}

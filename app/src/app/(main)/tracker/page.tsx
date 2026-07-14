@@ -16,7 +16,7 @@ export default function TrackerPage() {
       {PLUS_FAKEDOOR_ENABLED && (
         <LockedCard
           title="Portfolio insights"
-          description="See the fees you're paying and how far your mix has drifted from the targets you set — computed on your own numbers, never a recommendation."
+          description="See the fees you're paying and how far your mix has drifted from the targets you set, computed on your own numbers, never a recommendation."
           feature="tracker_insights"
         />
       )}

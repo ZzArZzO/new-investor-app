@@ -78,7 +78,7 @@ function DailyQuestionCard() {
       <Card>
         <AppText variant="kicker">Today’s question · keep your streak</AppText>
         <AppText variant="bold" style={{ marginTop: 8 }}>
-          ✓ Done for today — come back tomorrow to keep the streak going.
+          ✓ Done for today, come back tomorrow to keep the streak going.
         </AppText>
         <AppText variant="muted" style={{ marginTop: 4 }}>
           Current streak: 🔥 {state.streak.count || 0}
@@ -117,7 +117,7 @@ function DailyQuestionCard() {
   );
 }
 
-/** Home entry point for the spaced-repetition deck — appears once there's anything to review. */
+/** Home entry point for the spaced-repetition deck, appears once there's anything to review. */
 function ReviewCard() {
   const router = useRouter();
   const { state, hydrated } = useAppState();
@@ -135,7 +135,7 @@ function ReviewCard() {
       <Card>
         <AppText variant="kicker">Review · make it stick</AppText>
         <AppText variant="bold" style={{ marginTop: 8 }}>
-          ✓ Reviewed today — spaced repetition works best in small daily doses.
+          ✓ Reviewed today, spaced repetition works best in small daily doses.
         </AppText>
       </Card>
     );
@@ -147,7 +147,7 @@ function ReviewCard() {
         <Card style={{ opacity: pressed ? 0.8 : 1 }}>
           <AppText variant="kicker">Review · make it stick</AppText>
           <AppText variant="bold" style={{ marginTop: 8 }}>
-            {due > 0 ? `${due} card${due === 1 ? "" : "s"} due — a two-minute refresh.` : "A quick refresher round is ready."}
+            {due > 0 ? `${due} card${due === 1 ? "" : "s"} due, a two-minute refresh.` : "A quick refresher round is ready."}
           </AppText>
           <AppText variant="muted" style={{ marginTop: 4 }}>
             Missed questions and key terms, spaced so they stick. +3 XP per card.
