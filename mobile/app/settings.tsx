@@ -12,6 +12,7 @@ import { useAppState } from "@/lib/app-state";
 import { useAuth } from "@/lib/auth";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn, Card } from "@/components/ui";
+import { SegmentedControl } from "@/components/segmented-control";
 
 const GOOGLE_IOS_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID;
 const GOOGLE_ANDROID_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID;
@@ -130,37 +131,15 @@ function SignedOutAccount() {
         Sign in to keep your progress synced between this phone and the web app.
       </AppText>
 
-      <View style={{ marginTop: 12, flexDirection: "row", gap: 8 }}>
-        {(["signin", "signup"] as const).map((m) => {
-          const active = mode === m;
-          return (
-            <Pressable
-              key={m}
-              accessibilityRole="button"
-              onPress={() => setMode(m)}
-              style={{
-                flex: 1,
-                borderRadius: RADIUS.pill,
-                borderWidth: 1,
-                borderColor: active ? colors.primary : colors.border,
-                backgroundColor: active ? colors.primary : colors.card,
-                paddingVertical: 8,
-                alignItems: "center",
-              }}
-            >
-              <AppText
-                style={{
-                  fontFamily: FONTS.bodyMedium,
-                  fontSize: 13,
-                  lineHeight: 18,
-                  color: active ? colors.primaryForeground : colors.foreground,
-                }}
-              >
-                {m === "signin" ? "Sign in" : "Create account"}
-              </AppText>
-            </Pressable>
-          );
-        })}
+      <View style={{ marginTop: 12 }}>
+        <SegmentedControl
+          options={[
+            { id: "signin", label: "Sign in" },
+            { id: "signup", label: "Create account" },
+          ]}
+          value={mode}
+          onChange={setMode}
+        />
       </View>
 
       <View style={{ marginTop: 12, gap: 10 }}>
@@ -331,15 +310,15 @@ export default function SettingsScreen() {
               Your account already had progress saved, so this phone now shows that. The progress made on this device
               before signing in wasn’t merged. Copy it here if you want to keep it.
             </AppText>
-            <View style={{ marginTop: 6, flexDirection: "row", gap: 16 }}>
+            <View style={{ marginTop: 2, flexDirection: "row", gap: 16 }}>
               {migrationBackup && (
-                <Pressable accessibilityRole="button" onPress={copyOldProgress}>
+                <Pressable accessibilityRole="button" onPress={copyOldProgress} hitSlop={8} style={{ paddingVertical: 8 }}>
                   <AppText variant="bold" style={{ color: colors.amber, fontSize: 13 }}>
                     {oldCopied ? "Copied ✓" : "Copy old progress code"}
                   </AppText>
                 </Pressable>
               )}
-              <Pressable accessibilityRole="button" onPress={dismissMigrationNotice}>
+              <Pressable accessibilityRole="button" onPress={dismissMigrationNotice} hitSlop={8} style={{ paddingVertical: 8 }}>
                 <AppText variant="bold" style={{ color: colors.amber, fontSize: 13 }}>
                   Got it
                 </AppText>

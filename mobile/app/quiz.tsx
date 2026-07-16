@@ -1,6 +1,7 @@
 import { Stack, useRouter } from "expo-router";
 import { useState } from "react";
 import { Pressable, ScrollView, View } from "react-native";
+import Animated, { FadeInRight } from "react-native-reanimated";
 
 import { QUIZ, scoreQuiz } from "@/content/quiz";
 import type { PersonaKey } from "@/content/types";
@@ -41,26 +42,30 @@ export default function QuizScreen() {
           Question {step + 1} of {QUIZ.length}
         </AppText>
         <ProgressBar value={Math.round((step / QUIZ.length) * 100)} style={{ marginTop: 8, marginBottom: 20 }} />
-        <AppText variant="heading">{item.q}</AppText>
-        <View style={{ marginTop: 14, gap: 10 }}>
-          {item.o.map((text, idx) => (
-            <Pressable
-              key={text}
-              accessibilityRole="button"
-              onPress={() => choose(LETTERS[idx])}
-              style={({ pressed }) => ({
-                borderRadius: RADIUS.md,
-                borderWidth: 1,
-                borderColor: pressed ? colors.primary : colors.border,
-                backgroundColor: colors.card,
-                paddingHorizontal: 16,
-                paddingVertical: 14,
-              })}
-            >
-              <AppText style={{ fontFamily: FONTS.bodyMedium }}>{text}</AppText>
-            </Pressable>
-          ))}
-        </View>
+        <Animated.View key={step} entering={FadeInRight.duration(200)}>
+          <AppText variant="heading">{item.q}</AppText>
+          <View style={{ marginTop: 14, gap: 10 }}>
+            {item.o.map((text, idx) => (
+              <Pressable
+                key={text}
+                accessibilityRole="button"
+                onPress={() => choose(LETTERS[idx])}
+                android_ripple={{ color: colors.accent }}
+                style={({ pressed }) => ({
+                  borderRadius: RADIUS.md,
+                  borderWidth: 1,
+                  borderColor: pressed ? colors.primary : colors.border,
+                  backgroundColor: colors.card,
+                  paddingHorizontal: 16,
+                  paddingVertical: 14,
+                  overflow: "hidden",
+                })}
+              >
+                <AppText style={{ fontFamily: FONTS.bodyMedium }}>{text}</AppText>
+              </Pressable>
+            ))}
+          </View>
+        </Animated.View>
       </ScrollView>
     </>
   );

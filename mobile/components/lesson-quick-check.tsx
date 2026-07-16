@@ -57,8 +57,10 @@ export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProp
                     <Pressable
                       key={oi}
                       accessibilityRole="button"
+                      accessibilityState={{ disabled: answered, selected: isPicked }}
                       disabled={answered}
                       onPress={() => pick(qi, oi)}
+                      android_ripple={{ color: colors.accent }}
                       style={{
                         borderRadius: RADIUS.md,
                         borderWidth: 1,
@@ -66,6 +68,7 @@ export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProp
                         backgroundColor: background,
                         paddingHorizontal: 16,
                         paddingVertical: 14,
+                        overflow: "hidden",
                         opacity: answered && !isCorrect && !isPicked ? 0.5 : 1,
                       }}
                     >

@@ -23,8 +23,10 @@ function LessonRow({ index, title, done, unlocked, lockedLabel, onPress }: Lesso
   return (
     <Pressable
       accessibilityRole="button"
+      accessibilityState={{ disabled: !unlocked }}
       disabled={!unlocked}
       onPress={onPress}
+      android_ripple={{ color: colors.accent }}
       style={({ pressed }) => [
         {
           flexDirection: "row",
@@ -36,6 +38,7 @@ function LessonRow({ index, title, done, unlocked, lockedLabel, onPress }: Lesso
           backgroundColor: colors.card,
           paddingHorizontal: 14,
           paddingVertical: 13,
+          overflow: "hidden",
           opacity: unlocked ? (pressed ? 0.8 : 1) : 0.55,
         },
       ]}

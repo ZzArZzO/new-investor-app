@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import { useMemo, useState } from "react";
 import { Text, View } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 import { GLOSSARY } from "@/content/glossary";
 import { LESSONS } from "@/content/lessons";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
@@ -143,6 +144,7 @@ export function LessonReading({ html }: LessonReadingProps) {
           {segments.map((seg, si) => (
             <Text
               key={si}
+              accessibilityRole={seg.term || seg.lesson ? "link" : undefined}
               onPress={
                 seg.lesson
                   ? () => router.push(`/lesson/${seg.lesson}`)
@@ -169,7 +171,8 @@ export function LessonReading({ html }: LessonReadingProps) {
         </Text>
       ))}
       {openTerm && GLOSSARY[openTerm] && (
-        <View
+        <Animated.View
+          entering={FadeInDown.duration(180)}
           style={{
             borderRadius: RADIUS.md,
             paddingHorizontal: 14,
@@ -183,7 +186,7 @@ export function LessonReading({ html }: LessonReadingProps) {
             </AppText>{" "}
             {GLOSSARY[openTerm]}
           </AppText>
-        </View>
+        </Animated.View>
       )}
     </View>
   );

@@ -176,7 +176,13 @@ export default function TrackerScreen() {
                     {typeof h.value === "number" ? ` · now ${fmtEur(h.value)}` : ""}
                   </AppText>
                 </View>
-                <Pressable accessibilityRole="button" onPress={() => removeHolding(h.id)} hitSlop={8}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={`Remove ${h.label}`}
+                  onPress={() => removeHolding(h.id)}
+                  hitSlop={12}
+                  style={{ paddingVertical: 8, paddingHorizontal: 4 }}
+                >
                   <AppText variant="muted" style={{ fontSize: 13, fontFamily: FONTS.bodySemiBold }}>
                     Remove
                   </AppText>

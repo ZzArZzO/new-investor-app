@@ -5,12 +5,12 @@ import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { Text, View } from "react-native";
 import "react-native-reanimated";
 
-import { AppStateProvider, useAppState } from "@/lib/app-state";
+import { AppStateProvider } from "@/lib/app-state";
 import { AuthProvider } from "@/lib/auth";
-import { DARK, FONTS, LIGHT, RADIUS, useTheme } from "@/lib/theme";
+import { DARK, LIGHT, useTheme } from "@/lib/theme";
+import { Toast } from "@/components/toast";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -53,36 +53,6 @@ export default function RootLayout() {
         <RootLayoutNav />
       </AppStateProvider>
     </AuthProvider>
-  );
-}
-
-/** Global toast overlay fed by app-state (badge unlocks, streak freezes). */
-function Toast() {
-  const { toastMessage } = useAppState();
-  const { colors } = useTheme();
-  if (!toastMessage) return null;
-  return (
-    <View
-      pointerEvents="none"
-      style={{
-        position: "absolute",
-        bottom: 96,
-        left: 24,
-        right: 24,
-        alignItems: "center",
-      }}
-    >
-      <View
-        style={{
-          backgroundColor: colors.foreground,
-          borderRadius: RADIUS.xl,
-          paddingHorizontal: 18,
-          paddingVertical: 12,
-        }}
-      >
-        <Text style={{ color: colors.background, fontFamily: FONTS.bodyMedium, fontSize: 14 }}>{toastMessage}</Text>
-      </View>
-    </View>
   );
 }
 

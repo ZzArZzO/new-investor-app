@@ -1,4 +1,5 @@
 import { Pressable, View } from "react-native";
+import { hapticSelect } from "@/lib/haptics";
 import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
 
@@ -16,21 +17,28 @@ interface StepperProps {
 export function Stepper({ label, value, display, onChange, step, min, max }: StepperProps) {
   const { colors } = useTheme();
 
-  function StepBtn({ text, next, disabled }: { text: string; next: number; disabled: boolean }) {
+  function StepBtn({ text, hint, next, disabled }: { text: string; hint: string; next: number; disabled: boolean }) {
     return (
       <Pressable
         accessibilityRole="button"
+        accessibilityLabel={`${hint} ${label}`}
+        accessibilityState={{ disabled }}
         disabled={disabled}
-        onPress={() => onChange(next)}
+        onPress={() => {
+          hapticSelect();
+          onChange(next);
+        }}
+        android_ripple={{ color: colors.accent }}
         style={({ pressed }) => ({
-          width: 40,
-          height: 40,
+          width: 44,
+          height: 44,
           borderRadius: RADIUS.md,
           borderWidth: 1,
           borderColor: colors.border,
           backgroundColor: colors.card,
           alignItems: "center",
           justifyContent: "center",
+          overflow: "hidden",
           opacity: disabled ? 0.4 : pressed ? 0.7 : 1,
         })}
       >
@@ -47,11 +55,11 @@ export function Stepper({ label, value, display, onChange, step, min, max }: Ste
         {label}
       </AppText>
       <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
-        <StepBtn text="−" next={Math.max(min, value - step)} disabled={value <= min} />
+        <StepBtn text="−" hint="Decrease" next={Math.max(min, value - step)} disabled={value <= min} />
         <AppText variant="bold" style={{ flex: 1, textAlign: "center", fontSize: 16 }}>
           {display}
         </AppText>
-        <StepBtn text="+" next={Math.min(max, value + step)} disabled={value >= max} />
+        <StepBtn text="+" hint="Increase" next={Math.min(max, value + step)} disabled={value >= max} />
       </View>
     </View>
   );

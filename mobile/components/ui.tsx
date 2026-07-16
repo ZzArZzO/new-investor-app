@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
   ActivityIndicator,
   Pressable,
@@ -9,7 +9,11 @@ import {
   type TextStyle,
   type ViewStyle,
 } from "react-native";
+import Animated, { FadeInDown, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
+
+/** Cap system font scaling so fixed-height rows degrade gracefully, not clip. */
+export const MAX_FONT_SCALE = 1.3;
 
 interface ChildrenStyleProps {
   children: ReactNode;
@@ -48,7 +52,11 @@ export function AppText({ children, variant = "body", style }: AppTextProps) {
       textTransform: "uppercase",
       letterSpacing: 0.6,
     });
-  return <Text style={[...base, style]}>{children}</Text>;
+  return (
+    <Text maxFontSizeMultiplier={MAX_FONT_SCALE} style={[...base, style]}>
+      {children}
+    </Text>
+  );
 }
 
 interface BtnProps {
@@ -70,6 +78,7 @@ export function Btn({ label, onPress, variant = "primary", disabled = false, loa
       accessibilityState={{ disabled: disabled || loading, busy: loading }}
       disabled={disabled || loading}
       onPress={onPress}
+      android_ripple={{ color: colors.accent }}
       style={({ pressed }) => [
         styles.btn,
         primary
@@ -83,6 +92,7 @@ export function Btn({ label, onPress, variant = "primary", disabled = false, loa
         <ActivityIndicator size="small" color={labelColor} />
       ) : (
         <Text
+          maxFontSizeMultiplier={MAX_FONT_SCALE}
           style={{
             color: labelColor,
             fontFamily: FONTS.bodySemiBold,
@@ -101,13 +111,25 @@ interface ProgressBarProps {
   style?: StyleProp<ViewStyle>;
 }
 
-/** Thin determinate progress bar, 0-100. */
+/** Thin determinate progress bar, 0-100. Fill width animates on change. */
 export function ProgressBar({ value, style }: ProgressBarProps) {
   const { colors } = useTheme();
   const pct = Math.max(0, Math.min(100, value));
+  const [trackWidth, setTrackWidth] = useState(0);
+  const fillWidth = useSharedValue(0);
+
+  useEffect(() => {
+    fillWidth.value = withTiming((pct / 100) * trackWidth, { duration: 250 });
+  }, [pct, trackWidth, fillWidth]);
+
+  const animatedFill = useAnimatedStyle(() => ({ width: fillWidth.value }));
+
   return (
-    <View style={[styles.track, { backgroundColor: colors.muted }, style]}>
-      <View style={[styles.fill, { backgroundColor: colors.primary, width: `${pct}%` }]} />
+    <View
+      style={[styles.track, { backgroundColor: colors.muted }, style]}
+      onLayout={(e) => setTrackWidth(e.nativeEvent.layout.width)}
+    >
+      <Animated.View style={[styles.fill, { backgroundColor: colors.primary }, animatedFill]} />
     </View>
   );
 }
@@ -121,7 +143,8 @@ interface FeedbackBoxProps {
 export function FeedbackBox({ correct, children }: FeedbackBoxProps) {
   const { colors } = useTheme();
   return (
-    <View
+    <Animated.View
+      entering={FadeInDown.duration(180)}
       style={{
         marginTop: 10,
         borderRadius: RADIUS.md,
@@ -131,6 +154,7 @@ export function FeedbackBox({ correct, children }: FeedbackBoxProps) {
       }}
     >
       <Text
+        maxFontSizeMultiplier={MAX_FONT_SCALE}
         style={{
           color: correct ? colors.accentForeground : colors.destructive,
           fontFamily: FONTS.body,
@@ -140,7 +164,7 @@ export function FeedbackBox({ correct, children }: FeedbackBoxProps) {
       >
         {children}
       </Text>
-    </View>
+    </Animated.View>
   );
 }
 
@@ -153,9 +177,11 @@ const styles = StyleSheet.create({
   btn: {
     alignItems: "center",
     justifyContent: "center",
-    height: 44,
+    minHeight: 44,
     borderRadius: RADIUS.xl,
     paddingHorizontal: 16,
+    paddingVertical: 10,
+    overflow: "hidden",
   },
   track: {
     height: 8,

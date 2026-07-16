@@ -1,13 +1,14 @@
 import { useMemo, useState } from "react";
-import { Pressable, View } from "react-native";
+import { View } from "react-native";
 import Svg, { Defs, LinearGradient, Path, Stop } from "react-native-svg";
 
 import { SANDBOX_SCENARIOS } from "@/content/sandbox-scenarios";
 import { fmtEur } from "@/lib/date";
 import { rebalanceWeights, sandboxPath } from "@/lib/tool-math";
 import { useAppState } from "@/lib/app-state";
-import { FONTS, RADIUS, useTheme } from "@/lib/theme";
+import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
+import { SegmentedControl } from "@/components/segmented-control";
 import { Stepper } from "@/components/stepper";
 import { ToolShell } from "@/components/tools/tool-shell";
 
@@ -102,40 +103,15 @@ export function PortfolioSandbox() {
       <Stepper label="Bonds %" min={0} max={100} step={5} value={bondsPct} display={`${bondsPct}%`} onChange={handleWeight(1)} />
       <Stepper label="Crypto slice %" min={0} max={100} step={5} value={cryptoPct} display={`${cryptoPct}%`} onChange={handleWeight(2)} />
 
-      <View style={{ marginTop: 14, flexDirection: "row", gap: 8 }}>
-        {SANDBOX_SCENARIOS.map((s) => {
-          const active = s.id === scenarioId;
-          return (
-            <Pressable
-              key={s.id}
-              accessibilityRole="button"
-              onPress={() => {
-                setScenarioId(s.id);
-                recordToolUse();
-              }}
-              style={{
-                flex: 1,
-                borderRadius: RADIUS.pill,
-                borderWidth: 1,
-                borderColor: active ? colors.primary : colors.border,
-                backgroundColor: active ? colors.primary : colors.card,
-                paddingVertical: 8,
-                alignItems: "center",
-              }}
-            >
-              <AppText
-                style={{
-                  fontFamily: FONTS.bodyMedium,
-                  fontSize: 12.5,
-                  lineHeight: 17,
-                  color: active ? colors.primaryForeground : colors.foreground,
-                }}
-              >
-                {s.name}
-              </AppText>
-            </Pressable>
-          );
-        })}
+      <View style={{ marginTop: 14 }}>
+        <SegmentedControl
+          options={SANDBOX_SCENARIOS.map((s) => ({ id: s.id, label: s.name }))}
+          value={scenarioId}
+          onChange={(id) => {
+            setScenarioId(id);
+            recordToolUse();
+          }}
+        />
       </View>
 
       <PathChart path={path} />

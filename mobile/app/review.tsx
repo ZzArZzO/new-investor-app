@@ -121,8 +121,10 @@ export default function ReviewScreen() {
                 <Pressable
                   key={oi}
                   accessibilityRole="button"
+                  accessibilityState={{ disabled: answered, selected: isPicked }}
                   disabled={answered}
                   onPress={() => pick(oi)}
+                  android_ripple={{ color: colors.accent }}
                   style={{
                     borderRadius: RADIUS.md,
                     borderWidth: 1,
@@ -130,6 +132,7 @@ export default function ReviewScreen() {
                     backgroundColor: background,
                     paddingHorizontal: 16,
                     paddingVertical: 14,
+                    overflow: "hidden",
                     opacity: answered && !isCorrect && !isPicked ? 0.5 : 1,
                   }}
                 >
