@@ -50,27 +50,24 @@ function PrefToggle({ label, on, onToggle }: { label: string; on: boolean; onTog
   );
 }
 
-function SignedOutAccount() {
-  const { colors } = useTheme();
-  const { signIn, signUp, signInWithGoogle, signInWithApple } = useAuth();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [appleAvailable, setAppleAvailable] = useState(false);
-  const passwordRef = useRef<TextInput>(null);
-
+/**
+ * Google button in its own component: expo-auth-session's Google hook throws
+ * on web without a webClientId, so this only renders on native platforms.
+ */
+function GoogleSignInButton({
+  busy,
+  setBusy,
+  setError,
+}: {
+  busy: boolean;
+  setBusy: (b: boolean) => void;
+  setError: (e: string | null) => void;
+}) {
+  const { signInWithGoogle } = useAuth();
   const [, googleResponse, promptGoogle] = Google.useIdTokenAuthRequest({
     iosClientId: GOOGLE_IOS_CLIENT_ID,
     androidClientId: GOOGLE_ANDROID_CLIENT_ID,
   });
-
-  useEffect(() => {
-    if (Platform.OS === "ios") {
-      AppleAuthentication.isAvailableAsync().then(setAppleAvailable, () => setAppleAvailable(false));
-    }
-  }, []);
 
   useEffect(() => {
     if (googleResponse?.type === "success" && googleResponse.params.id_token) {
@@ -79,7 +76,27 @@ function SignedOutAccount() {
         .catch((e: unknown) => setError(e instanceof Error ? e.message : "Google sign-in failed."))
         .finally(() => setBusy(false));
     }
-  }, [googleResponse, signInWithGoogle]);
+  }, [googleResponse, signInWithGoogle, setBusy, setError]);
+
+  return <Btn label="Continue with Google" variant="outline" disabled={busy} onPress={() => promptGoogle()} style={{ marginTop: 10 }} />;
+}
+
+function SignedOutAccount() {
+  const { colors } = useTheme();
+  const { signIn, signUp, signInWithApple } = useAuth();
+  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [appleAvailable, setAppleAvailable] = useState(false);
+  const passwordRef = useRef<TextInput>(null);
+
+  useEffect(() => {
+    if (Platform.OS === "ios") {
+      AppleAuthentication.isAvailableAsync().then(setAppleAvailable, () => setAppleAvailable(false));
+    }
+  }, []);
 
   const inputStyle = {
     height: 44,
@@ -185,8 +202,8 @@ function SignedOutAccount() {
         style={{ marginTop: 12 }}
       />
 
-      {GOOGLE_CONFIGURED && (
-        <Btn label="Continue with Google" variant="outline" disabled={busy} onPress={() => promptGoogle()} style={{ marginTop: 10 }} />
+      {GOOGLE_CONFIGURED && Platform.OS !== "web" && (
+        <GoogleSignInButton busy={busy} setBusy={setBusy} setError={setError} />
       )}
       {appleAvailable && (
         <Btn label=" Continue with Apple" variant="outline" disabled={busy} onPress={appleSignIn} style={{ marginTop: 10 }} />
