@@ -36,7 +36,7 @@ export const BROKERS: BrokerRow[] = [
   },
   {
     name: "BUX",
-    mostUsed: true,
+    mostUsed: false,
     type: "Broker / app",
     regulation: "AFM + DNB-regulated (NL); assets segregated, Dutch investor compensation to €20k",
     cost: "Commission-free 'Zero' orders and plans; €1.99 EU / €0.99 US market orders",
@@ -59,36 +59,42 @@ export const BROKERS: BrokerRow[] = [
 export const CRYPTO_EXCHANGES: CryptoExchangeRow[] = [
   {
     name: "Bitvavo",
+    mostUsed: true,
     licence: "MiCA CASP, AFM, Netherlands (Jun 2025); Bitvavo B.V.",
     cost: "Maker/taker from 0.15% / 0.25% (entry tier)",
     notable: "NL-based; widely used in the Netherlands",
   },
   {
     name: "Finst",
+    mostUsed: false,
     licence: "MiCA CASP, AFM, Netherlands (Jul 2025); Finst B.V.",
     cost: "Flat 0.15% per trade, no spread markup",
     notable: "NL-based, low-fee positioning; founded by ex-DEGIRO team",
   },
   {
     name: "Kraken",
+    mostUsed: true,
     licence: "MiCA CASP, Central Bank of Ireland (Jun 2025); Payward Europe Solutions Limited",
     cost: "Kraken Pro maker/taker from 0.40% / 0.80% (entry tier)",
     notable: "Large global exchange",
   },
   {
     name: "Coinbase",
+    mostUsed: true,
     licence: "MiCA CASP, CSSF, Luxembourg (Jun 2025); Coinbase Luxembourg S.A.",
     cost: "Advanced Trade from 0.40% / 0.60%; simple buys ~1.49% + fee ⚠️",
     notable: "Large global exchange, beginner-oriented UX",
   },
   {
     name: "Bitpanda",
+    mostUsed: false,
     licence: "MiCA CASP, FMA, Austria (Apr 2025); Bitpanda GmbH",
     cost: "Standard buys ~1.49% spread; Fusion pro tier from ~0.25% ⚠️",
     notable: "EU-based, offers crypto + other assets",
   },
   {
     name: "Bitstamp",
+    mostUsed: false,
     licence: "MiCA CASP, CSSF, Luxembourg (May 2025); Bitstamp Europe S.A.",
     cost: "Maker/taker from 0.30% / 0.40% (entry tier) ⚠️",
     notable: "Long-established EU exchange",

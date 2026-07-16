@@ -53,6 +53,8 @@ export interface BrokerRow {
 }
 
 export interface CryptoExchangeRow {
+  /** Same objective grouping rule as BrokerRow.mostUsed (user base, not preference). */
+  mostUsed: boolean;
   name: string;
   licence: string;
   cost: string;

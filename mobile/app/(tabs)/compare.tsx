@@ -88,11 +88,11 @@ export default function CompareScreen() {
       </View>
 
       <AppText variant="kicker" style={{ marginTop: 6 }}>
-        Where most beginners start
+        Most used brokers
       </AppText>
       <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
-        The brokers with the largest user bases among Dutch and EU retail beginners. Grouped by market share, not our
-        preference — the facts below are the same for everyone.
+        The two largest by user base among EU retail investors. Grouped by market share, not our preference — the
+        facts below are the same for everyone.
       </AppText>
       {BROKERS.filter((b) => b.mostUsed).map((b) => (
         <BrokerCard key={b.name} broker={b} />
@@ -102,7 +102,7 @@ export default function CompareScreen() {
         More options · incl. robo-advisors
       </AppText>
       <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
-        Managed (robo) options where the platform invests for you, plus smaller providers.
+        Smaller providers and managed (robo) options where the platform invests for you.
       </AppText>
       {BROKERS.filter((b) => !b.mostUsed).map((b) => (
         <BrokerCard key={b.name} broker={b} />
@@ -124,7 +124,10 @@ export default function CompareScreen() {
           investor-compensation scheme. Only ever use MiCA-licensed platforms.
         </AppText>
       </View>
-      {CRYPTO_EXCHANGES.map((x) => (
+      <AppText variant="muted" style={{ marginTop: -6, fontSize: 12, lineHeight: 17 }}>
+        Most used first (largest user bases, Bitvavo is the Dutch market leader) — market share, not our preference.
+      </AppText>
+      {[...CRYPTO_EXCHANGES.filter((x) => x.mostUsed), ...CRYPTO_EXCHANGES.filter((x) => !x.mostUsed)].map((x) => (
         <Card key={x.name} style={{ padding: 16 }}>
           <AppText variant="bold" style={{ fontSize: 16, marginBottom: 6 }}>
             {x.name}
