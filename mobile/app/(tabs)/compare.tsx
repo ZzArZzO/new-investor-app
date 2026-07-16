@@ -99,7 +99,7 @@ export default function CompareScreen() {
         Most used brokers
       </AppText>
       <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
-        The two largest by user base among EU retail investors. Grouped by market share, not our preference — the
+        The three largest by user base among EU retail investors. Grouped by market share, not our preference — the
         facts below are the same for everyone.
       </AppText>
       {BROKERS.filter((b) => b.mostUsed).map((b) => (

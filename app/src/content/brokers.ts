@@ -25,6 +25,17 @@ export const BROKERS: BrokerRow[] = [
     link: "https://traderepublic.com",
   },
   {
+    name: "Interactive Brokers",
+    mostUsed: true,
+    type: "Self-directed broker",
+    regulation:
+      "Interactive Brokers Ireland, Central Bank of Ireland-regulated; Irish ICS covers 90% of losses up to €20k; assets segregated",
+    cost: "€3 flat per trade on Western European stocks/ETFs (0.05% above €6,000); no custody or inactivity fees",
+    minimum: "No minimum deposit",
+    notable: "~5M accounts worldwide, 170 markets; professional-grade platform, steeper learning curve",
+    link: "https://www.interactivebrokers.ie",
+  },
+  {
     name: "Scalable Capital",
     mostUsed: false,
     type: "Broker + robo",
