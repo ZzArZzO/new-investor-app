@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import {
+  ActivityIndicator,
   Pressable,
   StyleSheet,
   Text,
@@ -55,16 +56,19 @@ interface BtnProps {
   onPress: () => void;
   variant?: "primary" | "outline";
   disabled?: boolean;
+  loading?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
-export function Btn({ label, onPress, variant = "primary", disabled = false, style }: BtnProps) {
+export function Btn({ label, onPress, variant = "primary", disabled = false, loading = false, style }: BtnProps) {
   const { colors } = useTheme();
   const primary = variant === "primary";
+  const labelColor = primary ? colors.primaryForeground : colors.secondaryForeground;
   return (
     <Pressable
       accessibilityRole="button"
-      disabled={disabled}
+      accessibilityState={{ disabled: disabled || loading, busy: loading }}
+      disabled={disabled || loading}
       onPress={onPress}
       style={({ pressed }) => [
         styles.btn,
@@ -75,15 +79,19 @@ export function Btn({ label, onPress, variant = "primary", disabled = false, sty
         style,
       ]}
     >
-      <Text
-        style={{
-          color: primary ? colors.primaryForeground : colors.secondaryForeground,
-          fontFamily: FONTS.bodySemiBold,
-          fontSize: 15,
-        }}
-      >
-        {label}
-      </Text>
+      {loading ? (
+        <ActivityIndicator size="small" color={labelColor} />
+      ) : (
+        <Text
+          style={{
+            color: labelColor,
+            fontFamily: FONTS.bodySemiBold,
+            fontSize: 15,
+          }}
+        >
+          {label}
+        </Text>
+      )}
     </Pressable>
   );
 }

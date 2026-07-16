@@ -1,6 +1,7 @@
 import { Tabs } from "expo-router";
 import { SymbolView } from "expo-symbols";
 
+import { hapticSelect } from "@/lib/haptics";
 import { FONTS, useTheme } from "@/lib/theme";
 
 export default function TabLayout() {
@@ -8,6 +9,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
+      screenListeners={{ tabPress: () => hapticSelect() }}
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: colors.primary,

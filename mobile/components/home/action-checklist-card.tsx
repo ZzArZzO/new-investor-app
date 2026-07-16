@@ -3,19 +3,22 @@ import { Pressable, View } from "react-native";
 
 import { ACTION_STEPS } from "@/content/action-steps";
 import { useAppState } from "@/lib/app-state";
+import { hapticSelect } from "@/lib/haptics";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Card, ProgressBar } from "@/components/ui";
+import { CardSkeleton } from "@/components/skeleton";
 
 export function ActionChecklistCard() {
   const router = useRouter();
   const { colors } = useTheme();
   const { state, hydrated, toggleActionStep } = useAppState();
-  if (!hydrated) return null;
+  if (!hydrated) return <CardSkeleton lines={3} />;
 
   const doneCount = ACTION_STEPS.filter((s) => state.actions.includes(s.id)).length;
   const pct = Math.round((doneCount / ACTION_STEPS.length) * 100);
 
   function handleStep(id: string, route: string | undefined, done: boolean) {
+    hapticSelect();
     toggleActionStep(id);
     // Web routes map onto the tab shell; /compare is the only routed step today.
     if (!done && route === "/compare") router.push("/(tabs)/compare");

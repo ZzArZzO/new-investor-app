@@ -4,12 +4,13 @@ import { Pressable } from "react-native";
 import { fmtEur } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { AppText, Card } from "@/components/ui";
+import { CardSkeleton } from "@/components/skeleton";
 
 /** Home link card to the tracker, derived read-only from holdings. */
 export function TrackerSnapshotCard() {
   const router = useRouter();
   const { state, hydrated } = useAppState();
-  if (!hydrated) return null;
+  if (!hydrated) return <CardSkeleton lines={2} />;
 
   const contributed = state.holdings.reduce((sum, h) => sum + h.contributed, 0);
   const empty = state.holdings.length === 0;

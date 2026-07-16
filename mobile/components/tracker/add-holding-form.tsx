@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Pressable, TextInput, View } from "react-native";
 
 import { HOLDING_TYPES } from "@/content/holdings";
@@ -14,6 +14,8 @@ export function AddHoldingForm() {
   const [type, setType] = useState<HoldingType>("index");
   const [contributed, setContributed] = useState("");
   const [value, setValue] = useState("");
+  const contributedRef = useRef<TextInput>(null);
+  const valueRef = useRef<TextInput>(null);
 
   const contributedNum = Number(contributed);
   const valid = label.trim().length > 0 && contributedNum > 0;
@@ -64,6 +66,9 @@ export function AddHoldingForm() {
         placeholder="e.g. World index ETF"
         placeholderTextColor={colors.mutedForeground}
         maxLength={40}
+        returnKeyType="next"
+        submitBehavior="submit"
+        onSubmitEditing={() => contributedRef.current?.focus()}
       />
 
       <AppText variant="bold" style={{ fontSize: 13, marginTop: 12, marginBottom: 6 }}>
@@ -107,12 +112,16 @@ export function AddHoldingForm() {
             Contributed (€)
           </AppText>
           <TextInput
+            ref={contributedRef}
             style={inputStyle}
             inputMode="decimal"
             value={contributed}
             onChangeText={(t) => setContributed(t.replace(/[^0-9.]/g, ""))}
             placeholder="1000"
             placeholderTextColor={colors.mutedForeground}
+            returnKeyType="next"
+            submitBehavior="submit"
+            onSubmitEditing={() => valueRef.current?.focus()}
           />
         </View>
         <View style={{ flex: 1 }}>
@@ -120,12 +129,15 @@ export function AddHoldingForm() {
             Value now (€, opt.)
           </AppText>
           <TextInput
+            ref={valueRef}
             style={inputStyle}
             inputMode="decimal"
             value={value}
             onChangeText={(t) => setValue(t.replace(/[^0-9.]/g, ""))}
             placeholder="—"
             placeholderTextColor={colors.mutedForeground}
+            returnKeyType="done"
+            onSubmitEditing={submit}
           />
         </View>
       </View>

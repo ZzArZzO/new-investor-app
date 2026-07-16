@@ -4,6 +4,7 @@ import { Pressable, View } from "react-native";
 import { SCAM_SCENARIOS } from "@/content/scam-scenarios";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
+import { hapticError, hapticSuccess } from "@/lib/haptics";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn } from "@/components/ui";
 import { ToolShell } from "@/components/tools/tool-shell";
@@ -37,6 +38,8 @@ export function ScamSpotter() {
     if (answer) return;
     recordToolUse();
     const ok = (choice === "scam") === sc.isScam;
+    if (ok) hapticSuccess();
+    else hapticError();
     setAnswer(choice);
     if (ok) setScore((s) => s + 1);
   }

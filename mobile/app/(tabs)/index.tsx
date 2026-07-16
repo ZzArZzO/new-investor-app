@@ -9,8 +9,10 @@ import { FREE_LESSONS } from "@/content/lessons";
 import { dueReviewItems, remainingReviewQuota } from "@/lib/app-state-logic";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
+import { hapticError, hapticSuccess } from "@/lib/haptics";
 import { useTheme } from "@/lib/theme";
 import { AppText, Btn, Card, FeedbackBox, ProgressBar } from "@/components/ui";
+import { CardSkeleton } from "@/components/skeleton";
 import { ActionChecklistCard } from "@/components/home/action-checklist-card";
 import { ThisWeekCard } from "@/components/home/this-week-card";
 import { TodayScamCard } from "@/components/home/today-scam-card";
@@ -68,7 +70,7 @@ function DailyQuestionCard() {
   const card = useMemo(() => DAILY_CARDS[daySeed(today) % DAILY_CARDS.length], [today]);
   const [picked, setPicked] = useState<boolean | null>(null);
 
-  if (!hydrated) return null;
+  if (!hydrated) return <CardSkeleton lines={3} />;
 
   const answeredToday = state.daily.last === today;
   const freezes = state.streak.freezes ?? 0;
@@ -90,6 +92,8 @@ function DailyQuestionCard() {
 
   function pick(value: boolean) {
     if (answeredToday) return;
+    if (value === card.a) hapticSuccess();
+    else hapticError();
     setPicked(value);
     answerDailyQuestion();
   }
@@ -160,7 +164,7 @@ function ReviewCard() {
 
 function ProgressCard() {
   const { state, hydrated } = useAppState();
-  if (!hydrated) return null;
+  if (!hydrated) return <CardSkeleton lines={2} />;
   const done = state.done.filter((id) => FREE_LESSONS.some((l) => l.id === id)).length;
   const pct = Math.round((done / FREE_LESSONS.length) * 100);
   const earned = BADGES.filter((b) => state.badges.includes(b.id));

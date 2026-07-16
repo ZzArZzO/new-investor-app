@@ -5,6 +5,7 @@ import { Pressable, ScrollView, View } from "react-native";
 import { QUIZ, scoreQuiz } from "@/content/quiz";
 import type { PersonaKey } from "@/content/types";
 import { useAppState } from "@/lib/app-state";
+import { hapticSelect } from "@/lib/haptics";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, ProgressBar } from "@/components/ui";
 
@@ -20,6 +21,7 @@ export default function QuizScreen() {
   const item = QUIZ[step];
 
   function choose(letter: PersonaKey) {
+    hapticSelect();
     const next = [...answers];
     next[step] = letter;
     setAnswers(next);

@@ -3,7 +3,7 @@ import * as Clipboard from "expo-clipboard";
 import * as Google from "expo-auth-session/providers/google";
 import * as Linking from "expo-linking";
 import { Stack } from "expo-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Alert, Platform, Pressable, ScrollView, TextInput, View } from "react-native";
 
 import { API_URL } from "@/lib/api";
@@ -58,6 +58,7 @@ function SignedOutAccount() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [appleAvailable, setAppleAvailable] = useState(false);
+  const passwordRef = useRef<TextInput>(null);
 
   const [, googleResponse, promptGoogle] = Google.useIdTokenAuthRequest({
     iosClientId: GOOGLE_IOS_CLIENT_ID,
@@ -92,6 +93,7 @@ function SignedOutAccount() {
   } as const;
 
   async function submit() {
+    if (email.trim().length === 0 || password.length === 0) return;
     setBusy(true);
     setError(null);
     try {
@@ -171,8 +173,13 @@ function SignedOutAccount() {
           autoCapitalize="none"
           autoComplete="email"
           inputMode="email"
+          textContentType="emailAddress"
+          returnKeyType="next"
+          submitBehavior="submit"
+          onSubmitEditing={() => passwordRef.current?.focus()}
         />
         <TextInput
+          ref={passwordRef}
           style={inputStyle}
           value={password}
           onChangeText={setPassword}
@@ -180,6 +187,10 @@ function SignedOutAccount() {
           placeholderTextColor={colors.mutedForeground}
           secureTextEntry
           autoCapitalize="none"
+          autoComplete={mode === "signup" ? "new-password" : "current-password"}
+          textContentType={mode === "signup" ? "newPassword" : "password"}
+          returnKeyType="go"
+          onSubmitEditing={submit}
         />
       </View>
 
@@ -188,9 +199,10 @@ function SignedOutAccount() {
       )}
 
       <Btn
-        label={busy ? "…" : mode === "signin" ? "Sign in" : "Create account"}
+        label={mode === "signin" ? "Sign in" : "Create account"}
         onPress={submit}
-        disabled={busy || email.trim().length === 0 || password.length === 0}
+        loading={busy}
+        disabled={email.trim().length === 0 || password.length === 0}
         style={{ marginTop: 12 }}
       />
 
@@ -300,7 +312,12 @@ export default function SettingsScreen() {
   return (
     <>
       <Stack.Screen options={{ title: "Settings" }} />
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 40, gap: 14 }}>
+      <ScrollView
+        contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 40, gap: 14 }}
+        automaticallyAdjustKeyboardInsets
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
+      >
         {migrationNotice && (
           <View
             style={{

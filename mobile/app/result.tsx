@@ -6,6 +6,7 @@ import { PERSONAS } from "@/content/quiz";
 import { useAppState } from "@/lib/app-state";
 import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn, Card } from "@/components/ui";
+import { CardSkeleton } from "@/components/skeleton";
 
 export default function ResultScreen() {
   const router = useRouter();
@@ -18,7 +19,16 @@ export default function ResultScreen() {
     if (hydrated && !persona) router.replace("/quiz");
   }, [hydrated, persona, router]);
 
-  if (!hydrated || !persona) return null;
+  if (!hydrated || !persona) {
+    return (
+      <>
+        <Stack.Screen options={{ title: "Your result" }} />
+        <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 32, gap: 14 }}>
+          <CardSkeleton lines={4} />
+        </ScrollView>
+      </>
+    );
+  }
 
   return (
     <>

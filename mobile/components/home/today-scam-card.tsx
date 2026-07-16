@@ -4,8 +4,10 @@ import { View } from "react-native";
 import { SCAM_SCENARIOS } from "@/content/scam-scenarios";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
+import { hapticError, hapticSuccess } from "@/lib/haptics";
 import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn, Card } from "@/components/ui";
+import { CardSkeleton } from "@/components/skeleton";
 
 const CHANNEL_LABEL = { DM: "Direct message", email: "Email", popup: "Pop-up" } as const;
 
@@ -16,7 +18,7 @@ export function TodayScamCard() {
   const scam = useMemo(() => SCAM_SCENARIOS[daySeed(today) % SCAM_SCENARIOS.length], [today]);
   const [picked, setPicked] = useState<boolean | null>(null);
 
-  if (!hydrated) return null;
+  if (!hydrated) return <CardSkeleton lines={3} />;
 
   const playedToday = state.scamDaily.last === today;
 
@@ -36,6 +38,8 @@ export function TodayScamCard() {
 
   function pick(saidScam: boolean) {
     if (playedToday) return;
+    if (saidScam === scam.isScam) hapticSuccess();
+    else hapticError();
     setPicked(saidScam);
     playDailyScam();
   }

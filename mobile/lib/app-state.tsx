@@ -12,6 +12,7 @@ import type { AppState, Holding, HoldingType, PersonaKey } from "@/content/types
 import { badgeById } from "@/content/badges";
 import { api } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
+import { hapticSuccess } from "@/lib/haptics";
 import { daysAgoStr, daysFromNowStr, todayStr, yesterdayStr } from "@/lib/date";
 import {
   initialAppState,
@@ -174,6 +175,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const showToast = useCallback((message: string) => {
+    hapticSuccess();
     setToastMessage(message);
     if (toastTimer.current) clearTimeout(toastTimer.current);
     toastTimer.current = setTimeout(() => setToastMessage(null), TOAST_MS);

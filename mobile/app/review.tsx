@@ -10,8 +10,10 @@ import {
 import { composeReviewSession, type ReviewCardData } from "@/lib/review-logic";
 import { todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
+import { hapticError, hapticSuccess } from "@/lib/haptics";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn, Card, FeedbackBox } from "@/components/ui";
+import { CardSkeleton, Skeleton } from "@/components/skeleton";
 
 export default function ReviewScreen() {
   const router = useRouter();
@@ -31,7 +33,17 @@ export default function ReviewScreen() {
     setSession(composeReviewSession(state, today, remainingReviewQuota(state, today)));
   }, [hydrated, session, state, today]);
 
-  if (!hydrated || session === null) return null;
+  if (!hydrated || session === null) {
+    return (
+      <>
+        <Stack.Screen options={{ title: "Review" }} />
+        <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12 }}>
+          <Skeleton width={140} height={13} />
+          <CardSkeleton lines={4} style={{ marginTop: 12 }} />
+        </ScrollView>
+      </>
+    );
+  }
 
   if (session.length === 0) {
     return (
@@ -78,7 +90,12 @@ export default function ReviewScreen() {
     if (answered) return;
     setPicked(oi);
     const correct = oi === card.answer;
-    if (correct) setCorrectCount((c) => c + 1);
+    if (correct) {
+      hapticSuccess();
+      setCorrectCount((c) => c + 1);
+    } else {
+      hapticError();
+    }
     answerReviewCard(card.id, correct);
   };
 

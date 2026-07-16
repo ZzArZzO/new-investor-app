@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import type { LessonCheck } from "@/content/types";
 import { checkOptionOrder } from "@/lib/check-order";
+import { hapticError, hapticSuccess } from "@/lib/haptics";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, FeedbackBox } from "@/components/ui";
 
@@ -18,6 +19,8 @@ export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProp
 
   function pick(qi: number, oi: number) {
     if (answers[qi] !== null) return;
+    if (oi === checks[qi].a) hapticSuccess();
+    else hapticError();
     const next = [...answers];
     next[qi] = oi;
     setAnswers(next);

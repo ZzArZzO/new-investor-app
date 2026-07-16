@@ -5,9 +5,11 @@ import { Pressable, ScrollView, View } from "react-native";
 import { HOLDING_TYPES, holdingTypeMeta } from "@/content/holdings";
 import { fmtEur, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
+import { hapticSuccess } from "@/lib/haptics";
 import { holdingColor } from "@/lib/holding-colors";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn, Card } from "@/components/ui";
+import { CardSkeleton } from "@/components/skeleton";
 import { Donut } from "@/components/donut";
 import { AddHoldingForm } from "@/components/tracker/add-holding-form";
 
@@ -49,7 +51,17 @@ export default function TrackerScreen() {
     return { contributed, hasValues, value, byType };
   }, [state]);
 
-  if (!hydrated) return null;
+  if (!hydrated) {
+    return (
+      <>
+        <Stack.Screen options={{ title: "Tracker" }} />
+        <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 40, gap: 14 }}>
+          <CardSkeleton lines={4} />
+          <CardSkeleton lines={2} />
+        </ScrollView>
+      </>
+    );
+  }
 
   const loggedToday = state.contributions.last === todayStr();
   const empty = state.holdings.length === 0;
@@ -57,7 +69,12 @@ export default function TrackerScreen() {
   return (
     <>
       <Stack.Screen options={{ title: "Tracker" }} />
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 40, gap: 14 }}>
+      <ScrollView
+        contentContainerStyle={{ paddingHorizontal: 16, paddingTop: 12, paddingBottom: 40, gap: 14 }}
+        automaticallyAdjustKeyboardInsets
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="on-drag"
+      >
         {!empty && (
           <Card style={{ padding: 16 }}>
             <View style={{ flexDirection: "row", gap: 10 }}>
@@ -107,7 +124,15 @@ export default function TrackerScreen() {
           <AppText variant="muted" style={{ marginTop: 4 }}>
             Contributions logged: {state.contributions.count} · streak 🔥 {state.streak.count || 0}
           </AppText>
-          <Btn label="Log a contribution (+10 XP)" disabled={loggedToday} onPress={logContribution} style={{ marginTop: 12 }} />
+          <Btn
+            label="Log a contribution (+10 XP)"
+            disabled={loggedToday}
+            onPress={() => {
+              hapticSuccess();
+              logContribution();
+            }}
+            style={{ marginTop: 12 }}
+          />
         </Card>
 
         {empty ? (
