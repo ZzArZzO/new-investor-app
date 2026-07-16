@@ -3,16 +3,14 @@ import { useMemo, useState } from "react";
 import { Pressable, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { BADGES } from "@/content/badges";
 import { DAILY_CARDS } from "@/content/daily-cards";
-import { FREE_LESSONS } from "@/content/lessons";
 import { PERSONAS } from "@/content/quiz";
 import { dueReviewItems, remainingReviewQuota } from "@/lib/app-state-logic";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { hapticError, hapticSuccess } from "@/lib/haptics";
 import { RADIUS, useTheme, withAlpha } from "@/lib/theme";
-import { AppText, Btn, Card, FeedbackBox, ProgressBar } from "@/components/ui";
+import { AppText, Btn, Card, FeedbackBox } from "@/components/ui";
 import { CardSkeleton } from "@/components/skeleton";
 import { ActionChecklistCard } from "@/components/home/action-checklist-card";
 import { ThisWeekCard } from "@/components/home/this-week-card";
@@ -182,74 +180,6 @@ function ReviewCard() {
   );
 }
 
-function ProgressCard() {
-  const { colors } = useTheme();
-  const { state, hydrated } = useAppState();
-  if (!hydrated) return <CardSkeleton lines={2} />;
-  const done = state.done.filter((id) => FREE_LESSONS.some((l) => l.id === id)).length;
-  const pct = Math.round((done / FREE_LESSONS.length) * 100);
-  const persona = state.persona ? PERSONAS[state.persona] : null;
-  return (
-    <Card>
-      <AppText variant="kicker">Your progress</AppText>
-      <ProgressBar value={pct} style={{ marginTop: 12 }} />
-      <AppText variant="muted" style={{ marginTop: 8 }}>
-        {done} of {FREE_LESSONS.length} lessons · {state.xp} XP · 🔥 {state.streak.count || 0} day streak
-      </AppText>
-      {persona && (
-        <AppText variant="bold" style={{ marginTop: 8 }}>
-          {persona.emoji} You’re {persona.name}
-        </AppText>
-      )}
-      <View style={{ marginTop: 10, flexDirection: "row", flexWrap: "wrap", gap: 6 }}>
-        {BADGES.map((badge) => {
-          const owned = state.badges.includes(badge.id);
-          return (
-            <View
-              key={badge.id}
-              style={{
-                borderRadius: RADIUS.pill,
-                borderWidth: 1,
-                borderColor: owned ? colors.primary : colors.border,
-                backgroundColor: owned ? colors.accent : colors.card,
-                paddingHorizontal: 10,
-                paddingVertical: 4,
-                opacity: owned ? 1 : 0.55,
-              }}
-            >
-              <AppText
-                style={{
-                  fontSize: 12,
-                  lineHeight: 17,
-                  color: owned ? colors.accentForeground : colors.mutedForeground,
-                }}
-              >
-                {badge.ico} {badge.name}
-              </AppText>
-            </View>
-          );
-        })}
-      </View>
-    </Card>
-  );
-}
-
-function SettingsButton() {
-  const router = useRouter();
-  const { colors } = useTheme();
-  return (
-    <Pressable
-      accessibilityRole="button"
-      accessibilityLabel="Settings"
-      onPress={() => router.push("/settings")}
-      hitSlop={8}
-      style={({ pressed }) => ({ alignSelf: "flex-end", opacity: pressed ? 0.6 : 1 })}
-    >
-      <AppText style={{ fontSize: 20, lineHeight: 24, color: colors.mutedForeground }}>⚙️</AppText>
-    </Pressable>
-  );
-}
-
 export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   return (
@@ -261,7 +191,6 @@ export default function HomeScreen() {
         gap: 14,
       }}
     >
-      <SettingsButton />
       <HeroCard />
       <DailyQuestionCard />
       <ReviewCard />
@@ -269,7 +198,6 @@ export default function HomeScreen() {
       <TrackerSnapshotCard />
       <ActionChecklistCard />
       <ThisWeekCard />
-      <ProgressCard />
       <AppText
         variant="muted"
         style={{ marginTop: 8, paddingHorizontal: 6, textAlign: "center", fontSize: 11.5, lineHeight: 17 }}

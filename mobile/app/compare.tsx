@@ -1,7 +1,7 @@
 import * as Linking from "expo-linking";
+import { Stack } from "expo-router";
 import { useState } from "react";
 import { Pressable, ScrollView, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { BROKERS, COMPARE_LAST_CHECKED, CRYPTO_EXCHANGES } from "@/content/brokers";
 import type { BrokerRow } from "@/content/types";
@@ -50,7 +50,6 @@ function BrokerCard({ broker }: { broker: BrokerRow }) {
 }
 
 export default function CompareScreen() {
-  const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const [showAllBrokers, setShowAllBrokers] = useState(false);
   const [showAllExchanges, setShowAllExchanges] = useState(false);
@@ -60,9 +59,9 @@ export default function CompareScreen() {
   const moreExchanges = CRYPTO_EXCHANGES.filter((x) => !x.mostUsed);
 
   return (
-    <ScrollView
-      contentContainerStyle={{ paddingTop: insets.top + 12, paddingHorizontal: 16, paddingBottom: 32, gap: 14 }}
-    >
+    <>
+      <Stack.Screen options={{ title: "Compare" }} />
+      <ScrollView contentContainerStyle={{ paddingTop: 12, paddingHorizontal: 16, paddingBottom: 32, gap: 14 }}>
       <AppText variant="heading">Tools &amp; platforms</AppText>
       <AppText variant="muted" style={{ marginTop: -6 }}>
         The landscape, shown to everyone. Facts only. We don’t tell you what to buy.
@@ -189,6 +188,7 @@ export default function CompareScreen() {
         Educational information, not personal financial advice. Investing involves risk, including loss of the money
         you invest. Crypto is high-risk and can go to zero.
       </AppText>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 }

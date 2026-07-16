@@ -20,8 +20,8 @@ export function ActionChecklistCard() {
   function handleStep(id: string, route: string | undefined, done: boolean) {
     hapticSelect();
     toggleActionStep(id);
-    // Web routes map onto the tab shell; /compare is the only routed step today.
-    if (!done && route === "/compare") router.push("/(tabs)/compare");
+    // /compare is the only routed step today (stack screen, reachable from Tools too).
+    if (!done && route === "/compare") router.push("/compare");
   }
 
   return (

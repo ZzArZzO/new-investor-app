@@ -55,15 +55,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="compare"
+        name="profile"
         options={{
-          title: "Compare",
+          title: "Profile",
           tabBarIcon: ({ color }) => (
-            <SymbolView
-              name={{ ios: "list.bullet.rectangle", android: "table_chart", web: "table_chart" }}
-              tintColor={color}
-              size={24}
-            />
+            <SymbolView name={{ ios: "person.fill", android: "person", web: "person" }} tintColor={color} size={24} />
           ),
         }}
       />
