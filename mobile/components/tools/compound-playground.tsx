@@ -4,14 +4,14 @@ import { View } from "react-native";
 import { fmtEur } from "@/lib/date";
 import { fvSeries } from "@/lib/tool-math";
 import { useAppState } from "@/lib/app-state";
-import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
+import { PathChart } from "@/components/tools/path-chart";
+import { StatTile } from "@/components/stat-tile";
 import { Stepper } from "@/components/stepper";
 import { ToolShell } from "@/components/tools/tool-shell";
 
 export function CompoundPlayground() {
   const { recordToolUse } = useAppState();
-  const { colors } = useTheme();
   const [monthly, setMonthly] = useState(100);
   const [years, setYears] = useState(20);
   const [rate, setRate] = useState(6);
@@ -38,32 +38,16 @@ export function CompoundPlayground() {
       <Stepper label="Years" value={years} display={`${years} years`} onChange={setYears} step={5} min={5} max={40} />
       <Stepper label="Average yearly return" value={rate} display={`${rate}%`} onChange={setRate} step={1} min={0} max={12} />
 
-      <View
-        style={{
-          marginTop: 18,
-          borderRadius: RADIUS.md,
-          backgroundColor: colors.accent,
-          paddingHorizontal: 14,
-          paddingVertical: 12,
-          gap: 4,
-        }}
-      >
-        <AppText style={{ color: colors.accentForeground }}>
-          You’d put in{" "}
-          <AppText variant="bold" style={{ color: colors.accentForeground }}>
-            {fmtEur(contributed)}
-          </AppText>
-        </AppText>
-        <AppText style={{ color: colors.accentForeground }}>
-          It could grow to{" "}
-          <AppText variant="bold" style={{ color: colors.accentForeground, fontSize: 17 }}>
-            {fmtEur(Math.round(total))}
-          </AppText>
-        </AppText>
-        <AppText variant="muted" style={{ fontSize: 13 }}>
-          {fmtEur(Math.round(growth))} of that is growth, not contributions.
-        </AppText>
+      <PathChart path={series} style={{ marginTop: 14 }} />
+
+      <View style={{ marginTop: 10, flexDirection: "row", gap: 10 }}>
+        <StatTile label="You put in" value={fmtEur(contributed)} />
+        <StatTile label="Growth" value={fmtEur(Math.round(growth))} />
+        <StatTile label="Ends near" value={fmtEur(Math.round(total))} />
       </View>
+      <AppText variant="muted" style={{ marginTop: 8, fontSize: 13, lineHeight: 18 }}>
+        {fmtEur(Math.round(growth))} of the end amount is growth, not contributions.
+      </AppText>
     </ToolShell>
   );
 }

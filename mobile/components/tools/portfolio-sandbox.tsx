@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
 import { View } from "react-native";
-import Svg, { Defs, LinearGradient, Path, Stop } from "react-native-svg";
 
 import { SANDBOX_SCENARIOS } from "@/content/sandbox-scenarios";
 import { fmtEur } from "@/lib/date";
@@ -8,44 +7,11 @@ import { rebalanceWeights, sandboxPath } from "@/lib/tool-math";
 import { useAppState } from "@/lib/app-state";
 import { useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
+import { PathChart } from "@/components/tools/path-chart";
 import { SegmentedControl } from "@/components/segmented-control";
 import { StatTile } from "@/components/stat-tile";
 import { Stepper } from "@/components/stepper";
 import { ToolShell } from "@/components/tools/tool-shell";
-
-const CHART_W = 300;
-const CHART_H = 140;
-
-/** Area chart of the portfolio path, drawn as one SVG path (recharts equivalent on web). */
-function PathChart({ path }: { path: number[] }) {
-  const { colors } = useTheme();
-  const max = Math.max(...path);
-  const min = Math.min(...path, 0);
-  const range = max - min || 1;
-  const pts = path.map((v, idx) => {
-    const x = (idx / (path.length - 1)) * CHART_W;
-    const y = CHART_H - ((v - min) / range) * (CHART_H - 10);
-    return { x, y };
-  });
-  const line = pts.map((p, idx) => `${idx === 0 ? "M" : "L"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
-  const area = `${line} L${CHART_W},${CHART_H} L0,${CHART_H} Z`;
-
-  return (
-    <View style={{ alignItems: "center", marginTop: 14 }}>
-      <Svg width="100%" height={CHART_H} viewBox={`0 0 ${CHART_W} ${CHART_H}`} preserveAspectRatio="none">
-        <Defs>
-          <LinearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
-            <Stop offset="0" stopColor={colors.primary} stopOpacity="0.35" />
-            <Stop offset="1" stopColor={colors.primary} stopOpacity="0" />
-          </LinearGradient>
-        </Defs>
-        <Path d={area} fill="url(#fill)" />
-        <Path d={line} stroke={colors.primary} strokeWidth={2.5} fill="none" />
-      </Svg>
-    </View>
-  );
-}
-
 
 /** Illustrative starting pot. The math runs on a 100-index; display scales to euros. */
 const START_EUR = 1000;
@@ -94,7 +60,7 @@ export function PortfolioSandbox() {
         />
       </View>
 
-      <PathChart path={path} />
+      <PathChart path={path} style={{ marginTop: 14 }} />
 
       <View style={{ marginTop: 10, flexDirection: "row", gap: 10 }}>
         <StatTile label="Start" value={fmtEur(START_EUR)} />
