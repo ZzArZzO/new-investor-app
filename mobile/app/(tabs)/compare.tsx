@@ -1,4 +1,5 @@
-import { ScrollView, View } from "react-native";
+import * as Linking from "expo-linking";
+import { Pressable, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { BROKERS, COMPARE_LAST_CHECKED, CRYPTO_EXCHANGES } from "@/content/brokers";
@@ -24,14 +25,40 @@ export default function CompareScreen() {
     <ScrollView
       contentContainerStyle={{ paddingTop: insets.top + 12, paddingHorizontal: 16, paddingBottom: 32, gap: 14 }}
     >
-      <AppText variant="heading">Compare</AppText>
+      <AppText variant="heading">Tools &amp; platforms</AppText>
       <AppText variant="muted" style={{ marginTop: -6 }}>
-        Regulated brokers and MiCA-licensed crypto exchanges, last checked {COMPARE_LAST_CHECKED}. We earn nothing from
-        any of them.
+        The landscape, shown to everyone. Facts only. We don’t tell you what to buy.
       </AppText>
 
+      <View
+        style={{
+          borderRadius: RADIUS.lg,
+          borderWidth: 1,
+          borderStyle: "dashed",
+          borderColor: colors.border,
+          backgroundColor: colors.card,
+          paddingHorizontal: 12,
+          paddingVertical: 10,
+        }}
+      >
+        <AppText variant="muted" style={{ fontSize: 12, lineHeight: 17 }}>
+          Some links may be affiliate links: we could earn a fee if you open an account through them, at no cost to
+          you. This never changes what’s listed or the order.
+        </AppText>
+      </View>
+
+      <View>
+        <AppText variant="bold" style={{ color: colors.mutedForeground, fontSize: 12 }}>
+          Data last verified: {COMPARE_LAST_CHECKED}
+        </AppText>
+        <AppText variant="muted" style={{ marginTop: 4, fontSize: 12, lineHeight: 17 }}>
+          Availability, fees and investor protection differ per EU country, always check the provider’s terms for
+          where you live.
+        </AppText>
+      </View>
+
       <AppText variant="kicker" style={{ marginTop: 6 }}>
-        Brokers
+        Investing · brokers &amp; robo-advisors
       </AppText>
       {BROKERS.map((b) => (
         <Card key={b.name} style={{ padding: 16 }}>
@@ -45,11 +72,22 @@ export default function CompareScreen() {
           <Row label="Cost" value={b.cost} />
           <Row label="Minimum" value={b.minimum} />
           <Row label="Notable" value={b.notable} />
+          <Pressable
+            accessibilityRole="link"
+            accessibilityLabel={`Visit ${b.name} website`}
+            onPress={() => Linking.openURL(b.link)}
+            hitSlop={8}
+            style={{ alignSelf: "flex-start", marginTop: 10, paddingVertical: 6 }}
+          >
+            <AppText variant="bold" style={{ color: colors.primary, fontSize: 13.5 }}>
+              Visit website ↗
+            </AppText>
+          </Pressable>
         </Card>
       ))}
 
       <AppText variant="kicker" style={{ marginTop: 6 }}>
-        Crypto exchanges
+        Crypto · MiCA-licensed platforms only
       </AppText>
       <View
         style={{
@@ -60,7 +98,8 @@ export default function CompareScreen() {
         }}
       >
         <AppText variant="bold" style={{ color: colors.amber, fontSize: 13, lineHeight: 19 }}>
-          ⚠️ Crypto is high-risk. Regulation reduces platform risk, not price risk.
+          ⚠️ Crypto is high-risk: prices are very volatile and you can lose everything. There’s generally no
+          investor-compensation scheme. Only ever use MiCA-licensed platforms.
         </AppText>
       </View>
       {CRYPTO_EXCHANGES.map((x) => (
@@ -73,6 +112,20 @@ export default function CompareScreen() {
           <Row label="Notable" value={x.notable} />
         </Card>
       ))}
+
+      <AppText variant="muted" style={{ fontSize: 12, lineHeight: 17 }}>
+        Every figure here is illustrative and must be verified against each provider’s current pricing before real
+        use. Exchanges shown are examples reported as MiCA-licensed and should be re-checked on the ESMA CASP
+        register.
+      </AppText>
+
+      <AppText
+        variant="muted"
+        style={{ marginTop: 8, paddingHorizontal: 6, textAlign: "center", fontSize: 11.5, lineHeight: 17 }}
+      >
+        Educational information, not personal financial advice. Investing involves risk, including loss of the money
+        you invest. Crypto is high-risk and can go to zero.
+      </AppText>
     </ScrollView>
   );
 }
