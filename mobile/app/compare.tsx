@@ -98,7 +98,7 @@ export default function CompareScreen() {
         Most used brokers
       </AppText>
       <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
-        The three largest by user base among EU retail investors. Grouped by market share, not our preference — the
+        The three largest by user base among EU retail investors. Grouped by market share, not our preference. The
         facts below are the same for everyone.
       </AppText>
       {BROKERS.filter((b) => b.mostUsed).map((b) => (
@@ -153,8 +153,8 @@ export default function CompareScreen() {
         </AppText>
       </View>
       <AppText variant="muted" style={{ marginTop: -6, fontSize: 12, lineHeight: 17 }}>
-        Most used shown first (largest user bases, Bitvavo is the Dutch market leader) — market share, not our
-        preference.
+        Most used shown first (largest user bases, Bitvavo is the Dutch market leader). Ordered by market share, not
+        our preference.
       </AppText>
       {[...topExchanges, ...(showAllExchanges ? moreExchanges : [])].map((x) => (
         <Card key={x.name} style={{ padding: 16 }}>

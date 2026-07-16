@@ -8,8 +8,8 @@ export default function TrackerPage() {
       <div>
         <h1 className="text-[26px] font-extrabold leading-tight tracking-tight">Your portfolio</h1>
         <p className="mt-1 text-[15px] text-muted-foreground">
-          A private, manual way to track what you&rsquo;ve put in and keep the monthly habit going. You enter the numbers —
-          nothing is connected and no prices are fetched.
+          A private, manual way to track what you&rsquo;ve put in and keep the monthly habit going. You enter the
+          numbers; nothing is connected and no prices are fetched.
         </p>
       </div>
       <PortfolioTracker />
