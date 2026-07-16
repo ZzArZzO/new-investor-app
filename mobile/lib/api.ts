@@ -3,8 +3,14 @@ import type { AppState } from "@/content/types";
 /**
  * Web app API base. Set EXPO_PUBLIC_API_URL for device testing (your PC's LAN
  * IP or the deployed URL) — localhost only reaches the phone itself.
+ * Release builds must ship an https URL (Play Data Safety / ATS assume TLS).
  */
-export const API_URL = process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:3000";
+const DEV_FALLBACK = "http://localhost:3000";
+export const API_URL = process.env.EXPO_PUBLIC_API_URL ?? (__DEV__ ? DEV_FALLBACK : "");
+
+if (!__DEV__ && !API_URL.startsWith("https://")) {
+  throw new Error("EXPO_PUBLIC_API_URL must be an https URL in release builds");
+}
 
 export class ApiError extends Error {
   constructor(

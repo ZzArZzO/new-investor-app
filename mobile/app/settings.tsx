@@ -1,10 +1,12 @@
 import * as AppleAuthentication from "expo-apple-authentication";
 import * as Clipboard from "expo-clipboard";
 import * as Google from "expo-auth-session/providers/google";
+import * as Linking from "expo-linking";
 import { Stack } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
 import { Alert, Platform, Pressable, ScrollView, TextInput, View } from "react-native";
 
+import { API_URL } from "@/lib/api";
 import { exportState, importState } from "@/lib/app-state-transfer";
 import { useAppState } from "@/lib/app-state";
 import { useAuth } from "@/lib/auth";
@@ -396,6 +398,16 @@ export default function SettingsScreen() {
           )}
         </Card>
         )}
+
+        <Pressable
+          accessibilityRole="link"
+          onPress={() => Linking.openURL(`${API_URL}/privacy`)}
+          style={{ alignSelf: "center", paddingVertical: 10, paddingHorizontal: 16 }}
+        >
+          <AppText variant="bold" style={{ color: colors.primary, fontSize: 13.5 }}>
+            Privacy policy
+          </AppText>
+        </Pressable>
 
         <AppText variant="muted" style={{ textAlign: "center", fontSize: 11.5, lineHeight: 17, paddingHorizontal: 6 }}>
           Educational information, not personal financial advice. Investing involves risk, including loss of the money

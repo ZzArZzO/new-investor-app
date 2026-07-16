@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://REPLACE-WITH-DEPLOYED-URL.vercel.app",
+        "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "REPLACE-WITH-IOS-CLIENT-ID.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "REPLACE-WITH-ANDROID-CLIENT-ID.apps.googleusercontent.com"
+      }
+    },
+    "production": {
+      "autoIncrement": false,
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://REPLACE-WITH-DEPLOYED-URL.vercel.app",
+        "EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID": "REPLACE-WITH-IOS-CLIENT-ID.apps.googleusercontent.com",
+        "EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID": "REPLACE-WITH-ANDROID-CLIENT-ID.apps.googleusercontent.com"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
