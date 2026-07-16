@@ -23,6 +23,37 @@ function HeroCard() {
   const router = useRouter();
   const { colors } = useTheme();
   const { state, hydrated } = useAppState();
+
+  if (!hydrated) return <CardSkeleton lines={3} />;
+
+  const persona = state.persona ? PERSONAS[state.persona] : null;
+
+  // Once the type is known, the onboarding pitch gives way to the user's profile.
+  if (persona) {
+    return (
+      <Card>
+        <AppText variant="kicker">Your investor type</AppText>
+        <AppText variant="heading" style={{ marginTop: 8, fontSize: 24, lineHeight: 30 }}>
+          {persona.emoji} {persona.name}
+        </AppText>
+        <AppText variant="muted" style={{ marginTop: 6, fontSize: 14.5, lineHeight: 21 }}>
+          {persona.desc}
+        </AppText>
+        <Btn label="See your profile" onPress={() => router.push(`/types/${persona.slug}`)} style={{ marginTop: 14 }} />
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push("/quiz")}
+          hitSlop={8}
+          style={{ alignSelf: "center", marginTop: 10, paddingVertical: 6 }}
+        >
+          <AppText variant="bold" style={{ color: colors.mutedForeground, fontSize: 13 }}>
+            Retake the quiz
+          </AppText>
+        </Pressable>
+      </Card>
+    );
+  }
+
   return (
     <Card>
       <View
@@ -48,11 +79,7 @@ function HeroCard() {
       <AppText variant="muted" style={{ marginTop: 10, fontSize: 15, lineHeight: 22 }}>
         Short lessons that take you from confusion to your first move, in stocks or crypto. No hype, no hot tips.
       </AppText>
-      <Btn
-        label={hydrated && state.persona ? "Retake the type quiz" : "Find your investor type"}
-        onPress={() => router.push("/quiz")}
-        style={{ marginTop: 20 }}
-      />
+      <Btn label="Find your investor type" onPress={() => router.push("/quiz")} style={{ marginTop: 20 }} />
     </Card>
   );
 }
