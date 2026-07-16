@@ -19,15 +19,6 @@ import { ThisWeekCard } from "@/components/home/this-week-card";
 import { TodayScamCard } from "@/components/home/today-scam-card";
 import { TrackerSnapshotCard } from "@/components/home/tracker-snapshot-card";
 
-const NEVER_DO = [
-  'No price predictions or "this coin is going to X"',
-  'No coin picks or "buy this" recommendations, ever',
-  "No leveraged trading tutorials or margin/futures content",
-  "No paid coin promotions or influencer partnerships",
-  '"No guaranteed returns" language, anywhere',
-  "No bank or broker account linking, ever, your holdings are numbers you type in",
-];
-
 function HeroCard() {
   const router = useRouter();
   const { colors } = useTheme();
@@ -216,25 +207,6 @@ function ProgressCard() {
   );
 }
 
-function NeverDoCard() {
-  const { colors } = useTheme();
-  return (
-    <Card>
-      <AppText variant="kicker">What we’ll never do</AppText>
-      <View style={{ marginTop: 10, gap: 6 }}>
-        {NEVER_DO.map((item) => (
-          <View key={item} style={{ flexDirection: "row", gap: 8 }}>
-            <AppText variant="bold" style={{ color: colors.destructive, fontSize: 12, lineHeight: 21 }}>
-              ✕
-            </AppText>
-            <AppText style={{ flex: 1, fontSize: 14, lineHeight: 21 }}>{item}</AppText>
-          </View>
-        ))}
-      </View>
-    </Card>
-  );
-}
-
 function SettingsButton() {
   const router = useRouter();
   const { colors } = useTheme();
@@ -270,7 +242,6 @@ export default function HomeScreen() {
       <TrackerSnapshotCard />
       <ActionChecklistCard />
       <ThisWeekCard />
-      <NeverDoCard />
       <ProgressCard />
       <AppText
         variant="muted"
