@@ -1,11 +1,13 @@
 import * as Linking from "expo-linking";
+import { useState } from "react";
 import { Pressable, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { BROKERS, COMPARE_LAST_CHECKED, CRYPTO_EXCHANGES } from "@/content/brokers";
 import type { BrokerRow } from "@/content/types";
+import { hapticSelect } from "@/lib/haptics";
 import { RADIUS, useTheme } from "@/lib/theme";
-import { AppText, Card } from "@/components/ui";
+import { AppText, Btn, Card } from "@/components/ui";
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
@@ -50,6 +52,12 @@ function BrokerCard({ broker }: { broker: BrokerRow }) {
 export default function CompareScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
+  const [showAllBrokers, setShowAllBrokers] = useState(false);
+  const [showAllExchanges, setShowAllExchanges] = useState(false);
+
+  const moreBrokers = BROKERS.filter((b) => !b.mostUsed);
+  const topExchanges = CRYPTO_EXCHANGES.filter((x) => x.mostUsed);
+  const moreExchanges = CRYPTO_EXCHANGES.filter((x) => !x.mostUsed);
 
   return (
     <ScrollView
@@ -98,15 +106,36 @@ export default function CompareScreen() {
         <BrokerCard key={b.name} broker={b} />
       ))}
 
-      <AppText variant="kicker" style={{ marginTop: 6 }}>
-        More options · incl. robo-advisors
-      </AppText>
-      <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
-        Smaller providers and managed (robo) options where the platform invests for you.
-      </AppText>
-      {BROKERS.filter((b) => !b.mostUsed).map((b) => (
-        <BrokerCard key={b.name} broker={b} />
-      ))}
+      {showAllBrokers ? (
+        <>
+          <AppText variant="kicker" style={{ marginTop: 6 }}>
+            More options · incl. robo-advisors
+          </AppText>
+          <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
+            Smaller providers and managed (robo) options where the platform invests for you.
+          </AppText>
+          {moreBrokers.map((b) => (
+            <BrokerCard key={b.name} broker={b} />
+          ))}
+          <Btn
+            label="Show fewer brokers"
+            variant="outline"
+            onPress={() => {
+              hapticSelect();
+              setShowAllBrokers(false);
+            }}
+          />
+        </>
+      ) : (
+        <Btn
+          label={`Show ${moreBrokers.length} more · incl. robo-advisors`}
+          variant="outline"
+          onPress={() => {
+            hapticSelect();
+            setShowAllBrokers(true);
+          }}
+        />
+      )}
 
       <AppText variant="kicker" style={{ marginTop: 6 }}>
         Crypto · MiCA-licensed platforms only
@@ -125,9 +154,10 @@ export default function CompareScreen() {
         </AppText>
       </View>
       <AppText variant="muted" style={{ marginTop: -6, fontSize: 12, lineHeight: 17 }}>
-        Most used first (largest user bases, Bitvavo is the Dutch market leader) — market share, not our preference.
+        Most used shown first (largest user bases, Bitvavo is the Dutch market leader) — market share, not our
+        preference.
       </AppText>
-      {[...CRYPTO_EXCHANGES.filter((x) => x.mostUsed), ...CRYPTO_EXCHANGES.filter((x) => !x.mostUsed)].map((x) => (
+      {[...topExchanges, ...(showAllExchanges ? moreExchanges : [])].map((x) => (
         <Card key={x.name} style={{ padding: 16 }}>
           <AppText variant="bold" style={{ fontSize: 16, marginBottom: 6 }}>
             {x.name}
@@ -137,6 +167,14 @@ export default function CompareScreen() {
           <Row label="Notable" value={x.notable} />
         </Card>
       ))}
+      <Btn
+        label={showAllExchanges ? "Show fewer exchanges" : `Show ${moreExchanges.length} more exchanges`}
+        variant="outline"
+        onPress={() => {
+          hapticSelect();
+          setShowAllExchanges((v) => !v);
+        }}
+      />
 
       <AppText variant="muted" style={{ fontSize: 12, lineHeight: 17 }}>
         Every figure here is illustrative and must be verified against each provider’s current pricing before real
