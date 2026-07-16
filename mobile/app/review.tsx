@@ -11,7 +11,7 @@ import { composeReviewSession, type ReviewCardData } from "@/lib/review-logic";
 import { todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { hapticError, hapticSuccess } from "@/lib/haptics";
-import { FONTS, RADIUS, useTheme } from "@/lib/theme";
+import { FONTS, RADIUS, useTheme, withAlpha } from "@/lib/theme";
 import { AppText, Btn, Card, FeedbackBox } from "@/components/ui";
 import { CardSkeleton, Skeleton } from "@/components/skeleton";
 
@@ -116,7 +116,7 @@ export default function ReviewScreen() {
               const border =
                 answered && isCorrect ? colors.primary : answered && isPicked ? colors.destructive : colors.border;
               const background =
-                answered && isCorrect ? colors.accent : answered && isPicked ? `${colors.destructive}1a` : colors.card;
+                answered && isCorrect ? colors.accent : answered && isPicked ? withAlpha(colors.destructive, 0.1) : colors.card;
               return (
                 <Pressable
                   key={oi}

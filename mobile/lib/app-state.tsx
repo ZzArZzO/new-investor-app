@@ -4,6 +4,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
   type ReactNode,
@@ -85,7 +86,6 @@ export interface AppStateValue {
   playDailyScam: () => void;
   queueReviewItems: (ids: string[]) => void;
   answerReviewCard: (id: string, correct: boolean) => void;
-  toastMessage: string | null;
   toggleEmailPref: (kind: "streak" | "weekly") => void;
   /** Deliberate full overwrite (backup-code restore), not an incremental action. */
   replaceState: (next: AppState) => void;
@@ -97,6 +97,9 @@ export interface AppStateValue {
 }
 
 const AppStateContext = createContext<AppStateValue | null>(null);
+
+/** Toast text lives in its own context so its ticks don't re-render every state consumer. */
+const ToastContext = createContext<string | null>(null);
 
 function newId(): string {
   return `h${Date.now()}${Math.floor(Math.random() * 1e6)}`;
@@ -294,32 +297,54 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     setState((prev) => withEmailPrefToggled(prev, kind));
   }, []);
 
+  const value = useMemo<AppStateValue>(
+    () => ({
+      state,
+      hydrated,
+      completeLesson,
+      setPersona,
+      answerDailyQuestion,
+      recordToolUse,
+      recordPerfectScamRound,
+      addHolding,
+      removeHolding,
+      logContribution,
+      toggleActionStep,
+      playDailyScam,
+      queueReviewItems,
+      answerReviewCard,
+      toggleEmailPref,
+      replaceState,
+      migrationNotice,
+      migrationBackup,
+      dismissMigrationNotice,
+    }),
+    [
+      state,
+      hydrated,
+      completeLesson,
+      setPersona,
+      answerDailyQuestion,
+      recordToolUse,
+      recordPerfectScamRound,
+      addHolding,
+      removeHolding,
+      logContribution,
+      toggleActionStep,
+      playDailyScam,
+      queueReviewItems,
+      answerReviewCard,
+      toggleEmailPref,
+      replaceState,
+      migrationNotice,
+      migrationBackup,
+      dismissMigrationNotice,
+    ]
+  );
+
   return (
-    <AppStateContext.Provider
-      value={{
-        state,
-        hydrated,
-        completeLesson,
-        setPersona,
-        answerDailyQuestion,
-        recordToolUse,
-        recordPerfectScamRound,
-        addHolding,
-        removeHolding,
-        logContribution,
-        toggleActionStep,
-        playDailyScam,
-        queueReviewItems,
-        answerReviewCard,
-        toastMessage,
-        toggleEmailPref,
-        replaceState,
-        migrationNotice,
-        migrationBackup,
-        dismissMigrationNotice,
-      }}
-    >
-      {children}
+    <AppStateContext.Provider value={value}>
+      <ToastContext.Provider value={toastMessage}>{children}</ToastContext.Provider>
     </AppStateContext.Provider>
   );
 }
@@ -328,4 +353,9 @@ export function useAppState(): AppStateValue {
   const value = useContext(AppStateContext);
   if (!value) throw new Error("useAppState must be used inside AppStateProvider");
   return value;
+}
+
+/** Current toast text (or null). Subscribes only to toast changes, not app state. */
+export function useToastMessage(): string | null {
+  return useContext(ToastContext);
 }

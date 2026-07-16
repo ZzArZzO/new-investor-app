@@ -39,7 +39,7 @@ export default function ResultScreen() {
           <View
             style={{
               marginTop: 8,
-              borderRadius: 999,
+              borderRadius: RADIUS.pill,
               backgroundColor: colors.accent,
               paddingHorizontal: 10,
               paddingVertical: 4,

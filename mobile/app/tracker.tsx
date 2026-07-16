@@ -11,29 +11,8 @@ import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Btn, Card } from "@/components/ui";
 import { CardSkeleton } from "@/components/skeleton";
 import { Donut } from "@/components/donut";
+import { StatTile } from "@/components/stat-tile";
 import { AddHoldingForm } from "@/components/tracker/add-holding-form";
-
-function StatTile({ label, value, warn = false }: { label: string; value: string; warn?: boolean }) {
-  const { colors } = useTheme();
-  return (
-    <View
-      style={{
-        flex: 1,
-        borderRadius: RADIUS.md,
-        backgroundColor: warn ? colors.amberSoft : colors.muted,
-        paddingHorizontal: 12,
-        paddingVertical: 10,
-      }}
-    >
-      <AppText variant="muted" style={{ fontSize: 11.5, lineHeight: 15 }}>
-        {label}
-      </AppText>
-      <AppText variant="bold" style={{ marginTop: 2, fontSize: 15, color: warn ? colors.amber : undefined }}>
-        {value}
-      </AppText>
-    </View>
-  );
-}
 
 export default function TrackerScreen() {
   const { colors } = useTheme();

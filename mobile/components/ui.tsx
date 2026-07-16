@@ -10,7 +10,7 @@ import {
   type ViewStyle,
 } from "react-native";
 import Animated, { FadeInDown, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
-import { FONTS, RADIUS, useTheme } from "@/lib/theme";
+import { FONTS, RADIUS, useTheme, withAlpha } from "@/lib/theme";
 
 /** Cap system font scaling so fixed-height rows degrade gracefully, not clip. */
 export const MAX_FONT_SCALE = 1.3;
@@ -150,7 +150,7 @@ export function FeedbackBox({ correct, children }: FeedbackBoxProps) {
         borderRadius: RADIUS.md,
         paddingHorizontal: 14,
         paddingVertical: 12,
-        backgroundColor: correct ? colors.accent : `${colors.destructive}1a`,
+        backgroundColor: correct ? colors.accent : withAlpha(colors.destructive, 0.1),
       }}
     >
       <Text

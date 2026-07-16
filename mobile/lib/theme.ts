@@ -87,3 +87,14 @@ export function useTheme(): { colors: Palette; dark: boolean } {
   const dark = scheme === "dark";
   return { colors: dark ? DARK : LIGHT, dark };
 }
+
+/**
+ * Hex color + 0-1 opacity as an 8-digit hex string, replacing scattered
+ * hand-rolled suffixes like `${colors.destructive}1a`.
+ */
+export function withAlpha(hex: string, alpha: number): string {
+  const clamped = Math.max(0, Math.min(1, alpha));
+  return `${hex}${Math.round(clamped * 255)
+    .toString(16)
+    .padStart(2, "0")}`;
+}

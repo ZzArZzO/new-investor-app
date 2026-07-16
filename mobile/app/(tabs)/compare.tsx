@@ -2,7 +2,7 @@ import { ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { BROKERS, COMPARE_LAST_CHECKED, CRYPTO_EXCHANGES } from "@/content/brokers";
-import { useTheme } from "@/lib/theme";
+import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Card } from "@/components/ui";
 
 function Row({ label, value }: { label: string; value: string }) {
@@ -53,7 +53,7 @@ export default function CompareScreen() {
       </AppText>
       <View
         style={{
-          borderRadius: 12,
+          borderRadius: RADIUS.lg,
           backgroundColor: colors.amberSoft,
           paddingHorizontal: 14,
           paddingVertical: 10,

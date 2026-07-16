@@ -6,9 +6,10 @@ import { SANDBOX_SCENARIOS } from "@/content/sandbox-scenarios";
 import { fmtEur } from "@/lib/date";
 import { rebalanceWeights, sandboxPath } from "@/lib/tool-math";
 import { useAppState } from "@/lib/app-state";
-import { RADIUS, useTheme } from "@/lib/theme";
+import { useTheme } from "@/lib/theme";
 import { AppText } from "@/components/ui";
 import { SegmentedControl } from "@/components/segmented-control";
+import { StatTile } from "@/components/stat-tile";
 import { Stepper } from "@/components/stepper";
 import { ToolShell } from "@/components/tools/tool-shell";
 
@@ -45,27 +46,6 @@ function PathChart({ path }: { path: number[] }) {
   );
 }
 
-function StatTile({ label, value, warn = false }: { label: string; value: string; warn?: boolean }) {
-  const { colors } = useTheme();
-  return (
-    <View
-      style={{
-        flex: 1,
-        borderRadius: RADIUS.md,
-        backgroundColor: warn ? colors.amberSoft : colors.muted,
-        paddingHorizontal: 12,
-        paddingVertical: 10,
-      }}
-    >
-      <AppText variant="muted" style={{ fontSize: 11.5, lineHeight: 15 }}>
-        {label}
-      </AppText>
-      <AppText variant="bold" style={{ marginTop: 2, fontSize: 16, color: warn ? colors.amber : undefined }}>
-        {value}
-      </AppText>
-    </View>
-  );
-}
 
 /** Illustrative starting pot. The math runs on a 100-index; display scales to euros. */
 const START_EUR = 1000;

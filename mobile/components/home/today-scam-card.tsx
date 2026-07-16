@@ -5,11 +5,10 @@ import { SCAM_SCENARIOS } from "@/content/scam-scenarios";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { hapticError, hapticSuccess } from "@/lib/haptics";
-import { RADIUS, useTheme } from "@/lib/theme";
+import { RADIUS, useTheme, withAlpha } from "@/lib/theme";
+import { CHANNEL_LABEL } from "@/lib/scam-labels";
 import { AppText, Btn, Card } from "@/components/ui";
 import { CardSkeleton } from "@/components/skeleton";
-
-const CHANNEL_LABEL = { DM: "Direct message", email: "Email", popup: "Pop-up" } as const;
 
 export function TodayScamCard() {
   const { colors } = useTheme();
@@ -100,7 +99,7 @@ export function TodayScamCard() {
             borderRadius: RADIUS.md,
             paddingHorizontal: 14,
             paddingVertical: 12,
-            backgroundColor: correct ? colors.accent : `${colors.destructive}1a`,
+            backgroundColor: correct ? colors.accent : withAlpha(colors.destructive, 0.1),
           }}
         >
           <AppText style={{ color: correct ? colors.accentForeground : colors.destructive, fontSize: 14, lineHeight: 20 }}>

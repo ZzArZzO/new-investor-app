@@ -6,11 +6,12 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BADGES } from "@/content/badges";
 import { DAILY_CARDS } from "@/content/daily-cards";
 import { FREE_LESSONS } from "@/content/lessons";
+import { PERSONAS } from "@/content/quiz";
 import { dueReviewItems, remainingReviewQuota } from "@/lib/app-state-logic";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { hapticError, hapticSuccess } from "@/lib/haptics";
-import { useTheme } from "@/lib/theme";
+import { RADIUS, useTheme, withAlpha } from "@/lib/theme";
 import { AppText, Btn, Card, FeedbackBox, ProgressBar } from "@/components/ui";
 import { CardSkeleton } from "@/components/skeleton";
 import { ActionChecklistCard } from "@/components/home/action-checklist-card";
@@ -24,6 +25,7 @@ const NEVER_DO = [
   "No leveraged trading tutorials or margin/futures content",
   "No paid coin promotions or influencer partnerships",
   '"No guaranteed returns" language, anywhere',
+  "No bank or broker account linking, ever, your holdings are numbers you type in",
 ];
 
 function HeroCard() {
@@ -38,10 +40,10 @@ function HeroCard() {
           flexDirection: "row",
           alignItems: "center",
           gap: 6,
-          borderRadius: 999,
+          borderRadius: RADIUS.pill,
           borderWidth: 1,
-          borderColor: `${colors.primary}33`,
-          backgroundColor: `${colors.primary}0d`,
+          borderColor: withAlpha(colors.primary, 0.2),
+          backgroundColor: withAlpha(colors.primary, 0.05),
           paddingHorizontal: 12,
           paddingVertical: 4,
         }}
@@ -163,11 +165,12 @@ function ReviewCard() {
 }
 
 function ProgressCard() {
+  const { colors } = useTheme();
   const { state, hydrated } = useAppState();
   if (!hydrated) return <CardSkeleton lines={2} />;
   const done = state.done.filter((id) => FREE_LESSONS.some((l) => l.id === id)).length;
   const pct = Math.round((done / FREE_LESSONS.length) * 100);
-  const earned = BADGES.filter((b) => state.badges.includes(b.id));
+  const persona = state.persona ? PERSONAS[state.persona] : null;
   return (
     <Card>
       <AppText variant="kicker">Your progress</AppText>
@@ -175,9 +178,40 @@ function ProgressCard() {
       <AppText variant="muted" style={{ marginTop: 8 }}>
         {done} of {FREE_LESSONS.length} lessons · {state.xp} XP · 🔥 {state.streak.count || 0} day streak
       </AppText>
-      {earned.length > 0 && (
-        <AppText style={{ marginTop: 8 }}>{earned.map((b) => `${b.ico} ${b.name}`).join("  ·  ")}</AppText>
+      {persona && (
+        <AppText variant="bold" style={{ marginTop: 8 }}>
+          {persona.emoji} You’re {persona.name}
+        </AppText>
       )}
+      <View style={{ marginTop: 10, flexDirection: "row", flexWrap: "wrap", gap: 6 }}>
+        {BADGES.map((badge) => {
+          const owned = state.badges.includes(badge.id);
+          return (
+            <View
+              key={badge.id}
+              style={{
+                borderRadius: RADIUS.pill,
+                borderWidth: 1,
+                borderColor: owned ? colors.primary : colors.border,
+                backgroundColor: owned ? colors.accent : colors.card,
+                paddingHorizontal: 10,
+                paddingVertical: 4,
+                opacity: owned ? 1 : 0.55,
+              }}
+            >
+              <AppText
+                style={{
+                  fontSize: 12,
+                  lineHeight: 17,
+                  color: owned ? colors.accentForeground : colors.mutedForeground,
+                }}
+              >
+                {badge.ico} {badge.name}
+              </AppText>
+            </View>
+          );
+        })}
+      </View>
     </Card>
   );
 }

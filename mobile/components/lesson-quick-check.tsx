@@ -3,7 +3,7 @@ import { Pressable, Text, View } from "react-native";
 import type { LessonCheck } from "@/content/types";
 import { checkOptionOrder } from "@/lib/check-order";
 import { hapticError, hapticSuccess } from "@/lib/haptics";
-import { FONTS, RADIUS, useTheme } from "@/lib/theme";
+import { FONTS, RADIUS, useTheme, withAlpha } from "@/lib/theme";
 import { AppText, FeedbackBox } from "@/components/ui";
 
 interface LessonQuickCheckProps {
@@ -52,7 +52,7 @@ export function LessonQuickCheck({ checks, onAllAnswered }: LessonQuickCheckProp
                   const isPicked = oi === picked;
                   const border = answered && isCorrect ? colors.primary : answered && isPicked ? colors.destructive : colors.border;
                   const background =
-                    answered && isCorrect ? colors.accent : answered && isPicked ? `${colors.destructive}1a` : colors.card;
+                    answered && isCorrect ? colors.accent : answered && isPicked ? withAlpha(colors.destructive, 0.1) : colors.card;
                   return (
                     <Pressable
                       key={oi}

@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import Animated, { FadeInDown, FadeOutDown } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { useAppState } from "@/lib/app-state";
+import { useToastMessage } from "@/lib/app-state";
 import { FONTS, RADIUS, useTheme } from "@/lib/theme";
 import { MAX_FONT_SCALE } from "@/components/ui";
 
@@ -12,7 +12,7 @@ import { MAX_FONT_SCALE } from "@/components/ui";
  * respecting the bottom safe-area inset.
  */
 export function Toast() {
-  const { toastMessage } = useAppState();
+  const toastMessage = useToastMessage();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
 

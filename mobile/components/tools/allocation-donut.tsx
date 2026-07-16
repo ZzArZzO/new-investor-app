@@ -3,7 +3,7 @@ import { View } from "react-native";
 
 import { rebalanceWeights } from "@/lib/tool-math";
 import { useAppState } from "@/lib/app-state";
-import { RADIUS, useTheme } from "@/lib/theme";
+import { RADIUS, useTheme, withAlpha } from "@/lib/theme";
 import { AppText } from "@/components/ui";
 import { Donut } from "@/components/donut";
 import { Stepper } from "@/components/stepper";
@@ -70,7 +70,7 @@ export function AllocationDonut() {
           borderRadius: RADIUS.md,
           paddingHorizontal: 14,
           paddingVertical: 12,
-          backgroundColor: danger ? `${colors.destructive}1a` : colors.accent,
+          backgroundColor: danger ? withAlpha(colors.destructive, 0.1) : colors.accent,
         }}
       >
         <AppText

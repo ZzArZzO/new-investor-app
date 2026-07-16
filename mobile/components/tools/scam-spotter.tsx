@@ -5,11 +5,10 @@ import { SCAM_SCENARIOS } from "@/content/scam-scenarios";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { hapticError, hapticSuccess } from "@/lib/haptics";
-import { FONTS, RADIUS, useTheme } from "@/lib/theme";
+import { FONTS, RADIUS, useTheme, withAlpha } from "@/lib/theme";
+import { CHANNEL_LABEL } from "@/lib/scam-labels";
 import { AppText, Btn } from "@/components/ui";
 import { ToolShell } from "@/components/tools/tool-shell";
-
-const CHANNEL_LABEL: Record<string, string> = { DM: "Direct message", email: "Email", popup: "Pop-up" };
 
 /** Messages per round. Short rounds keep the game snappy; "Play again" serves the next batch. */
 const ROUND_SIZE = 8;
@@ -69,7 +68,7 @@ export function ScamSpotter() {
     const border =
       answer && isRightAnswer ? colors.primary : answer === choice && !isRightAnswer ? colors.destructive : colors.border;
     const background =
-      answer && isRightAnswer ? colors.accent : answer === choice && !isRightAnswer ? `${colors.destructive}1a` : colors.card;
+      answer && isRightAnswer ? colors.accent : answer === choice && !isRightAnswer ? withAlpha(colors.destructive, 0.1) : colors.card;
     return (
       <Pressable
         accessibilityRole="button"
@@ -175,7 +174,7 @@ export function ScamSpotter() {
                 borderRadius: RADIUS.md,
                 paddingHorizontal: 14,
                 paddingVertical: 12,
-                backgroundColor: wasCorrect ? colors.accent : `${colors.destructive}1a`,
+                backgroundColor: wasCorrect ? colors.accent : withAlpha(colors.destructive, 0.1),
               }}
             >
               <AppText
