@@ -60,6 +60,7 @@ export function SegmentedControl<T extends string>({
                     paddingVertical: 8,
                   }
                 : {
+                    flexGrow: 1,
                     borderRadius: RADIUS.md,
                     borderColor: active ? colors.primary : colors.border,
                     backgroundColor: active ? colors.accent : colors.card,

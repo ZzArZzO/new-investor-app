@@ -15,7 +15,9 @@ export function StatTile({ label, value, warn = false }: StatTileProps) {
   return (
     <View
       style={{
-        flex: 1,
+        flexGrow: 1,
+        flexBasis: 0,
+        minWidth: 96,
         borderRadius: RADIUS.md,
         backgroundColor: warn ? colors.amberSoft : colors.muted,
         paddingHorizontal: 12,

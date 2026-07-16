@@ -40,7 +40,7 @@ export function CompoundPlayground() {
 
       <PathChart path={series} style={{ marginTop: 14 }} />
 
-      <View style={{ marginTop: 10, flexDirection: "row", gap: 10 }}>
+      <View style={{ marginTop: 10, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
         <StatTile label="You put in" value={fmtEur(contributed)} />
         <StatTile label="Growth" value={fmtEur(Math.round(growth))} />
         <StatTile label="Ends near" value={fmtEur(Math.round(total))} />

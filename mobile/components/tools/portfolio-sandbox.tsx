@@ -51,6 +51,7 @@ export function PortfolioSandbox() {
 
       <View style={{ marginTop: 14 }}>
         <SegmentedControl
+          variant="chip"
           options={SANDBOX_SCENARIOS.map((s) => ({ id: s.id, label: s.name }))}
           value={scenarioId}
           onChange={(id) => {
@@ -62,7 +63,7 @@ export function PortfolioSandbox() {
 
       <PathChart path={path} style={{ marginTop: 14 }} />
 
-      <View style={{ marginTop: 10, flexDirection: "row", gap: 10 }}>
+      <View style={{ marginTop: 10, flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
         <StatTile label="Start" value={fmtEur(START_EUR)} />
         <StatTile label={`After ${scenario.ret.index.length} yrs`} value={fmtEur((end * START_EUR) / 100)} />
         <StatTile label="Worst drop" value={`-${Math.round(maxDrawdown * 100)}%`} warn />

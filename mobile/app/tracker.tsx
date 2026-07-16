@@ -56,7 +56,7 @@ export default function TrackerScreen() {
       >
         {!empty && (
           <Card style={{ padding: 16 }}>
-            <View style={{ flexDirection: "row", gap: 10 }}>
+            <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
               <StatTile label="You've put in" value={fmtEur(summary.contributed)} />
               {summary.hasValues && <StatTile label="Value now" value={fmtEur(summary.value)} />}
               {summary.hasValues && (
