@@ -44,6 +44,12 @@ export interface BrokerRow {
   minimum: string;
   notable: string;
   link: string;
+  /**
+   * Editorial grouping by OBJECTIVE criterion only (user base among Dutch/EU
+   * retail beginners), never preference — grouping is presentation, the data
+   * stays identical for every user (compliance-one-pager.md).
+   */
+  mostUsed: boolean;
 }
 
 export interface CryptoExchangeRow {

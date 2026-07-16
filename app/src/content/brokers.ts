@@ -6,6 +6,7 @@ export const COMPARE_LAST_CHECKED = "2026-07-09";
 export const BROKERS: BrokerRow[] = [
   {
     name: "DEGIRO",
+    mostUsed: true,
     type: "Self-directed broker",
     regulation: "flatexDEGIRO Bank, BaFin-regulated (DE); cash guaranteed to €100k, securities held separately",
     cost: "€1 handling fee on Core Selection ETFs (one free trade/month per ETF); ~€3 on other ETFs",
@@ -15,6 +16,7 @@ export const BROKERS: BrokerRow[] = [
   },
   {
     name: "Trade Republic",
+    mostUsed: true,
     type: "Broker / app (licensed bank)",
     regulation: "BaFin-regulated (DE), operates as a bank; cash covered to €100k",
     cost: "Flat €1 per order; recurring ETF/stock savings plans free",
@@ -24,6 +26,7 @@ export const BROKERS: BrokerRow[] = [
   },
   {
     name: "Scalable Capital",
+    mostUsed: false,
     type: "Broker + robo",
     regulation: "BaFin-regulated (DE); cash segregated, €100k deposit guarantee",
     cost: "Free Broker €0.99/trade, or PRIME+ €4.99/month flat for unlimited trades",
@@ -33,6 +36,7 @@ export const BROKERS: BrokerRow[] = [
   },
   {
     name: "BUX",
+    mostUsed: true,
     type: "Broker / app",
     regulation: "AFM + DNB-regulated (NL); assets segregated, Dutch investor compensation to €20k",
     cost: "Commission-free 'Zero' orders and plans; €1.99 EU / €0.99 US market orders",
@@ -42,6 +46,7 @@ export const BROKERS: BrokerRow[] = [
   },
   {
     name: "Peaks",
+    mostUsed: false,
     type: "Robo-advisor",
     regulation: "AFM-registered investment firm (NL); invests for you into ETF portfolios",
     cost: "€1.59/month + 0.50%/yr service fee, plus fund costs",

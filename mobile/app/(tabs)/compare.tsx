@@ -3,6 +3,7 @@ import { Pressable, ScrollView, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { BROKERS, COMPARE_LAST_CHECKED, CRYPTO_EXCHANGES } from "@/content/brokers";
+import type { BrokerRow } from "@/content/types";
 import { RADIUS, useTheme } from "@/lib/theme";
 import { AppText, Card } from "@/components/ui";
 
@@ -14,6 +15,35 @@ function Row({ label, value }: { label: string; value: string }) {
       </AppText>
       <AppText style={{ flex: 1, fontSize: 13.5, lineHeight: 19 }}>{value}</AppText>
     </View>
+  );
+}
+
+function BrokerCard({ broker }: { broker: BrokerRow }) {
+  const { colors } = useTheme();
+  return (
+    <Card style={{ padding: 16 }}>
+      <AppText variant="bold" style={{ fontSize: 16 }}>
+        {broker.name}
+      </AppText>
+      <AppText variant="muted" style={{ fontSize: 13, marginBottom: 6 }}>
+        {broker.type}
+      </AppText>
+      <Row label="Regulation" value={broker.regulation} />
+      <Row label="Cost" value={broker.cost} />
+      <Row label="Minimum" value={broker.minimum} />
+      <Row label="Notable" value={broker.notable} />
+      <Pressable
+        accessibilityRole="link"
+        accessibilityLabel={`Visit ${broker.name} website`}
+        onPress={() => Linking.openURL(broker.link)}
+        hitSlop={8}
+        style={{ alignSelf: "flex-start", marginTop: 10, paddingVertical: 6 }}
+      >
+        <AppText variant="bold" style={{ color: colors.primary, fontSize: 13.5 }}>
+          Visit website ↗
+        </AppText>
+      </Pressable>
+    </Card>
   );
 }
 
@@ -58,32 +88,24 @@ export default function CompareScreen() {
       </View>
 
       <AppText variant="kicker" style={{ marginTop: 6 }}>
-        Investing · brokers &amp; robo-advisors
+        Where most beginners start
       </AppText>
-      {BROKERS.map((b) => (
-        <Card key={b.name} style={{ padding: 16 }}>
-          <AppText variant="bold" style={{ fontSize: 16 }}>
-            {b.name}
-          </AppText>
-          <AppText variant="muted" style={{ fontSize: 13, marginBottom: 6 }}>
-            {b.type}
-          </AppText>
-          <Row label="Regulation" value={b.regulation} />
-          <Row label="Cost" value={b.cost} />
-          <Row label="Minimum" value={b.minimum} />
-          <Row label="Notable" value={b.notable} />
-          <Pressable
-            accessibilityRole="link"
-            accessibilityLabel={`Visit ${b.name} website`}
-            onPress={() => Linking.openURL(b.link)}
-            hitSlop={8}
-            style={{ alignSelf: "flex-start", marginTop: 10, paddingVertical: 6 }}
-          >
-            <AppText variant="bold" style={{ color: colors.primary, fontSize: 13.5 }}>
-              Visit website ↗
-            </AppText>
-          </Pressable>
-        </Card>
+      <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
+        The brokers with the largest user bases among Dutch and EU retail beginners. Grouped by market share, not our
+        preference — the facts below are the same for everyone.
+      </AppText>
+      {BROKERS.filter((b) => b.mostUsed).map((b) => (
+        <BrokerCard key={b.name} broker={b} />
+      ))}
+
+      <AppText variant="kicker" style={{ marginTop: 6 }}>
+        More options · incl. robo-advisors
+      </AppText>
+      <AppText variant="muted" style={{ marginTop: -8, fontSize: 12, lineHeight: 17 }}>
+        Managed (robo) options where the platform invests for you, plus smaller providers.
+      </AppText>
+      {BROKERS.filter((b) => !b.mostUsed).map((b) => (
+        <BrokerCard key={b.name} broker={b} />
       ))}
 
       <AppText variant="kicker" style={{ marginTop: 6 }}>
