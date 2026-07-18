@@ -42,7 +42,8 @@ describe("composeReviewSession", () => {
     const session = composeReviewSession(state, TODAY, 5);
     expect(session[0].id).toBe(checkReviewId(lesson.id, 0));
     expect(session[0].question).toBe(lesson.check[0].q);
-    expect(session[0].answer).toBe(lesson.check[0].a);
+    // Options are rotated for display; the resolved answer must point at the correct option's text.
+    expect(session[0].options[session[0].answer]).toBe(lesson.check[0].o[lesson.check[0].a]);
   });
 
   it("skips ids that no longer resolve to content", () => {

@@ -1,21 +1,27 @@
 import type { DailyCard } from "./types";
 
 // Daily true/false questions, rotated deterministically by date.
+//
+// Editorial rule for this deck: tone must never predict the answer. True and
+// false cards are deliberately written in both registers, statements that
+// sound like overclaims but are documented facts, and statements that sound
+// prudent but are wrong. Answers are also ordered in irregular runs, because
+// daySeed produces near-sequential indices across a ten-day span.
 export const DAILY_CARDS: DailyCard[] = [
   {
-    q: 'Cash sitting idle for 20 years is "safe" because the number never drops.',
-    a: false,
-    why: "Inflation quietly erodes what that cash can buy, doing nothing is a slow, invisible loss.",
-  },
-  {
-    q: "A 20% drop matters far less to a 25-year-old with a long time horizon than to someone retiring next year.",
+    q: "Over 15-year periods, more than 80% of active US fund managers have underperformed their benchmark index.",
     a: true,
-    why: "With decades to recover, volatility is mostly noise; near retirement it can be a real problem.",
+    why: "Long-running scorecard studies show this repeatedly. Costs and competition make beating the index for 15 straight years genuinely rare.",
   },
   {
-    q: "Most professional stock-pickers beat a broad, low-cost index fund over the long run.",
+    q: "A limit order guarantees your order will execute.",
     a: false,
-    why: 'Most do not, which is why "just buy the index" is such common advice.',
+    why: "It guarantees the price, not the fill. If the market never reaches your price, the order simply never executes.",
+  },
+  {
+    q: "Keeping money in a savings account protects its purchasing power.",
+    a: false,
+    why: "Savings interest usually trails inflation, so the balance quietly buys less each year. The number holds; the value leaks.",
   },
   {
     q: "A 1.5% yearly fee versus 0.2% can quietly cost you a third of your final pot over decades.",
@@ -23,89 +29,29 @@ export const DAILY_CARDS: DailyCard[] = [
     why: "Small fees compound against you year after year.",
   },
   {
-    q: "A legitimate support agent might ask for your recovery phrase to help fix your wallet.",
-    a: false,
-    why: "Never. The recovery phrase IS the wallet, no real service ever asks for it.",
-  },
-  {
-    q: "Diversification lowers risk without giving up much long-term return.",
+    q: "Some years a broad stock market rises more than 25%.",
     a: true,
-    why: "It is the closest thing to a free lunch in investing.",
+    why: "Big up years are as much a part of market history as big down years. The same volatility cuts both ways.",
   },
   {
-    q: "A typical crypto-asset represents ownership of a business with profits, like a share does.",
+    q: "The KID's 1–7 number is a quality rating, higher means a better fund.",
     a: false,
-    why: "Most have no business or cash flows, value comes from supply, demand and belief.",
+    why: "It's a risk scale, not a rating. A 6 isn't better than a 4, it swings harder.",
   },
   {
-    q: '"Only invest what you can afford to lose" is the literal rule for a crypto slice, not a cliché.',
+    q: "A common guideline for an emergency fund is about 3–6 months of essential expenses.",
     a: true,
-    why: "There is generally no compensation scheme; the slice should be small and bounded.",
+    why: "The buffer exists so a surprise bill never forces you to sell investments at a bad moment.",
   },
   {
-    q: "Checking your portfolio constantly tends to improve your returns.",
+    q: "Checking your portfolio daily helps you catch problems early and improves results.",
     a: false,
-    why: "Frequent checking usually triggers emotional, ill-timed decisions.",
+    why: "Daily moves are close to a coin flip, and each red day stings roughly double. Frequent checking mostly manufactures ill-timed decisions.",
   },
   {
-    q: "Dollar-cost averaging means investing a fixed amount on a schedule, whatever the price.",
-    a: true,
-    why: "It turns investing into a boring, automatic habit, which is the point.",
-  },
-  {
-    q: "It's smart to start investing before paying off a credit card charging 16%.",
+    q: "Because the 4% rule is built on historical data, it already accounts for fees, taxes and flexible spending.",
     a: false,
-    why: "Clearing expensive debt is the one guaranteed 'return', no investment reliably beats it.",
-  },
-  {
-    q: "An emergency fund exists so a surprise expense never forces you to sell investments at a bad moment.",
-    a: true,
-    why: "It's the buffer that lets your investments ride out bad markets untouched.",
-  },
-  {
-    q: "The most reliable way to invest monthly is to transfer whatever is left at the end of the month.",
-    a: false,
-    why: "'What's left' is usually nothing. Pay yourself first, on payday, automatically.",
-  },
-  {
-    q: "Losing €100 typically feels about twice as intense as winning €100 feels good.",
-    a: true,
-    why: "That's loss aversion, and it's why people panic-sell at the bottom.",
-  },
-  {
-    q: "If a coin is all over social media because it went up, that's usually a great time to buy.",
-    a: false,
-    why: "Peak attention tends to be peak price, if you heard about it because it rose, you're late.",
-  },
-  {
-    q: "Social feeds show winners and hide losers, making risky bets look safer than they are.",
-    a: true,
-    why: "Survivorship bias: thousands of quiet losses stand behind every viral win.",
-  },
-  {
-    q: "“It was €80 and now it's €50, so it must be a bargain.”",
-    a: false,
-    why: "That's anchoring. The old price isn't evidence, things that fall often fall further.",
-  },
-  {
-    q: "A lucky first win is a reliable sign you have a talent for picking investments.",
-    a: false,
-    why: "Mistaking luck for skill is how small early wins turn into big later losses.",
-  },
-  {
-    q: "Urgency (countdowns, 'last chance', deadlines) is a red flag in any investment pitch.",
-    a: true,
-    why: "Long-term investing has no deadline. Only sellers need you to hurry.",
-  },
-  {
-    q: "Your savings rate matters more for reaching financial independence than your investment returns.",
-    a: true,
-    why: "Saving more grows the pot AND shrinks the pot you need, a double effect you control.",
-  },
-  {
-    q: "The 4% rule is a guarantee that your money will last 30 years.",
-    a: false,
-    why: "It's a rough compass built on past US data, useful for a ballpark, not a promise.",
+    why: "It mostly ignores all three, assumes exactly 30 years, and rests on one lucky market's past. A useful compass, not a contract.",
   },
   {
     q: "Your rough financial-independence number is about 25 times your yearly spending.",
@@ -113,69 +59,14 @@ export const DAILY_CARDS: DailyCard[] = [
     why: "That's the 4% rule flipped around: spending, not salary, sets the target.",
   },
   {
-    q: "Starting to invest at 25 instead of 35 makes only a small difference by retirement.",
+    q: "Some regulated brokers lend out their customers' shares to other traders.",
+    a: true,
+    why: "Securities lending is legal and disclosed in the account terms, often to short sellers. One more reason to actually read those terms.",
+  },
+  {
+    q: "Rebalancing means moving money out of whatever fell.",
     a: false,
-    why: "At ~7%, money doubles roughly every decade, an extra decade can outweigh years of contributions.",
-  },
-  {
-    q: "A REIT ETF lets you own slices of hundreds of buildings for the price of one share.",
-    a: true,
-    why: "Diversified, liquid real estate, without tenants calling at midnight.",
-  },
-  {
-    q: "House prices only go up.",
-    a: false,
-    why: "Several European markets fell 20%+ after 2008; parts of Japan never regained 1990 peaks. Everything cycles.",
-  },
-  {
-    q: "REITs are immune to stock-market crashes because they hold real buildings.",
-    a: false,
-    why: "They trade like stocks, and fell harder than the broad market in 2008.",
-  },
-  {
-    q: "The home you live in pays you rent, so it should be treated as your portfolio.",
-    a: false,
-    why: "It's shelter first: it costs maintenance and taxes, and you can't sell the kitchen in a dip.",
-  },
-  {
-    q: "A recovery phrase belongs on paper in two safe places, never in a photo or cloud note.",
-    a: true,
-    why: "Anything digital can be phished or read by malware. Paper can't be hacked remotely.",
-  },
-  {
-    q: "You should test restoring a wallet from your backup before sending real money to it.",
-    a: true,
-    why: "An untested backup might not work, and self-custody has no support line to call.",
-  },
-  {
-    q: "A crypto yield is fundamentally a payment for a risk, even when the risk isn't obvious.",
-    a: true,
-    why: "If you can't name the risk behind the %, you are the risk.",
-  },
-  {
-    q: "A platform being licensed makes its high-yield 'earn' products risk-free.",
-    a: false,
-    why: "Licensing covers how a platform operates, not the risk inside its products. No deposit guarantee either.",
-  },
-  {
-    q: "In DeFi, the smart-contract code is effectively your counterparty, with no fraud department.",
-    a: true,
-    why: "No bank, no reversals, no compensation scheme. The code is the deal.",
-  },
-  {
-    q: "The highest DeFi yields tend to sit exactly where the risks are thickest.",
-    a: true,
-    why: "Terra paid ~20% on its 'stable' coin right up until $40bn evaporated in a week.",
-  },
-  {
-    q: "A 4% staking reward means you're up 4%, whatever happens to the coin's price.",
-    a: false,
-    why: "Rewards are paid in the same volatile asset, 4% yield means little if the coin halves.",
-  },
-  {
-    q: "An expense ratio of 1.5% instead of 0.2% can quietly eat about a third of your final pot.",
-    a: true,
-    why: "Small fees compound against you for decades.",
+    why: "It's closer to the opposite: trimming what grew too large so your risk stays where you set it, which often means buying more of what fell.",
   },
   {
     q: "A market order buys at the current price; a limit order waits for the price you set.",
@@ -183,9 +74,29 @@ export const DAILY_CARDS: DailyCard[] = [
     why: "Two different tools, one takes the market's price, one insists on yours.",
   },
   {
-    q: "Rebalancing means selling everything when markets look risky.",
+    q: "You need a few thousand euros before starting to invest makes sense.",
     a: false,
-    why: "It's occasionally trimming what grew too big so your risk stays where you intended.",
+    why: "Many brokers accept small monthly amounts or fractional shares. Overestimating the entry price is one of the main reasons people never start.",
+  },
+  {
+    q: "At 2–3% inflation, cash loses roughly half its purchasing power over about 25 years.",
+    a: true,
+    why: "The account number never drops; the prices around it do the moving. That's the quiet cost of holding only cash for decades.",
+  },
+  {
+    q: "Starting to invest at 25 instead of 35 makes only a small difference by retirement.",
+    a: false,
+    why: "At ~7%, money doubles roughly every decade, an extra decade can outweigh years of contributions.",
+  },
+  {
+    q: "A diversified portfolio cannot lose value in a crash year.",
+    a: false,
+    why: "Diversification stops any single failure from sinking you, not the whole market falling. In a broad crash, nearly everything drops together for a while.",
+  },
+  {
+    q: "€50,000 invested at 25 could be roughly €400,000 at 55 without another euro added.",
+    a: true,
+    why: "At an assumed 7% average return, money doubles roughly every decade, and three doublings turn 50 into 400. Illustrative math, not a promise.",
   },
   {
     q: "A world index ETF can hold over 1,500 companies in a single product.",
@@ -193,19 +104,49 @@ export const DAILY_CARDS: DailyCard[] = [
     why: "One buy, automatic diversification across dozens of countries.",
   },
   {
-    q: "If 'support' DMs you first and asks to screen-share your wallet, it's a scam.",
+    q: "UCITS in a fund's name is a marketing label with no legal meaning.",
+    a: false,
+    why: "It's the EU regulatory standard for retail funds, with binding rules on diversification and custody built in.",
+  },
+  {
+    q: "After 2008, house prices fell more than 30% in Spain and Ireland.",
     a: true,
-    why: "Real support never DMs first and never needs to watch you type a recovery phrase.",
+    why: "The Netherlands fell roughly 20% too, and recovery took the better part of a decade. Property cycles like everything else.",
   },
   {
-    q: "Missing one day always resets your learning streak to zero here.",
+    q: "Like gold, Bitcoin has reliably acted as a safe haven when stock markets fall.",
     a: false,
-    why: "A banked streak freeze bridges a single missed day automatically. Earn them by showing up.",
+    why: "In real selloffs it has often dropped alongside stocks. The scarcity is real; the safe-haven story is, so far, only sometimes true.",
   },
   {
-    q: "The KID's 1–7 number is a quality rating, higher means a better fund.",
+    q: "A euro stablecoin from an authorised issuer is central-bank money, like cash.",
     a: false,
-    why: "It's a risk scale, not a rating. A 6 isn't better than a 4, it swings harder.",
+    why: "It's a claim on a private company's reserves. Only a digital euro from the central bank would be public money, and that doesn't exist yet.",
+  },
+  {
+    q: "A 'stablecoin' held up only by an algorithm has collapsed to nearly zero before.",
+    a: true,
+    why: "Terra went from 'stable' to almost nothing in a week in 2022, erasing ~$40 billion.",
+  },
+  {
+    q: "Ethereum's 2022 switch to proof of stake cut its energy use by roughly 99.9%.",
+    a: true,
+    why: "Validators locking coins replaced miners burning electricity. Proof-of-work chains like Bitcoin still run the energy-heavy model.",
+  },
+  {
+    q: "Bitcoin's fixed 21-million cap means its price has to rise over time.",
+    a: false,
+    why: "A cap makes something limited, not valuable. Value still needs demand, and plenty of scarce things are worth nothing.",
+  },
+  {
+    q: "A crypto platform paying around 17% 'yield' went bankrupt in 2022, taking customer funds with it.",
+    a: true,
+    why: "Celsius offered up to ~17% right up until the collapse. Yield is payment for a risk, and an unexplainable percentage is itself the warning.",
+  },
+  {
+    q: "A high-yield 'earn' product on a licensed exchange has been vetted by the regulator for safety.",
+    a: false,
+    why: "Licensing covers how a platform operates: custody, complaints, honest marketing. The risk inside each product stays entirely yours, with no deposit guarantee behind it.",
   },
   {
     q: "If your EU broker goes bankrupt, your segregated ETF shares are typically still yours.",
@@ -218,9 +159,24 @@ export const DAILY_CARDS: DailyCard[] = [
     why: "It covers missing assets when a firm fails, never ordinary market losses.",
   },
   {
+    q: "Cash your broker parks in a money-market fund is covered by the €100,000 deposit guarantee.",
+    a: false,
+    why: "The deposit guarantee covers bank deposits only. Money-market holdings are protected differently, as segregated client assets.",
+  },
+  {
+    q: "Bank deposits in the EU are guaranteed up to €100,000 per person per bank.",
+    a: true,
+    why: "That's the deposit guarantee scheme. It covers bank deposits specifically, not investments, and not crypto.",
+  },
+  {
     q: "With 10× leverage, a 10% move against you wipes out your whole stake.",
     a: true,
     why: "Leverage multiplies both directions, normal volatility becomes fatal.",
+  },
+  {
+    q: "Copy trading lets a beginner reliably match the returns of top traders.",
+    a: false,
+    why: "Leaders typically earn from follower volume, not follower profits, and most copy platforms run on CFDs, where 74–89% of retail accounts lose.",
   },
   {
     q: "EU CFD platforms must publish the share of their retail clients who lose money.",
@@ -228,64 +184,64 @@ export const DAILY_CARDS: DailyCard[] = [
     why: "ESMA found 74–89% of retail CFD accounts lose, the warning is mandatory.",
   },
   {
-    q: "Checking your projected state pension and employer matching comes before DIY pension investing.",
-    a: true,
-    why: "Employer matching is unclaimed salary, usually the best deal available to you.",
-  },
-  {
-    q: "Before moving crypto, you should send a small test amount and confirm it arrives.",
-    a: true,
-    why: "Transfers are irreversible, the small test defeats wrong-network and wrong-address losses.",
-  },
-  {
-    q: "Sending a token on the wrong network is easily reversed by support.",
+    q: "A well-informed person can compound an edge in prediction markets the way an index investor compounds returns.",
     a: false,
-    why: "Wrong-network transfers can be gone for good; recovery is 'best effort' at most. Match networks on both sides.",
+    why: "Event contracts pay all or nothing and expire. There's no productive asset underneath, so there's nothing to compound.",
   },
   {
-    q: "Keeping meaningful crypto amounts in a hot wallet is the recommended default.",
+    q: "A 4% staking reward means you're up 4% for the year, whatever the coin's price does.",
     a: false,
-    why: "Hot = keys online = attack surface. Spending amounts hot, anything meaningful cold.",
+    why: "Rewards arrive in the same volatile asset. If the coin halves, the extra 4% of it doesn't rescue the year.",
   },
   {
-    q: "Bitcoin's 21-million cap guarantees its price can only rise.",
-    a: false,
-    why: "Scarcity makes something limited, not valuable; demand and belief still do the work.",
-  },
-  {
-    q: "A 'stablecoin' held up only by an algorithm has collapsed to nearly zero before.",
+    q: "EU rules mean a retail CFD trader cannot end up owing the platform more than they deposited.",
     a: true,
-    why: "Terra went from 'stable' to almost nothing in a week in 2022, erasing ~$40 billion.",
+    why: "Negative-balance protection is mandatory for EU retail accounts. The deposit itself can still vanish fast, which is what the loss statistics describe.",
   },
   {
-    q: "The best time to decide what you'll do in a crash is during the crash, when you have the most information.",
-    a: false,
-    why: "In a drawdown your brain is compromised. The plan gets written in calm weather.",
-  },
-  {
-    q: "Copy-trading leaders usually earn from how many people copy them, not from whether those people profit.",
+    q: "The average investor in a fund often earns less than the fund itself returns.",
     a: true,
-    why: "Volume-based fees reward flashy trading over the boring kind that works.",
+    why: "Money floods in after good years and flees after bad ones. The fund's return was fine; the timing behaviour ate the difference.",
   },
   {
-    q: "Anyone can legally give personal investment advice online if they're confident enough.",
+    q: "A market crash early in retirement and one late in retirement damage a withdrawal plan about equally.",
     a: false,
-    why: "Personal advice requires authorisation, every national regulator has a public register you can search.",
+    why: "Sequence matters. Selling shares to live on during an early crash removes the very shares that would have fuelled the recovery.",
   },
   {
-    q: "A world ETF bought in euros can fall even while US markets rise.",
+    q: "Losing €100 typically feels about twice as intense as winning €100 feels good.",
     a: true,
-    why: "It's ~60–70% dollar assets, a falling dollar can eat the market's gains in euro terms.",
+    why: "That's loss aversion, and it's why people panic-sell at the bottom.",
   },
   {
-    q: "A realistic video of a famous investor endorsing a platform is good evidence the platform is legitimate.",
+    q: "Illustratively, saving half your income could put financial independence less than two decades away.",
+    a: true,
+    why: "A high savings rate works twice: it grows the pot faster and proves you need a smaller pot. Rough, assumption-heavy numbers, but the shape holds.",
+  },
+  {
+    q: "Selling everything and rebuying at the new broker is the cautious way to switch providers.",
     a: false,
-    why: "Deepfakes made video worthless as proof. Verify on the person's official channels and the regulator's register instead.",
+    why: "It can trigger an avoidable tax bill and time out of the market. An in-kind transfer moves the shares without selling them.",
   },
   {
-    q: "AI made scams cheaper to produce, but the classic tells (guarantees, urgency, unsolicited contact) still give them away.",
+    q: "You can get Bitcoin price exposure through an ordinary regulated broker, without a wallet or exchange account.",
     a: true,
-    why: "AI changed the production quality, not the business model. Verification beats detection.",
+    why: "Bitcoin ETPs trade on normal stock exchanges and sit in a portfolio like any other security. You give up holding the actual coins in exchange for simplicity.",
+  },
+  {
+    q: "The US spot Bitcoin ETFs are available to EU retail investors through local brokers.",
+    a: false,
+    why: "EU fund rules require diversification, which rules out a single-asset ETF. The EU-accessible route is a Bitcoin ETP, a different wrapper.",
+  },
+  {
+    q: "When the FTX exchange failed, roughly $8 billion in customer funds was missing.",
+    a: true,
+    why: "Crypto left on an exchange is an IOU, not ownership, and no deposit insurance stands behind it. That gap is what MiCA's segregation rules exist to close.",
+  },
+  {
+    q: "Crypto held on a licensed EU exchange is insured much like a bank deposit.",
+    a: false,
+    why: "No deposit guarantee exists for crypto. Licensing requires segregating client assets, which improves the bankruptcy outcome but insures nothing.",
   },
   {
     q: "Since July 2026, a crypto exchange without MiCA authorisation can keep serving EU customers legally.",
@@ -293,13 +249,63 @@ export const DAILY_CARDS: DailyCard[] = [
     why: "The transition period ended on 1 July 2026. Unlicensed firms must wind down or block EU users.",
   },
   {
-    q: "A prediction-market bet can compound over time like an index fund.",
-    a: false,
-    why: "Event contracts pay all-or-nothing and expire. There's no productive asset and nothing compounds.",
+    q: "Since 2026, licensed crypto exchanges report EU customers' activity to national tax authorities automatically.",
+    a: true,
+    why: "The DAC8 rules make exchange reporting automatic, so record-keeping is no longer private or optional.",
   },
   {
-    q: "An AI chatbot giving financial answers carries the same legal duties as a licensed adviser.",
+    q: "In the EU, investments are only ever taxed when you sell.",
     a: false,
-    why: "No licence, no liability, no register entry, no ombudsman. Use it to understand, never to decide alone.",
+    why: "Several countries tax funds yearly even without a sale, on assumed or unrealized gains. The Netherlands and Germany both run versions of this.",
+  },
+  {
+    q: "Swapping one cryptocurrency for another can trigger tax, even though no euros touched your account.",
+    a: true,
+    why: "Most EU countries treat a swap as selling the first coin. It's the crypto tax event beginners most often miss.",
+  },
+  {
+    q: "An encrypted password manager is the recommended place to store a wallet recovery phrase.",
+    a: false,
+    why: "The standard advice is paper, in two safe places, and nothing digital at all. Anything online or synced can be phished or read by malware.",
+  },
+  {
+    q: "You can buy an NFT and still not own the copyright to the image it points to.",
+    a: true,
+    why: "An NFT is a unique ledger entry, often linked to an image. The entry is yours; the legal rights to the work usually are not included.",
+  },
+  {
+    q: "Connecting your wallet to a website exposes your seed phrase, which is how drainer scams work.",
+    a: false,
+    why: "Connecting reveals nothing by itself. Drainers work through the approval you sign afterwards, which can grant standing permission to move your tokens later.",
+  },
+  {
+    q: "A world ETF bought in euros can fall even while US markets rise.",
+    a: true,
+    why: "It's ~60–70% dollar assets, a falling dollar can eat the market's gains in euro terms.",
+  },
+  {
+    q: "Legitimate crypto airdrops sometimes ask for a small upfront payment to unlock your claim.",
+    a: false,
+    why: "Real airdrops never require payment. That single request is close to a guarantee you're looking at a scam.",
+  },
+  {
+    q: "Only around a quarter of EU citizens hold any private pension product.",
+    a: true,
+    why: "Pillar 3 is the least used pillar. The gap between the state pension and your actual costs is what a monthly investing habit exists to close.",
+  },
+  {
+    q: "AI chatbots are a poor tool for judging whether a message is a scam.",
+    a: false,
+    why: "Sanity-checking a suspicious pitch is one thing they do quite well. Where they fail is personal advice and product picks, delivered with unearned confidence.",
+  },
+  {
+    q: "Broad markets dip 10% or more at some point in most years, including many that end positive.",
+    a: true,
+    why: "Double-digit dips are routine, and 20%+ bear markets arrive every handful of years. The long-term averages already include them.",
+  },
+  {
+    q: "DeFi yields run high because smart contracts eliminate the risks banks are paid to carry.",
+    a: false,
+    why: "The risks are still there: bugs, hacks, collapses, drained pools. The highest yields sit exactly where those risks are thickest.",
   },
 ];
