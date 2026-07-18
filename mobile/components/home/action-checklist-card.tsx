@@ -26,52 +26,61 @@ export function ActionChecklistCard() {
 
   return (
     <Card>
-      <AppText variant="kicker">
-        Your first investment · {doneCount}/{ACTION_STEPS.length} steps
-      </AppText>
+      <View style={{ flexDirection: "row", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
+        <AppText variant="heading" style={{ fontSize: 19, lineHeight: 25, flexShrink: 1 }}>
+          Getting started roadmap
+        </AppText>
+        <AppText variant="bold" style={{ color: colors.mutedForeground, fontSize: 13 }}>
+          {doneCount} of {ACTION_STEPS.length} ({pct}%)
+        </AppText>
+      </View>
       <ProgressBar value={pct} style={{ marginTop: 12 }} />
-      <View style={{ marginTop: 12, gap: 6 }}>
+      <View style={{ marginTop: 14, gap: 14 }}>
         {ACTION_STEPS.map((step) => {
           const done = state.actions.includes(step.id);
           return (
             <Pressable
               key={step.id}
               accessibilityRole="button"
+              accessibilityState={{ checked: done }}
               onPress={() => handleStep(step.id, step.route, done)}
               style={({ pressed }) => ({
                 flexDirection: "row",
-                gap: 12,
-                borderRadius: RADIUS.xl,
-                borderWidth: 1,
-                borderColor: pressed ? colors.primary : colors.border,
-                padding: 12,
+                alignItems: "center",
+                gap: 14,
+                opacity: pressed ? 0.7 : 1,
               })}
             >
               <View
                 style={{
-                  marginTop: 2,
-                  width: 20,
-                  height: 20,
-                  borderRadius: 6,
-                  borderWidth: 1,
-                  borderColor: done ? colors.primary : colors.border,
+                  width: 26,
+                  height: 26,
+                  borderRadius: 13,
+                  borderWidth: 1.5,
+                  borderColor: done ? colors.primary : colors.mutedForeground,
                   backgroundColor: done ? colors.primary : "transparent",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
               >
                 {done && (
-                  <AppText variant="bold" style={{ color: colors.primaryForeground, fontSize: 12, lineHeight: 15 }}>
+                  <AppText variant="bold" style={{ color: colors.primaryForeground, fontSize: 13, lineHeight: 17 }}>
                     ✓
                   </AppText>
                 )}
               </View>
               <View style={{ flex: 1 }}>
+                {step.kicker && (
+                  <AppText variant="kicker" style={{ fontSize: 11, lineHeight: 15 }}>
+                    {step.kicker}
+                  </AppText>
+                )}
                 <AppText
                   style={{
                     fontFamily: FONTS.bodySemiBold,
-                    fontSize: 14,
-                    lineHeight: 19,
+                    fontSize: 14.5,
+                    lineHeight: 20,
+                    marginTop: 1,
                     color: done ? colors.mutedForeground : colors.foreground,
                     textDecorationLine: done ? "line-through" : "none",
                   }}
@@ -82,11 +91,14 @@ export function ActionChecklistCard() {
                   {step.detail}
                 </AppText>
               </View>
+              {step.route && (
+                <AppText style={{ color: colors.mutedForeground, fontSize: 17, lineHeight: 22 }}>→</AppText>
+              )}
             </Pressable>
           );
         })}
       </View>
-      <AppText variant="muted" style={{ marginTop: 12, fontSize: 11.5, lineHeight: 16, fontStyle: "italic" }}>
+      <AppText variant="muted" style={{ marginTop: 14, fontSize: 11.5, lineHeight: 16, fontStyle: "italic" }}>
         The generic steps everyone takes, not a recommendation to buy anything. Only ever use regulated, licensed
         platforms.
       </AppText>

@@ -24,7 +24,9 @@ export function TodayScamCard() {
   if (playedToday && picked === null) {
     return (
       <Card>
-        <AppText variant="kicker">Today’s scam · safety reflex</AppText>
+        <AppText variant="kicker" style={{ color: colors.destructive }}>
+          Security diagnostic
+        </AppText>
         <AppText variant="bold" style={{ marginTop: 8 }}>
           ✓ Done for today, you trained your eye. Back tomorrow.
         </AppText>
@@ -48,7 +50,12 @@ export function TodayScamCard() {
 
   return (
     <Card>
-      <AppText variant="kicker">Today’s scam · safety reflex</AppText>
+      <AppText variant="kicker" style={{ color: colors.destructive }}>
+        Security diagnostic
+      </AppText>
+      <AppText variant="heading" style={{ marginTop: 6, fontSize: 21, lineHeight: 27 }}>
+        Can you spot the fraud?
+      </AppText>
 
       <View style={{ marginTop: 12, borderRadius: RADIUS.xl, borderWidth: 1, borderColor: colors.border, overflow: "hidden" }}>
         <View
@@ -88,8 +95,8 @@ export function TodayScamCard() {
       </View>
 
       <View style={{ marginTop: 12, flexDirection: "row", gap: 10 }}>
-        <Btn label="✅ Safe" variant="outline" disabled={answered} onPress={() => pick(false)} style={{ flex: 1 }} />
-        <Btn label="🚩 Scam" variant="outline" disabled={answered} onPress={() => pick(true)} style={{ flex: 1 }} />
+        <Btn label="Mark safe" variant="outline" disabled={answered} onPress={() => pick(false)} style={{ flex: 1 }} />
+        <Btn label="Identify scam" variant="danger" disabled={answered} onPress={() => pick(true)} style={{ flex: 1 }} />
       </View>
 
       {answered && (

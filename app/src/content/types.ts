@@ -158,6 +158,8 @@ export interface ActionStep {
   label: string;
   detail: string;
   route?: string;
+  /** Short uppercase editorial label shown above the step (e.g. "COMPARE"). */
+  kicker?: string;
 }
 
 /** Per-kind email opt-ins. Absent field = opted in (accounts predate this setting). */

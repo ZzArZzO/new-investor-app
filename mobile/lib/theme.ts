@@ -1,8 +1,9 @@
 import { useColorScheme } from "react-native";
 
 /**
- * Calm Clarity palette — mirrors app/src/app/globals.css (web source of truth).
- * Warm paper background, muted forest green, editorial serif headlines.
+ * "Daily Edition" palette — editorial financial-newspaper look.
+ * Dark: deep forest night, sage CTAs, gold kickers, coral danger.
+ * Light: the paper-edition twin (warm paper, forest CTAs, bronze kickers).
  */
 export interface Palette {
   background: string;
@@ -17,6 +18,8 @@ export interface Palette {
   mutedForeground: string;
   accent: string;
   accentForeground: string;
+  /** Editorial kicker/label accent (gold at night, bronze on paper). */
+  gold: string;
   amber: string;
   amberSoft: string;
   destructive: string;
@@ -26,9 +29,9 @@ export interface Palette {
 
 export const LIGHT: Palette = {
   background: "#f8f6ef",
-  foreground: "#1c231d",
-  card: "#fcfaf3",
-  cardForeground: "#1c231d",
+  foreground: "#1d231c",
+  card: "#fdfbf4",
+  cardForeground: "#1d231c",
   primary: "#33553f",
   primaryForeground: "#f3f1e6",
   secondary: "#eeece2",
@@ -37,31 +40,33 @@ export const LIGHT: Palette = {
   mutedForeground: "#5e655d",
   accent: "#e6e9df",
   accentForeground: "#33553f",
+  gold: "#a2702e",
   amber: "#96580a",
   amberSoft: "#fbf1e2",
-  destructive: "#b8382b",
+  destructive: "#c05548",
   destructiveForeground: "#fcfaf3",
   border: "#dedacc",
 };
 
 export const DARK: Palette = {
-  background: "#131511",
-  foreground: "#edeee9",
-  card: "#182019",
-  cardForeground: "#edeee9",
-  primary: "#6fcb9b",
-  primaryForeground: "#0b140f",
-  secondary: "#1c2620",
-  secondaryForeground: "#6fcb9b",
-  muted: "#1c2620",
-  mutedForeground: "#9ca398",
-  accent: "#1b2a20",
-  accentForeground: "#6fcb9b",
-  amber: "#e0a24a",
-  amberSoft: "#2a2113",
-  destructive: "#e0705f",
-  destructiveForeground: "#131511",
-  border: "#2a2d26",
+  background: "#11160f",
+  foreground: "#eef1ea",
+  card: "#1a211a",
+  cardForeground: "#eef1ea",
+  primary: "#adc9a8",
+  primaryForeground: "#13200f",
+  secondary: "#222b21",
+  secondaryForeground: "#adc9a8",
+  muted: "#222b21",
+  mutedForeground: "#9aa596",
+  accent: "#243020",
+  accentForeground: "#bcd6b7",
+  gold: "#d9a05b",
+  amber: "#d9a05b",
+  amberSoft: "#2a2416",
+  destructive: "#e2857c",
+  destructiveForeground: "#2a1512",
+  border: "#2c342b",
 };
 
 /** Base radius matches web --radius: 0.6875rem = 11px. */

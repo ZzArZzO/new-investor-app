@@ -5,17 +5,47 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { DAILY_CARDS } from "@/content/daily-cards";
 import { PERSONAS } from "@/content/quiz";
+import { QUOTES } from "@/content/quotes";
 import { dueReviewItems, remainingReviewQuota } from "@/lib/app-state-logic";
 import { daySeed, todayStr } from "@/lib/date";
 import { useAppState } from "@/lib/app-state";
 import { hapticError, hapticSuccess } from "@/lib/haptics";
-import { RADIUS, useTheme, withAlpha } from "@/lib/theme";
-import { AppText, Btn, Card, FeedbackBox } from "@/components/ui";
+import { FONTS, RADIUS, useTheme } from "@/lib/theme";
+import { AppText, Btn, Card, FeedbackBox, SectionHeader } from "@/components/ui";
 import { CardSkeleton } from "@/components/skeleton";
 import { ActionChecklistCard } from "@/components/home/action-checklist-card";
 import { ThisWeekCard } from "@/components/home/this-week-card";
 import { TodayScamCard } from "@/components/home/today-scam-card";
 import { TrackerSnapshotCard } from "@/components/home/tracker-snapshot-card";
+
+function Masthead() {
+  return (
+    <View>
+      <AppText variant="kicker">Daily edition</AppText>
+      <AppText variant="heading" style={{ marginTop: 4, fontSize: 34, lineHeight: 40 }}>
+        New Investor
+      </AppText>
+      <AppText variant="muted" style={{ marginTop: 4, fontSize: 15, lineHeight: 21 }}>
+        Your thoughtful path to building long-term wealth.
+      </AppText>
+    </View>
+  );
+}
+
+function QuoteBlock() {
+  const { colors } = useTheme();
+  const quote = QUOTES[daySeed(todayStr()) % QUOTES.length];
+  return (
+    <View style={{ borderTopWidth: 1, borderBottomWidth: 1, borderColor: colors.border, paddingVertical: 16 }}>
+      <AppText style={{ fontFamily: FONTS.headingMedium, fontSize: 18, lineHeight: 26 }}>
+        “{quote.text}”
+      </AppText>
+      <AppText variant="muted" style={{ marginTop: 6, fontSize: 13 }}>
+        {quote.author}
+      </AppText>
+    </View>
+  );
+}
 
 function HeroCard() {
   const router = useRouter();
@@ -54,30 +84,15 @@ function HeroCard() {
 
   return (
     <Card>
-      <View
-        style={{
-          alignSelf: "flex-start",
-          flexDirection: "row",
-          alignItems: "center",
-          gap: 6,
-          borderRadius: RADIUS.pill,
-          borderWidth: 1,
-          borderColor: withAlpha(colors.primary, 0.2),
-          backgroundColor: withAlpha(colors.primary, 0.05),
-          paddingHorizontal: 12,
-          paddingVertical: 4,
-        }}
-      >
-        <View style={{ width: 6, height: 6, borderRadius: 3, backgroundColor: colors.primary }} />
-        <AppText style={{ color: colors.primary, fontSize: 12 }}>Investing · Crypto · Blockchain</AppText>
-      </View>
-      <AppText variant="heading" style={{ marginTop: 10, fontSize: 26, lineHeight: 32 }}>
-        Learn to invest, calmly.
+      <AppText variant="kicker">Featured diagnostic</AppText>
+      <AppText variant="heading" style={{ marginTop: 6, fontSize: 24, lineHeight: 30 }}>
+        Find your investor type
       </AppText>
-      <AppText variant="muted" style={{ marginTop: 10, fontSize: 15, lineHeight: 22 }}>
-        Short lessons that take you from confusion to your first move, in stocks or crypto. No hype, no hot tips.
+      <AppText variant="muted" style={{ marginTop: 8, fontSize: 14.5, lineHeight: 21 }}>
+        A two-minute quiz sorts you into one of four investor types, with the strengths and blind spots of each. No
+        hype, no hot tips.
       </AppText>
-      <Btn label="Find your investor type" onPress={() => router.push("/quiz")} style={{ marginTop: 20 }} />
+      <Btn label="Take the quiz" onPress={() => router.push("/quiz")} style={{ marginTop: 16 }} />
     </Card>
   );
 }
@@ -96,7 +111,7 @@ function DailyQuestionCard() {
   if (answeredToday && picked === null) {
     return (
       <Card>
-        <AppText variant="kicker">Today’s question · keep your streak</AppText>
+        <AppText variant="kicker">Daily trivia · keep your streak</AppText>
         <AppText variant="bold" style={{ marginTop: 8 }}>
           ✓ Done for today, come back tomorrow to keep the streak going.
         </AppText>
@@ -121,7 +136,7 @@ function DailyQuestionCard() {
 
   return (
     <Card>
-      <AppText variant="kicker">Today’s question · keep your streak</AppText>
+      <AppText variant="kicker">Daily trivia · keep your streak</AppText>
       <AppText variant="bold" style={{ marginTop: 8 }}>
         {card.q}
       </AppText>
@@ -154,29 +169,32 @@ function ReviewCard() {
 
   if (quota === 0) {
     return (
-      <Card>
-        <AppText variant="kicker">Review · make it stick</AppText>
-        <AppText variant="bold" style={{ marginTop: 8 }}>
-          ✓ Reviewed today, spaced repetition works best in small daily doses.
-        </AppText>
-      </Card>
+      <>
+        <SectionHeader>Knowledge maintenance</SectionHeader>
+        <Card>
+          <AppText variant="kicker">Daily reviews</AppText>
+          <AppText variant="bold" style={{ marginTop: 8 }}>
+            ✓ Reviewed today, spaced repetition works best in small daily doses.
+          </AppText>
+        </Card>
+      </>
     );
   }
 
   return (
-    <Pressable accessibilityRole="button" onPress={() => router.push("/review")}>
-      {({ pressed }) => (
-        <Card style={{ opacity: pressed ? 0.8 : 1 }}>
-          <AppText variant="kicker">Review · make it stick</AppText>
-          <AppText variant="bold" style={{ marginTop: 8 }}>
-            {due > 0 ? `${due} card${due === 1 ? "" : "s"} due, a two-minute refresh.` : "A quick refresher round is ready."}
-          </AppText>
-          <AppText variant="muted" style={{ marginTop: 4 }}>
-            Missed questions and key terms, spaced so they stick. +3 XP per card.
-          </AppText>
-        </Card>
-      )}
-    </Pressable>
+    <>
+      <SectionHeader>Knowledge maintenance</SectionHeader>
+      <Card>
+        <AppText variant="kicker">Daily reviews</AppText>
+        <AppText variant="heading" style={{ marginTop: 6, fontSize: 21, lineHeight: 27 }}>
+          {due > 0 ? `Review due: ${due} card${due === 1 ? "" : "s"}` : "A refresher round is ready"}
+        </AppText>
+        <AppText variant="muted" style={{ marginTop: 6, fontSize: 14, lineHeight: 20 }}>
+          A quick two-minute refresh to lock core definitions in long-term memory. +3 XP per card.
+        </AppText>
+        <Btn label="Start 2-min refresh" onPress={() => router.push("/review")} style={{ marginTop: 14 }} />
+      </Card>
+    </>
   );
 }
 
@@ -191,20 +209,40 @@ export default function HomeScreen() {
         gap: 14,
       }}
     >
+      <Masthead />
+      <QuoteBlock />
       <HeroCard />
+      <SectionHeader>Today’s question</SectionHeader>
       <DailyQuestionCard />
       <ReviewCard />
+      <SectionHeader>Today’s scam challenge</SectionHeader>
       <TodayScamCard />
-      <TrackerSnapshotCard />
+      <SectionHeader>Your first investment</SectionHeader>
       <ActionChecklistCard />
+      <SectionHeader>Your portfolio</SectionHeader>
+      <TrackerSnapshotCard />
       <ThisWeekCard />
-      <AppText
-        variant="muted"
-        style={{ marginTop: 8, paddingHorizontal: 6, textAlign: "center", fontSize: 11.5, lineHeight: 17 }}
-      >
-        Educational information, not personal financial advice. Investing involves risk, including loss of the money you
-        invest. Crypto is high-risk and can go to zero.
-      </AppText>
+      <DisclaimerPanel />
     </ScrollView>
+  );
+}
+
+function DisclaimerPanel() {
+  const { colors } = useTheme();
+  return (
+    <View
+      style={{
+        borderRadius: RADIUS.xl,
+        backgroundColor: colors.muted,
+        paddingHorizontal: 16,
+        paddingVertical: 14,
+        marginTop: 8,
+      }}
+    >
+      <AppText variant="muted" style={{ textAlign: "center", fontSize: 11.5, lineHeight: 17 }}>
+        Educational information, not personal financial advice. Investing involves risk, including loss of the money
+        you invest. Crypto is high-risk and can go to zero.
+      </AppText>
+    </View>
   );
 }

@@ -45,12 +45,12 @@ export function AppText({ children, variant = "body", style }: AppTextProps) {
   if (variant === "bold") base.push({ fontFamily: FONTS.bodySemiBold });
   if (variant === "kicker")
     base.push({
-      color: colors.primary,
+      color: colors.gold,
       fontFamily: FONTS.bodySemiBold,
       fontSize: 12,
       lineHeight: 16,
       textTransform: "uppercase",
-      letterSpacing: 0.6,
+      letterSpacing: 1.2,
     });
   return (
     <Text maxFontSizeMultiplier={MAX_FONT_SCALE} style={[...base, style]}>
@@ -62,7 +62,7 @@ export function AppText({ children, variant = "body", style }: AppTextProps) {
 interface BtnProps {
   label: string;
   onPress: () => void;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "danger";
   disabled?: boolean;
   loading?: boolean;
   style?: StyleProp<ViewStyle>;
@@ -70,8 +70,18 @@ interface BtnProps {
 
 export function Btn({ label, onPress, variant = "primary", disabled = false, loading = false, style }: BtnProps) {
   const { colors } = useTheme();
-  const primary = variant === "primary";
-  const labelColor = primary ? colors.primaryForeground : colors.secondaryForeground;
+  const fill =
+    variant === "primary"
+      ? { backgroundColor: colors.primary }
+      : variant === "danger"
+        ? { backgroundColor: colors.destructive }
+        : { backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border };
+  const labelColor =
+    variant === "primary"
+      ? colors.primaryForeground
+      : variant === "danger"
+        ? colors.destructiveForeground
+        : colors.secondaryForeground;
   return (
     <Pressable
       accessibilityRole="button"
@@ -81,9 +91,7 @@ export function Btn({ label, onPress, variant = "primary", disabled = false, loa
       android_ripple={{ color: colors.accent }}
       style={({ pressed }) => [
         styles.btn,
-        primary
-          ? { backgroundColor: colors.primary }
-          : { backgroundColor: colors.card, borderWidth: 1, borderColor: colors.border },
+        fill,
         (pressed || disabled) && { opacity: disabled ? 0.5 : 0.8 },
         style,
       ]}
@@ -96,13 +104,40 @@ export function Btn({ label, onPress, variant = "primary", disabled = false, loa
           style={{
             color: labelColor,
             fontFamily: FONTS.bodySemiBold,
-            fontSize: 15,
+            fontSize: 13.5,
+            letterSpacing: 1.1,
+            textTransform: "uppercase",
           }}
         >
           {label}
         </Text>
       )}
     </Pressable>
+  );
+}
+
+/** Uppercase section label shown between cards ("TODAY'S QUESTION"). */
+export function SectionHeader({ children, style }: { children: ReactNode; style?: StyleProp<TextStyle> }) {
+  const { colors } = useTheme();
+  return (
+    <Text
+      maxFontSizeMultiplier={MAX_FONT_SCALE}
+      style={[
+        {
+          color: colors.mutedForeground,
+          fontFamily: FONTS.bodySemiBold,
+          fontSize: 12.5,
+          lineHeight: 17,
+          textTransform: "uppercase",
+          letterSpacing: 1.6,
+          marginTop: 10,
+          marginBottom: -4,
+        },
+        style,
+      ]}
+    >
+      {children}
+    </Text>
   );
 }
 

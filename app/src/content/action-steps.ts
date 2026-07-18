@@ -6,33 +6,39 @@ import type { ActionStep } from "./types";
 export const ACTION_STEPS: ActionStep[] = [
   {
     id: "provider",
+    kicker: "Compare",
     label: "Choose a provider",
     detail: "Compare regulated brokers and MiCA-licensed exchanges, facts only, shown to everyone.",
     route: "/compare",
   },
   {
     id: "open",
+    kicker: "Set up",
     label: "Open an account",
     detail:
       "Start the sign-up with a provider you picked. Only ever use regulated, licensed platforms, and turn on 2FA the same day, this account is worth locking down.",
   },
   {
     id: "kyc",
+    kicker: "Verify",
     label: "Verify your ID (KYC)",
     detail: "Regulated platforms confirm your identity before you can invest, usually a quick photo-ID check.",
   },
   {
     id: "deposit",
+    kicker: "Fund",
     label: "Make a first deposit",
     detail: "Move an amount you're comfortable with. Nothing here is a target, you decide the size.",
   },
   {
     id: "buy",
+    kicker: "Invest",
     label: "Place your first order",
     detail: "A market order buys now at the current price; a limit order waits for a price you set.",
   },
   {
     id: "recurring",
+    kicker: "Automate",
     label: "Set up a recurring buy",
     detail: "Automating a fixed amount on a schedule turns investing into a boring, reliable habit.",
   },
