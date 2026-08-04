@@ -13,17 +13,18 @@
 | | |
 |---|---|
 | Ticker | AMD (NASDAQ) |
-| Share price (4 Aug 2026 open) | **$409.49** |
+| Share price | **$484.64** (close, Mon 3 Aug 2026, +1.78%) |
 | Shares outstanding | ~1.631bn |
-| Market cap | **≈ $670bn** (1.631bn × $409.49) |
-| 52-week move | **+182%** |
-| All-time-high close | **$580.91** (30 Jun 2026) — currently **~29% below it** |
-| Trailing P/E (GAAP) | ~155× |
-| Forward P/E (2026E non-GAAP) | **~53×** |
+| Market cap | **≈ $790bn** (1.631bn × $484.64) — ~19th most valuable company in the world |
+| Move | Up >100% year-to-date |
+| All-time-high close | **$580.91** (30 Jun 2026) — currently **~17% below it** |
+| Trailing P/E (FY25 GAAP EPS $2.65) | ~183× |
+| Forward P/E (2026E non-GAAP) | **~61×** |
+| P/E on 2027E | ~33× |
 | FY2025 revenue | $34.6bn |
 | 2026 consensus revenue | ~$48.4bn (+~40%) |
 
-*Note on market cap:* some trackers still show **$776–790bn**. That implies ~$476/share and looks like a stale snapshot from the June peak. The arithmetic above (share count × current price) is the one to trust.
+*Volatility note:* the 3 Aug session traded a **7.8% range** ($455.30 low to $490.95 high) before closing at $484.64. The market is positioned for a large move on tonight's print.
 
 ---
 
@@ -100,7 +101,7 @@ The Anthropic deal is worth noting structurally: AMD gave away *no* equity dilut
 
 ## 5. The bear case
 
-**1. You are paying for the plan, not the company.** At ~$410, AMD trades at ~53× 2026 estimated non-GAAP earnings and ~14× 2026 estimated sales. Even against management's own **>$20 EPS** ambition — a 3-to-5-year *target*, not a forecast — you're paying ~20× the successful outcome today. The plan has to substantially work just to justify the current price; the stock's 182% 12-month run has already banked much of the good news.
+**1. You are paying for the plan, not the company.** At ~$485, AMD trades at ~61× 2026 estimated non-GAAP earnings, ~33× 2027 estimates, and ~16× 2026 estimated sales. Even against management's own **>$20 EPS** ambition — a 3-to-5-year *target*, not a forecast — you're paying ~24× the successful outcome today. The plan has to substantially work just to justify the current price; a >100% year-to-date run has already banked much of the good news.
 
 **2. 4.5% share is a very small base, and the gap isn't only silicon.** Nvidia's moat is CUDA, an installed developer base, and years of operational experience shipping integrated racks at scale. AMD's ROCm software stack has improved a lot and is no longer the punchline it once was, but "our chip has more memory" doesn't by itself move a workload that has been tuned against CUDA for five years.
 
@@ -112,13 +113,13 @@ The Anthropic deal is worth noting structurally: AMD gave away *no* equity dilut
 
 **6. Supply is not fully in AMD's hands.** HBM4 memory and TSMC's advanced packaging allocation are shared constraints across the industry. AMD competes for both against a much larger buyer.
 
-**7. The sector's multiple is already wobbling.** The 29% drawdown from the June high had almost nothing to do with AMD: a weak Samsung print, TSMC guiding 2026 capex to $60–64bn, Chinese competition, and a broad reassessment of whether AI returns will justify the capital. That's the point — **at this multiple, AMD's price is set as much by sentiment toward AI capex as by AMD's own execution.** Multiple compression can undo two good quarters.
+**7. The sector's multiple is already wobbling.** The ~17% drawdown from the June high had almost nothing to do with AMD: a weak Samsung print, TSMC guiding 2026 capex to $60–64bn, Chinese competition, and a broad reassessment of whether AI returns will justify the capital. That's the point — **at this multiple, AMD's price is set as much by sentiment toward AI capex as by AMD's own execution.** Multiple compression can undo two good quarters.
 
 ---
 
 ## 6. What's actually priced in
 
-Put crudely, at ~$670bn the market is saying something like:
+Put crudely, at ~$790bn the market is saying something like:
 
 - Revenue roughly **$48bn in 2026** and accelerating to ~60% growth in 2027 (consensus)
 - AI GPU share moving from ~4.5% toward *double digits* over several years
@@ -130,14 +131,39 @@ Miss on any *two* of those and the multiple, not just the earnings, gets re-rate
 
 ---
 
-## 7. What to watch tonight (and after)
+## 7. The Q2 2026 print — setup and scenarios
 
-1. **Data Center revenue vs the ~$6.5bn whisper** (≈$4bn server CPU + ≈$2.5bn AI accelerators). The segment split matters more than the headline.
-2. **Q3 guidance.** This is the real event. H2 needs ~$27bn to hit consensus — the Q3 guide is the first hard evidence on whether the MI450 ramp is on time.
-3. **Gross margin.** Holding ~56% while AI GPU mix rises is the bull case in one number. Any guide toward the low 50s says AI revenue is coming in at dilutive margins.
-4. **Explicit MI450 / Helios ramp language.** "On track for 2H" vs any hedging.
-5. **China / MI308 assumptions** in the guide — whether any China revenue is included at all.
-6. **The OpenAI warrant.** As of 28 March 2026 **none of the 160m warrant shares had vested**, so they hadn't touched the financials. It's carried as a liability until equity-classification conditions are met. Watch for first vesting — it brings both dilution and mark-to-market noise into GAAP earnings.
+**Release: Tue 4 Aug 2026, ~4:05pm ET (after the close). Call 5:00pm ET.** As of writing (11:50am ET) the numbers are not out.
+
+### The bar
+
+| Metric | AMD guide (6 May) | Street consensus |
+|---|---|---|
+| Revenue | $11.2bn ± $300m (+46% YoY) | **$11.3bn** |
+| Non-GAAP gross margin | ~56% | ~56% |
+| Non-GAAP EPS | (implied ≈$1.59) | **$1.61–1.62** (+235% YoY) |
+| Data Center revenue | not guided separately | **~$6.5bn** (≈$4bn server CPU + ≈$2.5bn AI accelerators) — **>100% YoY** vs $3.2bn |
+
+Two things about this bar. First, the Street sits **above** the guide midpoint on both revenue and EPS — a simple "meet the guide" print is technically an in-line quarter but functionally a small miss versus what's priced. Second, the Data Center consensus of ~$6.5bn is the number that actually matters: it implies +12% sequentially off Q1's $5.8bn and a doubling year-over-year.
+
+### The five things that decide the reaction
+
+1. **Q3 guidance — this is the event, not Q2.** H1 lands at ~$21.5bn. Consensus full-year is ~$48.4bn, so **H2 must deliver ~$27bn**. That requires roughly $12.5–13bn in Q3 and ~$14bn in Q4. A Q3 guide starting with a 12 keeps the year intact; anything near $11.5bn implies the MI450 ramp is sliding right and breaks the full-year maths — which is what the ~61× multiple is underwriting.
+2. **Gross margin direction.** Guiding Q3 at 56%+ while AI GPU mix climbs would be the strongest single data point in the bull case: it says AMD is selling accelerators on merit, not on price. A guide drifting toward 53–54% says the opposite, and margin-dilutive growth gets valued very differently.
+3. **MI450 / Helios ramp language.** The first 1 GW OpenAI deployment is supposed to *begin* in 2H 2026 — i.e. now. Listen for whether "on track" survives unqualified, and whether management quantifies Helios orders. Hedging here matters more than any Q2 number.
+4. **China / MI308.** Whether any China revenue is in the Q3 guide at all, and how the 15% government remittance is being treated. Su has put China at ~20% of revenue; the guide's China assumption tells you how much of the outlook rests on a policy that can change.
+5. **The OpenAI warrant.** As of 28 Mar 2026 **none of the 160m shares had vested** and it had zero impact on the financials, carried as a liability pending equity classification. First vesting brings both real dilution (~10%) and mark-to-market noise into GAAP earnings — watch for any change in disclosure.
+
+### How the scenarios likely map
+
+| Scenario | What it looks like | Read |
+|---|---|---|
+| **Clean beat-and-raise** | Rev >$11.5bn, DC ≥$6.5bn, Q3 guided ≥$12.5bn, GM ≥56% | Full-year maths intact; the H2 ramp is real. The setup the current multiple requires. |
+| **Beat, in-line guide** | Q2 fine, Q3 ~$12bn, GM steady | The most likely disappointment shape — nothing broken, but "good" isn't enough at 61× when the Street already sits above guide. |
+| **Guide-down / margin slip** | Q3 <$12bn or GM guided <55% | The MI450 timeline is the whole thesis. A slip here re-rates the multiple, not just the estimates. |
+| **Blowout** | Big DC beat *plus* quantified Helios order book | The bear point that AMD is a 4.5%-share story starts genuinely eroding. |
+
+**Context that will colour the reaction:** the stock traded a 7.8% intraday range on 3 Aug and sits ~17% off its June high after a sector-wide de-rate (Samsung's weak print, TSMC's $60–64bn capex guide, broad AI-return scepticism). Positioning is crowded and the sector's tolerance for "fine" is low right now. Expect the move to be driven by the Q3 guide and the margin line, not the Q2 headline.
 
 ---
 
@@ -145,7 +171,7 @@ Miss on any *two* of those and the multiple, not just the earnings, gets re-rate
 
 AMD is a genuinely strong company — profitable, gaining server CPU share, improving margins, and now holding real multi-gigawatt commitments from the most important buyers of AI compute. The technology gap with Nvidia is the narrowest it has ever been, and the "nobody wants a single supplier" argument is structural rather than sentimental.
 
-It is also a stock priced for that story to work. At ~53× forward earnings with 4.5% share of the market it needs to win, the margin for execution error is thin, and roughly a fifth of revenue sits behind a geopolitical variable. The 29% drawdown since June is a reminder that at this valuation the price moves on the market's mood about AI capex as much as on AMD's results.
+It is also a stock priced for that story to work. At ~61× forward earnings with 4.5% share of the market it needs to win, the margin for execution error is thin, and roughly a fifth of revenue sits behind a geopolitical variable. The ~17% drawdown since June is a reminder that at this valuation the price moves on the market's mood about AI capex as much as on AMD's results.
 
 **Both of those things are true at once.** Anyone forming a view needs to be honest about which risk they're actually taking: this is not a bet on whether AMD is a good company — it clearly is — but on whether an already-demanding set of expectations gets met on schedule.
 
@@ -173,4 +199,6 @@ Standard footer applies regardless: *Educational information, not personal finan
 - [AI circular-financing debate — Axios](https://www.axios.com/2026/07/27/nvidia-openai-financing-ai-jensen-huang-ssi) · [Bloomberg graphic](https://www.bloomberg.com/graphics/2026-ai-circular-deals/) · [Noah Smith, counterargument](https://www.noahpinion.blog/p/should-we-worry-about-ais-circular)
 - [Q2 2026 preview and consensus — Zacks/Yahoo](https://finance.yahoo.com/markets/stocks/articles/buy-amd-stock-ahead-q2-152100876.html) · [AMD statistics & valuation — stockanalysis.com](https://stockanalysis.com/stocks/amd/statistics/) · [Market cap — companiesmarketcap](https://companiesmarketcap.com/amd/marketcap/)
 
-*Compiled 4 August 2026, before AMD's Q2 2026 release.*
+- [AMD Q2 2026 reporting date confirmation](https://ir.amd.com/news-events/press-releases/detail/1289/amd-to-report-fiscal-second-quarter-2026-financial-results) · [3 Aug close and intraday range — stockinvest.us](https://stockinvest.us/stock-news/advanced-micro-devices-stock-price-ended-at-48464-on-monday-after-gaining-178-2026-08-03) · [Q2 consensus and data-center expectations — Yahoo Finance](https://finance.yahoo.com/technology/article/amd-to-report-q2-earnings-as-chip-stocks-continue-to-waver-110000620.html)
+
+*Compiled 4 August 2026, 11:50am ET — before AMD's Q2 2026 release (~4:05pm ET). Prices as of the 3 Aug close.*
