@@ -4,7 +4,7 @@
 >
 > **What this is not:** advice. Nothing here is a recommendation to buy, sell, or hold AMD, and it isn't tailored to anyone's situation. See the compliance note at the bottom before any of this goes near the product.
 >
-> **Status: Q2 2026 results are OUT** (released ~4:05pm ET, 4 Aug 2026). Actuals are in §0 below. Sections 1–6 were written pre-print and are preserved as the *setup* — read §0 first, then §7 for how the scenario map performed. Post-call detail to follow after the 5:00pm ET call.
+> **Status: Q2 2026 results are OUT and the call is done** (released ~4:05pm ET, call 5:00pm ET, 4 Aug 2026). Actuals and post-call read are in §0 below. Sections 1–6 were written pre-print and are preserved as the *setup* — read §0 first, then §7 for how the scenario map performed.
 
 ---
 
@@ -12,24 +12,33 @@
 
 | Metric | Actual | Consensus | Verdict |
 |---|---|---|---|
-| Revenue | **$11.536bn** (+~50% YoY) | $11.284bn | ✅ **Beat** — at the top of the $10.9–11.5bn guided range |
-| Non-GAAP EPS | **$1.66** | $1.62 | ✅ **Beat** |
-| Data Center | **>58% of revenue (~$6.7bn)** | ~$6.5bn | ✅ **Beat** — roughly doubled YoY |
-| Gross margin | **54%** (GAAP/non-GAAP basis unconfirmed — see note) | ~56% guided (non-GAAP) | ⚠️ **Unresolved** |
-| **Q3 2026 guidance** | **$13.0bn ± $300m** | $12.52bn (LSEG) | ✅ **Big beat — ~$480m above** |
-| After-hours move | **≈ −9%** | — | ❌ **Sold off anyway** |
+| Revenue | **$11.536bn** (+50% YoY) | $11.284bn | ✅ **Beat** — top of the $10.9–11.5bn guided range |
+| Non-GAAP EPS | **$1.66** (+246% YoY) | $1.62 | ✅ **Beat** |
+| Data Center | **$6.72bn, +107% YoY** (58% of revenue) | ~$6.5bn | ✅ **Beat** — a record |
+| DC operating income | **$2.1bn** | — | ✅ vs a **$155m loss** a year ago |
+| Non-GAAP gross margin | **56%** | ~56% guided | ✅ **In line** (GAAP 54%) |
+| **Q3 2026 revenue guide** | **$13.0bn ± $300m** (+41% YoY, +13% QoQ) | $12.5bn | ✅ **Big beat — ~$500m above** |
+| **Q3 non-GAAP gross margin guide** | **~56%** | — | ✅ **Held** |
+| **CapEx** | **$808m** (+108% QoQ) | **$298.6m** | ❌ **2.7× the estimate — the one real miss** |
+| After-hours move | **−9% initially → ~−7.5% after the call** | — | ❌ Sold off, partially pared |
 
-**Margin caveat — do not over-read the 54%.** Reporting so far says "gross margin 54%" without specifying basis. Q1 2026 was **GAAP 53% / non-GAAP 55%**, a consistent ~200bp spread. If Q2's 54% is *GAAP*, non-GAAP is likely ~56% and **in line with guidance**; if it's *non-GAAP*, it's a genuine 200bp miss. These are materially different conclusions and the primary release isn't indexed yet. Resolving this is the first job on the post-call check.
+**Margin question resolved.** The pre-call "54%" was **GAAP**. **Non-GAAP came in at 56% — exactly in line with guidance** — and Q3 is guided to ~56% again. The margin thesis in §5 (bear point) does *not* apply: AMD is holding mid-50s margins straight through the AI GPU ramp, which was the single strongest thing the bull case needed. This was flagged as unresolved rather than assumed in the initial read; it resolved in the bulls' favour.
 
 ### What actually happened
 
-**AMD beat on essentially everything that was measurable, and the stock fell 9%.**
+**AMD beat on every single line that mattered — and the stock still fell.**
 
-Revenue beat and landed at the top of the range. Data Center beat and roughly doubled year-over-year. Non-GAAP EPS beat. And the Q3 guide — the number this whole document argued was *the* event — came in at **$13.0bn against a $12.52bn Street bar**, roughly half a billion dollars above consensus.
+Revenue beat at the top of the range. Data Center hit a record **$6.72bn, +107%**, swinging from a $155m operating *loss* a year ago to **$2.1bn of operating income**. Non-GAAP EPS beat. Margins held at 56%. And the Q3 guide — the number this document argued was *the* event — landed at **$13.0bn against a $12.5bn bar**, with margins guided to hold.
 
-**The H2 maths is not just intact, it improved.** H1 actual is $21.84bn ($10.3bn + $11.536bn). With Q3 guided to $13.0bn and Q4 consensus around $15.7bn, the year tracks to roughly **$50.5bn — above the ~$48.4bn consensus** this doc flagged as requiring a ~$27bn H2. The ramp is being delivered, not promised: management confirmed **Helios is in full production, with first shipments in September ramping through Q4**.
+**The H2 maths didn't just survive, it improved.** H1 actual is $21.84bn. With Q3 at $13.0bn and Q4 consensus ~$15.7bn, the year tracks to roughly **$50.5bn versus the ~$48.4bn consensus** that §3 flagged as requiring a ~$27bn H2. The ramp is being delivered rather than promised: **Helios is in full production, shipping by end of Q3 and ramping through Q4**, deployed by Anthropic, Meta, Microsoft, OpenAI and Oracle. On the call, Lisa Su said **server revenue will grow over 80% YoY in H2**, with Q4 growth **"even higher"** as supply unlocks — the line that pared the loss from −9% to about −7.5%.
 
-**So the sell-off is a verdict on price, not on performance.** Nothing in the print says the business is doing worse than expected. It says that at ~61× forward earnings, with put/call at 0.68 and the stock up >100% YTD, a beat-and-raise of this size was already paid for. The only ambiguity a bear can point to is the margin line — and that may resolve to "in line."
+### The one genuine negative: capex
+
+**$808m against a $298.6m estimate — 2.7× consensus and +108% sequentially.** This is the only number in the entire report that missed, and it is very likely the specific trigger for the sell-off rather than valuation alone. One strategist's summary: *"this was not an exceptional result"* with *"shocking"* capex.
+
+Why it lands harder than it looks: **it feeds the exact theme that has been de-rating this sector since June.** The July drawdown was triggered by TSMC guiding 2026 capex to $60–64bn and by broad scepticism about whether AI returns justify the capital. AMD has now added itself to that pile. In the current tape, capital intensity is being punished *independently of the revenue it supports* — a company can beat on every P&L line and still be marked down for spending more to get there.
+
+**Net read: the sell-off is a verdict on price and capital intensity, not on execution.** At ~61× forward with the stock up ~140% in 2026 before the print, a clean beat-and-raise was already paid for, and the capex line gave sellers a concrete reason.
 
 ---
 
@@ -194,11 +203,16 @@ Two things about this bar. First, the Street sits **above** the guide midpoint o
 
 Worth recording honestly, because the miss is instructive.
 
-**What the scenario map got wrong.** AMD hit **three of the four** conditions listed under "clean beat-and-raise" — revenue >$11.5bn ✅, Data Center ≥$6.5bn ✅, Q3 guided ≥$12.5bn ✅ (it came in at $13.0bn, comfortably above) — with only the margin line unresolved. That row was described as *"the setup the current multiple requires."* It was delivered, and the stock fell 9%. **The scenario→reaction mapping was wrong.**
+**What the scenario map got wrong.** AMD hit **all four** conditions listed under "clean beat-and-raise" — revenue >$11.5bn ✅, Data Center ≥$6.5bn ✅, Q3 guided ≥$12.5bn ✅ ($13.0bn), gross margin ≥56% ✅ (non-GAAP 56%). That row was described as *"the setup the current multiple requires."* Every condition was met and the stock fell ~7.5–9%. **The scenario→reaction mapping was simply wrong.**
 
-**What was right.** The directional lean (cautious even on a good print), the sell-the-news base rate (now **8 of 13** reports lower the day after), the crowded-long positioning read (put/call 0.68), and the core asymmetry argument: *a lot has to go right to sustain an up-move, comparatively little has to go wrong to trigger a sharp one down.*
+**What the map missed entirely: capex.** The five "swing factors" listed revenue, margins, the guide, China and the warrant — but **not capital intensity**, which turned out to be the only miss in the report and probably the proximate trigger. That was a genuine blind spot, and it was avoidable: bear point 7 already identified TSMC's capex guide as a driver of the July sector de-rate, but the analysis never carried that logic across to AMD's *own* spending.
 
-**What this changes going forward.** The fade came *despite* a strong guide, not because of a weak one. That means **bear point 7 — sector multiple compression — is doing more of the work than company execution**, and the mechanism I expected (a guide-driven disappointment) was not the operative one. For a stock at 61× forward, the market's willingness to pay that multiple is now a larger driver of the price than anything AMD reports. That is the single most important update to this analysis.
+**What was right.** The directional lean (cautious even on a good print), the sell-the-news base rate (now **8 of 13** reports lower the day after), the crowded-long positioning read (put/call 0.68), the note that the reaction often gets rewritten during the call (−9% → −7.5% on Su's H2 server commentary), and the core asymmetry argument: *a lot has to go right to sustain an up-move, comparatively little has to go wrong to trigger a sharp one down.*
+
+**What this changes going forward.** A flawless P&L and an above-consensus guide were not enough. Two updates follow:
+
+1. **Multiple compression outweighs execution at this valuation.** For a stock at ~61× forward, the market's willingness to pay that multiple now drives the price more than anything AMD reports in a quarter.
+2. **Capital intensity has become a first-order variable, not a footnote.** The market is currently marking down AI capex *independently of the revenue it supports*. Any future analysis of AMD — or of any AI-infrastructure name in this tape — has to treat the capex line as a headline metric alongside revenue and margin.
 
 ---
 
@@ -238,4 +252,6 @@ Standard footer applies regardless: *Educational information, not personal finan
 
 - [Q2 2026 actuals and Q3 guide — TheStreet live coverage](https://www.thestreet.com/latest-news/advanced-micro-devices-amd-q2-2026-earnings-call-updates) · [Q2 revenue $11.5bn tops projections](https://breakingthenews.net/Article/AMD-posts-Q2-revenue-of-dollar11.5B-tops-projections/66850343) · [Beat on revenue, strong Q3 guide — LeverageShares](https://leverageshares.com/us/insights/amd-beats-on-revenue-misses-on-earnings-but-delivers-strong-q3-guidance/)
 
-*Setup compiled 4 August 2026, 11:50am ET. **Actuals added 4:30pm ET the same day**, after the ~4:05pm release and before the 5:00pm call. Pre-print prices are as of the 3 Aug close.*
+- [AMD Q2 2026 results (press release)](https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results) · [Q2 highlights incl. capex $808m vs $298.6m est](https://x.com/wallstengine/status/2084735969832657203) · [Beat and raise, stock unimpressed — Yahoo Finance](https://finance.yahoo.com/technology/article/amd-to-report-q2-earnings-as-chip-stocks-continue-to-waver-110000620.html) · ["Not an exceptional result", capex reaction](https://finance.yahoo.com/video/not-exceptional-result-strategist-talks-205254303.html) · [Was the bar too high? — BeInCrypto](https://beincrypto.com/amd-q2-2026-earnings-beat-selloff/)
+
+*Setup compiled 4 August 2026, 11:50am ET. **Actuals added 4:30pm ET; post-call read added 6:20pm ET**, same day. Pre-print prices are as of the 3 Aug close.*
