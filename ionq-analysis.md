@@ -4,7 +4,51 @@
 >
 > **What this is not:** advice, and definitely not app content — see the compliance note at the end. IonQ is a pre-commercial, highly speculative stock; publishing anything resembling a view on it would breach the guardrails in `compliance-one-pager.md` more clearly than AMD would.
 >
-> **Timing.** IonQ reports **Q2 2026 (quarter ended 30 Jun) on Wednesday 5 August 2026, after the close**, with the call at **4:30pm ET** — confirmed by the company. (Some data vendors still list 12 August; that's stale.) Everything below is pre-print.
+> **Status: Q2 2026 results are OUT and the call is done** (released after the close, call 4:30pm ET, 5 Aug 2026). Actuals and post-call read are in §0 below. Sections 1–6 were written pre-print and are preserved as the *setup*.
+
+---
+
+## 0. Q2 2026 — ACTUAL RESULTS (released 5 Aug 2026, after close)
+
+| Metric | Actual | Bar | Verdict |
+|---|---|---|---|
+| Revenue | **$80.1m, +287% YoY** | $65–68m guided | ✅ **Big beat** — ~$13m above the midpoint |
+| Adjusted EPS | **($0.33)** | ($0.35) est | ✅ Beat |
+| Adjusted EBITDA | **($120.3m)** | — | ⚠️ Worse than Q1's ($96.8m) |
+| Cash + investments | **$3.0bn** (30 Jun) → **~$2.0bn pro-forma** post-SkyWater cash | $3.1bn prior | ⚠️ ~$1bn out the door |
+| Remaining performance obligations | **+297% YoY** | — | ✅ Strong forward book |
+| FY2026 revenue guide | **$280–290m** (from $260–270m) | — | ✅ Raised **$20m** |
+| FY2026 adj. EBITDA guide | **($310–330m)** | ($310–330m) | ➖ Unchanged |
+| After-hours move | **+0.93% to $40.30** | — | ➖ Flat, after **+8.63% into the print** |
+
+Revenue mix disclosed: international ~50%, commercial ~60%, multi-product ~25% of the quarter. CEO Niccolò de Masi called it the fifth consecutive record quarter. A second acquisition, **Nexus**, also closed alongside SkyWater.
+
+### The number that doesn't add up — and it's the important one
+
+**The FY2026 guide was raised by exactly $20m. SkyWater does ~$442m a year.**
+
+Consolidated from 31 July, SkyWater should contribute roughly **five months of a ~$110m-per-quarter business — on the order of $180m** to 2026 revenue. The guide went up $20m. Meanwhile Q2 alone beat its own guided midpoint by ~$13.6m.
+
+**So the raise is approximately just the Q2 beat flowing through.** Secondary reporting is asserting that the new $280–290m range "reflects the inclusion of SkyWater's expected contribution." That is very hard to reconcile with the arithmetic. Two readings, and they point in opposite directions:
+
+- **(a) The guide still excludes SkyWater** (most consistent with the numbers). Then consolidated FY2026 revenue will land far above the guide — plausibly **$450m+** — and anyone modelling off $280–290m is materially wrong in the bullish direction. It would also mean IonQ chose *not* to inflate its headline with acquired revenue, which is to its credit.
+- **(b) The guide includes SkyWater.** Then SkyWater is being recognised at roughly **$20m against a ~$180m run-rate expectation** — which would demand an explanation (purchase-accounting write-down of acquired deferred revenue, intercompany elimination, or genuinely weak foundry utilisation).
+
+**This is unresolved and it is the single most important thing to verify** — the primary release and the 10-Q are the source of truth, and the release page is not yet retrievable. Do not model off the $280–290m figure until it's clear which basis it's on. *(This is the same class of ambiguity as AMD's GAAP-vs-non-GAAP margin line yesterday, which resolved benignly once the primary source was available. Flagging beats assuming.)*
+
+### A second thing worth catching: the implied H2 burn
+
+FY adjusted EBITDA guidance was left **unchanged at ($310–330m)**. But H1 actual burn is already **($217.1m)** — Q1's ($96.8m) plus Q2's ($120.3m). That leaves only **($93–113m) for the whole of H2**, implying roughly **$47–57m per quarter against Q2's $120m — a halving of the burn rate.**
+
+Management's stated bridge is that SkyWater's positive EBITDA (12% margin in FY2025) offsets accelerating research spend. That may well work. But it is a significant implicit assumption sitting inside an unchanged-looking guidance line, and it deserves more scrutiny than "guidance reaffirmed" implies.
+
+### Technology and the reaction
+
+- **256-qubit system:** first engineering prototype **on track for demonstration by end of 2026** — the near-term proof point identified in §6, reaffirmed rather than slipped. Note that at least one outside analysis argues IonQ's stated 2026 capacity and 256-qubit timeline don't fully reconcile across calls; worth tracking, not yet a demonstrated problem.
+- **The muted reaction is the story.** A 287% revenue beat, a raise, and a strong RPO book produced **+0.93% after hours**. The stock had already run **+8.63% into the print**, so the move happened *before* the news.
+- **The ~23% short interest did not squeeze.** Either shorts covered into the pre-print rally, or a beat of this size simply wasn't enough to force them. The asymmetric-squeeze risk flagged in §6 did not materialise on this catalyst.
+
+**Net read:** operationally this was a genuinely strong quarter — the beat is real, the forward book grew, the technical milestone held, and the balance sheet is still formidable at ~$2bn pro-forma. But the two numbers that most affect how you'd value the company — what the FY guide actually contains, and how the burn halves in H2 — are both less clear after this print than the headlines suggest. **Same pattern as AMD the day before: strong results, flat-to-negative reaction, because the good news was already in the price.**
 
 ---
 
@@ -157,4 +201,6 @@ Internal research only. This must not become app content in any form. Beyond the
 - [3 Aug close $38.85, +6.6%](https://www.gurufocus.com/news/8999924/a-look-at-ionq-inc-ionq-after-66-gain-gf-value-8994-vs-price-3885) · [Monday catalysts — Benzinga](https://www.benzinga.com/trading-ideas/movers/26/08/60881018/ionq-stock-is-soaring-monday-whats-going-on)
 - [Short interest ~22.8% of float](https://www.sahmcapital.com/news/content/peering-into-ionq-incs-recent-short-interest-2026-02-04)
 
-*Compiled 4 August 2026, before IonQ's Q2 2026 release on 5 August. Prices as of the 3 Aug close.*
+- [IonQ Q2 2026 results — record revenue +287% YoY](https://www.ionq.com/news/ionq-announces-record-second-quarter-2026-revenues-growing-287-yoy) · [Q2 double beat, raised outlook — Benzinga](https://www.benzinga.com/markets/earnings/26/08/60973145/ionq-posts-q2-double-beat-raises-2026-outlook-shares-rise) · [Deal close and guidance raise — StockTitan](https://www.stocktitan.net/news/IONQ/ion-q-announces-record-second-quarter-2026-revenues-growing-287-yo-gednl3gory6k.html) · [Capacity vs 256-qubit timeline scepticism](https://www.ainvest.com/news/ionq-2026-capacity-256-qubit-timeline-don-match-earnings-calls-2605/)
+
+*Setup compiled 4 August 2026. **Actuals and post-call read added 5 August 2026, ~6:00pm ET.** Pre-print prices are as of the 3 Aug close.*
